@@ -1,0 +1,1143 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0FB72C477A5344F2A19CAE2B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA99FE15DBFFFD8B1484D630 /* libPods.a */; };
+		E2004BFF1C85CD7D00CDA2E7 /* SellCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2004BFD1C85CD7D00CDA2E7 /* SellCardViewController.m */; };
+		E2004C001C85CD7D00CDA2E7 /* SellCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2004BFE1C85CD7D00CDA2E7 /* SellCardViewController.xib */; };
+		E2004C041C85CE5000CDA2E7 /* AssignmentInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2004C021C85CE5000CDA2E7 /* AssignmentInfoViewController.m */; };
+		E2004C051C85CE5000CDA2E7 /* AssignmentInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2004C031C85CE5000CDA2E7 /* AssignmentInfoViewController.xib */; };
+		E2004C091C85D34800CDA2E7 /* YKInformTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2004C071C85D34800CDA2E7 /* YKInformTableViewController.m */; };
+		E2004C0A1C85D34800CDA2E7 /* YKInformTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2004C081C85D34800CDA2E7 /* YKInformTableViewController.xib */; };
+		E2004C0E1C85D3EF00CDA2E7 /* AnnouncementTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2004C0C1C85D3EF00CDA2E7 /* AnnouncementTableViewController.m */; };
+		E2004C0F1C85D3EF00CDA2E7 /* AnnouncementTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2004C0D1C85D3EF00CDA2E7 /* AnnouncementTableViewController.xib */; };
+		E2004C131C85E3C200CDA2E7 /* VIPServiceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2004C111C85E3C200CDA2E7 /* VIPServiceTableViewController.m */; };
+		E2004C141C85E3C200CDA2E7 /* VIPServiceTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2004C121C85E3C200CDA2E7 /* VIPServiceTableViewController.xib */; };
+		E2004C181C85E41400CDA2E7 /* YKMerchantsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2004C161C85E41400CDA2E7 /* YKMerchantsViewController.m */; };
+		E2004C191C85E41400CDA2E7 /* YKMerchantsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2004C171C85E41400CDA2E7 /* YKMerchantsViewController.xib */; };
+		E200FC5F1C7F4BE700644BB5 /* UIView+frame.m in Sources */ = {isa = PBXBuildFile; fileRef = E200FC5E1C7F4BE700644BB5 /* UIView+frame.m */; };
+		E200FC621C7F4BF000644BB5 /* takePhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = E200FC611C7F4BF000644BB5 /* takePhoto.m */; };
+		E20550BC1C80A5530053DF39 /* tabbar_myCardBag@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E20550BA1C80A5530053DF39 /* tabbar_myCardBag@3x.png */; };
+		E20550BD1C80A5530053DF39 /* tabbar_myCardBag_selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E20550BB1C80A5530053DF39 /* tabbar_myCardBag_selected@3x.png */; };
+		E2073CBA1C847FBC0028DD8C /* icon_horn_top@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2073CB91C847FBC0028DD8C /* icon_horn_top@2x.png */; };
+		E2073CBD1C849CA30028DD8C /* NetworkAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E2073CBC1C849CA30028DD8C /* NetworkAPI.m */; };
+		E20788E31C7DF52800D59F63 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E20788DE1C7DF52800D59F63 /* libWeChatSDK.a */; };
+		E20788E41C7DF52800D59F63 /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = E20788DF1C7DF52800D59F63 /* read_me.txt */; };
+		E20788E61C7DF74000D59F63 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E20788E51C7DF74000D59F63 /* SystemConfiguration.framework */; };
+		E20788E81C7DF75000D59F63 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E20788E71C7DF75000D59F63 /* libz.tbd */; };
+		E20788EA1C7DF75E00D59F63 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E20788E91C7DF75E00D59F63 /* libsqlite3.0.tbd */; };
+		E20788EC1C7DF76A00D59F63 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E20788EB1C7DF76A00D59F63 /* libc++.tbd */; };
+		E20788EE1C7DF87500D59F63 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E20788ED1C7DF87500D59F63 /* CoreTelephony.framework */; };
+		E2662CBB1C7CA1D100FE42F1 /* ShowDeteledCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2662CB91C7CA1D100FE42F1 /* ShowDeteledCardViewController.m */; };
+		E2662CBC1C7CA1D100FE42F1 /* ShowDeteledCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2662CBA1C7CA1D100FE42F1 /* ShowDeteledCardViewController.xib */; };
+		E2BDB7AF1C7B42BD00274CE3 /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BDB7AD1C7B42BD00274CE3 /* NotificationViewController.m */; };
+		E2BDB7B01C7B42BD00274CE3 /* NotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2BDB7AE1C7B42BD00274CE3 /* NotificationViewController.xib */; };
+		E2BDB7B41C7B42E200274CE3 /* AddNewCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BDB7B21C7B42E200274CE3 /* AddNewCardViewController.m */; };
+		E2BDB7B51C7B42E200274CE3 /* AddNewCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2BDB7B31C7B42E200274CE3 /* AddNewCardViewController.xib */; };
+		E2BDB7BA1C7B53A900274CE3 /* MyCardBagTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BDB7B81C7B53A900274CE3 /* MyCardBagTableViewCell.m */; };
+		E2BDB7BB1C7B53A900274CE3 /* MyCardBagTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2BDB7B91C7B53A900274CE3 /* MyCardBagTableViewCell.xib */; };
+		E2BDB7BF1C7B567B00274CE3 /* NotificationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BDB7BD1C7B567B00274CE3 /* NotificationTableViewCell.m */; };
+		E2BDB7C01C7B567B00274CE3 /* NotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2BDB7BE1C7B567B00274CE3 /* NotificationTableViewCell.xib */; };
+		E2BDB7C51C7B5F5100274CE3 /* VIPTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BDB7C31C7B5F5100274CE3 /* VIPTableViewCell.m */; };
+		E2BDB7C61C7B5F5100274CE3 /* VIPTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2BDB7C41C7B5F5100274CE3 /* VIPTableViewCell.xib */; };
+		E2BDB8171C7B63D200274CE3 /* QRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BDB8151C7B63D200274CE3 /* QRViewController.m */; };
+		E2BDB8181C7B63D200274CE3 /* QRViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2BDB8161C7B63D200274CE3 /* QRViewController.xib */; };
+		E2BDB81C1C7B641200274CE3 /* InputCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BDB81A1C7B641200274CE3 /* InputCardViewController.m */; };
+		E2BDB81D1C7B641200274CE3 /* InputCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2BDB81B1C7B641200274CE3 /* InputCardViewController.xib */; };
+		E2BDB8211C7B644600274CE3 /* BrandListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BDB81F1C7B644600274CE3 /* BrandListViewController.m */; };
+		E2BDB8221C7B644600274CE3 /* BrandListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2BDB8201C7B644600274CE3 /* BrandListViewController.xib */; };
+		E2BDB8261C7B648B00274CE3 /* MyCardDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BDB8241C7B648B00274CE3 /* MyCardDetailViewController.m */; };
+		E2BDB8271C7B648B00274CE3 /* MyCardDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2BDB8251C7B648B00274CE3 /* MyCardDetailViewController.xib */; };
+		E2BDB82B1C7B64CB00274CE3 /* EditRemarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BDB8291C7B64CB00274CE3 /* EditRemarkViewController.m */; };
+		E2BDB82C1C7B64CB00274CE3 /* EditRemarkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2BDB82A1C7B64CB00274CE3 /* EditRemarkViewController.xib */; };
+		E2BDB8301C7B655200274CE3 /* RecordDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BDB82E1C7B655200274CE3 /* RecordDetailViewController.m */; };
+		E2BDB8311C7B655200274CE3 /* RecordDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2BDB82F1C7B655200274CE3 /* RecordDetailViewController.xib */; };
+		E2FBA6061C82B57000F9F799 /* UIView+border.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FBA6051C82B57000F9F799 /* UIView+border.m */; };
+		E2FBA60F1C82B70000F9F799 /* YKModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FBA60E1C82B70000F9F799 /* YKModel.m */; };
+		E2FBA6151C82B91800F9F799 /* MartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FBA6131C82B91800F9F799 /* MartViewController.m */; };
+		E2FBA6161C82B91800F9F799 /* MartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2FBA6141C82B91800F9F799 /* MartViewController.xib */; };
+		E2FBA61D1C82BA6E00F9F799 /* tabbar_mart_selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2FBA6171C82BA6E00F9F799 /* tabbar_mart_selected@3x.png */; };
+		E2FBA61E1C82BA6E00F9F799 /* tabbar_mart@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2FBA6181C82BA6E00F9F799 /* tabbar_mart@3x.png */; };
+		E2FBA61F1C82BA6E00F9F799 /* tabbar_setting_selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2FBA6191C82BA6E00F9F799 /* tabbar_setting_selected@3x.png */; };
+		E2FBA6201C82BA6E00F9F799 /* tabbar_setting@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2FBA61A1C82BA6E00F9F799 /* tabbar_setting@3x.png */; };
+		E2FBA6211C82BA6E00F9F799 /* tabbar_VIP_selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2FBA61B1C82BA6E00F9F799 /* tabbar_VIP_selected@3x.png */; };
+		E2FBA6221C82BA6E00F9F799 /* tabbar_VIP@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2FBA61C1C82BA6E00F9F799 /* tabbar_VIP@3x.png */; };
+		E2FEE3731C79E7860079B824 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FEE3721C79E7860079B824 /* main.m */; };
+		E2FEE3761C79E7860079B824 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FEE3751C79E7860079B824 /* AppDelegate.m */; };
+		E2FEE37C1C79E7860079B824 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2FEE37A1C79E7860079B824 /* Main.storyboard */; };
+		E2FEE37E1C79E7860079B824 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2FEE37D1C79E7860079B824 /* Assets.xcassets */; };
+		E2FEE3811C79E7860079B824 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2FEE37F1C79E7860079B824 /* LaunchScreen.storyboard */; };
+		E2FEE38C1C79E7860079B824 /* MembershipCardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FEE38B1C79E7860079B824 /* MembershipCardTests.m */; };
+		E2FEE3971C79E7860079B824 /* MembershipCardUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FEE3961C79E7860079B824 /* MembershipCardUITests.m */; };
+		E2FEE3B51C79F3260079B824 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FEE3B41C79F3260079B824 /* BaseViewController.m */; };
+		E2FEE3B91C79F4440079B824 /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FEE3B81C79F4440079B824 /* MainTabBarViewController.m */; };
+		E2FEE3C11C79F4AC0079B824 /* GuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FEE3C01C79F4AC0079B824 /* GuideViewController.m */; };
+		E2FEE3C51C79F58B0079B824 /* MyCardBagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FEE3C31C79F58B0079B824 /* MyCardBagViewController.m */; };
+		E2FEE3C61C79F58B0079B824 /* MyCardBagViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2FEE3C41C79F58B0079B824 /* MyCardBagViewController.xib */; };
+		E2FEE3CA1C79F5A70079B824 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FEE3C81C79F5A70079B824 /* LoginViewController.m */; };
+		E2FEE3CB1C79F5A70079B824 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2FEE3C91C79F5A70079B824 /* LoginViewController.xib */; };
+		E2FEE3CF1C79F5EA0079B824 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FEE3CD1C79F5EA0079B824 /* SettingViewController.m */; };
+		E2FEE3D01C79F5EA0079B824 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2FEE3CE1C79F5EA0079B824 /* SettingViewController.xib */; };
+		E2FEE3D41C79FD070079B824 /* VIPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FEE3D21C79FD070079B824 /* VIPViewController.m */; };
+		E2FEE3D51C79FD070079B824 /* VIPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2FEE3D31C79FD070079B824 /* VIPViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E2FEE3881C79E7860079B824 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E2FEE3661C79E7860079B824 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E2FEE36D1C79E7860079B824;
+			remoteInfo = MembershipCard;
+		};
+		E2FEE3931C79E7860079B824 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E2FEE3661C79E7860079B824 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E2FEE36D1C79E7860079B824;
+			remoteInfo = MembershipCard;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		229FA454613B3E0894C28FE1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		4A3F338817F8EBA02DCDB671 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		E2004BFC1C85CD7D00CDA2E7 /* SellCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SellCardViewController.h; sourceTree = "<group>"; };
+		E2004BFD1C85CD7D00CDA2E7 /* SellCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SellCardViewController.m; sourceTree = "<group>"; };
+		E2004BFE1C85CD7D00CDA2E7 /* SellCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SellCardViewController.xib; sourceTree = "<group>"; };
+		E2004C011C85CE5000CDA2E7 /* AssignmentInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssignmentInfoViewController.h; sourceTree = "<group>"; };
+		E2004C021C85CE5000CDA2E7 /* AssignmentInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssignmentInfoViewController.m; sourceTree = "<group>"; };
+		E2004C031C85CE5000CDA2E7 /* AssignmentInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AssignmentInfoViewController.xib; sourceTree = "<group>"; };
+		E2004C061C85D34800CDA2E7 /* YKInformTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YKInformTableViewController.h; sourceTree = "<group>"; };
+		E2004C071C85D34800CDA2E7 /* YKInformTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YKInformTableViewController.m; sourceTree = "<group>"; };
+		E2004C081C85D34800CDA2E7 /* YKInformTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YKInformTableViewController.xib; sourceTree = "<group>"; };
+		E2004C0B1C85D3EF00CDA2E7 /* AnnouncementTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnouncementTableViewController.h; sourceTree = "<group>"; };
+		E2004C0C1C85D3EF00CDA2E7 /* AnnouncementTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnouncementTableViewController.m; sourceTree = "<group>"; };
+		E2004C0D1C85D3EF00CDA2E7 /* AnnouncementTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnnouncementTableViewController.xib; sourceTree = "<group>"; };
+		E2004C101C85E3C200CDA2E7 /* VIPServiceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIPServiceTableViewController.h; sourceTree = "<group>"; };
+		E2004C111C85E3C200CDA2E7 /* VIPServiceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIPServiceTableViewController.m; sourceTree = "<group>"; };
+		E2004C121C85E3C200CDA2E7 /* VIPServiceTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VIPServiceTableViewController.xib; sourceTree = "<group>"; };
+		E2004C151C85E41400CDA2E7 /* YKMerchantsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YKMerchantsViewController.h; sourceTree = "<group>"; };
+		E2004C161C85E41400CDA2E7 /* YKMerchantsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YKMerchantsViewController.m; sourceTree = "<group>"; };
+		E2004C171C85E41400CDA2E7 /* YKMerchantsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YKMerchantsViewController.xib; sourceTree = "<group>"; };
+		E200FC5D1C7F4BE700644BB5 /* UIView+frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+frame.h"; sourceTree = "<group>"; };
+		E200FC5E1C7F4BE700644BB5 /* UIView+frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+frame.m"; sourceTree = "<group>"; };
+		E200FC601C7F4BF000644BB5 /* takePhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = takePhoto.h; sourceTree = "<group>"; };
+		E200FC611C7F4BF000644BB5 /* takePhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = takePhoto.m; sourceTree = "<group>"; };
+		E20550BA1C80A5530053DF39 /* tabbar_myCardBag@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_myCardBag@3x.png"; sourceTree = "<group>"; };
+		E20550BB1C80A5530053DF39 /* tabbar_myCardBag_selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_myCardBag_selected@3x.png"; sourceTree = "<group>"; };
+		E2073CB91C847FBC0028DD8C /* icon_horn_top@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_horn_top@2x.png"; sourceTree = "<group>"; };
+		E2073CBB1C849CA30028DD8C /* NetworkAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkAPI.h; sourceTree = "<group>"; };
+		E2073CBC1C849CA30028DD8C /* NetworkAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkAPI.m; sourceTree = "<group>"; };
+		E20788DE1C7DF52800D59F63 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		E20788DF1C7DF52800D59F63 /* read_me.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = read_me.txt; sourceTree = "<group>"; };
+		E20788E01C7DF52800D59F63 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
+		E20788E11C7DF52800D59F63 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		E20788E21C7DF52800D59F63 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		E20788E51C7DF74000D59F63 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		E20788E71C7DF75000D59F63 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		E20788E91C7DF75E00D59F63 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		E20788EB1C7DF76A00D59F63 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		E20788ED1C7DF87500D59F63 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		E24497A91C7A0A4200E60392 /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
+		E2662CB81C7CA1D100FE42F1 /* ShowDeteledCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowDeteledCardViewController.h; sourceTree = "<group>"; };
+		E2662CB91C7CA1D100FE42F1 /* ShowDeteledCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowDeteledCardViewController.m; sourceTree = "<group>"; };
+		E2662CBA1C7CA1D100FE42F1 /* ShowDeteledCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowDeteledCardViewController.xib; sourceTree = "<group>"; };
+		E2BDB7AC1C7B42BD00274CE3 /* NotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationViewController.h; sourceTree = "<group>"; };
+		E2BDB7AD1C7B42BD00274CE3 /* NotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationViewController.m; sourceTree = "<group>"; };
+		E2BDB7AE1C7B42BD00274CE3 /* NotificationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationViewController.xib; sourceTree = "<group>"; };
+		E2BDB7B11C7B42E200274CE3 /* AddNewCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNewCardViewController.h; sourceTree = "<group>"; };
+		E2BDB7B21C7B42E200274CE3 /* AddNewCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNewCardViewController.m; sourceTree = "<group>"; };
+		E2BDB7B31C7B42E200274CE3 /* AddNewCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddNewCardViewController.xib; sourceTree = "<group>"; };
+		E2BDB7B71C7B53A900274CE3 /* MyCardBagTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCardBagTableViewCell.h; sourceTree = "<group>"; };
+		E2BDB7B81C7B53A900274CE3 /* MyCardBagTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCardBagTableViewCell.m; sourceTree = "<group>"; };
+		E2BDB7B91C7B53A900274CE3 /* MyCardBagTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCardBagTableViewCell.xib; sourceTree = "<group>"; };
+		E2BDB7BC1C7B567B00274CE3 /* NotificationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationTableViewCell.h; sourceTree = "<group>"; };
+		E2BDB7BD1C7B567B00274CE3 /* NotificationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationTableViewCell.m; sourceTree = "<group>"; };
+		E2BDB7BE1C7B567B00274CE3 /* NotificationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationTableViewCell.xib; sourceTree = "<group>"; };
+		E2BDB7C21C7B5F5100274CE3 /* VIPTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIPTableViewCell.h; sourceTree = "<group>"; };
+		E2BDB7C31C7B5F5100274CE3 /* VIPTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIPTableViewCell.m; sourceTree = "<group>"; };
+		E2BDB7C41C7B5F5100274CE3 /* VIPTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VIPTableViewCell.xib; sourceTree = "<group>"; };
+		E2BDB8141C7B63D200274CE3 /* QRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRViewController.h; sourceTree = "<group>"; };
+		E2BDB8151C7B63D200274CE3 /* QRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRViewController.m; sourceTree = "<group>"; };
+		E2BDB8161C7B63D200274CE3 /* QRViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QRViewController.xib; sourceTree = "<group>"; };
+		E2BDB8191C7B641200274CE3 /* InputCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputCardViewController.h; sourceTree = "<group>"; };
+		E2BDB81A1C7B641200274CE3 /* InputCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputCardViewController.m; sourceTree = "<group>"; };
+		E2BDB81B1C7B641200274CE3 /* InputCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputCardViewController.xib; sourceTree = "<group>"; };
+		E2BDB81E1C7B644600274CE3 /* BrandListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandListViewController.h; sourceTree = "<group>"; };
+		E2BDB81F1C7B644600274CE3 /* BrandListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandListViewController.m; sourceTree = "<group>"; };
+		E2BDB8201C7B644600274CE3 /* BrandListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrandListViewController.xib; sourceTree = "<group>"; };
+		E2BDB8231C7B648B00274CE3 /* MyCardDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCardDetailViewController.h; sourceTree = "<group>"; };
+		E2BDB8241C7B648B00274CE3 /* MyCardDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCardDetailViewController.m; sourceTree = "<group>"; };
+		E2BDB8251C7B648B00274CE3 /* MyCardDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCardDetailViewController.xib; sourceTree = "<group>"; };
+		E2BDB8281C7B64CB00274CE3 /* EditRemarkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditRemarkViewController.h; sourceTree = "<group>"; };
+		E2BDB8291C7B64CB00274CE3 /* EditRemarkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditRemarkViewController.m; sourceTree = "<group>"; };
+		E2BDB82A1C7B64CB00274CE3 /* EditRemarkViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditRemarkViewController.xib; sourceTree = "<group>"; };
+		E2BDB82D1C7B655200274CE3 /* RecordDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordDetailViewController.h; sourceTree = "<group>"; };
+		E2BDB82E1C7B655200274CE3 /* RecordDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordDetailViewController.m; sourceTree = "<group>"; };
+		E2BDB82F1C7B655200274CE3 /* RecordDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordDetailViewController.xib; sourceTree = "<group>"; };
+		E2FBA6041C82B57000F9F799 /* UIView+border.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+border.h"; sourceTree = "<group>"; };
+		E2FBA6051C82B57000F9F799 /* UIView+border.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+border.m"; sourceTree = "<group>"; };
+		E2FBA60D1C82B70000F9F799 /* YKModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YKModel.h; sourceTree = "<group>"; };
+		E2FBA60E1C82B70000F9F799 /* YKModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YKModel.m; sourceTree = "<group>"; };
+		E2FBA6121C82B91800F9F799 /* MartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MartViewController.h; sourceTree = "<group>"; };
+		E2FBA6131C82B91800F9F799 /* MartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MartViewController.m; sourceTree = "<group>"; };
+		E2FBA6141C82B91800F9F799 /* MartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MartViewController.xib; sourceTree = "<group>"; };
+		E2FBA6171C82BA6E00F9F799 /* tabbar_mart_selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_mart_selected@3x.png"; sourceTree = "<group>"; };
+		E2FBA6181C82BA6E00F9F799 /* tabbar_mart@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_mart@3x.png"; sourceTree = "<group>"; };
+		E2FBA6191C82BA6E00F9F799 /* tabbar_setting_selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_setting_selected@3x.png"; sourceTree = "<group>"; };
+		E2FBA61A1C82BA6E00F9F799 /* tabbar_setting@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_setting@3x.png"; sourceTree = "<group>"; };
+		E2FBA61B1C82BA6E00F9F799 /* tabbar_VIP_selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_VIP_selected@3x.png"; sourceTree = "<group>"; };
+		E2FBA61C1C82BA6E00F9F799 /* tabbar_VIP@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_VIP@3x.png"; sourceTree = "<group>"; };
+		E2FEE36E1C79E7860079B824 /* MembershipCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MembershipCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2FEE3721C79E7860079B824 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E2FEE3741C79E7860079B824 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E2FEE3751C79E7860079B824 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E2FEE37B1C79E7860079B824 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E2FEE37D1C79E7860079B824 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E2FEE3801C79E7860079B824 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E2FEE3821C79E7860079B824 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2FEE3871C79E7860079B824 /* MembershipCardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MembershipCardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2FEE38B1C79E7860079B824 /* MembershipCardTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MembershipCardTests.m; sourceTree = "<group>"; };
+		E2FEE38D1C79E7860079B824 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2FEE3921C79E7860079B824 /* MembershipCardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MembershipCardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2FEE3961C79E7860079B824 /* MembershipCardUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MembershipCardUITests.m; sourceTree = "<group>"; };
+		E2FEE3981C79E7860079B824 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2FEE3B31C79F3260079B824 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		E2FEE3B41C79F3260079B824 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		E2FEE3B71C79F4440079B824 /* MainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarViewController.h; sourceTree = "<group>"; };
+		E2FEE3B81C79F4440079B824 /* MainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarViewController.m; sourceTree = "<group>"; };
+		E2FEE3BF1C79F4AC0079B824 /* GuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuideViewController.h; sourceTree = "<group>"; };
+		E2FEE3C01C79F4AC0079B824 /* GuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuideViewController.m; sourceTree = "<group>"; };
+		E2FEE3C21C79F58B0079B824 /* MyCardBagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCardBagViewController.h; sourceTree = "<group>"; };
+		E2FEE3C31C79F58B0079B824 /* MyCardBagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCardBagViewController.m; sourceTree = "<group>"; };
+		E2FEE3C41C79F58B0079B824 /* MyCardBagViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCardBagViewController.xib; sourceTree = "<group>"; };
+		E2FEE3C71C79F5A70079B824 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		E2FEE3C81C79F5A70079B824 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		E2FEE3C91C79F5A70079B824 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		E2FEE3CC1C79F5EA0079B824 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		E2FEE3CD1C79F5EA0079B824 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		E2FEE3CE1C79F5EA0079B824 /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
+		E2FEE3D11C79FD070079B824 /* VIPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIPViewController.h; sourceTree = "<group>"; };
+		E2FEE3D21C79FD070079B824 /* VIPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIPViewController.m; sourceTree = "<group>"; };
+		E2FEE3D31C79FD070079B824 /* VIPViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VIPViewController.xib; sourceTree = "<group>"; };
+		FA99FE15DBFFFD8B1484D630 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E2FEE36B1C79E7860079B824 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E20788EE1C7DF87500D59F63 /* CoreTelephony.framework in Frameworks */,
+				E20788EC1C7DF76A00D59F63 /* libc++.tbd in Frameworks */,
+				E20788EA1C7DF75E00D59F63 /* libsqlite3.0.tbd in Frameworks */,
+				E20788E81C7DF75000D59F63 /* libz.tbd in Frameworks */,
+				E20788E61C7DF74000D59F63 /* SystemConfiguration.framework in Frameworks */,
+				E20788E31C7DF52800D59F63 /* libWeChatSDK.a in Frameworks */,
+				0FB72C477A5344F2A19CAE2B /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2FEE3841C79E7860079B824 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2FEE38F1C79E7860079B824 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A0758A279F6BB01FDBEABF06 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4A3F338817F8EBA02DCDB671 /* Pods.debug.xcconfig */,
+				229FA454613B3E0894C28FE1 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E20550B91C80A5530053DF39 /* tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				E20550BA1C80A5530053DF39 /* tabbar_myCardBag@3x.png */,
+				E20550BB1C80A5530053DF39 /* tabbar_myCardBag_selected@3x.png */,
+				E2FBA6171C82BA6E00F9F799 /* tabbar_mart_selected@3x.png */,
+				E2FBA6181C82BA6E00F9F799 /* tabbar_mart@3x.png */,
+				E2FBA6191C82BA6E00F9F799 /* tabbar_setting_selected@3x.png */,
+				E2FBA61A1C82BA6E00F9F799 /* tabbar_setting@3x.png */,
+				E2FBA61B1C82BA6E00F9F799 /* tabbar_VIP_selected@3x.png */,
+				E2FBA61C1C82BA6E00F9F799 /* tabbar_VIP@3x.png */,
+			);
+			path = tabbar;
+			sourceTree = "<group>";
+		};
+		E2073CB41C847D590028DD8C /* Mycard */ = {
+			isa = PBXGroup;
+			children = (
+				E2073CB91C847FBC0028DD8C /* icon_horn_top@2x.png */,
+			);
+			path = Mycard;
+			sourceTree = "<group>";
+		};
+		E20788DD1C7DF52800D59F63 /* weixinSDK1.6.2 */ = {
+			isa = PBXGroup;
+			children = (
+				E20788DE1C7DF52800D59F63 /* libWeChatSDK.a */,
+				E20788DF1C7DF52800D59F63 /* read_me.txt */,
+				E20788E01C7DF52800D59F63 /* WechatAuthSDK.h */,
+				E20788E11C7DF52800D59F63 /* WXApi.h */,
+				E20788E21C7DF52800D59F63 /* WXApiObject.h */,
+			);
+			path = weixinSDK1.6.2;
+			sourceTree = "<group>";
+		};
+		E24497A81C7A09FC00E60392 /* Macro */ = {
+			isa = PBXGroup;
+			children = (
+				E24497A91C7A0A4200E60392 /* Macro.h */,
+			);
+			path = Macro;
+			sourceTree = "<group>";
+		};
+		E2662F911C7CA7CC00FE42F1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E20788ED1C7DF87500D59F63 /* CoreTelephony.framework */,
+				E20788EB1C7DF76A00D59F63 /* libc++.tbd */,
+				E20788E91C7DF75E00D59F63 /* libsqlite3.0.tbd */,
+				E20788E71C7DF75000D59F63 /* libz.tbd */,
+				E20788E51C7DF74000D59F63 /* SystemConfiguration.framework */,
+				FA99FE15DBFFFD8B1484D630 /* libPods.a */,
+			);
+			name = Frameworks;
+			path = MembershipCard;
+			sourceTree = "<group>";
+		};
+		E2BDB7B61C7B536000274CE3 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				E2BDB7B71C7B53A900274CE3 /* MyCardBagTableViewCell.h */,
+				E2BDB7B81C7B53A900274CE3 /* MyCardBagTableViewCell.m */,
+				E2BDB7B91C7B53A900274CE3 /* MyCardBagTableViewCell.xib */,
+				E2BDB7BC1C7B567B00274CE3 /* NotificationTableViewCell.h */,
+				E2BDB7BD1C7B567B00274CE3 /* NotificationTableViewCell.m */,
+				E2BDB7BE1C7B567B00274CE3 /* NotificationTableViewCell.xib */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		E2BDB7C11C7B5F3D00274CE3 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				E2BDB7C21C7B5F5100274CE3 /* VIPTableViewCell.h */,
+				E2BDB7C31C7B5F5100274CE3 /* VIPTableViewCell.m */,
+				E2BDB7C41C7B5F5100274CE3 /* VIPTableViewCell.xib */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		E2FBA6111C82B90800F9F799 /* Mart */ = {
+			isa = PBXGroup;
+			children = (
+				E2FBA6121C82B91800F9F799 /* MartViewController.h */,
+				E2FBA6131C82B91800F9F799 /* MartViewController.m */,
+				E2FBA6141C82B91800F9F799 /* MartViewController.xib */,
+				E2004BFC1C85CD7D00CDA2E7 /* SellCardViewController.h */,
+				E2004BFD1C85CD7D00CDA2E7 /* SellCardViewController.m */,
+				E2004BFE1C85CD7D00CDA2E7 /* SellCardViewController.xib */,
+				E2004C011C85CE5000CDA2E7 /* AssignmentInfoViewController.h */,
+				E2004C021C85CE5000CDA2E7 /* AssignmentInfoViewController.m */,
+				E2004C031C85CE5000CDA2E7 /* AssignmentInfoViewController.xib */,
+			);
+			path = Mart;
+			sourceTree = "<group>";
+		};
+		E2FEE3651C79E7860079B824 = {
+			isa = PBXGroup;
+			children = (
+				E2662F911C7CA7CC00FE42F1 /* Frameworks */,
+				E2FEE3701C79E7860079B824 /* MembershipCard */,
+				E2FEE38A1C79E7860079B824 /* MembershipCardTests */,
+				E2FEE3951C79E7860079B824 /* MembershipCardUITests */,
+				E2FEE36F1C79E7860079B824 /* Products */,
+				A0758A279F6BB01FDBEABF06 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		E2FEE36F1C79E7860079B824 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E2FEE36E1C79E7860079B824 /* MembershipCard.app */,
+				E2FEE3871C79E7860079B824 /* MembershipCardTests.xctest */,
+				E2FEE3921C79E7860079B824 /* MembershipCardUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E2FEE3701C79E7860079B824 /* MembershipCard */ = {
+			isa = PBXGroup;
+			children = (
+				E2FEE3741C79E7860079B824 /* AppDelegate.h */,
+				E2FEE3751C79E7860079B824 /* AppDelegate.m */,
+				E2FEE3A41C79F2620079B824 /* Classes */,
+				E2FEE3AB1C79F2620079B824 /* Commen */,
+				E2FEE3B21C79F2620079B824 /* View */,
+				E2FEE3AF1C79F2620079B824 /* Resources */,
+				E2FEE37A1C79E7860079B824 /* Main.storyboard */,
+				E2FEE37D1C79E7860079B824 /* Assets.xcassets */,
+				E2FEE37F1C79E7860079B824 /* LaunchScreen.storyboard */,
+				E2FEE3821C79E7860079B824 /* Info.plist */,
+				E2FEE3711C79E7860079B824 /* Supporting Files */,
+			);
+			path = MembershipCard;
+			sourceTree = "<group>";
+		};
+		E2FEE3711C79E7860079B824 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E2FEE3721C79E7860079B824 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E2FEE38A1C79E7860079B824 /* MembershipCardTests */ = {
+			isa = PBXGroup;
+			children = (
+				E2FEE38B1C79E7860079B824 /* MembershipCardTests.m */,
+				E2FEE38D1C79E7860079B824 /* Info.plist */,
+			);
+			path = MembershipCardTests;
+			sourceTree = "<group>";
+		};
+		E2FEE3951C79E7860079B824 /* MembershipCardUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E2FEE3961C79E7860079B824 /* MembershipCardUITests.m */,
+				E2FEE3981C79E7860079B824 /* Info.plist */,
+			);
+			path = MembershipCardUITests;
+			sourceTree = "<group>";
+		};
+		E2FEE3A41C79F2620079B824 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				E2FEE3A51C79F2620079B824 /* Base */,
+				E2FEE3B61C79F3EF0079B824 /* Main */,
+				E2FEE3A61C79F2620079B824 /* Guide */,
+				E2FEE3A81C79F2620079B824 /* Profile */,
+				E2FEE3A71C79F2620079B824 /* MyCard */,
+				E2FEE3AA1C79F2620079B824 /* VIP */,
+				E2FBA6111C82B90800F9F799 /* Mart */,
+				E2FEE3A91C79F2620079B824 /* Setting */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		E2FEE3A51C79F2620079B824 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				E2FEE3B31C79F3260079B824 /* BaseViewController.h */,
+				E2FEE3B41C79F3260079B824 /* BaseViewController.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		E2FEE3A61C79F2620079B824 /* Guide */ = {
+			isa = PBXGroup;
+			children = (
+				E2FEE3BF1C79F4AC0079B824 /* GuideViewController.h */,
+				E2FEE3C01C79F4AC0079B824 /* GuideViewController.m */,
+			);
+			path = Guide;
+			sourceTree = "<group>";
+		};
+		E2FEE3A71C79F2620079B824 /* MyCard */ = {
+			isa = PBXGroup;
+			children = (
+				E2BDB7B61C7B536000274CE3 /* cell */,
+				E2FEE3C21C79F58B0079B824 /* MyCardBagViewController.h */,
+				E2FEE3C31C79F58B0079B824 /* MyCardBagViewController.m */,
+				E2FEE3C41C79F58B0079B824 /* MyCardBagViewController.xib */,
+				E2BDB7AC1C7B42BD00274CE3 /* NotificationViewController.h */,
+				E2BDB7AD1C7B42BD00274CE3 /* NotificationViewController.m */,
+				E2BDB7AE1C7B42BD00274CE3 /* NotificationViewController.xib */,
+				E2004C061C85D34800CDA2E7 /* YKInformTableViewController.h */,
+				E2004C071C85D34800CDA2E7 /* YKInformTableViewController.m */,
+				E2004C081C85D34800CDA2E7 /* YKInformTableViewController.xib */,
+				E2004C0B1C85D3EF00CDA2E7 /* AnnouncementTableViewController.h */,
+				E2004C0C1C85D3EF00CDA2E7 /* AnnouncementTableViewController.m */,
+				E2004C0D1C85D3EF00CDA2E7 /* AnnouncementTableViewController.xib */,
+				E2BDB7B11C7B42E200274CE3 /* AddNewCardViewController.h */,
+				E2BDB7B21C7B42E200274CE3 /* AddNewCardViewController.m */,
+				E2BDB7B31C7B42E200274CE3 /* AddNewCardViewController.xib */,
+				E2BDB8141C7B63D200274CE3 /* QRViewController.h */,
+				E2BDB8151C7B63D200274CE3 /* QRViewController.m */,
+				E2BDB8161C7B63D200274CE3 /* QRViewController.xib */,
+				E2BDB8191C7B641200274CE3 /* InputCardViewController.h */,
+				E2BDB81A1C7B641200274CE3 /* InputCardViewController.m */,
+				E2BDB81B1C7B641200274CE3 /* InputCardViewController.xib */,
+				E2BDB81E1C7B644600274CE3 /* BrandListViewController.h */,
+				E2BDB81F1C7B644600274CE3 /* BrandListViewController.m */,
+				E2BDB8201C7B644600274CE3 /* BrandListViewController.xib */,
+				E2BDB8231C7B648B00274CE3 /* MyCardDetailViewController.h */,
+				E2BDB8241C7B648B00274CE3 /* MyCardDetailViewController.m */,
+				E2BDB8251C7B648B00274CE3 /* MyCardDetailViewController.xib */,
+				E2BDB8281C7B64CB00274CE3 /* EditRemarkViewController.h */,
+				E2BDB8291C7B64CB00274CE3 /* EditRemarkViewController.m */,
+				E2BDB82A1C7B64CB00274CE3 /* EditRemarkViewController.xib */,
+				E2BDB82D1C7B655200274CE3 /* RecordDetailViewController.h */,
+				E2BDB82E1C7B655200274CE3 /* RecordDetailViewController.m */,
+				E2BDB82F1C7B655200274CE3 /* RecordDetailViewController.xib */,
+			);
+			path = MyCard;
+			sourceTree = "<group>";
+		};
+		E2FEE3A81C79F2620079B824 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				E2FEE3C71C79F5A70079B824 /* LoginViewController.h */,
+				E2FEE3C81C79F5A70079B824 /* LoginViewController.m */,
+				E2FEE3C91C79F5A70079B824 /* LoginViewController.xib */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		E2FEE3A91C79F2620079B824 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				E2FEE3CC1C79F5EA0079B824 /* SettingViewController.h */,
+				E2FEE3CD1C79F5EA0079B824 /* SettingViewController.m */,
+				E2FEE3CE1C79F5EA0079B824 /* SettingViewController.xib */,
+				E2662CB81C7CA1D100FE42F1 /* ShowDeteledCardViewController.h */,
+				E2662CB91C7CA1D100FE42F1 /* ShowDeteledCardViewController.m */,
+				E2662CBA1C7CA1D100FE42F1 /* ShowDeteledCardViewController.xib */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		E2FEE3AA1C79F2620079B824 /* VIP */ = {
+			isa = PBXGroup;
+			children = (
+				E2BDB7C11C7B5F3D00274CE3 /* cell */,
+				E2FEE3D11C79FD070079B824 /* VIPViewController.h */,
+				E2FEE3D21C79FD070079B824 /* VIPViewController.m */,
+				E2FEE3D31C79FD070079B824 /* VIPViewController.xib */,
+				E2004C101C85E3C200CDA2E7 /* VIPServiceTableViewController.h */,
+				E2004C111C85E3C200CDA2E7 /* VIPServiceTableViewController.m */,
+				E2004C121C85E3C200CDA2E7 /* VIPServiceTableViewController.xib */,
+				E2004C151C85E41400CDA2E7 /* YKMerchantsViewController.h */,
+				E2004C161C85E41400CDA2E7 /* YKMerchantsViewController.m */,
+				E2004C171C85E41400CDA2E7 /* YKMerchantsViewController.xib */,
+			);
+			path = VIP;
+			sourceTree = "<group>";
+		};
+		E2FEE3AB1C79F2620079B824 /* Commen */ = {
+			isa = PBXGroup;
+			children = (
+				E2FEE3AC1C79F2620079B824 /* Categories */,
+				E2FEE3AD1C79F2620079B824 /* Model */,
+				E2FEE3AE1C79F2620079B824 /* Network */,
+				E24497A81C7A09FC00E60392 /* Macro */,
+			);
+			path = Commen;
+			sourceTree = "<group>";
+		};
+		E2FEE3AC1C79F2620079B824 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				E200FC5D1C7F4BE700644BB5 /* UIView+frame.h */,
+				E200FC5E1C7F4BE700644BB5 /* UIView+frame.m */,
+				E2FBA6041C82B57000F9F799 /* UIView+border.h */,
+				E2FBA6051C82B57000F9F799 /* UIView+border.m */,
+				E200FC601C7F4BF000644BB5 /* takePhoto.h */,
+				E200FC611C7F4BF000644BB5 /* takePhoto.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		E2FEE3AD1C79F2620079B824 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E2FBA60D1C82B70000F9F799 /* YKModel.h */,
+				E2FBA60E1C82B70000F9F799 /* YKModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E2FEE3AE1C79F2620079B824 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E2073CBB1C849CA30028DD8C /* NetworkAPI.h */,
+				E2073CBC1C849CA30028DD8C /* NetworkAPI.m */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		E2FEE3AF1C79F2620079B824 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E2FEE3B01C79F2620079B824 /* ImageSources */,
+				E2FEE3B11C79F2620079B824 /* Libs */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E2FEE3B01C79F2620079B824 /* ImageSources */ = {
+			isa = PBXGroup;
+			children = (
+				E2073CB41C847D590028DD8C /* Mycard */,
+				E20550B91C80A5530053DF39 /* tabbar */,
+			);
+			path = ImageSources;
+			sourceTree = "<group>";
+		};
+		E2FEE3B11C79F2620079B824 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				E20788DD1C7DF52800D59F63 /* weixinSDK1.6.2 */,
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
+		E2FEE3B21C79F2620079B824 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E2FEE3B61C79F3EF0079B824 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E2FEE3B71C79F4440079B824 /* MainTabBarViewController.h */,
+				E2FEE3B81C79F4440079B824 /* MainTabBarViewController.m */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E2FEE36D1C79E7860079B824 /* MembershipCard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E2FEE39B1C79E7860079B824 /* Build configuration list for PBXNativeTarget "MembershipCard" */;
+			buildPhases = (
+				5F9674A590D7F20018F9D0C7 /* Check Pods Manifest.lock */,
+				E2FEE36A1C79E7860079B824 /* Sources */,
+				E2FEE36B1C79E7860079B824 /* Frameworks */,
+				E2FEE36C1C79E7860079B824 /* Resources */,
+				DE20CD12A2DC0608D96A72EC /* Embed Pods Frameworks */,
+				1E30FE6FEA8877E767D25CD1 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MembershipCard;
+			productName = MembershipCard;
+			productReference = E2FEE36E1C79E7860079B824 /* MembershipCard.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E2FEE3861C79E7860079B824 /* MembershipCardTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E2FEE39E1C79E7860079B824 /* Build configuration list for PBXNativeTarget "MembershipCardTests" */;
+			buildPhases = (
+				E2FEE3831C79E7860079B824 /* Sources */,
+				E2FEE3841C79E7860079B824 /* Frameworks */,
+				E2FEE3851C79E7860079B824 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E2FEE3891C79E7860079B824 /* PBXTargetDependency */,
+			);
+			name = MembershipCardTests;
+			productName = MembershipCardTests;
+			productReference = E2FEE3871C79E7860079B824 /* MembershipCardTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E2FEE3911C79E7860079B824 /* MembershipCardUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E2FEE3A11C79E7860079B824 /* Build configuration list for PBXNativeTarget "MembershipCardUITests" */;
+			buildPhases = (
+				E2FEE38E1C79E7860079B824 /* Sources */,
+				E2FEE38F1C79E7860079B824 /* Frameworks */,
+				E2FEE3901C79E7860079B824 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E2FEE3941C79E7860079B824 /* PBXTargetDependency */,
+			);
+			name = MembershipCardUITests;
+			productName = MembershipCardUITests;
+			productReference = E2FEE3921C79E7860079B824 /* MembershipCardUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E2FEE3661C79E7860079B824 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = tom.sun;
+				TargetAttributes = {
+					E2FEE36D1C79E7860079B824 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = CWPM78QMN6;
+					};
+					E2FEE3861C79E7860079B824 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = E2FEE36D1C79E7860079B824;
+					};
+					E2FEE3911C79E7860079B824 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = E2FEE36D1C79E7860079B824;
+					};
+				};
+			};
+			buildConfigurationList = E2FEE3691C79E7860079B824 /* Build configuration list for PBXProject "MembershipCard" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E2FEE3651C79E7860079B824;
+			productRefGroup = E2FEE36F1C79E7860079B824 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E2FEE36D1C79E7860079B824 /* MembershipCard */,
+				E2FEE3861C79E7860079B824 /* MembershipCardTests */,
+				E2FEE3911C79E7860079B824 /* MembershipCardUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E2FEE36C1C79E7860079B824 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2004C0F1C85D3EF00CDA2E7 /* AnnouncementTableViewController.xib in Resources */,
+				E2BDB8181C7B63D200274CE3 /* QRViewController.xib in Resources */,
+				E2BDB8271C7B648B00274CE3 /* MyCardDetailViewController.xib in Resources */,
+				E2004C001C85CD7D00CDA2E7 /* SellCardViewController.xib in Resources */,
+				E2BDB7BB1C7B53A900274CE3 /* MyCardBagTableViewCell.xib in Resources */,
+				E2FEE3D51C79FD070079B824 /* VIPViewController.xib in Resources */,
+				E2BDB8311C7B655200274CE3 /* RecordDetailViewController.xib in Resources */,
+				E2BDB7B51C7B42E200274CE3 /* AddNewCardViewController.xib in Resources */,
+				E2BDB7C01C7B567B00274CE3 /* NotificationTableViewCell.xib in Resources */,
+				E2BDB82C1C7B64CB00274CE3 /* EditRemarkViewController.xib in Resources */,
+				E2004C191C85E41400CDA2E7 /* YKMerchantsViewController.xib in Resources */,
+				E2FBA61F1C82BA6E00F9F799 /* tabbar_setting_selected@3x.png in Resources */,
+				E2004C051C85CE5000CDA2E7 /* AssignmentInfoViewController.xib in Resources */,
+				E2FBA6221C82BA6E00F9F799 /* tabbar_VIP@3x.png in Resources */,
+				E20550BC1C80A5530053DF39 /* tabbar_myCardBag@3x.png in Resources */,
+				E2FBA6211C82BA6E00F9F799 /* tabbar_VIP_selected@3x.png in Resources */,
+				E2BDB81D1C7B641200274CE3 /* InputCardViewController.xib in Resources */,
+				E2BDB8221C7B644600274CE3 /* BrandListViewController.xib in Resources */,
+				E2FEE3CB1C79F5A70079B824 /* LoginViewController.xib in Resources */,
+				E2FEE3D01C79F5EA0079B824 /* SettingViewController.xib in Resources */,
+				E2004C0A1C85D34800CDA2E7 /* YKInformTableViewController.xib in Resources */,
+				E2004C141C85E3C200CDA2E7 /* VIPServiceTableViewController.xib in Resources */,
+				E2FEE3811C79E7860079B824 /* LaunchScreen.storyboard in Resources */,
+				E2BDB7C61C7B5F5100274CE3 /* VIPTableViewCell.xib in Resources */,
+				E20788E41C7DF52800D59F63 /* read_me.txt in Resources */,
+				E2FEE3C61C79F58B0079B824 /* MyCardBagViewController.xib in Resources */,
+				E2FBA6201C82BA6E00F9F799 /* tabbar_setting@3x.png in Resources */,
+				E2BDB7B01C7B42BD00274CE3 /* NotificationViewController.xib in Resources */,
+				E2FBA6161C82B91800F9F799 /* MartViewController.xib in Resources */,
+				E20550BD1C80A5530053DF39 /* tabbar_myCardBag_selected@3x.png in Resources */,
+				E2073CBA1C847FBC0028DD8C /* icon_horn_top@2x.png in Resources */,
+				E2662CBC1C7CA1D100FE42F1 /* ShowDeteledCardViewController.xib in Resources */,
+				E2FBA61E1C82BA6E00F9F799 /* tabbar_mart@3x.png in Resources */,
+				E2FBA61D1C82BA6E00F9F799 /* tabbar_mart_selected@3x.png in Resources */,
+				E2FEE37E1C79E7860079B824 /* Assets.xcassets in Resources */,
+				E2FEE37C1C79E7860079B824 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2FEE3851C79E7860079B824 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2FEE3901C79E7860079B824 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1E30FE6FEA8877E767D25CD1 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5F9674A590D7F20018F9D0C7 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DE20CD12A2DC0608D96A72EC /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E2FEE36A1C79E7860079B824 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2BDB7B41C7B42E200274CE3 /* AddNewCardViewController.m in Sources */,
+				E2004C131C85E3C200CDA2E7 /* VIPServiceTableViewController.m in Sources */,
+				E200FC621C7F4BF000644BB5 /* takePhoto.m in Sources */,
+				E2BDB82B1C7B64CB00274CE3 /* EditRemarkViewController.m in Sources */,
+				E2004C041C85CE5000CDA2E7 /* AssignmentInfoViewController.m in Sources */,
+				E2FEE3D41C79FD070079B824 /* VIPViewController.m in Sources */,
+				E2FBA6061C82B57000F9F799 /* UIView+border.m in Sources */,
+				E2FEE3761C79E7860079B824 /* AppDelegate.m in Sources */,
+				E2FEE3C51C79F58B0079B824 /* MyCardBagViewController.m in Sources */,
+				E2BDB7BF1C7B567B00274CE3 /* NotificationTableViewCell.m in Sources */,
+				E2073CBD1C849CA30028DD8C /* NetworkAPI.m in Sources */,
+				E2004C091C85D34800CDA2E7 /* YKInformTableViewController.m in Sources */,
+				E2662CBB1C7CA1D100FE42F1 /* ShowDeteledCardViewController.m in Sources */,
+				E2FBA60F1C82B70000F9F799 /* YKModel.m in Sources */,
+				E2004C0E1C85D3EF00CDA2E7 /* AnnouncementTableViewController.m in Sources */,
+				E2BDB7BA1C7B53A900274CE3 /* MyCardBagTableViewCell.m in Sources */,
+				E2004BFF1C85CD7D00CDA2E7 /* SellCardViewController.m in Sources */,
+				E2BDB7AF1C7B42BD00274CE3 /* NotificationViewController.m in Sources */,
+				E2BDB8261C7B648B00274CE3 /* MyCardDetailViewController.m in Sources */,
+				E2BDB8171C7B63D200274CE3 /* QRViewController.m in Sources */,
+				E2FEE3B91C79F4440079B824 /* MainTabBarViewController.m in Sources */,
+				E2FEE3C11C79F4AC0079B824 /* GuideViewController.m in Sources */,
+				E2BDB8301C7B655200274CE3 /* RecordDetailViewController.m in Sources */,
+				E2004C181C85E41400CDA2E7 /* YKMerchantsViewController.m in Sources */,
+				E2BDB7C51C7B5F5100274CE3 /* VIPTableViewCell.m in Sources */,
+				E2FEE3CA1C79F5A70079B824 /* LoginViewController.m in Sources */,
+				E2FEE3B51C79F3260079B824 /* BaseViewController.m in Sources */,
+				E2FEE3731C79E7860079B824 /* main.m in Sources */,
+				E200FC5F1C7F4BE700644BB5 /* UIView+frame.m in Sources */,
+				E2FEE3CF1C79F5EA0079B824 /* SettingViewController.m in Sources */,
+				E2BDB81C1C7B641200274CE3 /* InputCardViewController.m in Sources */,
+				E2FBA6151C82B91800F9F799 /* MartViewController.m in Sources */,
+				E2BDB8211C7B644600274CE3 /* BrandListViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2FEE3831C79E7860079B824 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2FEE38C1C79E7860079B824 /* MembershipCardTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2FEE38E1C79E7860079B824 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2FEE3971C79E7860079B824 /* MembershipCardUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E2FEE3891C79E7860079B824 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E2FEE36D1C79E7860079B824 /* MembershipCard */;
+			targetProxy = E2FEE3881C79E7860079B824 /* PBXContainerItemProxy */;
+		};
+		E2FEE3941C79E7860079B824 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E2FEE36D1C79E7860079B824 /* MembershipCard */;
+			targetProxy = E2FEE3931C79E7860079B824 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E2FEE37A1C79E7860079B824 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E2FEE37B1C79E7860079B824 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E2FEE37F1C79E7860079B824 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E2FEE3801C79E7860079B824 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E2FEE3991C79E7860079B824 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E2FEE39A1C79E7860079B824 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E2FEE39C1C79E7860079B824 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A3F338817F8EBA02DCDB671 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = MembershipCard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MembershipCard/Resources/Libs/weixinSDK1.6.2",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yunsuo.MembershipCard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E2FEE39D1C79E7860079B824 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 229FA454613B3E0894C28FE1 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = MembershipCard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MembershipCard/Resources/Libs/weixinSDK1.6.2",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yunsuo.MembershipCard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		E2FEE39F1C79E7860079B824 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MembershipCardTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tom.MembershipCardTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MembershipCard.app/MembershipCard";
+			};
+			name = Debug;
+		};
+		E2FEE3A01C79E7860079B824 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MembershipCardTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tom.MembershipCardTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MembershipCard.app/MembershipCard";
+			};
+			name = Release;
+		};
+		E2FEE3A21C79E7860079B824 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MembershipCardUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tom.MembershipCardUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MembershipCard;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		E2FEE3A31C79E7860079B824 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MembershipCardUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tom.MembershipCardUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MembershipCard;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E2FEE3691C79E7860079B824 /* Build configuration list for PBXProject "MembershipCard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2FEE3991C79E7860079B824 /* Debug */,
+				E2FEE39A1C79E7860079B824 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E2FEE39B1C79E7860079B824 /* Build configuration list for PBXNativeTarget "MembershipCard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2FEE39C1C79E7860079B824 /* Debug */,
+				E2FEE39D1C79E7860079B824 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E2FEE39E1C79E7860079B824 /* Build configuration list for PBXNativeTarget "MembershipCardTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2FEE39F1C79E7860079B824 /* Debug */,
+				E2FEE3A01C79E7860079B824 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E2FEE3A11C79E7860079B824 /* Build configuration list for PBXNativeTarget "MembershipCardUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2FEE3A21C79E7860079B824 /* Debug */,
+				E2FEE3A31C79E7860079B824 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E2FEE3661C79E7860079B824 /* Project object */;
+}
