@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
 
 #define ABOUTUS @"https://www.baidu.com"
 #define TEMSOFUSE @"http://sina.cn"
 
-@interface AboutViewController : UIViewController
+@interface AboutViewController : BaseViewController
 @property(nonatomic,strong) NSString *urlStr;
 
 @end

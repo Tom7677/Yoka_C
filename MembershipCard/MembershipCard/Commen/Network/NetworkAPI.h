@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-static NSString* hostUrl = @"http://api-ecstore.yw.com/index.php/appapi/";
+static NSString* hostUrl = @"http://api-ecstore.yw.bycache.com:81/index.php/appapi/";
 @interface NetworkAPI : NSObject
 + (NetworkAPI *)shared;
 - (void)getMyCardBagListByMemId:(NSString *)memId WithFinish:(void(^)(NSArray *imageUrlArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
