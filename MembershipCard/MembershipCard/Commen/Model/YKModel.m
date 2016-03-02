@@ -8,10 +8,21 @@
 
 #import "YKModel.h"
 
-@implementation MyCardBagModel
 
+@implementation MyCardModel
 @end
 
-@implementation CardModel
+@implementation CardInfoModel
+@end
 
+@implementation CardListModel
+@end
+
+@implementation UsedDetailModel
+@end
+
+@implementation NoticeModel
+@end
+
+@implementation AnnouncementModel
 @end

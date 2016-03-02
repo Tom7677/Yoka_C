@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0FB72C477A5344F2A19CAE2B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA99FE15DBFFFD8B1484D630 /* libPods.a */; };
+		1A7300051C86CD1B0054DB1D /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7300041C86CD1B0054DB1D /* AboutViewController.m */; };
 		E2004BFF1C85CD7D00CDA2E7 /* SellCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2004BFD1C85CD7D00CDA2E7 /* SellCardViewController.m */; };
 		E2004C001C85CD7D00CDA2E7 /* SellCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2004BFE1C85CD7D00CDA2E7 /* SellCardViewController.xib */; };
 		E2004C041C85CE5000CDA2E7 /* AssignmentInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2004C021C85CE5000CDA2E7 /* AssignmentInfoViewController.m */; };
@@ -105,6 +106,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A7300031C86CD1B0054DB1D /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		1A7300041C86CD1B0054DB1D /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		229FA454613B3E0894C28FE1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		4A3F338817F8EBA02DCDB671 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E2004BFC1C85CD7D00CDA2E7 /* SellCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SellCardViewController.h; sourceTree = "<group>"; };
@@ -525,6 +528,8 @@
 				E2662CB81C7CA1D100FE42F1 /* ShowDeteledCardViewController.h */,
 				E2662CB91C7CA1D100FE42F1 /* ShowDeteledCardViewController.m */,
 				E2662CBA1C7CA1D100FE42F1 /* ShowDeteledCardViewController.xib */,
+				1A7300031C86CD1B0054DB1D /* AboutViewController.h */,
+				1A7300041C86CD1B0054DB1D /* AboutViewController.m */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -871,6 +876,7 @@
 				E2004C181C85E41400CDA2E7 /* YKMerchantsViewController.m in Sources */,
 				E2BDB7C51C7B5F5100274CE3 /* VIPTableViewCell.m in Sources */,
 				E2FEE3CA1C79F5A70079B824 /* LoginViewController.m in Sources */,
+				1A7300051C86CD1B0054DB1D /* AboutViewController.m in Sources */,
 				E2FEE3B51C79F3260079B824 /* BaseViewController.m in Sources */,
 				E2FEE3731C79E7860079B824 /* main.m in Sources */,
 				E200FC5F1C7F4BE700644BB5 /* UIView+frame.m in Sources */,

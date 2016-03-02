@@ -24,7 +24,7 @@
     segmentedControl.selectedSegmentIndex = 0;
     [segmentedControl addTarget:self action:@selector(controlPressed:) forControlEvents:UIControlEventValueChanged];
     NSDictionary *selectDic = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName,nil];
-    NSDictionary *normalDic = [NSDictionary dictionaryWithObjectsAndKeys:UIColorFromRGB(0xE33572),NSForegroundColorAttributeName,nil];
+    NSDictionary *normalDic = [NSDictionary dictionaryWithObjectsAndKeys:UIColorFromRGB(0xFF526E),NSForegroundColorAttributeName,nil];
     [segmentedControl setTitleTextAttributes:normalDic forState:UIControlStateNormal];
     [segmentedControl setTitleTextAttributes:selectDic forState:UIControlStateSelected];
     segmentedControl.tintColor = UIColorFromRGB(0xFF526E);

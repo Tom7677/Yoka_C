@@ -17,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : UIColorFromRGB(0xE33572)} forState:UIControlStateSelected];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : UIColorFromRGB(0xFF526E)} forState:UIControlStateSelected];
     [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : UIColorFromRGB(0x808080)} forState:UIControlStateNormal];
     [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
     //我的卡包
@@ -25,7 +25,7 @@
     UINavigationController *myCardBagNav = [[UINavigationController alloc]initWithRootViewController:myCardBagVC];
     UIImage *myCardBagImg = [UIImage imageNamed:@"tabbar_myCardBag_selected@3x"];
     myCardBagImg =  [myCardBagImg imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    UITabBarItem *myCardBagItem = [[UITabBarItem alloc]initWithTitle:@"我的卡包" image:[UIImage imageNamed:@"tabbar_myCardBag@3x"] selectedImage:myCardBagImg];
+    UITabBarItem *myCardBagItem = [[UITabBarItem alloc]initWithTitle:@"卡包" image:[UIImage imageNamed:@"tabbar_myCardBag@3x"] selectedImage:myCardBagImg];
     myCardBagItem.tag = 1;
     myCardBagVC.tabBarItem = myCardBagItem;
     
@@ -34,7 +34,7 @@
     UINavigationController *VIPNav = [[UINavigationController alloc]initWithRootViewController:VIPVC];
     UIImage *VIPImg = [UIImage imageNamed:@"tabbar_VIP_selected@3x"];
     VIPImg =  [VIPImg imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    UITabBarItem *VIPItem = [[UITabBarItem alloc]initWithTitle:@"会员专享" image:[UIImage imageNamed:@"tabbar_VIP@3x"] selectedImage:VIPImg];
+    UITabBarItem *VIPItem = [[UITabBarItem alloc]initWithTitle:@"发现" image:[UIImage imageNamed:@"tabbar_VIP@3x"] selectedImage:VIPImg];
     myCardBagItem.tag = 2;
     VIPVC.tabBarItem = VIPItem;
     
@@ -42,7 +42,7 @@
     UINavigationController *martNav = [[UINavigationController alloc]initWithRootViewController:martVC];
     UIImage *martImg = [UIImage imageNamed:@"tabbar_mart_selected@3x"];
     martImg = [martImg imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    UITabBarItem *martItem = [[UITabBarItem alloc]initWithTitle:@"悠卡商城" image:[UIImage imageNamed:@"tabbar_mart@3x"] selectedImage:martImg];
+    UITabBarItem *martItem = [[UITabBarItem alloc]initWithTitle:@"商城" image:[UIImage imageNamed:@"tabbar_mart@3x"] selectedImage:martImg];
     martItem.tag = 3;
     martVC.tabBarItem = martItem;
     
@@ -51,11 +51,15 @@
     UINavigationController *settingNav = [[UINavigationController alloc]initWithRootViewController:settingVC];
     UIImage *settingImg = [UIImage imageNamed:@"tabbar_setting_selected@3x"];
     settingImg = [settingImg imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    UITabBarItem *settingItem = [[UITabBarItem alloc]initWithTitle:@"账户设置" image:[UIImage imageNamed:@"tabbar_setting@3x"] selectedImage:settingImg];
+    UITabBarItem *settingItem = [[UITabBarItem alloc]initWithTitle:@"我的" image:[UIImage imageNamed:@"tabbar_setting@3x"] selectedImage:settingImg];
     settingItem.tag = 4;
     settingVC.tabBarItem = settingItem;
     
     self.viewControllers = @[myCardBagNav,VIPNav,martNav,settingNav];
+    for (UINavigationController *navController in self.viewControllers) {
+        navController.tabBarItem.titlePositionAdjustment = UIOffsetMake(0, -4);
+    }
+
 }
 
 - (void)didReceiveMemoryWarning {

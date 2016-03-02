@@ -20,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"我的卡包";
+    self.title = @"卡包";
     UIButton *leftBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 28, 28)];
     [leftBtn setTitle:@"通知" forState:UIControlStateNormal];
     [leftBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -32,7 +32,7 @@
     UIButton *rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 60, 28)];
     rightBtn.titleLabel.font = [UIFont systemFontOfSize:14];
     [rightBtn setTitle:@"添加新卡" forState:UIControlStateNormal];
-    [rightBtn setTitleColor:UIColorFromRGB(0xE33572) forState:UIControlStateNormal];
+    [rightBtn setTitleColor:UIColorFromRGB(0xFF526E) forState:UIControlStateNormal];
     [rightBtn addTarget:self action:@selector(addNewCardBtnAction) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
     [self.navigationItem setRightBarButtonItem:rightItem];
