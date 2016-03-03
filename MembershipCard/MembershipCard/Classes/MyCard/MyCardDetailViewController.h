@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *cardInfoBtn;
 @property (weak, nonatomic) IBOutlet UIButton *announcementBtn;
 @property (weak, nonatomic) IBOutlet UIButton *cardValueBtn;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 - (IBAction)cardValueBtnAction:(id)sender;
 - (IBAction)cardInfoBtnAction:(id)sender;

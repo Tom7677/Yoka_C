@@ -19,6 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.title = @"添加新卡";
     [_tableView setTableHeaderView:_searchBar];
     NSArray *items = [[NSArray alloc] initWithObjects:                       @"Code Geass",                       @"Asura Cryin'",                       @"Voltes V",                       @"Mazinger Z",                       @"Daimos",                       nil];
     _itemsArray = [[NSMutableArray alloc]init];
@@ -46,7 +47,6 @@
     NSInteger rows = 0;
     if ([tableView isEqual:self.searchDisplayController.searchResultsTableView]){
         rows = [self.resultArray count];
-        
     }else{
         rows = [self.itemsArray count];
         
@@ -60,19 +60,13 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        
     }
     
     if ([tableView isEqual:self.searchDisplayController.searchResultsTableView]){
-        
         cell.textLabel.text = [self.resultArray objectAtIndex:indexPath.row];
-        
     }else{
-        
         cell.textLabel.text = [self.itemsArray objectAtIndex:indexPath.row];
-        
-    }   
-    
+    }
     return cell;
     
 }
