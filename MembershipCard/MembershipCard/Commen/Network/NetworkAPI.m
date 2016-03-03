@@ -41,12 +41,12 @@
     [manager GET:hostUrl parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject[@"status"] isEqualToString:@"1"]) {
             NSMutableArray *dataArray = [[NSMutableArray alloc]init];
-            for (NSDictionary *dic in responseObject[@"data"]) {
-                MyCardModel *model = [[MyCardModel alloc]init];
-                model.name = dic[@"name"];
-                model.merchant_id = dic[@"merchant_id"];
-                [dataArray addObject:model];
-            }
+//            for (NSDictionary *dic in responseObject[@"data"]) {
+//                MyCardModel *model = [[MyCardModel alloc]init];
+//                model.name = dic[@"name"];
+//                model.merchant_id = dic[@"merchant_id"];
+//                [dataArray addObject:model];
+//            }
             block (dataArray);
         }
         else {
