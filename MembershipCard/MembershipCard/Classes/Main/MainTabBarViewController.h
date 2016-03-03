@@ -11,6 +11,8 @@
 #import "VIPViewController.h"
 #import "SettingViewController.h"
 #import "MartViewController.h"
+#import "DisoveryViewController.h"
+#import "MoreViewController.h"
 
 @interface MainTabBarViewController : UITabBarController
 

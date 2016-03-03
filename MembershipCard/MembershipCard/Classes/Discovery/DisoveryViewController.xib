@@ -5,9 +5,9 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyCardBagViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DisoveryViewController">
             <connections>
-                <outlet property="tableView" destination="4pg-UT-TQw" id="hGz-t7-NZK"/>
+                <outlet property="tableView" destination="f1I-U7-whi" id="cDk-2f-rpO"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4pg-UT-TQw">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="f1I-U7-whi">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -25,12 +25,12 @@
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="4pg-UT-TQw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="7ak-YW-nTN"/>
-                <constraint firstAttribute="trailing" secondItem="4pg-UT-TQw" secondAttribute="trailing" id="TmB-pY-k3N"/>
-                <constraint firstAttribute="bottom" secondItem="4pg-UT-TQw" secondAttribute="bottom" id="ahS-bY-u0v"/>
-                <constraint firstItem="4pg-UT-TQw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="nYJ-ND-n51"/>
+                <constraint firstAttribute="bottom" secondItem="f1I-U7-whi" secondAttribute="bottom" id="EnU-VX-DQN"/>
+                <constraint firstItem="f1I-U7-whi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="H11-rp-1Tw"/>
+                <constraint firstAttribute="trailing" secondItem="f1I-U7-whi" secondAttribute="trailing" id="efF-N2-8Um"/>
+                <constraint firstItem="f1I-U7-whi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="xl7-3D-zE9"/>
             </constraints>
-            <point key="canvasLocation" x="280" y="246"/>
+            <point key="canvasLocation" x="499" y="407"/>
         </view>
     </objects>
 </document>
