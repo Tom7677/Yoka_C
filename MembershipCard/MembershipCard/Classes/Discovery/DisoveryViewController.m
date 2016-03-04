@@ -13,7 +13,7 @@
 #define MENU_BUTTON_WIDTH  70
 @interface DisoveryViewController ()<UIScrollViewDelegate>
 @property (nonatomic, strong) NSArray *typeArray;
-@property (nonatomic, assign) CGFloat scrollBeginX;
+@property (nonatomic, assign) NSInteger tag;
 @end
 
 @implementation DisoveryViewController
@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"发现";
-    
+    _tag = -1;
     UIButton *rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 60, 28)];
     rightBtn.titleLabel.font = [UIFont systemFontOfSize:14];
     [rightBtn setTitle:@"商户" forState:UIControlStateNormal];
@@ -51,11 +51,11 @@
         [btn setTitle:[_typeArray objectAtIndex:i] forState:UIControlStateNormal];
         [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [btn setTitleColor:UIColorFromRGB(0xFF526E) forState:UIControlStateSelected];
-        if (i == 0) {
-            btn.selected = YES;
-        }
         btn.titleLabel.font = [UIFont systemFontOfSize:14];
-        btn.tag = i + 1;
+        btn.tag = i + 1000;
+        if (i == 0) {
+            [self actionbtn:btn];
+        }
         [btn addTarget:self action:@selector(actionbtn:) forControlEvents:UIControlEventTouchUpInside];
         [_typeScrollView addSubview:btn];
     }
@@ -69,53 +69,34 @@
 
 - (void)actionbtn:(UIButton *)btn
 {
+    if (btn.tag == _tag) {
+        return;
+    }
+    UIButton *button = (UIButton *)[self.view viewWithTag:_tag];
+    button.selected = NO;
+    btn.selected = YES;
+    _tag = btn.tag;
     [_contentScrollView setContentOffset:CGPointMake(MainScreenWidth * (btn.tag - 1), 0) animated:YES];
-    float xx = MainScreenWidth * (btn.tag - 1) * (MENU_BUTTON_WIDTH / MainScreenWidth) - MENU_BUTTON_WIDTH;
+    float xx = MainScreenWidth * (btn.tag - 1000) * (MENU_BUTTON_WIDTH / MainScreenWidth) - MENU_BUTTON_WIDTH;
     [_typeScrollView scrollRectToVisible:CGRectMake(xx, 0, MainScreenWidth, _typeScrollView.height) animated:YES];
+    [_scrollBgView setFrame:CGRectMake(xx + MENU_BUTTON_WIDTH, _scrollBgView.originY, _scrollBgView.width, _scrollBgView.height)];
 }
 
 - (void)changeView:(float)x
 {
-    float xx = (_scrollBeginX + MainScreenWidth) * (MENU_BUTTON_WIDTH / MainScreenWidth);
+    float xx = x * (MENU_BUTTON_WIDTH / MainScreenWidth);
     [_scrollBgView setFrame:CGRectMake(xx, _scrollBgView.originY, _scrollBgView.width, _scrollBgView.height)];
-//    if (fabs(x - _scrollBeginX) > MainScreenWidth / 2) {
-//        if (x > _scrollBeginX) {
-//            float xx = (_scrollBeginX + MainScreenWidth) * (MENU_BUTTON_WIDTH / MainScreenWidth);
-//            [_scrollBgView setFrame:CGRectMake(xx, _scrollBgView.originY, _scrollBgView.width, _scrollBgView.height)];
-//        }
-//        else {
-//            float xx = (_scrollBeginX - MainScreenWidth) * (MENU_BUTTON_WIDTH / MainScreenWidth);
-//            [_scrollBgView setFrame:CGRectMake(xx, _scrollBgView.originY, _scrollBgView.width, _scrollBgView.height)];
-//        }
-//    }
 }
 
 #pragma mark - UIScrollViewDelegate
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
-{
-    NSLog(@"%f",scrollView.contentOffset.x);
-    _scrollBeginX = scrollView.contentOffset.x;
-}
-
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    if ([scrollView isKindOfClass:[UITableView class]]) {
-        //tableView
-    }
-    else {
-        [self changeView:scrollView.contentOffset.x];
-    }
-}
-
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     if ([scrollView isKindOfClass:[UITableView class]]) {
         //tableView
     }
     else {
-        float xx = scrollView.contentOffset.x * (MENU_BUTTON_WIDTH / MainScreenWidth) - MENU_BUTTON_WIDTH;
-        [_typeScrollView scrollRectToVisible:CGRectMake(xx, 0, MainScreenWidth, _typeScrollView.height) animated:YES];
+        UIButton *button = (UIButton *)[self.view viewWithTag:(scrollView.contentOffset.x / MainScreenWidth) + 1000];
+        [self actionbtn:button];
     }
 }
 @end
