@@ -20,6 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.3.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - MJRefresh (3.1.0)
   - SDWebImage (3.7.5):
     - SDWebImage/Core (= 3.7.5)
   - SDWebImage/Core (3.7.5)
@@ -31,6 +32,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.3.1)
+  - MJRefresh
   - SDWebImage (~> 3.7)
   - TPKeyboardAvoiding (~> 1.2.11)
   - UMengAnalytics
@@ -38,6 +40,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 05b9f6e3aa5ac45bc383b4bb108ef338080a26c7
+  MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
   TPKeyboardAvoiding: e5ce146b313de063957bfa75a13f1e9b0ff18ab7
   UMengAnalytics: 4bf831415146b9c57cb10be65fbd43462ef8cf65
