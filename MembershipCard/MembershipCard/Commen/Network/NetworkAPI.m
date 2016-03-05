@@ -30,12 +30,12 @@
     [manager GET:hostUrl parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject[@"status"] isEqualToString:@"1"]) {
             NSMutableArray *dataArray = [[NSMutableArray alloc]init];
-//            for (NSDictionary *dic in responseObject[@"data"]) {
-//                MyCardModel *model = [[MyCardModel alloc]init];
-//                model.name = dic[@"name"];
-//                model.merchant_id = dic[@"merchant_id"];
-//                [dataArray addObject:model];
-//            }
+            NSArray *resultArray = [self dictionaryWithJsonString:responseObject[@"data"]];
+            for (NSDictionary *dic in resultArray) {
+                MyCardModel *model = [[MyCardModel alloc]init];
+                [model setValuesForKeysWithDictionary:dic];
+                [dataArray addObject:model];
+            }
             block (dataArray);
         }
         else {
@@ -213,5 +213,21 @@
     NSError *parseError = nil;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:&parseError];
     return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+}
+
+- (NSArray *)dictionaryWithJsonString:(NSString *)jsonString {
+    if (jsonString == nil) {
+        return nil;
+    }
+    NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *err;
+    NSArray *array = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                        options:NSJSONReadingMutableContainers
+                                                          error:&err];
+    if(err) {
+        NSLog(@"json解析失败：%@",err);
+        return nil;
+    }
+    return array;
 }
 @end

@@ -31,8 +31,9 @@
     
     UIButton *rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 60, 28)];
     rightBtn.titleLabel.font = [UIFont systemFontOfSize:14];
-    [rightBtn setTitle:@"添加新卡" forState:UIControlStateNormal];
-    [rightBtn setTitleColor:UIColorFromRGB(0xFF526E) forState:UIControlStateNormal];
+    [rightBtn setTitle:@"添加" forState:UIControlStateNormal];
+    [rightBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    rightBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
     [rightBtn addTarget:self action:@selector(addNewCardBtnAction) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
     [self.navigationItem setRightBarButtonItem:rightItem];
@@ -40,14 +41,13 @@
     [_tableView registerNib:[UINib nibWithNibName:@"MyCardBagTableViewCell" bundle:nil] forCellReuseIdentifier:@"cellIdentifier"];
     _tableView.delegate = self;
     _tableView.dataSource = self;
-    
     _cardArray = [[NSMutableArray alloc]init];
+    [self loadNewData];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self loadNewData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,8 +57,9 @@
 
 - (void)loadNewData
 {
-    [[NetworkAPI shared]getMyCardBagListByMemId:@"1" WithFinish:^(NSArray *imageUrlArray) {
-        
+    [[NetworkAPI shared]getMyCardBagListByMemId:@"2" WithFinish:^(NSArray *dataArray) {
+        [_cardArray removeAllObjects];
+        [_cardArray addObjectsFromArray:dataArray];
     } withErrorBlock:^(NSError *error) {
         
     }];
