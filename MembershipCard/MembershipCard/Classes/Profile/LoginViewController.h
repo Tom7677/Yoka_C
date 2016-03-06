@@ -10,4 +10,14 @@
 
 @interface LoginViewController : BaseViewController
 @property (copy, nonatomic) void (^LoginCallBack)();
+@property (weak, nonatomic) IBOutlet UITextField *phoneNumTextField;
+@property (weak, nonatomic) IBOutlet UITextField *codeTextField;
+@property (weak, nonatomic) IBOutlet UIButton *getCodeBtn;
+@property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
+
+
+- (IBAction)getCodeBtnAction:(id)sender;
+- (IBAction)loginAction:(id)sender;
+- (IBAction)weixinLoginAction:(id)sender;
+
 @end

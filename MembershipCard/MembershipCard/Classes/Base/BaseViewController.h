@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Macro.h"
 #import "NetworkAPI.h"
+#import "YKModel.h"
 
 @interface BaseViewController : UIViewController
 

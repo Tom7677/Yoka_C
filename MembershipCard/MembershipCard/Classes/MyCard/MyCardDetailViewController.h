@@ -14,9 +14,25 @@
 @property (weak, nonatomic) IBOutlet UIButton *cardInfoBtn;
 @property (weak, nonatomic) IBOutlet UIButton *announcementBtn;
 @property (weak, nonatomic) IBOutlet UIButton *cardValueBtn;
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIScrollView *codeScrollView;
+@property (weak, nonatomic) IBOutlet UIScrollView *markScrollView;
+@property (weak, nonatomic) IBOutlet UITableView *newsTableView;
+@property (weak, nonatomic) IBOutlet UIImageView *qrCodeImageView;
+@property (weak, nonatomic) IBOutlet UILabel *codeLabel;
+@property (weak, nonatomic) IBOutlet UIButton *frontPicBtn;
+@property (weak, nonatomic) IBOutlet UIButton *backPicBtn;
+@property (weak, nonatomic) IBOutlet UITextView *markTextView;
+@property (weak, nonatomic) IBOutlet UIView *codeView;
+@property (weak, nonatomic) IBOutlet UIView *markView;
+@property (strong, nonatomic) MyCardModel *model;
 
 - (IBAction)cardValueBtnAction:(id)sender;
 - (IBAction)cardInfoBtnAction:(id)sender;
 - (IBAction)announcementBtnAction:(id)sender;
+- (IBAction)deleteBtnAction:(id)sender;
+- (IBAction)frontBtnAction:(id)sender;
+- (IBAction)backPicAction:(id)sender;
+- (IBAction)backBtnAction:(id)sender;
+- (IBAction)infoBtnAction:(id)sender;
+
 @end

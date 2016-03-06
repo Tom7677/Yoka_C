@@ -12,30 +12,30 @@
 #import "UIView+frame.h"
 
 @interface NotificationViewController ()
-
+@property (nonatomic, strong) UIButton *rightBtn;
 @end
 
 @implementation NotificationViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIButton *rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 60, 28)];
-    rightBtn.titleLabel.font = [UIFont systemFontOfSize:14];
-    [rightBtn setTitle:@"清空" forState:UIControlStateNormal];
-    rightBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-    [rightBtn setTitleColor:UIColorFromRGB(0xFF526E) forState:UIControlStateNormal];
-    [rightBtn addTarget:self action:@selector(clearBtnAction) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
+    _rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 60, 28)];
+    _rightBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+    [_rightBtn setTitle:@"清空" forState:UIControlStateNormal];
+    _rightBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    [_rightBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [_rightBtn addTarget:self action:@selector(clearBtnAction) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:_rightBtn];
     [self.navigationItem setRightBarButtonItem:rightItem];
     
-    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc]initWithItems:[NSArray arrayWithObjects:@"悠卡通知",@"商户公告", nil]];
+    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc]initWithItems:[NSArray arrayWithObjects:@"系统通知",@"商户公告", nil]];
     segmentedControl.selectedSegmentIndex = 0;
     [segmentedControl addTarget:self action:@selector(controlPressed:) forControlEvents:UIControlEventValueChanged];
     NSDictionary *selectDic = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName,nil];
-    NSDictionary *normalDic = [NSDictionary dictionaryWithObjectsAndKeys:UIColorFromRGB(0xFF526E),NSForegroundColorAttributeName,nil];
+    NSDictionary *normalDic = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName,nil];
     [segmentedControl setTitleTextAttributes:normalDic forState:UIControlStateNormal];
     [segmentedControl setTitleTextAttributes:selectDic forState:UIControlStateSelected];
-    segmentedControl.tintColor = UIColorFromRGB(0xFF526E);
+    segmentedControl.tintColor = [UIColor blackColor];
     self.navigationItem.titleView = segmentedControl;
     [self addChildVC];
 }
@@ -66,5 +66,11 @@
 - (void)controlPressed:(UISegmentedControl*)segmented
 {
     [_scrollView setContentOffset:CGPointMake(segmented.selectedSegmentIndex * MainScreenWidth, 0) animated:YES];
+    if (segmented.selectedSegmentIndex == 0) {
+        _rightBtn.hidden = NO;
+    }
+    if (segmented.selectedSegmentIndex == 1) {
+        _rightBtn.hidden = YES;
+    }
 }
 @end

@@ -30,7 +30,7 @@
     [manager GET:hostUrl parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject[@"status"] isEqualToString:@"1"]) {
             NSMutableArray *dataArray = [[NSMutableArray alloc]init];
-            NSArray *resultArray = [self dictionaryWithJsonString:responseObject[@"data"]];
+            NSArray *resultArray = [self jsonObjectWithJsonString:responseObject[@"data"]];
             for (NSDictionary *dic in resultArray) {
                 MyCardModel *model = [[MyCardModel alloc]init];
                 [model setValuesForKeysWithDictionary:dic];
@@ -55,7 +55,7 @@
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     [manager GET:hostUrl parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject[@"status"] isEqualToString:@"1"]) {
-            NSDictionary *dic = responseObject[@"data"];
+            NSDictionary *dic = [self jsonObjectWithJsonString:responseObject[@"data"]];
             CardInfoModel *model = [[CardInfoModel alloc]init];
             model.merchant_id = dic[@"merchant_id"];
             model.name = dic[@"name"];
@@ -215,19 +215,19 @@
     return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
 }
 
-- (NSArray *)dictionaryWithJsonString:(NSString *)jsonString {
+- (id)jsonObjectWithJsonString:(NSString *)jsonString {
     if (jsonString == nil) {
         return nil;
     }
     NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     NSError *err;
-    NSArray *array = [NSJSONSerialization JSONObjectWithData:jsonData
-                                                        options:NSJSONReadingMutableContainers
-                                                          error:&err];
+    id jsonObject = [NSJSONSerialization
+                     JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments
+                     error:&err];
     if(err) {
         NSLog(@"json解析失败：%@",err);
         return nil;
     }
-    return array;
+    return jsonObject;
 }
 @end

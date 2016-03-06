@@ -11,6 +11,9 @@
 #import "NotificationViewController.h"
 #import "AddNewCardViewController.h"
 #import "MyCardDetailViewController.h"
+#import <MJRefresh.h>
+#import <UIImageView+WebCache.h>
+
 
 @interface MyCardBagViewController ()
 @property (nonatomic, strong) NSMutableArray *cardArray;
@@ -42,6 +45,9 @@
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _cardArray = [[NSMutableArray alloc]init];
+    _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self loadNewData];
+    }];
     [self loadNewData];
 }
 
@@ -60,6 +66,8 @@
     [[NetworkAPI shared]getMyCardBagListByMemId:@"2" WithFinish:^(NSArray *dataArray) {
         [_cardArray removeAllObjects];
         [_cardArray addObjectsFromArray:dataArray];
+        [_tableView reloadData];
+        [_tableView.mj_header endRefreshing];
     } withErrorBlock:^(NSError *error) {
         
     }];
@@ -94,14 +102,19 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MyCardBagTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentifier"];
-    cell.logoImageView.image = _cardArray[indexPath.row];
+    MyCardModel *model = _cardArray[indexPath.row];
+    [cell.logoImageView sd_setImageWithURL:[NSURL URLWithString:model.quare_image]];
+    cell.shopNameLabel.text = model.name;
+    cell.cardTypeLabel.hidden = YES;
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MyCardDetailViewController *vc = [[MyCardDetailViewController alloc]init];
+    MyCardModel *model = _cardArray[indexPath.row];
     vc.hidesBottomBarWhenPushed = YES;
+    vc.model = model;
     [self.navigationController pushViewController:vc animated:YES];
 }
 @end

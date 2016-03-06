@@ -10,10 +10,11 @@
 #import "DiscoveryWithImageCell.h"
 #import "UIView+frame.h"
 
-#define MENU_BUTTON_WIDTH  70
+#define LINE_WIDTH  40
 @interface DisoveryViewController ()<UIScrollViewDelegate>
 @property (nonatomic, strong) NSArray *typeArray;
 @property (nonatomic, assign) NSInteger tag;
+@property (nonatomic, assign) CGFloat btnWidth;
 @end
 
 @implementation DisoveryViewController
@@ -47,29 +48,42 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)NearbyMerchant {
+/**
+ *  商户
+ */
+- (void) NearbyMerchant {
     
 }
 
-- (void)createBtn
-{
+/**
+ *  爆料
+ */
+- (void) topNews {
+    
+}
+
+/**
+ *  创建顶部选择按钮
+ */
+- (void) createBtn {
+    _btnWidth = MainScreenWidth / 7;
     for (int i = 0; i < _typeArray.count; i ++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [btn setFrame:CGRectMake(MENU_BUTTON_WIDTH * i, 0, MENU_BUTTON_WIDTH, _typeScrollView.height)];
+        [btn setFrame:CGRectMake(_btnWidth * i, 0, _btnWidth, _typeScrollView.height)];
         [btn setTitle:[_typeArray objectAtIndex:i] forState:UIControlStateNormal];
         [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [btn setTitleColor:UIColorFromRGB(0xFF526E) forState:UIControlStateSelected];
         btn.titleLabel.font = [UIFont systemFontOfSize:14];
-        btn.tag = i + 1000;
+        btn.tag = i + 1;
         if (i == 0) {
             [self actionbtn:btn];
         }
         [btn addTarget:self action:@selector(actionbtn:) forControlEvents:UIControlEventTouchUpInside];
         [_typeScrollView addSubview:btn];
     }
-    [_typeScrollView setContentSize:CGSizeMake(MENU_BUTTON_WIDTH * _typeArray.count, _typeScrollView.height)];
-    _scrollBgView = [[UIView alloc] initWithFrame:CGRectMake(0, _typeScrollView.height - 2, MENU_BUTTON_WIDTH, 2)];
-    [_scrollBgView setBackgroundColor:UIColorFromRGB(0xFF526E)];
+    [_typeScrollView setContentSize:CGSizeMake(_btnWidth * _typeArray.count + 10, _typeScrollView.height)];
+    _scrollBgView = [[UIView alloc] initWithFrame:CGRectMake((_btnWidth - LINE_WIDTH) / 2, _typeScrollView.height - 3, LINE_WIDTH, 3)];
+    [_scrollBgView setBackgroundColor:UIColorFromRGB(0xffd500)];
     [_typeScrollView addSubview:_scrollBgView];
     [_contentScrollView setContentSize:CGSizeMake(MainScreenWidth * _typeArray.count, 0)];
     //[self addTableViewToScrollView:_contentScrollView frame:CGRectZero];
@@ -77,34 +91,36 @@
 
 - (void)actionbtn:(UIButton *)btn
 {
-    if (btn.tag == _tag) {
-        return;
-    }
-    UIButton *button = (UIButton *)[self.view viewWithTag:_tag];
-    button.selected = NO;
-    btn.selected = YES;
-    _tag = btn.tag;
     [_contentScrollView setContentOffset:CGPointMake(MainScreenWidth * (btn.tag - 1), 0) animated:YES];
-    float xx = MainScreenWidth * (btn.tag - 1000) * (MENU_BUTTON_WIDTH / MainScreenWidth) - MENU_BUTTON_WIDTH;
+    float xx = MainScreenWidth * (btn.tag - 1) * (_btnWidth / MainScreenWidth) - _btnWidth;
     [_typeScrollView scrollRectToVisible:CGRectMake(xx, 0, MainScreenWidth, _typeScrollView.height) animated:YES];
-    [_scrollBgView setFrame:CGRectMake(xx + MENU_BUTTON_WIDTH, _scrollBgView.originY, _scrollBgView.width, _scrollBgView.height)];
 }
 
 - (void)changeView:(float)x
 {
-    float xx = x * (MENU_BUTTON_WIDTH / MainScreenWidth);
-    [_scrollBgView setFrame:CGRectMake(xx, _scrollBgView.originY, _scrollBgView.width, _scrollBgView.height)];
+    float xx = x * (_btnWidth / MainScreenWidth);
+    [_scrollBgView setFrame:CGRectMake(xx + (_btnWidth - LINE_WIDTH) / 2, _scrollBgView.originY, _scrollBgView.width, _scrollBgView.height)];
 }
 
 #pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if ([scrollView isKindOfClass:[UITableView class]]) {
+        //tableView
+    }
+    else {
+        [self changeView:scrollView.contentOffset.x];
+    }
+}
+
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     if ([scrollView isKindOfClass:[UITableView class]]) {
         //tableView
     }
     else {
-        UIButton *button = (UIButton *)[self.view viewWithTag:(scrollView.contentOffset.x / MainScreenWidth) + 1000];
-        [self actionbtn:button];
+        float xx = scrollView.contentOffset.x * (_btnWidth / MainScreenWidth) - _btnWidth;
+        [_typeScrollView scrollRectToVisible:CGRectMake(xx, 0, MainScreenWidth, _typeScrollView.height) animated:YES];
     }
 }
 @end
