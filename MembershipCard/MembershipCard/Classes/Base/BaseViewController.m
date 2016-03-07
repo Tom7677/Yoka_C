@@ -41,7 +41,9 @@
         [btn addTarget:self action:@selector(pop) forControlEvents:UIControlEventTouchUpInside];
         [btn setTitle:title forState:UIControlStateNormal];
         UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:btn];
-        [viewController.navigationItem setLeftBarButtonItem:backButton];
+        UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemFixedSpace target:nil action:nil];
+        negativeSpacer.width = -15;
+        viewController.navigationItem.leftBarButtonItems = @[negativeSpacer,backButton];
     }
 }
 

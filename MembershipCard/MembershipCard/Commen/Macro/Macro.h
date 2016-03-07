@@ -17,4 +17,5 @@
 #define NavAndStatusBarHeight 64
 #define StatusBarHeight 20
 #define NavgationBarHeight 44
+#define TabbarHeight 49
 #endif /* Macro_h */

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MoreViewController">
@@ -45,7 +45,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="320" height="1"/>
                             <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
-                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kiJ-Av-qZR">
+                        <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kiJ-Av-qZR">
                             <rect key="frame" x="0.0" y="79" width="320" height="1"/>
                             <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
@@ -99,12 +99,16 @@
                     <constraints>
                         <constraint firstItem="42t-TK-GjF" firstAttribute="top" secondItem="bxM-tX-sc9" secondAttribute="bottom" constant="14" id="6dn-hz-dkL"/>
                         <constraint firstItem="oNG-IB-m4S" firstAttribute="leading" secondItem="42t-TK-GjF" secondAttribute="trailing" constant="8" id="CTF-hW-58D"/>
+                        <constraint firstAttribute="trailing" secondItem="bxM-tX-sc9" secondAttribute="trailing" id="EFw-5k-UVG"/>
                         <constraint firstAttribute="trailing" secondItem="oNG-IB-m4S" secondAttribute="trailing" constant="8" id="Koe-Vx-bML"/>
                         <constraint firstItem="DWm-FK-dJE" firstAttribute="leading" secondItem="6nX-vM-6Q7" secondAttribute="trailing" constant="15" id="MXq-pF-S71"/>
                         <constraint firstItem="42t-TK-GjF" firstAttribute="leading" secondItem="6nX-vM-6Q7" secondAttribute="trailing" constant="15" id="WFD-S1-RaN"/>
                         <constraint firstItem="DWm-FK-dJE" firstAttribute="top" secondItem="42t-TK-GjF" secondAttribute="bottom" id="eUT-Qe-Qfr"/>
                         <constraint firstAttribute="trailing" secondItem="bxM-tX-sc9" secondAttribute="trailing" id="eoX-ti-fhi"/>
+                        <constraint firstItem="bxM-tX-sc9" firstAttribute="leading" secondItem="zeS-rG-NVL" secondAttribute="leading" id="m5K-FL-PLc"/>
+                        <constraint firstItem="kiJ-Av-qZR" firstAttribute="leading" secondItem="zeS-rG-NVL" secondAttribute="leading" id="mJU-1o-TZe"/>
                         <constraint firstItem="bxM-tX-sc9" firstAttribute="leading" secondItem="zeS-rG-NVL" secondAttribute="leading" id="mU8-2A-PvT"/>
+                        <constraint firstAttribute="trailing" secondItem="kiJ-Av-qZR" secondAttribute="trailing" id="wrv-D5-NlF"/>
                         <constraint firstItem="6nX-vM-6Q7" firstAttribute="leading" secondItem="zeS-rG-NVL" secondAttribute="leading" constant="20" id="zJ4-Gs-xE2"/>
                         <constraint firstItem="6nX-vM-6Q7" firstAttribute="top" secondItem="bxM-tX-sc9" secondAttribute="bottom" constant="9" id="zo0-SL-ggx"/>
                     </constraints>
@@ -297,6 +301,8 @@
                     <constraints>
                         <constraint firstItem="Muq-MG-uQd" firstAttribute="centerX" secondItem="JFv-Pw-f1Y" secondAttribute="centerX" id="6fE-aK-GuR"/>
                         <constraint firstItem="vI4-6I-vgz" firstAttribute="top" secondItem="8zB-5l-evd" secondAttribute="bottom" constant="9" id="6qG-G3-vCM"/>
+                        <constraint firstAttribute="trailing" secondItem="lRp-q1-l8z" secondAttribute="trailing" id="AKi-MU-ios"/>
+                        <constraint firstAttribute="trailing" secondItem="8zB-5l-evd" secondAttribute="trailing" id="KNb-Zh-FLD"/>
                         <constraint firstItem="vI4-6I-vgz" firstAttribute="leading" secondItem="JFv-Pw-f1Y" secondAttribute="leading" constant="22" id="NpM-Fb-kSd"/>
                         <constraint firstItem="lRp-q1-l8z" firstAttribute="top" secondItem="vI4-6I-vgz" secondAttribute="bottom" constant="9" id="OdY-se-BT1"/>
                         <constraint firstItem="Muq-MG-uQd" firstAttribute="centerX" secondItem="JFv-Pw-f1Y" secondAttribute="centerX" id="Ph4-dw-LFS"/>
@@ -304,6 +310,8 @@
                         <constraint firstItem="Muq-MG-uQd" firstAttribute="leading" secondItem="vI4-6I-vgz" secondAttribute="trailing" constant="22" id="d6a-rP-brb"/>
                         <constraint firstItem="lRp-q1-l8z" firstAttribute="top" secondItem="ejh-la-ghv" secondAttribute="bottom" constant="9" id="f9j-x0-XfS"/>
                         <constraint firstItem="ejh-la-ghv" firstAttribute="top" secondItem="8zB-5l-evd" secondAttribute="bottom" constant="9" id="h3Q-gf-Xrc"/>
+                        <constraint firstItem="lRp-q1-l8z" firstAttribute="leading" secondItem="JFv-Pw-f1Y" secondAttribute="leading" id="ho8-wQ-hUg"/>
+                        <constraint firstItem="8zB-5l-evd" firstAttribute="leading" secondItem="JFv-Pw-f1Y" secondAttribute="leading" id="imG-ap-vyd"/>
                         <constraint firstItem="ejh-la-ghv" firstAttribute="leading" secondItem="Muq-MG-uQd" secondAttribute="trailing" constant="22" id="w1o-rS-MVe"/>
                     </constraints>
                 </view>

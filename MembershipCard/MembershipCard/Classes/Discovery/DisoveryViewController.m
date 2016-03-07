@@ -9,12 +9,14 @@
 #import "DisoveryViewController.h"
 #import "DiscoveryWithImageCell.h"
 #import "UIView+frame.h"
+#import <MJRefresh.h>
 
 #define LINE_WIDTH  40
-@interface DisoveryViewController ()<UIScrollViewDelegate>
+@interface DisoveryViewController ()<UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) NSArray *typeArray;
 @property (nonatomic, assign) NSInteger tag;
 @property (nonatomic, assign) CGFloat btnWidth;
+@property (nonatomic, strong) NSMutableArray *tableViewArray;
 @end
 
 @implementation DisoveryViewController
@@ -22,6 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"发现";
+    _tableViewArray = [[NSMutableArray alloc]init];
     UIButton *leftBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 28, 28)];
     [leftBtn setTitle:@"爆料" forState:UIControlStateNormal];
     [leftBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -87,7 +90,37 @@
     [_scrollBgView setBackgroundColor:UIColorFromRGB(0xffd500)];
     [_typeScrollView addSubview:_scrollBgView];
     [_contentScrollView setContentSize:CGSizeMake(MainScreenWidth * _typeArray.count, 0)];
-    //[self addTableViewToScrollView:_contentScrollView frame:CGRectZero];
+    [self addTableViewToScrollView:_contentScrollView count:_typeArray.count frame:CGRectZero];
+}
+
+- (void)addTableViewToScrollView:(UIScrollView *)scrollView count:(NSUInteger)pageCount frame:(CGRect)frame
+{
+    for (int i = 0; i < pageCount; i++) {
+        UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(MainScreenWidth * i, 0 , MainScreenWidth, MainScreenHeight - 40 - NavAndStatusBarHeight - TabbarHeight)];
+//        tableView.delegate = self;
+//        tableView.dataSource = self;
+        //[tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+        tableView.tag = i;
+        [tableView registerNib:[UINib nibWithNibName:@"KnowledgeListTableViewCell" bundle:nil] forCellReuseIdentifier:@"myIdentify"];
+        [_tableViewArray addObject:tableView];
+        [scrollView addSubview:tableView];
+        tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            [self refreshData];
+        }];
+        tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            [self loadMoreData];
+        }];
+    }
+}
+
+- (void)refreshData
+{
+    
+}
+
+- (void)loadMoreData
+{
+    
 }
 
 - (void)actionbtn:(UIButton *)btn

@@ -13,8 +13,9 @@
 #import "UINavigationController+FDFullscreenPopGesture.h"
 #import "UIView+border.h"
 #import "takePhoto.h"
+#import "NotificationTableViewCell.h"
 
-@interface MyCardDetailViewController ()<UIGestureRecognizerDelegate>
+@interface MyCardDetailViewController ()<UIGestureRecognizerDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) NSNumber *fromValue;
 @property (nonatomic, strong) UIImageView *hornTopImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
@@ -47,6 +48,9 @@
     [_backPicBtn circularBoarderBead:6 withBoarder:1 color:UIColorFromRGB(0xf0f0f0)];
     [_markTextView circularBoarderBead:6 withBoarder:1 color:UIColorFromRGB(0xf0f0f0)];
     [_logoImageView circular];
+    _newsTableView.delegate = self;
+    _newsTableView.dataSource = self;
+    [_newsTableView registerNib:[UINib nibWithNibName:@"NotificationTableViewCell" bundle:nil] forCellReuseIdentifier:@"cellIdentifier"];
 }
 
 - (void)getCradInfo
@@ -63,6 +67,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+#pragma mark Action
 - (void)showViewByModel:(CardInfoModel *)model
 {
     //卡号生成条形码
@@ -218,5 +224,30 @@
  *  @param sender description
  */
 - (IBAction)infoBtnAction:(id)sender {
+}
+
+#pragma mark UITableViewDelegate/UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 10;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NotificationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentifier"];
+    cell.contentLabel.text = @"tom";
+    return cell;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        //[dataArray removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
+        
+    }
 }
 @end

@@ -81,14 +81,14 @@
 		E2BDB81D1C7B641200274CE3 /* InputCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2BDB81B1C7B641200274CE3 /* InputCardViewController.xib */; };
 		E2BDB8211C7B644600274CE3 /* BrandListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BDB81F1C7B644600274CE3 /* BrandListViewController.m */; };
 		E2BDB8221C7B644600274CE3 /* BrandListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2BDB8201C7B644600274CE3 /* BrandListViewController.xib */; };
-		E2BDB82B1C7B64CB00274CE3 /* EditRemarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BDB8291C7B64CB00274CE3 /* EditRemarkViewController.m */; };
-		E2BDB82C1C7B64CB00274CE3 /* EditRemarkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2BDB82A1C7B64CB00274CE3 /* EditRemarkViewController.xib */; };
 		E2BDB8301C7B655200274CE3 /* RecordDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BDB82E1C7B655200274CE3 /* RecordDetailViewController.m */; };
 		E2BDB8311C7B655200274CE3 /* RecordDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2BDB82F1C7B655200274CE3 /* RecordDetailViewController.xib */; };
 		E2FBA6061C82B57000F9F799 /* UIView+border.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FBA6051C82B57000F9F799 /* UIView+border.m */; };
 		E2FBA60F1C82B70000F9F799 /* YKModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FBA60E1C82B70000F9F799 /* YKModel.m */; };
 		E2FBA6151C82B91800F9F799 /* MartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FBA6131C82B91800F9F799 /* MartViewController.m */; };
 		E2FBA6161C82B91800F9F799 /* MartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2FBA6141C82B91800F9F799 /* MartViewController.xib */; };
+		E2FBAD391C8DB1ED0043F35D /* EditRemarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FBAD371C8DB1ED0043F35D /* EditRemarkViewController.m */; };
+		E2FBAD3A1C8DB1ED0043F35D /* EditRemarkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2FBAD381C8DB1ED0043F35D /* EditRemarkViewController.xib */; };
 		E2FEE3731C79E7860079B824 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FEE3721C79E7860079B824 /* main.m */; };
 		E2FEE3761C79E7860079B824 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FEE3751C79E7860079B824 /* AppDelegate.m */; };
 		E2FEE37C1C79E7860079B824 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2FEE37A1C79E7860079B824 /* Main.storyboard */; };
@@ -238,9 +238,6 @@
 		E2BDB81E1C7B644600274CE3 /* BrandListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandListViewController.h; sourceTree = "<group>"; };
 		E2BDB81F1C7B644600274CE3 /* BrandListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandListViewController.m; sourceTree = "<group>"; };
 		E2BDB8201C7B644600274CE3 /* BrandListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrandListViewController.xib; sourceTree = "<group>"; };
-		E2BDB8281C7B64CB00274CE3 /* EditRemarkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditRemarkViewController.h; sourceTree = "<group>"; };
-		E2BDB8291C7B64CB00274CE3 /* EditRemarkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditRemarkViewController.m; sourceTree = "<group>"; };
-		E2BDB82A1C7B64CB00274CE3 /* EditRemarkViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditRemarkViewController.xib; sourceTree = "<group>"; };
 		E2BDB82D1C7B655200274CE3 /* RecordDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordDetailViewController.h; sourceTree = "<group>"; };
 		E2BDB82E1C7B655200274CE3 /* RecordDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordDetailViewController.m; sourceTree = "<group>"; };
 		E2BDB82F1C7B655200274CE3 /* RecordDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordDetailViewController.xib; sourceTree = "<group>"; };
@@ -251,6 +248,9 @@
 		E2FBA6121C82B91800F9F799 /* MartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MartViewController.h; sourceTree = "<group>"; };
 		E2FBA6131C82B91800F9F799 /* MartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MartViewController.m; sourceTree = "<group>"; };
 		E2FBA6141C82B91800F9F799 /* MartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MartViewController.xib; sourceTree = "<group>"; };
+		E2FBAD361C8DB1ED0043F35D /* EditRemarkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditRemarkViewController.h; sourceTree = "<group>"; };
+		E2FBAD371C8DB1ED0043F35D /* EditRemarkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditRemarkViewController.m; sourceTree = "<group>"; };
+		E2FBAD381C8DB1ED0043F35D /* EditRemarkViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditRemarkViewController.xib; sourceTree = "<group>"; };
 		E2FEE36E1C79E7860079B824 /* MembershipCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MembershipCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2FEE3721C79E7860079B824 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E2FEE3741C79E7860079B824 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -640,9 +640,9 @@
 				270085A01C8808B50069149F /* MyCardDetailViewController.h */,
 				2700859F1C8808B50069149F /* MyCardDetailViewController.m */,
 				270085A11C8808B50069149F /* MyCardDetailViewController.xib */,
-				E2BDB8281C7B64CB00274CE3 /* EditRemarkViewController.h */,
-				E2BDB8291C7B64CB00274CE3 /* EditRemarkViewController.m */,
-				E2BDB82A1C7B64CB00274CE3 /* EditRemarkViewController.xib */,
+				E2FBAD361C8DB1ED0043F35D /* EditRemarkViewController.h */,
+				E2FBAD371C8DB1ED0043F35D /* EditRemarkViewController.m */,
+				E2FBAD381C8DB1ED0043F35D /* EditRemarkViewController.xib */,
 				E2BDB82D1C7B655200274CE3 /* RecordDetailViewController.h */,
 				E2BDB82E1C7B655200274CE3 /* RecordDetailViewController.m */,
 				E2BDB82F1C7B655200274CE3 /* RecordDetailViewController.xib */,
@@ -910,7 +910,6 @@
 				E2BDB7B51C7B42E200274CE3 /* AddNewCardViewController.xib in Resources */,
 				1A1470A41C8D7CC5003A0616 /* addCard-scan@3x.png in Resources */,
 				E2BDB7C01C7B567B00274CE3 /* NotificationTableViewCell.xib in Resources */,
-				E2BDB82C1C7B64CB00274CE3 /* EditRemarkViewController.xib in Resources */,
 				1A1470901C8D5717003A0616 /* more2.png in Resources */,
 				E2004C191C85E41400CDA2E7 /* YKMerchantsViewController.xib in Resources */,
 				E2004C051C85CE5000CDA2E7 /* AssignmentInfoViewController.xib in Resources */,
@@ -920,6 +919,7 @@
 				E2FF438E1C8A9E8B00C9F10F /* tabbar_discover_selected@3x.png in Resources */,
 				1AEDD3C31C8D2D4000E435AC /* icon_back@2x.png in Resources */,
 				1A344BFF1C884AA1009F3FFC /* MoreViewController.xib in Resources */,
+				E2FBAD3A1C8DB1ED0043F35D /* EditRemarkViewController.xib in Resources */,
 				E2FEE3CB1C79F5A70079B824 /* LoginViewController.xib in Resources */,
 				E2FEE3D01C79F5EA0079B824 /* SettingViewController.xib in Resources */,
 				1A1470A31C8D7CC5003A0616 /* addCard-scan@2x.png in Resources */,
@@ -1024,7 +1024,6 @@
 				E2BDB7B41C7B42E200274CE3 /* AddNewCardViewController.m in Sources */,
 				E2004C131C85E3C200CDA2E7 /* VIPServiceTableViewController.m in Sources */,
 				E200FC621C7F4BF000644BB5 /* takePhoto.m in Sources */,
-				E2BDB82B1C7B64CB00274CE3 /* EditRemarkViewController.m in Sources */,
 				E2004C041C85CE5000CDA2E7 /* AssignmentInfoViewController.m in Sources */,
 				270085A21C8808B50069149F /* MyCardDetailViewController.m in Sources */,
 				1A344BF31C882DCD009F3FFC /* DisoveryViewController.m in Sources */,
@@ -1050,6 +1049,7 @@
 				E2FEE3C11C79F4AC0079B824 /* GuideViewController.m in Sources */,
 				1A344BFE1C884AA1009F3FFC /* MoreViewController.m in Sources */,
 				E2BDB8301C7B655200274CE3 /* RecordDetailViewController.m in Sources */,
+				E2FBAD391C8DB1ED0043F35D /* EditRemarkViewController.m in Sources */,
 				E2004C181C85E41400CDA2E7 /* YKMerchantsViewController.m in Sources */,
 				E2BDB7C51C7B5F5100274CE3 /* VIPTableViewCell.m in Sources */,
 				E2FEE3CA1C79F5A70079B824 /* LoginViewController.m in Sources */,
