@@ -49,6 +49,7 @@
         [self loadNewData];
     }];
     [self loadNewData];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated

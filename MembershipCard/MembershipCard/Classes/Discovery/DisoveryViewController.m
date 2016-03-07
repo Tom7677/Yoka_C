@@ -66,10 +66,11 @@
  *  创建顶部选择按钮
  */
 - (void) createBtn {
-    _btnWidth = MainScreenWidth / 7;
+    _btnWidth = (MainScreenWidth-40) / 7;
     for (int i = 0; i < _typeArray.count; i ++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [btn setFrame:CGRectMake(_btnWidth * i, 0, _btnWidth, _typeScrollView.height)];
+
+        [btn setFrame:CGRectMake(20 + _btnWidth * i, 0, _btnWidth, _typeScrollView.height)];
         [btn setTitle:[_typeArray objectAtIndex:i] forState:UIControlStateNormal];
         [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [btn setTitleColor:UIColorFromRGB(0xFF526E) forState:UIControlStateSelected];
@@ -81,8 +82,8 @@
         [btn addTarget:self action:@selector(actionbtn:) forControlEvents:UIControlEventTouchUpInside];
         [_typeScrollView addSubview:btn];
     }
-    [_typeScrollView setContentSize:CGSizeMake(_btnWidth * _typeArray.count + 10, _typeScrollView.height)];
-    _scrollBgView = [[UIView alloc] initWithFrame:CGRectMake((_btnWidth - LINE_WIDTH) / 2, _typeScrollView.height - 3, LINE_WIDTH, 3)];
+    [_typeScrollView setContentSize:CGSizeMake(_btnWidth * _typeArray.count + 40, _typeScrollView.height)];
+    _scrollBgView = [[UIView alloc] initWithFrame:CGRectMake((_btnWidth - LINE_WIDTH) / 2 + 20, _typeScrollView.height - 3, LINE_WIDTH, 3)];
     [_scrollBgView setBackgroundColor:UIColorFromRGB(0xffd500)];
     [_typeScrollView addSubview:_scrollBgView];
     [_contentScrollView setContentSize:CGSizeMake(MainScreenWidth * _typeArray.count, 0)];
@@ -99,7 +100,7 @@
 - (void)changeView:(float)x
 {
     float xx = x * (_btnWidth / MainScreenWidth);
-    [_scrollBgView setFrame:CGRectMake(xx + (_btnWidth - LINE_WIDTH) / 2, _scrollBgView.originY, _scrollBgView.width, _scrollBgView.height)];
+    [_scrollBgView setFrame:CGRectMake(xx + (_btnWidth - LINE_WIDTH) / 2 + 20, _scrollBgView.originY, _scrollBgView.width, _scrollBgView.height)];
 }
 
 #pragma mark - UIScrollViewDelegate

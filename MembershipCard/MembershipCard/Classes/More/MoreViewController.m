@@ -27,7 +27,7 @@
     rightBtn.titleLabel.font = [UIFont systemFontOfSize:14];
     [rightBtn addTarget:self action:@selector(setting) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
-    [self.navigationItem setLeftBarButtonItem:rightItem];
+    [self.navigationItem setRightBarButtonItem:rightItem];
     
     _bgView.width = MainScreenWidth;
     _scrollView.contentSize = CGSizeMake(MainScreenWidth, _bgView.height);

@@ -187,9 +187,9 @@
         </view>
     </objects>
     <resources>
-        <image name="addCard-code.png" width="25" height="25"/>
-        <image name="addCard-menu.png" width="25" height="25"/>
-        <image name="addCard-scan.png" width="25" height="25"/>
+        <image name="addCard-code.png" width="50" height="50"/>
+        <image name="addCard-menu.png" width="50" height="50"/>
+        <image name="addCard-scan.png" width="50" height="50"/>
         <image name="next" width="16" height="16"/>
     </resources>
 </document>

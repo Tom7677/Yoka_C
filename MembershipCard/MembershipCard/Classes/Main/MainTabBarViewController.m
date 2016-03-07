@@ -52,6 +52,7 @@
     self.viewControllers = @[myCardBagNav,discoveryNav,martNav];
     for (UINavigationController *navController in self.viewControllers) {
         navController.tabBarItem.titlePositionAdjustment = UIOffsetMake(0, -4);
+        navController.tabBarItem.image = [navController.tabBarItem.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     }
 
 }
