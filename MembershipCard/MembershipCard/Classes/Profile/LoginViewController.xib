@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
@@ -10,8 +10,10 @@
                 <outlet property="codeTextField" destination="49O-Bk-um2" id="Wec-lU-8Ai"/>
                 <outlet property="getCodeBtn" destination="sHp-HW-35K" id="6AD-sR-bp2"/>
                 <outlet property="logoImageView" destination="tvd-g5-us2" id="CvY-DB-rsK"/>
+                <outlet property="orLabel" destination="PHv-DW-9Md" id="aEK-uN-hI9"/>
                 <outlet property="phoneNumTextField" destination="zjL-w1-PzW" id="tDM-I8-PUF"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="mQy-vQ-wPz"/>
+                <outlet property="weixinBtn" destination="wlJ-PX-Ya8" id="zAa-oW-KNk"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -137,7 +139,7 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wlJ-PX-Ya8" customClass="TSImageLeftButton">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wlJ-PX-Ya8" customClass="MidImageLeftButton">
                     <rect key="frame" x="10" y="330" width="300" height="35"/>
                     <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>

@@ -35,6 +35,7 @@
 		1AEDD3C41C8D2D4000E435AC /* icon_back@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AEDD3C11C8D2D4000E435AC /* icon_back@3x.png */; };
 		270085A21C8808B50069149F /* MyCardDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2700859F1C8808B50069149F /* MyCardDetailViewController.m */; };
 		270085A31C8808B50069149F /* MyCardDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 270085A11C8808B50069149F /* MyCardDetailViewController.xib */; };
+		27D39A021C8D261200A3F3C3 /* MidImageLeftButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D39A011C8D261200A3F3C3 /* MidImageLeftButton.m */; };
 		E2004BFF1C85CD7D00CDA2E7 /* SellCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2004BFD1C85CD7D00CDA2E7 /* SellCardViewController.m */; };
 		E2004C001C85CD7D00CDA2E7 /* SellCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2004BFE1C85CD7D00CDA2E7 /* SellCardViewController.xib */; };
 		E2004C041C85CE5000CDA2E7 /* AssignmentInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2004C021C85CE5000CDA2E7 /* AssignmentInfoViewController.m */; };
@@ -165,6 +166,8 @@
 		2700859F1C8808B50069149F /* MyCardDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCardDetailViewController.m; sourceTree = "<group>"; };
 		270085A01C8808B50069149F /* MyCardDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCardDetailViewController.h; sourceTree = "<group>"; };
 		270085A11C8808B50069149F /* MyCardDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCardDetailViewController.xib; sourceTree = "<group>"; };
+		27D39A001C8D261200A3F3C3 /* MidImageLeftButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidImageLeftButton.h; sourceTree = "<group>"; };
+		27D39A011C8D261200A3F3C3 /* MidImageLeftButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidImageLeftButton.m; sourceTree = "<group>"; };
 		4A3F338817F8EBA02DCDB671 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E2004BFC1C85CD7D00CDA2E7 /* SellCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SellCardViewController.h; sourceTree = "<group>"; };
 		E2004BFD1C85CD7D00CDA2E7 /* SellCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SellCardViewController.m; sourceTree = "<group>"; };
@@ -712,6 +715,8 @@
 				E200FC611C7F4BF000644BB5 /* takePhoto.m */,
 				E249839E1C8BD6D3005B77A8 /* TSImageLeftButton.h */,
 				E249839F1C8BD6D3005B77A8 /* TSImageLeftButton.m */,
+				27D39A001C8D261200A3F3C3 /* MidImageLeftButton.h */,
+				27D39A011C8D261200A3F3C3 /* MidImageLeftButton.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -850,7 +855,7 @@
 				TargetAttributes = {
 					E2FEE36D1C79E7860079B824 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = ZZ49Y24LYW;
+						DevelopmentTeam = CWPM78QMN6;
 					};
 					E2FEE3861C79E7860079B824 = {
 						CreatedOnToolsVersion = 7.2;
@@ -1027,6 +1032,7 @@
 				E2FBA6061C82B57000F9F799 /* UIView+border.m in Sources */,
 				E2FEE3761C79E7860079B824 /* AppDelegate.m in Sources */,
 				1A344BF91C8830B6009F3FFC /* DiscoveryWithImageCell.m in Sources */,
+				27D39A021C8D261200A3F3C3 /* MidImageLeftButton.m in Sources */,
 				E2FEE3C51C79F58B0079B824 /* MyCardBagViewController.m in Sources */,
 				E2BDB7BF1C7B567B00274CE3 /* NotificationTableViewCell.m in Sources */,
 				E2073CBD1C849CA30028DD8C /* NetworkAPI.m in Sources */,

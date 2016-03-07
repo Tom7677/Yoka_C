@@ -7,6 +7,7 @@
 //
 
 #import "BaseViewController.h"
+#import "MidImageLeftButton.h"
 
 @interface LoginViewController : BaseViewController
 @property (copy, nonatomic) void (^LoginCallBack)();
@@ -14,6 +15,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *codeTextField;
 @property (weak, nonatomic) IBOutlet UIButton *getCodeBtn;
 @property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
+@property (weak, nonatomic) IBOutlet UILabel *orLabel;
+@property (weak, nonatomic) IBOutlet MidImageLeftButton *weixinBtn;
 
 
 - (IBAction)getCodeBtnAction:(id)sender;

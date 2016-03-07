@@ -23,8 +23,6 @@
     //卡包
     MyCardBagViewController *myCardBagVC = [[MyCardBagViewController alloc]init];
     UINavigationController *myCardBagNav = [[UINavigationController alloc]initWithRootViewController:myCardBagVC];
-    [myCardBagNav.navigationBar setTranslucent:YES];
-    myCardBagNav.navigationBar.alpha = 0.3;
     UIImage *myCardBagImg = [UIImage imageNamed:@"tabbar_myCardBag_selected@3x"];
     myCardBagImg =  [myCardBagImg imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UITabBarItem *myCardBagItem = [[UITabBarItem alloc]initWithTitle:@"卡包" image:[UIImage imageNamed:@"tabbar_myCardBag@3x"] selectedImage:myCardBagImg];

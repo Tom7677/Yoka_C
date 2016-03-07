@@ -9,6 +9,9 @@
 #import "LoginViewController.h"
 #import "UIView+frame.h"
 #import "UIView+border.h"
+#import "WXApi.h"
+#import "WXApiObject.h"
+
 
 #define INTERVAL_KEYBOARD 20
 @interface LoginViewController ()<UITextFieldDelegate>
@@ -30,6 +33,10 @@
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
     [_logoImageView circularBead:6];
+    if (![WXApi isWXAppInstalled]) {
+        _weixinBtn.hidden = YES;
+        _orLabel.hidden = YES;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -76,10 +83,21 @@
 - (IBAction)weixinLoginAction:(id)sender {
 }
 
+
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     [_codeTextField resignFirstResponder];
     [_phoneNumTextField resignFirstResponder];
+}
+
+-(void)sendAuthRequest
+{
+    //构造SendAuthReq结构体
+    SendAuthReq* req =[[SendAuthReq alloc ]init];
+    req.scope = @"snsapi_userinfo" ;
+    req.state = @"123" ;
+    //第三方向微信终端发送一个SendAuthReq消息结构
+    [WXApi sendReq:req];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
