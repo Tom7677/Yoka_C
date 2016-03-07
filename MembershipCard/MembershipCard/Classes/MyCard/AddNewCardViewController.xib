@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddNewCardViewController">
@@ -20,37 +20,44 @@
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ksR-gO-tsq">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                            <animations/>
                             <connections>
                                 <action selector="qrBtnAction:" destination="-1" eventType="touchUpInside" id="TxO-gP-eJU"/>
                             </connections>
                         </button>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X1G-xy-nEy">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="addCard-scan.png" translatesAutoresizingMaskIntoConstraints="NO" id="X1G-xy-nEy">
                             <rect key="frame" x="22" y="15" width="49" height="44"/>
+                            <animations/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="扫码识别卡片" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vwd-os-gVO">
                             <rect key="frame" x="104" y="29" width="81" height="21"/>
+                            <animations/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="添加" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9TH-rP-oO2">
                             <rect key="frame" x="268" y="31" width="26" height="18"/>
+                            <animations/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" white="0.33333333333333331" alpha="0.67928340517241381" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SwG-vg-We2">
                             <rect key="frame" x="10" y="79" width="310" height="1"/>
+                            <animations/>
                             <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="next" translatesAutoresizingMaskIntoConstraints="NO" id="LyY-A8-AdR">
                             <rect key="frame" x="294" y="32" width="16" height="16"/>
+                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="16" id="OB5-is-fxA"/>
                                 <constraint firstAttribute="width" constant="16" id="jJN-rh-3pA"/>
                             </constraints>
                         </imageView>
                     </subviews>
+                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="LyY-A8-AdR" firstAttribute="leading" secondItem="9TH-rP-oO2" secondAttribute="trailing" id="262-8P-pin"/>
@@ -66,37 +73,44 @@
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HDf-Ey-svC">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                            <animations/>
                             <connections>
                                 <action selector="inputBtnAction:" destination="-1" eventType="touchUpInside" id="DM2-J5-6vJ"/>
                             </connections>
                         </button>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Skk-Qo-oeV">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="addCard-code.png" translatesAutoresizingMaskIntoConstraints="NO" id="Skk-Qo-oeV">
                             <rect key="frame" x="22" y="15" width="49" height="44"/>
+                            <animations/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="手工输入卡号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rOi-7H-c3n">
                             <rect key="frame" x="104" y="29" width="81" height="21"/>
+                            <animations/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fGy-27-slg">
                             <rect key="frame" x="10" y="79" width="310" height="1"/>
+                            <animations/>
                             <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="添加" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z00-TS-Gio">
                             <rect key="frame" x="268" y="30" width="26" height="18"/>
+                            <animations/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" white="0.33333333329999998" alpha="0.67928340519999997" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="next" translatesAutoresizingMaskIntoConstraints="NO" id="4CG-rt-T08">
                             <rect key="frame" x="294" y="32" width="16" height="16"/>
+                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="16" id="0rI-fW-h7B"/>
                                 <constraint firstAttribute="height" constant="16" id="XsQ-GU-X7H"/>
                             </constraints>
                         </imageView>
                     </subviews>
+                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="4CG-rt-T08" secondAttribute="trailing" constant="10" id="9ce-ti-Neh"/>
@@ -110,37 +124,44 @@
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KYH-qa-lC3">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                            <animations/>
                             <connections>
                                 <action selector="chooseBtnAction:" destination="-1" eventType="touchUpInside" id="fPq-VF-Leo"/>
                             </connections>
                         </button>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p10-Q2-5gt">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="addCard-menu.png" translatesAutoresizingMaskIntoConstraints="NO" id="p10-Q2-5gt">
                             <rect key="frame" x="22" y="15" width="49" height="44"/>
+                            <animations/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="品牌列表选择" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCr-oa-kdB">
                             <rect key="frame" x="104" y="29" width="81" height="21"/>
+                            <animations/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xTC-8O-wGb">
                             <rect key="frame" x="10" y="79" width="310" height="1"/>
+                            <animations/>
                             <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="添加" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LB5-jb-RkX">
                             <rect key="frame" x="268" y="30" width="26" height="18"/>
+                            <animations/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" white="0.33333333329999998" alpha="0.67928340519999997" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="next" translatesAutoresizingMaskIntoConstraints="NO" id="rHK-Ab-FWJ">
                             <rect key="frame" x="294" y="32" width="16" height="16"/>
+                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="16" id="bx1-Xk-KdR"/>
                                 <constraint firstAttribute="height" constant="16" id="h6P-zi-GTO"/>
                             </constraints>
                         </imageView>
                     </subviews>
+                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="xTC-8O-wGb" secondAttribute="trailing" id="5sW-a5-BS4"/>
@@ -152,6 +173,7 @@
                     </constraints>
                 </view>
             </subviews>
+            <animations/>
             <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="x7b-oX-rUP" secondAttribute="trailing" id="AYh-Om-4HW"/>
@@ -165,6 +187,9 @@
         </view>
     </objects>
     <resources>
+        <image name="addCard-code.png" width="25" height="25"/>
+        <image name="addCard-menu.png" width="25" height="25"/>
+        <image name="addCard-scan.png" width="25" height="25"/>
         <image name="next" width="16" height="16"/>
     </resources>
 </document>
