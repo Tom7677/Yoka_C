@@ -32,7 +32,7 @@
     UIButton *leftBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 28, 28)];
     [leftBtn setTitle:@"爆料" forState:UIControlStateNormal];
     [leftBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    leftBtn.titleLabel.font = [UIFont systemFontOfSize:13];
+    leftBtn.titleLabel.font = [UIFont systemFontOfSize:14];
     [leftBtn addTarget:self action:@selector(topNews) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
     [self.navigationItem setLeftBarButtonItem:leftItem];
