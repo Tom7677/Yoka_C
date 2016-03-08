@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
 @property (weak, nonatomic) IBOutlet UILabel *orLabel;
 @property (weak, nonatomic) IBOutlet MidImageLeftButton *weixinBtn;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
 
 - (IBAction)getCodeBtnAction:(id)sender;

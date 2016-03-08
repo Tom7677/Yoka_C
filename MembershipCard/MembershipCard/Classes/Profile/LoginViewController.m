@@ -32,11 +32,15 @@
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
-    [_logoImageView circularBead:6];
-    if (![WXApi isWXAppInstalled]) {
-        _weixinBtn.hidden = YES;
-        _orLabel.hidden = YES;
-    }
+    [_logoImageView circularBead:15];
+    [_loginButton circularBead:4];
+    UIImage *wxLogo = [UIImage imageNamed:@"wx"];
+    wxLogo = [wxLogo imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    [_weixinBtn setImage:wxLogo forState:UIControlStateNormal];
+//    if (![WXApi isWXAppInstalled]) {
+//        _weixinBtn.hidden = YES;
+//        _orLabel.hidden = YES;
+//    }
 }
 
 - (void)didReceiveMemoryWarning {

@@ -40,17 +40,17 @@
 
 - (void)goMainView
 {
-//    NSString *accessToken = [[NSUserDefaults standardUserDefaults]objectForKey:@"Mobile"];
-//    if (nil == accessToken || [@"" isEqualToString:accessToken]) {
-//        LoginViewController * vc = [[LoginViewController alloc] init];
-//        self.window.rootViewController = vc;
-//        [vc setLoginCallBack:^{
-//            [self showHomeVC];
-//        }];
-//    }
-//    else {
+    NSString *accessToken = [[NSUserDefaults standardUserDefaults]objectForKey:@"Mobile"];
+    if (nil == accessToken || [@"" isEqualToString:accessToken]) {
+        LoginViewController * vc = [[LoginViewController alloc] init];
+        self.window.rootViewController = vc;
+        [vc setLoginCallBack:^{
+            [self showHomeVC];
+        }];
+    }
+    else {
         [self showHomeVC];
-//    }
+    }
 }
 
 - (void)showHomeVC

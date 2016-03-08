@@ -51,6 +51,9 @@
 		1AEDD3C21C8D2D4000E435AC /* icon_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AEDD3BF1C8D2D4000E435AC /* icon_back.png */; };
 		1AEDD3C31C8D2D4000E435AC /* icon_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AEDD3C01C8D2D4000E435AC /* icon_back@2x.png */; };
 		1AEDD3C41C8D2D4000E435AC /* icon_back@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AEDD3C11C8D2D4000E435AC /* icon_back@3x.png */; };
+		1AFED1B91C8F1D6E00415ABF /* wx.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFED1B61C8F1D6E00415ABF /* wx.png */; };
+		1AFED1BA1C8F1D6E00415ABF /* wx@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFED1B71C8F1D6E00415ABF /* wx@2x.png */; };
+		1AFED1BB1C8F1D6E00415ABF /* wx@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFED1B81C8F1D6E00415ABF /* wx@3x.png */; };
 		270085A21C8808B50069149F /* MyCardDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2700859F1C8808B50069149F /* MyCardDetailViewController.m */; };
 		270085A31C8808B50069149F /* MyCardDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 270085A11C8808B50069149F /* MyCardDetailViewController.xib */; };
 		27D39A021C8D261200A3F3C3 /* MidImageLeftButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D39A011C8D261200A3F3C3 /* MidImageLeftButton.m */; };
@@ -192,6 +195,9 @@
 		1AEDD3BF1C8D2D4000E435AC /* icon_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_back.png; sourceTree = "<group>"; };
 		1AEDD3C01C8D2D4000E435AC /* icon_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_back@2x.png"; sourceTree = "<group>"; };
 		1AEDD3C11C8D2D4000E435AC /* icon_back@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_back@3x.png"; sourceTree = "<group>"; };
+		1AFED1B61C8F1D6E00415ABF /* wx.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wx.png; sourceTree = "<group>"; };
+		1AFED1B71C8F1D6E00415ABF /* wx@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wx@2x.png"; sourceTree = "<group>"; };
+		1AFED1B81C8F1D6E00415ABF /* wx@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wx@3x.png"; sourceTree = "<group>"; };
 		229FA454613B3E0894C28FE1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		2700859F1C8808B50069149F /* MyCardDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCardDetailViewController.m; sourceTree = "<group>"; };
 		270085A01C8808B50069149F /* MyCardDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCardDetailViewController.h; sourceTree = "<group>"; };
@@ -433,6 +439,16 @@
 				1A14709B1C8D7CC5003A0616 /* addCard-scan@3x.png */,
 			);
 			path = AddCard;
+			sourceTree = "<group>";
+		};
+		1AFED1B51C8F1D6E00415ABF /* weixin */ = {
+			isa = PBXGroup;
+			children = (
+				1AFED1B61C8F1D6E00415ABF /* wx.png */,
+				1AFED1B71C8F1D6E00415ABF /* wx@2x.png */,
+				1AFED1B81C8F1D6E00415ABF /* wx@3x.png */,
+			);
+			path = weixin;
 			sourceTree = "<group>";
 		};
 		A0758A279F6BB01FDBEABF06 /* Pods */ = {
@@ -789,6 +805,7 @@
 			isa = PBXGroup;
 			children = (
 				1ACFB94C1C8E98100083FD07 /* tabbar */,
+				1AFED1B51C8F1D6E00415ABF /* weixin */,
 				E24983A31C8C2753005B77A8 /* Login */,
 				1AEDD3A61C8D284400E435AC /* AddCard */,
 				E2073CB41C847D590028DD8C /* Mycard */,
@@ -951,6 +968,7 @@
 				1ACFB9AC1C8EACA20083FD07 /* tabbar_discovery@3x.png in Resources */,
 				1ACFB9B61C8EACA20083FD07 /* tabbar_myCardBag.png in Resources */,
 				1AEDD3C41C8D2D4000E435AC /* icon_back@3x.png in Resources */,
+				1AFED1BB1C8F1D6E00415ABF /* wx@3x.png in Resources */,
 				E2BDB8311C7B655200274CE3 /* RecordDetailViewController.xib in Resources */,
 				1A1470A21C8D7CC5003A0616 /* addCard-scan.png in Resources */,
 				1ACFB9B71C8EACA20083FD07 /* tabbar_myCardBag@2x.png in Resources */,
@@ -959,6 +977,7 @@
 				1A1470A41C8D7CC5003A0616 /* addCard-scan@3x.png in Resources */,
 				E2BDB7C01C7B567B00274CE3 /* NotificationTableViewCell.xib in Resources */,
 				E2004C191C85E41400CDA2E7 /* YKMerchantsViewController.xib in Resources */,
+				1AFED1B91C8F1D6E00415ABF /* wx.png in Resources */,
 				E2004C051C85CE5000CDA2E7 /* AssignmentInfoViewController.xib in Resources */,
 				E2BDB81D1C7B641200274CE3 /* InputCardViewController.xib in Resources */,
 				1ACFB9B21C8EACA20083FD07 /* tabbar_more@3x.png in Resources */,
@@ -993,6 +1012,7 @@
 				E2073CBA1C847FBC0028DD8C /* icon_horn_top@2x.png in Resources */,
 				E2662CBC1C7CA1D100FE42F1 /* ShowDeteledCardViewController.xib in Resources */,
 				E2FEE37E1C79E7860079B824 /* Assets.xcassets in Resources */,
+				1AFED1BA1C8F1D6E00415ABF /* wx@2x.png in Resources */,
 				1ACFB9A91C8EACA20083FD07 /* tabbar_discovery_selected@3x.png in Resources */,
 				1ACFB9B51C8EACA20083FD07 /* tabbar_myCardBag_selected@3x.png in Resources */,
 				E24983A71C8C27BA005B77A8 /* icon_logo@2x.png in Resources */,
