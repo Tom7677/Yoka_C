@@ -34,7 +34,6 @@
     [_headView addSubview:_hornTopImageView];
     float centerX = 10 + ((MainScreenWidth - 20) / 3 - _hornTopImageView.width) / 2;
     [_hornTopImageView.layer addAnimation:[self moveTime:0.1 X:[NSNumber numberWithFloat:centerX]] forKey:nil];
-    [self getCradInfo];
     _codeScrollView.hidden = NO;
     _markScrollView.hidden = YES;
     _newsTableView.hidden = YES;
@@ -51,12 +50,24 @@
     _newsTableView.delegate = self;
     _newsTableView.dataSource = self;
     [_newsTableView registerNib:[UINib nibWithNibName:@"NotificationTableViewCell" bundle:nil] forCellReuseIdentifier:@"cellIdentifier"];
+    
+    [self getCradInfo];
+    [self getAnnouncementList];
 }
 
 - (void)getCradInfo
 {
-    [[NetworkAPI shared]getMyCardInfoByMemId:@"2" merchantId:_model.merchant_id WithFinish:^(CardInfoModel *model) {
+    [[NetworkAPI shared]getMyCardInfoByMerchantId:_model.merchant_id WithFinish:^(CardInfoModel *model) {
         [self showViewByModel:model];
+    } withErrorBlock:^(NSError *error) {
+        
+    }];
+}
+
+- (void)getAnnouncementList
+{
+    [[NetworkAPI shared]getMerchantAnnouncementByMerchantId:_model.merchant_id WithFinish:^(NSArray *dataArray) {
+        
     } withErrorBlock:^(NSError *error) {
         
     }];

@@ -22,8 +22,7 @@ static NSString* hostUrl = @"http://api-ecstore.yw.bycache.com:81/index.php/appa
  *  @param block      block description
  *  @param errorBlock errorBlock description
  */
-- (void)getMyCardBagListByMemId:(NSString *)memId WithFinish:(void(^)(NSArray *imageUrlArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
-
+- (void)getMyCardBagListWithFinish:(void(^)(NSArray *imageUrlArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 /**
  *  获取某个会员卡简介
  *
@@ -32,7 +31,7 @@ static NSString* hostUrl = @"http://api-ecstore.yw.bycache.com:81/index.php/appa
  *  @param block      block description
  *  @param errorBlock errorBlock description
  */
-- (void)getMyCardInfoByMemId:(NSString *)memId merchantId:(NSString *)merchantId WithFinish:(void(^)(CardInfoModel *model))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+- (void)getMyCardInfoByMerchantId:(NSString *)merchantId WithFinish:(void(^)(CardInfoModel *model))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 /**
  *  获取某张会员卡的子卡信息
  *
@@ -74,5 +73,31 @@ static NSString* hostUrl = @"http://api-ecstore.yw.bycache.com:81/index.php/appa
  *  @param errorBlock errorBlock description
  */
 - (void)saveMerchantAnnouncementByModel:(AnnouncementModel *)model WithFinish:(void(^)(AnnouncementModel *model))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
-
+/*!
+ *  @brief  获取商户公告
+ *
+ *  @param memberId   会员ID
+ *  @param merchantId 商户ID
+ *  @param block      block description
+ *  @param errorBlock errorBlock description
+ */
+- (void)getMerchantAnnouncementByMerchantId:(NSString *)merchantId WithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+/*!
+ *  @brief  会员删除商户公告
+ *
+ *  @param block      block description
+ *  @param errorBlock errorBlock description
+ */
+- (void)deleteAnnouncementWithFinish:(void(^)(BOOL isSuccess))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+/*!
+ *  @brief  会员添加新卡
+ *
+ *  @param memberId   会员ID
+ *  @param name       商户名
+ *  @param cardNum    卡号
+ *  @param block      block description
+ *  @param errorBlock errorBlock description
+ */
+- (void)addNewCardByMerchantName:(NSString *)name cardNum:(NSString *)cardNum WithFinish:(void(^)(BOOL isSuccess))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+ 
 @end

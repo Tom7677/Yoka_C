@@ -1,5 +1,5 @@
 //
-//  DiscoveryWithImageCell.h
+//  DiscoveryTableViewCell.h
 //  MembershipCard
 //
 //  Created by tom.sun on 16/3/8.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DiscoveryWithImageCell : UITableViewCell
+@interface DiscoveryTableViewCell : UITableViewCell
 
 @end

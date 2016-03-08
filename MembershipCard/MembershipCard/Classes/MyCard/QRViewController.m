@@ -16,6 +16,7 @@
 @property (nonatomic, strong) AVCaptureDevice *device;
 @property (nonatomic, assign) BOOL isLightOn;
 @property (nonatomic, strong) UIButton *rightBtn;
+@property (nonatomic, assign) BOOL isFirstScan;
 @end
 
 @implementation QRViewController
@@ -71,6 +72,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    _isFirstScan = YES;
     [self.capture start];
 }
 
@@ -78,9 +80,12 @@
 {
     if (!result) return;
     [self.capture stop];
-    InputCardViewController *vc = [[InputCardViewController alloc]init];
-    vc.cardNum = result.text;
-    [self.navigationController pushViewController:vc animated:YES];
+    if (_isFirstScan) {
+        _isFirstScan = NO;
+        InputCardViewController *vc = [[InputCardViewController alloc]init];
+        vc.cardNum = result.text;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 - (void)openFlashBtnAction

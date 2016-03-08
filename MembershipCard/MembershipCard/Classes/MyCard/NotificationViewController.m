@@ -60,7 +60,14 @@
 
 - (void)clearBtnAction
 {
-    
+    [[NetworkAPI shared]deleteAnnouncementWithFinish:^(BOOL isSuccess) {
+        if (isSuccess) {
+            YKInformTableViewController *informTableView = [[YKInformTableViewController alloc]init];
+            [informTableView.tableView reloadData];
+        }
+    } withErrorBlock:^(NSError *error) {
+        
+    }];
 }
 
 - (void)controlPressed:(UISegmentedControl*)segmented
