@@ -21,9 +21,10 @@
     return sharedClient;
 }
 
-- (void)getMyCardBagListByMemId:(NSString *)memId WithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock
+#pragma mark cardBag
+- (void)getMyCardBagListWithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock
 {
-    NSDictionary *param = [self creatRequestParamByMethod:@"get_mycardpkg_list" WithParamData:@{@"member_id":memId}];
+    NSDictionary *param = [self creatRequestParamByMethod:@"get_mycardpkg_list" WithParamData:@{@"member_id":[self getMemId]}];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer=[AFJSONRequestSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
@@ -46,10 +47,9 @@
     }];
 }
 
-- (void)getMyCardInfoByMemId:(NSString *)memId merchantId:(NSString *)merchantId WithFinish:(void(^)(CardInfoModel *model))block withErrorBlock:(void(^)(NSError *error)) errorBlock
+- (void)getMyCardInfoByMerchantId:(NSString *)merchantId WithFinish:(void(^)(CardInfoModel *model))block withErrorBlock:(void(^)(NSError *error)) errorBlock
 {
-
-    NSDictionary *param = [self creatRequestParamByMethod:@"get_card_info" WithParamData:@{@"member_id":memId,@"merchant_id":merchantId}];
+    NSDictionary *param = [self creatRequestParamByMethod:@"get_card_info" WithParamData:@{@"member_id":[self getMemId],@"merchant_id":merchantId}];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer=[AFJSONRequestSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
@@ -183,7 +183,74 @@
     }];
 }
 
+- (void)getMerchantAnnouncementByMerchantId:(NSString *)merchantId WithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock
+{
+    NSDictionary *param = [self creatRequestParamByMethod:@"get_announcement_list" WithParamData:@{@"merchant_id":merchantId, @"member_id":[self getMemId]}];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer=[AFJSONRequestSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    [manager GET:hostUrl parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject[@"status"] isEqualToString:@"1"]) {
+            NSMutableArray *dataArray = [[NSMutableArray alloc]init];
+            NSArray *resultArray = [self jsonObjectWithJsonString:responseObject[@"data"]];
+            for (NSDictionary *dic in resultArray) {
+                AnnouncementModel *model = [[AnnouncementModel alloc]init];
+                [model setValuesForKeysWithDictionary:dic];
+                [dataArray addObject:model];
+            }
+            block (dataArray);
+        }else {
+            block(nil);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        errorBlock(error);
+    }];
+}
 
+- (void)deleteAnnouncementWithFinish:(void(^)(BOOL isSuccess))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+{
+    NSDictionary *param = [self creatRequestParamByMethod:@"get_announcement_list" WithParamData:@{@"id":[self getMemId]}];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer=[AFJSONRequestSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    [manager GET:hostUrl parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject[@"status"] isEqualToString:@"1"]) {
+            block (YES);
+        }else {
+            block(NO);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        errorBlock(error);
+    }];
+}
+
+- (void)addNewCardByMerchantName:(NSString *)name cardNum:(NSString *)cardNum WithFinish:(void(^)(BOOL isSuccess))block withErrorBlock:(void(^)(NSError *error)) errorBlock
+{
+    NSDictionary *param = [self creatRequestParamByMethod:@"get_announcement_list" WithParamData:@{@"member_id":[self getMemId],@"name":name,@"card_bn":cardNum}];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer=[AFJSONRequestSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    [manager GET:hostUrl parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject[@"status"] isEqualToString:@"1"]) {
+            block (YES);
+        }else {
+            block(NO);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        errorBlock(error);
+    }];
+}
+
+#pragma Action
+/*!
+ *  @brief  获取memberId
+ *
+ *  @return return value description
+ */
+- (NSString *)getMemId
+{
+    return @"2";
+}
 
 /**
  *  生成请求参数
@@ -215,6 +282,13 @@
     return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
 }
 
+/*!
+ *  @brief  json转obj
+ *
+ *  @param jsonString json
+ *
+ *  @return return value description
+ */
 - (id)jsonObjectWithJsonString:(NSString *)jsonString {
     if (jsonString == nil) {
         return nil;

@@ -64,7 +64,7 @@
 
 - (void)loadNewData
 {
-    [[NetworkAPI shared]getMyCardBagListByMemId:@"2" WithFinish:^(NSArray *dataArray) {
+    [[NetworkAPI shared]getMyCardBagListWithFinish:^(NSArray *dataArray) {
         [_cardArray removeAllObjects];
         [_cardArray addObjectsFromArray:dataArray];
         [_tableView reloadData];

@@ -7,9 +7,10 @@
 //
 
 #import "DisoveryViewController.h"
-#import "DiscoveryWithImageCell.h"
 #import "UIView+frame.h"
 #import <MJRefresh.h>
+#import "DiscoveryTableViewCell.h"
+#import "DiscoveryWithImageCell.h"
 
 #define LINE_WIDTH  40
 @interface DisoveryViewController ()<UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate>
@@ -17,6 +18,7 @@
 @property (nonatomic, assign) NSInteger tag;
 @property (nonatomic, assign) CGFloat btnWidth;
 @property (nonatomic, strong) NSMutableArray *tableViewArray;
+@property (nonatomic, strong) NSMutableArray *dataArray;
 @end
 
 @implementation DisoveryViewController
@@ -25,6 +27,8 @@
     [super viewDidLoad];
     self.title = @"发现";
     _tableViewArray = [[NSMutableArray alloc]init];
+    _dataArray = [[NSMutableArray alloc]init];
+    [_dataArray addObjectsFromArray:[NSArray arrayWithObjects:@"1",@"0",@"1",@"0",@"0",@"1",@"1",@"0", nil]];
     UIButton *leftBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 28, 28)];
     [leftBtn setTitle:@"爆料" forState:UIControlStateNormal];
     [leftBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -98,11 +102,12 @@
 {
     for (int i = 0; i < pageCount; i++) {
         UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(MainScreenWidth * i, 0 , MainScreenWidth, MainScreenHeight - 40 - NavAndStatusBarHeight - TabbarHeight)];
-//        tableView.delegate = self;
-//        tableView.dataSource = self;
-        //[tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+        tableView.delegate = self;
+        tableView.dataSource = self;
+        [tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
         tableView.tag = i;
-        [tableView registerNib:[UINib nibWithNibName:@"KnowledgeListTableViewCell" bundle:nil] forCellReuseIdentifier:@"myIdentify"];
+        [tableView registerNib:[UINib nibWithNibName:@"DiscoveryTableViewCell" bundle:nil] forCellReuseIdentifier:@"myIdentify"];
+        [tableView registerNib:[UINib nibWithNibName:@"DiscoveryWithImageCell" bundle:nil] forCellReuseIdentifier:@"cellIdentify"];
         [_tableViewArray addObject:tableView];
         [scrollView addSubview:tableView];
         tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -113,6 +118,7 @@
         }];
     }
 }
+
 
 - (void)refreshData
 {
@@ -135,6 +141,34 @@
 {
     float xx = x * (_btnWidth / MainScreenWidth);
     [_scrollBgView setFrame:CGRectMake(xx + (_btnWidth - LINE_WIDTH) / 2 + 20, _scrollBgView.originY, _scrollBgView.width, _scrollBgView.height)];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return _dataArray.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([_dataArray[indexPath.row] isEqualToString:@"0"]) {
+        DiscoveryWithImageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentify"];
+        return cell;
+    }
+    else {
+        DiscoveryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myIdentify"];
+        return cell;
+    }
+    return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([_dataArray[indexPath.row] isEqualToString:@"0"]) {
+        return 300;
+    }
+    else {
+        return 65;
+    }
 }
 
 #pragma mark - UIScrollViewDelegate

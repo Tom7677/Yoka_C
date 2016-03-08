@@ -19,8 +19,6 @@
 		1A1470A41C8D7CC5003A0616 /* addCard-scan@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A14709B1C8D7CC5003A0616 /* addCard-scan@3x.png */; };
 		1A344BF31C882DCD009F3FFC /* DisoveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A344BF11C882DCD009F3FFC /* DisoveryViewController.m */; };
 		1A344BF41C882DCD009F3FFC /* DisoveryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A344BF21C882DCD009F3FFC /* DisoveryViewController.xib */; };
-		1A344BF91C8830B6009F3FFC /* DiscoveryWithImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A344BF71C8830B6009F3FFC /* DiscoveryWithImageCell.m */; };
-		1A344BFA1C8830B6009F3FFC /* DiscoveryWithImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A344BF81C8830B6009F3FFC /* DiscoveryWithImageCell.xib */; };
 		1A344BFE1C884AA1009F3FFC /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A344BFC1C884AA1009F3FFC /* MoreViewController.m */; };
 		1A344BFF1C884AA1009F3FFC /* MoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A344BFD1C884AA1009F3FFC /* MoreViewController.xib */; };
 		1A7300051C86CD1B0054DB1D /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7300041C86CD1B0054DB1D /* AboutViewController.m */; };
@@ -54,6 +52,10 @@
 		270085A21C8808B50069149F /* MyCardDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2700859F1C8808B50069149F /* MyCardDetailViewController.m */; };
 		270085A31C8808B50069149F /* MyCardDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 270085A11C8808B50069149F /* MyCardDetailViewController.xib */; };
 		27D39A021C8D261200A3F3C3 /* MidImageLeftButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D39A011C8D261200A3F3C3 /* MidImageLeftButton.m */; };
+		27D39A091C8EC6A800A3F3C3 /* DiscoveryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D39A071C8EC6A800A3F3C3 /* DiscoveryTableViewCell.m */; };
+		27D39A0A1C8EC6A800A3F3C3 /* DiscoveryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27D39A081C8EC6A800A3F3C3 /* DiscoveryTableViewCell.xib */; };
+		27D39A0E1C8ED83600A3F3C3 /* DiscoveryWithImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D39A0C1C8ED83600A3F3C3 /* DiscoveryWithImageCell.m */; };
+		27D39A0F1C8ED83600A3F3C3 /* DiscoveryWithImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27D39A0D1C8ED83600A3F3C3 /* DiscoveryWithImageCell.xib */; };
 		E2004BFF1C85CD7D00CDA2E7 /* SellCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2004BFD1C85CD7D00CDA2E7 /* SellCardViewController.m */; };
 		E2004C001C85CD7D00CDA2E7 /* SellCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2004BFE1C85CD7D00CDA2E7 /* SellCardViewController.xib */; };
 		E2004C041C85CE5000CDA2E7 /* AssignmentInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2004C021C85CE5000CDA2E7 /* AssignmentInfoViewController.m */; };
@@ -157,9 +159,6 @@
 		1A344BF01C882DCD009F3FFC /* DisoveryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisoveryViewController.h; sourceTree = "<group>"; };
 		1A344BF11C882DCD009F3FFC /* DisoveryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisoveryViewController.m; sourceTree = "<group>"; };
 		1A344BF21C882DCD009F3FFC /* DisoveryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DisoveryViewController.xib; sourceTree = "<group>"; };
-		1A344BF61C8830B6009F3FFC /* DiscoveryWithImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoveryWithImageCell.h; sourceTree = "<group>"; };
-		1A344BF71C8830B6009F3FFC /* DiscoveryWithImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoveryWithImageCell.m; sourceTree = "<group>"; };
-		1A344BF81C8830B6009F3FFC /* DiscoveryWithImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscoveryWithImageCell.xib; sourceTree = "<group>"; };
 		1A344BFB1C884AA1009F3FFC /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
 		1A344BFC1C884AA1009F3FFC /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
 		1A344BFD1C884AA1009F3FFC /* MoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreViewController.xib; sourceTree = "<group>"; };
@@ -198,6 +197,12 @@
 		270085A11C8808B50069149F /* MyCardDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCardDetailViewController.xib; sourceTree = "<group>"; };
 		27D39A001C8D261200A3F3C3 /* MidImageLeftButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidImageLeftButton.h; sourceTree = "<group>"; };
 		27D39A011C8D261200A3F3C3 /* MidImageLeftButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidImageLeftButton.m; sourceTree = "<group>"; };
+		27D39A061C8EC6A800A3F3C3 /* DiscoveryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoveryTableViewCell.h; sourceTree = "<group>"; };
+		27D39A071C8EC6A800A3F3C3 /* DiscoveryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoveryTableViewCell.m; sourceTree = "<group>"; };
+		27D39A081C8EC6A800A3F3C3 /* DiscoveryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscoveryTableViewCell.xib; sourceTree = "<group>"; };
+		27D39A0B1C8ED83600A3F3C3 /* DiscoveryWithImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoveryWithImageCell.h; sourceTree = "<group>"; };
+		27D39A0C1C8ED83600A3F3C3 /* DiscoveryWithImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoveryWithImageCell.m; sourceTree = "<group>"; };
+		27D39A0D1C8ED83600A3F3C3 /* DiscoveryWithImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscoveryWithImageCell.xib; sourceTree = "<group>"; };
 		4A3F338817F8EBA02DCDB671 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E2004BFC1C85CD7D00CDA2E7 /* SellCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SellCardViewController.h; sourceTree = "<group>"; };
 		E2004BFD1C85CD7D00CDA2E7 /* SellCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SellCardViewController.m; sourceTree = "<group>"; };
@@ -386,9 +391,12 @@
 		1A344BF51C883058009F3FFC /* cell */ = {
 			isa = PBXGroup;
 			children = (
-				1A344BF61C8830B6009F3FFC /* DiscoveryWithImageCell.h */,
-				1A344BF71C8830B6009F3FFC /* DiscoveryWithImageCell.m */,
-				1A344BF81C8830B6009F3FFC /* DiscoveryWithImageCell.xib */,
+				27D39A061C8EC6A800A3F3C3 /* DiscoveryTableViewCell.h */,
+				27D39A071C8EC6A800A3F3C3 /* DiscoveryTableViewCell.m */,
+				27D39A081C8EC6A800A3F3C3 /* DiscoveryTableViewCell.xib */,
+				27D39A0B1C8ED83600A3F3C3 /* DiscoveryWithImageCell.h */,
+				27D39A0C1C8ED83600A3F3C3 /* DiscoveryWithImageCell.m */,
+				27D39A0D1C8ED83600A3F3C3 /* DiscoveryWithImageCell.xib */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -946,6 +954,10 @@
 				1ACFB9D01C8EB8680083FD07 /* more2@3x.png in Resources */,
 				E2004C001C85CD7D00CDA2E7 /* SellCardViewController.xib in Resources */,
 				E2BDB7BB1C7B53A900274CE3 /* MyCardBagTableViewCell.xib in Resources */,
+				27D39A0F1C8ED83600A3F3C3 /* DiscoveryWithImageCell.xib in Resources */,
+				E2FF43911C8A9E8B00C9F10F /* tabbar_more@3x.png in Resources */,
+				E2FF43901C8A9E8B00C9F10F /* tabbar_more_selected@3x.png in Resources */,
+				27D39A0A1C8EC6A800A3F3C3 /* DiscoveryTableViewCell.xib in Resources */,
 				E2FEE3D51C79FD070079B824 /* VIPViewController.xib in Resources */,
 				1A1470A01C8D7CC5003A0616 /* addCard-menu@2x.png in Resources */,
 				1ACFB9AC1C8EACA20083FD07 /* tabbar_discovery@3x.png in Resources */,
@@ -985,7 +997,6 @@
 				1A14709C1C8D7CC5003A0616 /* addCard-code.png in Resources */,
 				E20788E41C7DF52800D59F63 /* read_me.txt in Resources */,
 				1A1470A11C8D7CC5003A0616 /* addCard-menu@3x.png in Resources */,
-				1A344BFA1C8830B6009F3FFC /* DiscoveryWithImageCell.xib in Resources */,
 				E2FEE3C61C79F58B0079B824 /* MyCardBagViewController.xib in Resources */,
 				E2BDB7B01C7B42BD00274CE3 /* NotificationViewController.xib in Resources */,
 				E2FBA6161C82B91800F9F799 /* MartViewController.xib in Resources */,
@@ -1079,7 +1090,6 @@
 				E2FEE3D41C79FD070079B824 /* VIPViewController.m in Sources */,
 				E2FBA6061C82B57000F9F799 /* UIView+border.m in Sources */,
 				E2FEE3761C79E7860079B824 /* AppDelegate.m in Sources */,
-				1A344BF91C8830B6009F3FFC /* DiscoveryWithImageCell.m in Sources */,
 				27D39A021C8D261200A3F3C3 /* MidImageLeftButton.m in Sources */,
 				E2FEE3C51C79F58B0079B824 /* MyCardBagViewController.m in Sources */,
 				E2BDB7BF1C7B567B00274CE3 /* NotificationTableViewCell.m in Sources */,
@@ -1100,10 +1110,12 @@
 				E2BDB8301C7B655200274CE3 /* RecordDetailViewController.m in Sources */,
 				E2FBAD391C8DB1ED0043F35D /* EditRemarkViewController.m in Sources */,
 				E2004C181C85E41400CDA2E7 /* YKMerchantsViewController.m in Sources */,
+				27D39A0E1C8ED83600A3F3C3 /* DiscoveryWithImageCell.m in Sources */,
 				E2BDB7C51C7B5F5100274CE3 /* VIPTableViewCell.m in Sources */,
 				E2FEE3CA1C79F5A70079B824 /* LoginViewController.m in Sources */,
 				1A7300051C86CD1B0054DB1D /* AboutViewController.m in Sources */,
 				E2FEE3B51C79F3260079B824 /* BaseViewController.m in Sources */,
+				27D39A091C8EC6A800A3F3C3 /* DiscoveryTableViewCell.m in Sources */,
 				E2FEE3731C79E7860079B824 /* main.m in Sources */,
 				E200FC5F1C7F4BE700644BB5 /* UIView+frame.m in Sources */,
 				E2FEE3CF1C79F5EA0079B824 /* SettingViewController.m in Sources */,

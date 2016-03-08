@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -47,9 +47,28 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="pAM-VH-Hl9"/>
                             </constraints>
+<<<<<<< HEAD
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="138299200160" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DWm-FK-dJE">
                             <rect key="frame" x="109" y="52" width="150" height="20"/>
+=======
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <state key="normal" title="上传头像">
+                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="avatarBtnAction:" destination="-1" eventType="touchUpInside" id="bd9-7P-Bu0"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="42t-TK-GjF">
+                            <rect key="frame" x="85" y="20" width="134" height="20"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DWm-FK-dJE">
+                            <rect key="frame" x="85" y="40" width="105" height="20"/>
+>>>>>>> Fixed add new api
                             <constraints>
                                 <constraint firstAttribute="width" constant="150" id="AZu-vp-n6i"/>
                                 <constraint firstAttribute="height" constant="20" id="Ufv-QN-rI3"/>
@@ -66,7 +85,11 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oNG-IB-m4S">
+<<<<<<< HEAD
                             <rect key="frame" x="227" y="25" width="85" height="40"/>
+=======
+                            <rect key="frame" x="227" y="23" width="85" height="40"/>
+>>>>>>> Fixed add new api
                             <constraints>
                                 <constraint firstAttribute="width" constant="85" id="4KS-VV-ybR"/>
                             </constraints>
@@ -103,8 +126,11 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+<<<<<<< HEAD
                         <constraint firstItem="6nX-vM-6Q7" firstAttribute="centerY" secondItem="zeS-rG-NVL" secondAttribute="centerY" id="4XJ-TX-8LE"/>
                         <constraint firstItem="bxM-tX-sc9" firstAttribute="leading" secondItem="zeS-rG-NVL" secondAttribute="leading" id="6ZW-oD-TTA"/>
+=======
+>>>>>>> Fixed add new api
                         <constraint firstItem="oNG-IB-m4S" firstAttribute="leading" secondItem="42t-TK-GjF" secondAttribute="trailing" constant="8" id="CTF-hW-58D"/>
                         <constraint firstItem="42t-TK-GjF" firstAttribute="top" secondItem="bxM-tX-sc9" secondAttribute="bottom" constant="30" id="F4v-By-7lX"/>
                         <constraint firstAttribute="height" constant="105" id="Fac-1y-Q6x"/>

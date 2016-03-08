@@ -1,14 +1,14 @@
 //
-//  DiscoveryWithImageCell.m
+//  DiscoveryTableViewCell.m
 //  MembershipCard
 //
 //  Created by tom.sun on 16/3/8.
 //  Copyright © 2016年 tom.sun. All rights reserved.
 //
 
-#import "DiscoveryWithImageCell.h"
+#import "DiscoveryTableViewCell.h"
 
-@implementation DiscoveryWithImageCell
+@implementation DiscoveryTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code

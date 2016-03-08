@@ -9,6 +9,7 @@
 #import "InputCardViewController.h"
 #import "UIView+frame.h"
 #import "takePhoto.h"
+#import "UIView+border.h"
 
 @interface InputCardViewController ()
 
@@ -18,6 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"手工输入卡号";
     _bgView.width = MainScreenWidth;
     _bgView.height = MainScreenHeight;
     _scrollView.contentSize = CGSizeMake(_bgView.width, _bgView.height - NavAndStatusBarHeight);
@@ -41,6 +43,8 @@
     UITapGestureRecognizer *tap2 = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(takePhoto)];
     _logoImageView.userInteractionEnabled = YES;
     [_logoImageView addGestureRecognizer:tap2];
+    [_logoLabel circular];
+    [_logoImageView circularBoarderBead:_logoImageView.width / 2 withBoarder:1 color:UIColorFromRGB(0xf0f0f0)];
 }
 
 - (void)didReceiveMemoryWarning {

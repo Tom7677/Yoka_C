@@ -49,7 +49,6 @@
         rows = [self.resultArray count];
     }else{
         rows = [self.itemsArray count];
-        
     }
     return rows;
 }

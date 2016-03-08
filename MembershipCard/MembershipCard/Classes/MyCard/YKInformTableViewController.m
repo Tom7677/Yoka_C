@@ -20,11 +20,20 @@
     [_tableView registerNib:[UINib nibWithNibName:@"NotificationTableViewCell" bundle:nil] forCellReuseIdentifier:@"cellIdentifier"];
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    //[self loadData];
+}
+
+- (void)loadData
+{
+    [[NetworkAPI shared]getNoticeListByMemberId:@"2" WithFinish:^(NSArray *dataArray) {
+        
+    } withErrorBlock:^(NSError *error) {
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

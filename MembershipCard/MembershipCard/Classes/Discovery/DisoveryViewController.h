@@ -9,7 +9,6 @@
 #import "BaseViewController.h"
 
 @interface DisoveryViewController : BaseViewController
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIScrollView *typeScrollView;
 @property (weak, nonatomic) IBOutlet UIScrollView *contentScrollView;
 @property (strong, nonatomic) UIView *scrollBgView;
