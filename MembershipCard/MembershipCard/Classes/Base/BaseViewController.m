@@ -19,6 +19,7 @@
     [super viewDidLoad];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     [self setBackItemTitle:@"返回"];
+    self.navigationController.navigationBar.backgroundColor = [UIColor whiteColor];
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
 }
 
@@ -42,7 +43,7 @@
         [btn setTitle:title forState:UIControlStateNormal];
         UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:btn];
         UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemFixedSpace target:nil action:nil];
-        negativeSpacer.width = -15;
+        negativeSpacer.width = -5;
         viewController.navigationItem.leftBarButtonItems = @[negativeSpacer,backButton];
     }
 }

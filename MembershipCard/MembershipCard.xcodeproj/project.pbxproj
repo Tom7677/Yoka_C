@@ -8,12 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0FB72C477A5344F2A19CAE2B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA99FE15DBFFFD8B1484D630 /* libPods.a */; };
-		1A14708D1C8D5717003A0616 /* more1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A1470871C8D5717003A0616 /* more1.png */; };
-		1A14708E1C8D5717003A0616 /* more1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A1470881C8D5717003A0616 /* more1@2x.png */; };
-		1A14708F1C8D5717003A0616 /* more1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A1470891C8D5717003A0616 /* more1@3x.png */; };
-		1A1470901C8D5717003A0616 /* more2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A14708A1C8D5717003A0616 /* more2.png */; };
-		1A1470911C8D5717003A0616 /* more2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A14708B1C8D5717003A0616 /* more2@2x.png */; };
-		1A1470921C8D5717003A0616 /* more2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A14708C1C8D5717003A0616 /* more2@3x.png */; };
 		1A14709C1C8D7CC5003A0616 /* addCard-code.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A1470931C8D7CC5003A0616 /* addCard-code.png */; };
 		1A14709D1C8D7CC5003A0616 /* addCard-code@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A1470941C8D7CC5003A0616 /* addCard-code@2x.png */; };
 		1A14709E1C8D7CC5003A0616 /* addCard-code@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A1470951C8D7CC5003A0616 /* addCard-code@3x.png */; };
@@ -30,6 +24,30 @@
 		1A344BFE1C884AA1009F3FFC /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A344BFC1C884AA1009F3FFC /* MoreViewController.m */; };
 		1A344BFF1C884AA1009F3FFC /* MoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A344BFD1C884AA1009F3FFC /* MoreViewController.xib */; };
 		1A7300051C86CD1B0054DB1D /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7300041C86CD1B0054DB1D /* AboutViewController.m */; };
+		1ACFB9A71C8EACA20083FD07 /* tabbar_discovery_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFB9951C8EACA20083FD07 /* tabbar_discovery_selected.png */; };
+		1ACFB9A81C8EACA20083FD07 /* tabbar_discovery_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFB9961C8EACA20083FD07 /* tabbar_discovery_selected@2x.png */; };
+		1ACFB9A91C8EACA20083FD07 /* tabbar_discovery_selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFB9971C8EACA20083FD07 /* tabbar_discovery_selected@3x.png */; };
+		1ACFB9AA1C8EACA20083FD07 /* tabbar_discovery.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFB9981C8EACA20083FD07 /* tabbar_discovery.png */; };
+		1ACFB9AB1C8EACA20083FD07 /* tabbar_discovery@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFB9991C8EACA20083FD07 /* tabbar_discovery@2x.png */; };
+		1ACFB9AC1C8EACA20083FD07 /* tabbar_discovery@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFB99A1C8EACA20083FD07 /* tabbar_discovery@3x.png */; };
+		1ACFB9AD1C8EACA20083FD07 /* tabbar_more_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFB99B1C8EACA20083FD07 /* tabbar_more_selected.png */; };
+		1ACFB9AE1C8EACA20083FD07 /* tabbar_more_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFB99C1C8EACA20083FD07 /* tabbar_more_selected@2x.png */; };
+		1ACFB9AF1C8EACA20083FD07 /* tabbar_more_selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFB99D1C8EACA20083FD07 /* tabbar_more_selected@3x.png */; };
+		1ACFB9B01C8EACA20083FD07 /* tabbar_more.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFB99E1C8EACA20083FD07 /* tabbar_more.png */; };
+		1ACFB9B11C8EACA20083FD07 /* tabbar_more@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFB99F1C8EACA20083FD07 /* tabbar_more@2x.png */; };
+		1ACFB9B21C8EACA20083FD07 /* tabbar_more@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFB9A01C8EACA20083FD07 /* tabbar_more@3x.png */; };
+		1ACFB9B31C8EACA20083FD07 /* tabbar_myCardBag_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFB9A11C8EACA20083FD07 /* tabbar_myCardBag_selected.png */; };
+		1ACFB9B41C8EACA20083FD07 /* tabbar_myCardBag_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFB9A21C8EACA20083FD07 /* tabbar_myCardBag_selected@2x.png */; };
+		1ACFB9B51C8EACA20083FD07 /* tabbar_myCardBag_selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFB9A31C8EACA20083FD07 /* tabbar_myCardBag_selected@3x.png */; };
+		1ACFB9B61C8EACA20083FD07 /* tabbar_myCardBag.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFB9A41C8EACA20083FD07 /* tabbar_myCardBag.png */; };
+		1ACFB9B71C8EACA20083FD07 /* tabbar_myCardBag@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFB9A51C8EACA20083FD07 /* tabbar_myCardBag@2x.png */; };
+		1ACFB9B81C8EACA20083FD07 /* tabbar_myCardBag@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFB9A61C8EACA20083FD07 /* tabbar_myCardBag@3x.png */; };
+		1ACFB9CB1C8EB8680083FD07 /* more1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFB9C51C8EB8680083FD07 /* more1.png */; };
+		1ACFB9CC1C8EB8680083FD07 /* more1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFB9C61C8EB8680083FD07 /* more1@2x.png */; };
+		1ACFB9CD1C8EB8680083FD07 /* more1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFB9C71C8EB8680083FD07 /* more1@3x.png */; };
+		1ACFB9CE1C8EB8680083FD07 /* more2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFB9C81C8EB8680083FD07 /* more2.png */; };
+		1ACFB9CF1C8EB8680083FD07 /* more2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFB9C91C8EB8680083FD07 /* more2@2x.png */; };
+		1ACFB9D01C8EB8680083FD07 /* more2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFB9CA1C8EB8680083FD07 /* more2@3x.png */; };
 		1AEDD3C21C8D2D4000E435AC /* icon_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AEDD3BF1C8D2D4000E435AC /* icon_back.png */; };
 		1AEDD3C31C8D2D4000E435AC /* icon_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AEDD3C01C8D2D4000E435AC /* icon_back@2x.png */; };
 		1AEDD3C41C8D2D4000E435AC /* icon_back@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AEDD3C11C8D2D4000E435AC /* icon_back@3x.png */; };
@@ -107,12 +125,6 @@
 		E2FEE3D01C79F5EA0079B824 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2FEE3CE1C79F5EA0079B824 /* SettingViewController.xib */; };
 		E2FEE3D41C79FD070079B824 /* VIPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FEE3D21C79FD070079B824 /* VIPViewController.m */; };
 		E2FEE3D51C79FD070079B824 /* VIPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2FEE3D31C79FD070079B824 /* VIPViewController.xib */; };
-		E2FF438E1C8A9E8B00C9F10F /* tabbar_discover_selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2FF43881C8A9E8B00C9F10F /* tabbar_discover_selected@3x.png */; };
-		E2FF438F1C8A9E8B00C9F10F /* tabbar_discover@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2FF43891C8A9E8B00C9F10F /* tabbar_discover@3x.png */; };
-		E2FF43901C8A9E8B00C9F10F /* tabbar_more_selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2FF438A1C8A9E8B00C9F10F /* tabbar_more_selected@3x.png */; };
-		E2FF43911C8A9E8B00C9F10F /* tabbar_more@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2FF438B1C8A9E8B00C9F10F /* tabbar_more@3x.png */; };
-		E2FF43921C8A9E8B00C9F10F /* tabbar_myCardBag_selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2FF438C1C8A9E8B00C9F10F /* tabbar_myCardBag_selected@3x.png */; };
-		E2FF43931C8A9E8B00C9F10F /* tabbar_myCardBag@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2FF438D1C8A9E8B00C9F10F /* tabbar_myCardBag@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,12 +145,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1A1470871C8D5717003A0616 /* more1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more1.png; sourceTree = "<group>"; };
-		1A1470881C8D5717003A0616 /* more1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "more1@2x.png"; sourceTree = "<group>"; };
-		1A1470891C8D5717003A0616 /* more1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "more1@3x.png"; sourceTree = "<group>"; };
-		1A14708A1C8D5717003A0616 /* more2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more2.png; sourceTree = "<group>"; };
-		1A14708B1C8D5717003A0616 /* more2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "more2@2x.png"; sourceTree = "<group>"; };
-		1A14708C1C8D5717003A0616 /* more2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "more2@3x.png"; sourceTree = "<group>"; };
 		1A1470931C8D7CC5003A0616 /* addCard-code.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addCard-code.png"; sourceTree = "<group>"; };
 		1A1470941C8D7CC5003A0616 /* addCard-code@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addCard-code@2x.png"; sourceTree = "<group>"; };
 		1A1470951C8D7CC5003A0616 /* addCard-code@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addCard-code@3x.png"; sourceTree = "<group>"; };
@@ -159,6 +165,30 @@
 		1A344BFD1C884AA1009F3FFC /* MoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreViewController.xib; sourceTree = "<group>"; };
 		1A7300031C86CD1B0054DB1D /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		1A7300041C86CD1B0054DB1D /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		1ACFB9951C8EACA20083FD07 /* tabbar_discovery_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_discovery_selected.png; sourceTree = "<group>"; };
+		1ACFB9961C8EACA20083FD07 /* tabbar_discovery_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_discovery_selected@2x.png"; sourceTree = "<group>"; };
+		1ACFB9971C8EACA20083FD07 /* tabbar_discovery_selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_discovery_selected@3x.png"; sourceTree = "<group>"; };
+		1ACFB9981C8EACA20083FD07 /* tabbar_discovery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_discovery.png; sourceTree = "<group>"; };
+		1ACFB9991C8EACA20083FD07 /* tabbar_discovery@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_discovery@2x.png"; sourceTree = "<group>"; };
+		1ACFB99A1C8EACA20083FD07 /* tabbar_discovery@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_discovery@3x.png"; sourceTree = "<group>"; };
+		1ACFB99B1C8EACA20083FD07 /* tabbar_more_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_more_selected.png; sourceTree = "<group>"; };
+		1ACFB99C1C8EACA20083FD07 /* tabbar_more_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_more_selected@2x.png"; sourceTree = "<group>"; };
+		1ACFB99D1C8EACA20083FD07 /* tabbar_more_selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_more_selected@3x.png"; sourceTree = "<group>"; };
+		1ACFB99E1C8EACA20083FD07 /* tabbar_more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_more.png; sourceTree = "<group>"; };
+		1ACFB99F1C8EACA20083FD07 /* tabbar_more@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_more@2x.png"; sourceTree = "<group>"; };
+		1ACFB9A01C8EACA20083FD07 /* tabbar_more@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_more@3x.png"; sourceTree = "<group>"; };
+		1ACFB9A11C8EACA20083FD07 /* tabbar_myCardBag_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_myCardBag_selected.png; sourceTree = "<group>"; };
+		1ACFB9A21C8EACA20083FD07 /* tabbar_myCardBag_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_myCardBag_selected@2x.png"; sourceTree = "<group>"; };
+		1ACFB9A31C8EACA20083FD07 /* tabbar_myCardBag_selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_myCardBag_selected@3x.png"; sourceTree = "<group>"; };
+		1ACFB9A41C8EACA20083FD07 /* tabbar_myCardBag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_myCardBag.png; sourceTree = "<group>"; };
+		1ACFB9A51C8EACA20083FD07 /* tabbar_myCardBag@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_myCardBag@2x.png"; sourceTree = "<group>"; };
+		1ACFB9A61C8EACA20083FD07 /* tabbar_myCardBag@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_myCardBag@3x.png"; sourceTree = "<group>"; };
+		1ACFB9C51C8EB8680083FD07 /* more1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more1.png; sourceTree = "<group>"; };
+		1ACFB9C61C8EB8680083FD07 /* more1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "more1@2x.png"; sourceTree = "<group>"; };
+		1ACFB9C71C8EB8680083FD07 /* more1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "more1@3x.png"; sourceTree = "<group>"; };
+		1ACFB9C81C8EB8680083FD07 /* more2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more2.png; sourceTree = "<group>"; };
+		1ACFB9C91C8EB8680083FD07 /* more2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "more2@2x.png"; sourceTree = "<group>"; };
+		1ACFB9CA1C8EB8680083FD07 /* more2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "more2@3x.png"; sourceTree = "<group>"; };
 		1AEDD3BF1C8D2D4000E435AC /* icon_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_back.png; sourceTree = "<group>"; };
 		1AEDD3C01C8D2D4000E435AC /* icon_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_back@2x.png"; sourceTree = "<group>"; };
 		1AEDD3C11C8D2D4000E435AC /* icon_back@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_back@3x.png"; sourceTree = "<group>"; };
@@ -283,12 +313,6 @@
 		E2FEE3D11C79FD070079B824 /* VIPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIPViewController.h; sourceTree = "<group>"; };
 		E2FEE3D21C79FD070079B824 /* VIPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIPViewController.m; sourceTree = "<group>"; };
 		E2FEE3D31C79FD070079B824 /* VIPViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VIPViewController.xib; sourceTree = "<group>"; };
-		E2FF43881C8A9E8B00C9F10F /* tabbar_discover_selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_discover_selected@3x.png"; sourceTree = "<group>"; };
-		E2FF43891C8A9E8B00C9F10F /* tabbar_discover@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_discover@3x.png"; sourceTree = "<group>"; };
-		E2FF438A1C8A9E8B00C9F10F /* tabbar_more_selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_more_selected@3x.png"; sourceTree = "<group>"; };
-		E2FF438B1C8A9E8B00C9F10F /* tabbar_more@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_more@3x.png"; sourceTree = "<group>"; };
-		E2FF438C1C8A9E8B00C9F10F /* tabbar_myCardBag_selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_myCardBag_selected@3x.png"; sourceTree = "<group>"; };
-		E2FF438D1C8A9E8B00C9F10F /* tabbar_myCardBag@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_myCardBag@3x.png"; sourceTree = "<group>"; };
 		FA99FE15DBFFFD8B1484D630 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -327,12 +351,12 @@
 		1A1470861C8D5717003A0616 /* More */ = {
 			isa = PBXGroup;
 			children = (
-				1A1470871C8D5717003A0616 /* more1.png */,
-				1A1470881C8D5717003A0616 /* more1@2x.png */,
-				1A1470891C8D5717003A0616 /* more1@3x.png */,
-				1A14708A1C8D5717003A0616 /* more2.png */,
-				1A14708B1C8D5717003A0616 /* more2@2x.png */,
-				1A14708C1C8D5717003A0616 /* more2@3x.png */,
+				1ACFB9C51C8EB8680083FD07 /* more1.png */,
+				1ACFB9C61C8EB8680083FD07 /* more1@2x.png */,
+				1ACFB9C71C8EB8680083FD07 /* more1@3x.png */,
+				1ACFB9C81C8EB8680083FD07 /* more2.png */,
+				1ACFB9C91C8EB8680083FD07 /* more2@2x.png */,
+				1ACFB9CA1C8EB8680083FD07 /* more2@3x.png */,
 			);
 			path = More;
 			sourceTree = "<group>";
@@ -369,6 +393,32 @@
 			path = cell;
 			sourceTree = "<group>";
 		};
+		1ACFB94C1C8E98100083FD07 /* tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				1ACFB9951C8EACA20083FD07 /* tabbar_discovery_selected.png */,
+				1ACFB9961C8EACA20083FD07 /* tabbar_discovery_selected@2x.png */,
+				1ACFB9971C8EACA20083FD07 /* tabbar_discovery_selected@3x.png */,
+				1ACFB9981C8EACA20083FD07 /* tabbar_discovery.png */,
+				1ACFB9991C8EACA20083FD07 /* tabbar_discovery@2x.png */,
+				1ACFB99A1C8EACA20083FD07 /* tabbar_discovery@3x.png */,
+				1ACFB99B1C8EACA20083FD07 /* tabbar_more_selected.png */,
+				1ACFB99C1C8EACA20083FD07 /* tabbar_more_selected@2x.png */,
+				1ACFB99D1C8EACA20083FD07 /* tabbar_more_selected@3x.png */,
+				1ACFB99E1C8EACA20083FD07 /* tabbar_more.png */,
+				1ACFB99F1C8EACA20083FD07 /* tabbar_more@2x.png */,
+				1ACFB9A01C8EACA20083FD07 /* tabbar_more@3x.png */,
+				1ACFB9A11C8EACA20083FD07 /* tabbar_myCardBag_selected.png */,
+				1ACFB9A21C8EACA20083FD07 /* tabbar_myCardBag_selected@2x.png */,
+				1ACFB9A31C8EACA20083FD07 /* tabbar_myCardBag_selected@3x.png */,
+				1ACFB9A41C8EACA20083FD07 /* tabbar_myCardBag.png */,
+				1ACFB9A51C8EACA20083FD07 /* tabbar_myCardBag@2x.png */,
+				1ACFB9A61C8EACA20083FD07 /* tabbar_myCardBag@3x.png */,
+			);
+			name = tabbar;
+			path = ../tabbar;
+			sourceTree = "<group>";
+		};
 		1AEDD3A61C8D284400E435AC /* AddCard */ = {
 			isa = PBXGroup;
 			children = (
@@ -392,19 +442,6 @@
 				229FA454613B3E0894C28FE1 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		E20550B91C80A5530053DF39 /* tabbar */ = {
-			isa = PBXGroup;
-			children = (
-				E2FF43881C8A9E8B00C9F10F /* tabbar_discover_selected@3x.png */,
-				E2FF43891C8A9E8B00C9F10F /* tabbar_discover@3x.png */,
-				E2FF438A1C8A9E8B00C9F10F /* tabbar_more_selected@3x.png */,
-				E2FF438B1C8A9E8B00C9F10F /* tabbar_more@3x.png */,
-				E2FF438C1C8A9E8B00C9F10F /* tabbar_myCardBag_selected@3x.png */,
-				E2FF438D1C8A9E8B00C9F10F /* tabbar_myCardBag@3x.png */,
-			);
-			path = tabbar;
 			sourceTree = "<group>";
 		};
 		E2073CB41C847D590028DD8C /* Mycard */ = {
@@ -751,11 +788,11 @@
 		E2FEE3B01C79F2620079B824 /* ImageSources */ = {
 			isa = PBXGroup;
 			children = (
+				1ACFB94C1C8E98100083FD07 /* tabbar */,
 				E24983A31C8C2753005B77A8 /* Login */,
 				1AEDD3A61C8D284400E435AC /* AddCard */,
 				E2073CB41C847D590028DD8C /* Mycard */,
 				1A1470861C8D5717003A0616 /* More */,
-				E20550B91C80A5530053DF39 /* tabbar */,
 			);
 			path = ImageSources;
 			sourceTree = "<group>";
@@ -855,7 +892,7 @@
 				TargetAttributes = {
 					E2FEE36D1C79E7860079B824 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = CWPM78QMN6;
+						DevelopmentTeam = ZZ49Y24LYW;
 					};
 					E2FEE3861C79E7860079B824 = {
 						CreatedOnToolsVersion = 7.2;
@@ -892,50 +929,60 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1ACFB9CD1C8EB8680083FD07 /* more1@3x.png in Resources */,
 				1A14709F1C8D7CC5003A0616 /* addCard-menu.png in Resources */,
+				1ACFB9A81C8EACA20083FD07 /* tabbar_discovery_selected@2x.png in Resources */,
 				E2004C0F1C85D3EF00CDA2E7 /* AnnouncementTableViewController.xib in Resources */,
-				1A14708E1C8D5717003A0616 /* more1@2x.png in Resources */,
+				1ACFB9B11C8EACA20083FD07 /* tabbar_more@2x.png in Resources */,
 				1A344BF41C882DCD009F3FFC /* DisoveryViewController.xib in Resources */,
 				E2BDB8181C7B63D200274CE3 /* QRViewController.xib in Resources */,
 				1AEDD3C21C8D2D4000E435AC /* icon_back.png in Resources */,
+				1ACFB9AD1C8EACA20083FD07 /* tabbar_more_selected.png in Resources */,
+				1ACFB9CC1C8EB8680083FD07 /* more1@2x.png in Resources */,
+				1ACFB9CF1C8EB8680083FD07 /* more2@2x.png in Resources */,
+				1ACFB9AE1C8EACA20083FD07 /* tabbar_more_selected@2x.png in Resources */,
+				1ACFB9AB1C8EACA20083FD07 /* tabbar_discovery@2x.png in Resources */,
+				1ACFB9B41C8EACA20083FD07 /* tabbar_myCardBag_selected@2x.png in Resources */,
+				1ACFB9D01C8EB8680083FD07 /* more2@3x.png in Resources */,
 				E2004C001C85CD7D00CDA2E7 /* SellCardViewController.xib in Resources */,
 				E2BDB7BB1C7B53A900274CE3 /* MyCardBagTableViewCell.xib in Resources */,
-				E2FF43911C8A9E8B00C9F10F /* tabbar_more@3x.png in Resources */,
-				E2FF43901C8A9E8B00C9F10F /* tabbar_more_selected@3x.png in Resources */,
 				E2FEE3D51C79FD070079B824 /* VIPViewController.xib in Resources */,
 				1A1470A01C8D7CC5003A0616 /* addCard-menu@2x.png in Resources */,
+				1ACFB9AC1C8EACA20083FD07 /* tabbar_discovery@3x.png in Resources */,
+				1ACFB9B61C8EACA20083FD07 /* tabbar_myCardBag.png in Resources */,
 				1AEDD3C41C8D2D4000E435AC /* icon_back@3x.png in Resources */,
 				E2BDB8311C7B655200274CE3 /* RecordDetailViewController.xib in Resources */,
 				1A1470A21C8D7CC5003A0616 /* addCard-scan.png in Resources */,
+				1ACFB9B71C8EACA20083FD07 /* tabbar_myCardBag@2x.png in Resources */,
 				E2BDB7B51C7B42E200274CE3 /* AddNewCardViewController.xib in Resources */,
+				1ACFB9CE1C8EB8680083FD07 /* more2.png in Resources */,
 				1A1470A41C8D7CC5003A0616 /* addCard-scan@3x.png in Resources */,
 				E2BDB7C01C7B567B00274CE3 /* NotificationTableViewCell.xib in Resources */,
-				1A1470901C8D5717003A0616 /* more2.png in Resources */,
 				E2004C191C85E41400CDA2E7 /* YKMerchantsViewController.xib in Resources */,
 				E2004C051C85CE5000CDA2E7 /* AssignmentInfoViewController.xib in Resources */,
 				E2BDB81D1C7B641200274CE3 /* InputCardViewController.xib in Resources */,
+				1ACFB9B21C8EACA20083FD07 /* tabbar_more@3x.png in Resources */,
 				E2BDB8221C7B644600274CE3 /* BrandListViewController.xib in Resources */,
 				270085A31C8808B50069149F /* MyCardDetailViewController.xib in Resources */,
-				E2FF438E1C8A9E8B00C9F10F /* tabbar_discover_selected@3x.png in Resources */,
+				1ACFB9B81C8EACA20083FD07 /* tabbar_myCardBag@3x.png in Resources */,
+				1ACFB9B01C8EACA20083FD07 /* tabbar_more.png in Resources */,
+				1ACFB9CB1C8EB8680083FD07 /* more1.png in Resources */,
 				1AEDD3C31C8D2D4000E435AC /* icon_back@2x.png in Resources */,
 				1A344BFF1C884AA1009F3FFC /* MoreViewController.xib in Resources */,
 				E2FBAD3A1C8DB1ED0043F35D /* EditRemarkViewController.xib in Resources */,
 				E2FEE3CB1C79F5A70079B824 /* LoginViewController.xib in Resources */,
 				E2FEE3D01C79F5EA0079B824 /* SettingViewController.xib in Resources */,
+				1ACFB9AA1C8EACA20083FD07 /* tabbar_discovery.png in Resources */,
 				1A1470A31C8D7CC5003A0616 /* addCard-scan@2x.png in Resources */,
 				E2004C0A1C85D34800CDA2E7 /* YKInformTableViewController.xib in Resources */,
-				E2FF438F1C8A9E8B00C9F10F /* tabbar_discover@3x.png in Resources */,
-				E2FF43931C8A9E8B00C9F10F /* tabbar_myCardBag@3x.png in Resources */,
+				1ACFB9AF1C8EACA20083FD07 /* tabbar_more_selected@3x.png in Resources */,
 				E2004C141C85E3C200CDA2E7 /* VIPServiceTableViewController.xib in Resources */,
-				1A14708F1C8D5717003A0616 /* more1@3x.png in Resources */,
-				1A1470911C8D5717003A0616 /* more2@2x.png in Resources */,
 				E24983A61C8C27BA005B77A8 /* icon_logo.png in Resources */,
 				1A14709D1C8D7CC5003A0616 /* addCard-code@2x.png in Resources */,
-				1A14708D1C8D5717003A0616 /* more1.png in Resources */,
+				1ACFB9B31C8EACA20083FD07 /* tabbar_myCardBag_selected.png in Resources */,
 				E2FEE3811C79E7860079B824 /* LaunchScreen.storyboard in Resources */,
 				E2BDB7C61C7B5F5100274CE3 /* VIPTableViewCell.xib in Resources */,
 				1A14709C1C8D7CC5003A0616 /* addCard-code.png in Resources */,
-				E2FF43921C8A9E8B00C9F10F /* tabbar_myCardBag_selected@3x.png in Resources */,
 				E20788E41C7DF52800D59F63 /* read_me.txt in Resources */,
 				1A1470A11C8D7CC5003A0616 /* addCard-menu@3x.png in Resources */,
 				1A344BFA1C8830B6009F3FFC /* DiscoveryWithImageCell.xib in Resources */,
@@ -943,12 +990,14 @@
 				E2BDB7B01C7B42BD00274CE3 /* NotificationViewController.xib in Resources */,
 				E2FBA6161C82B91800F9F799 /* MartViewController.xib in Resources */,
 				1A14709E1C8D7CC5003A0616 /* addCard-code@3x.png in Resources */,
-				1A1470921C8D5717003A0616 /* more2@3x.png in Resources */,
 				E2073CBA1C847FBC0028DD8C /* icon_horn_top@2x.png in Resources */,
 				E2662CBC1C7CA1D100FE42F1 /* ShowDeteledCardViewController.xib in Resources */,
 				E2FEE37E1C79E7860079B824 /* Assets.xcassets in Resources */,
+				1ACFB9A91C8EACA20083FD07 /* tabbar_discovery_selected@3x.png in Resources */,
+				1ACFB9B51C8EACA20083FD07 /* tabbar_myCardBag_selected@3x.png in Resources */,
 				E24983A71C8C27BA005B77A8 /* icon_logo@2x.png in Resources */,
 				E2FEE37C1C79E7860079B824 /* Main.storyboard in Resources */,
+				1ACFB9A71C8EACA20083FD07 /* tabbar_discovery_selected.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1203,6 +1252,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MembershipCard/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1210,8 +1260,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/MembershipCard/Resources/Libs/weixinSDK1.6.2",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yunsuo.MembershipCard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MembershipCard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1229,8 +1280,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/MembershipCard/Resources/Libs/weixinSDK1.6.2",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yunsuo.MembershipCard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MembershipCard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,26 +11,23 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="307"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="306.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="307"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nMA-h2-RAb">
                         <rect key="frame" x="13" y="13" width="294" height="150"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="150" id="lxe-Cl-vYC"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="来自意大利的纯种红牛" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lYa-oZ-pPO">
                         <rect key="frame" x="13" y="171" width="294" height="19"/>
-                        <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选取澳大利亚知名品牌Riverina的谷饲安格斯牛只胸肋部位制成，是适合做日式烧烤、铁板烧的部位。" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b6i-kB-eo7">
                         <rect key="frame" x="13" y="198" width="294" height="55"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="55" id="lpS-lN-6Lp"/>
                         </constraints>
@@ -40,7 +37,6 @@
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t5J-Sa-oVs">
                         <rect key="frame" x="13" y="261" width="68" height="30"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="68" id="Cnf-9Y-Fzw"/>
                             <constraint firstAttribute="height" constant="30" id="OfX-Yb-tE4"/>
@@ -54,7 +50,6 @@
                         </connections>
                     </button>
                 </subviews>
-                <animations/>
                 <constraints>
                     <constraint firstItem="t5J-Sa-oVs" firstAttribute="leading" secondItem="nMA-h2-RAb" secondAttribute="leading" id="0sC-OD-INf"/>
                     <constraint firstItem="nMA-h2-RAb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="56c-A0-KOF"/>
@@ -70,7 +65,6 @@
                     <constraint firstItem="lYa-oZ-pPO" firstAttribute="leading" secondItem="nMA-h2-RAb" secondAttribute="leading" id="x85-l2-0G8"/>
                 </constraints>
             </tableViewCellContentView>
-            <animations/>
             <connections>
                 <outlet property="contentLabel" destination="b6i-kB-eo7" id="ZJ8-BY-1SN"/>
                 <outlet property="imageView" destination="nMA-h2-RAb" id="rqZ-nE-o8H"/>
