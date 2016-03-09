@@ -11,8 +11,7 @@
 #import "UIView+border.h"
 #import "WXApi.h"
 #import "WXApiObject.h"
-#import "MainTabBarViewController.h"
-
+#import "ChooseAreaViewController.h"
 
 #define INTERVAL_KEYBOARD 20
 @interface LoginViewController ()
@@ -24,13 +23,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ChangeNameNotification) name:@"ChangeNameNotification" object:nil];
     [_logoImageView circularBead:15];
     [_loginButton circularBead:4];
     [_weixinBtn circularBoarderBead:4 withBoarder:1 color:[UIColor groupTableViewBackgroundColor]];
     UIImage *wxLogo = [UIImage imageNamed:@"wx"];
     wxLogo = [wxLogo imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     [_weixinBtn setImage:wxLogo forState:UIControlStateNormal];
-    _bgView.width = MainScreenWidth;
     [_scrollView addSubview:_bgView];
     [_scrollView setContentSize:CGSizeMake(MainScreenWidth, _bgView.height)];
 //    if (![WXApi isWXAppInstalled]) {
@@ -42,6 +41,13 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)ChangeNameNotification
+{
+    if (self.LoginCallBack) {
+        self.LoginCallBack();
+    }
 }
 
 - (IBAction)getCodeBtnAction:(id)sender {
@@ -62,8 +68,9 @@
 }
 
 - (IBAction)loginAction:(id)sender {
-    MainTabBarViewController *tabbarVC = [[MainTabBarViewController alloc]init];
-    [self showViewController:tabbarVC sender:self];
+    ChooseAreaViewController *vc = [[ChooseAreaViewController alloc]init];
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:vc];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 - (IBAction)weixinLoginAction:(id)sender {

@@ -9,5 +9,6 @@
 #import "BaseViewController.h"
 
 @interface ChooseAreaViewController : BaseViewController
-
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (assign, nonatomic) BOOL fromSetting;
 @end

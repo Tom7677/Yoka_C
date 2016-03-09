@@ -11,6 +11,7 @@
 #import "ShowDeteledCardViewController.h"
 #import "UIView+frame.h"
 #import "UIView+border.h"
+#import "ChooseAreaViewController.h"
 
 @interface MoreViewController ()
 
@@ -73,13 +74,18 @@
         ShowDeteledCardViewController  *vc = [[ShowDeteledCardViewController alloc]init];
         [self.navigationController pushViewController:vc animated:YES];
     }
-    else {
+    else if (btn.tag == 3) {
         //给好评
         NSString *str = [NSString stringWithFormat:@"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=1085934881" ];
         if( ([[[UIDevice currentDevice] systemVersion] doubleValue]>=7.0)){
             str = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/app/id1085934881"];
         }
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+    }
+    else {
+        ChooseAreaViewController *vc = [[ChooseAreaViewController alloc]init];
+        vc.fromSetting = YES;
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 @end
