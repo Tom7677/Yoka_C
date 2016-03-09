@@ -14,11 +14,12 @@
 #import "UIView+border.h"
 #import "takePhoto.h"
 #import "NotificationTableViewCell.h"
+#import "UILabel+caculateSize.h"
 
 @interface MyCardDetailViewController ()<UIGestureRecognizerDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) NSNumber *fromValue;
 @property (nonatomic, strong) UIImageView *hornTopImageView;
-@property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
+@property (nonatomic, strong) NSArray *dataArray;
 @end
 
 @implementation MyCardDetailViewController
@@ -67,7 +68,8 @@
 - (void)getAnnouncementList
 {
     [[NetworkAPI shared]getMerchantAnnouncementByMerchantId:_model.merchant_id WithFinish:^(NSArray *dataArray) {
-        
+        _dataArray = dataArray;
+        [_newsTableView reloadData];
     } withErrorBlock:^(NSError *error) {
         
     }];
@@ -245,8 +247,20 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NotificationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentifier"];
-    cell.contentLabel.text = @"tom";
+//    AnnouncementModel *model = _dataArray[indexPath.row];
+//    cell.contentLabel.text = model.content;
+//    cell.timeLabel.text = model.create_time;
+    cell.contentLabel.text = @"有点经验的都会觉得这种效果实现起来很简单但麻烦，常用的方法 Delegate、target-action、KVC 等组合使用，而且代码页面的粘合性也比很强。现在我们使用 ReactiveCocoa 来实现不但统一所有的消息，代码也更加的简洁直观，与页面的粘合性也不再这么强，相对在重用时会简单点。";
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NotificationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentifier"];
+    cell.contentLabel.text = @"有点经验的都会觉得这种效果实现起来很简单但麻烦，常用的方法 Delegate、target-action、KVC 等组合使用，而且代码页面的粘合性也比很强。现在我们使用 ReactiveCocoa 来实现不但统一所有的消息，代码也更加的简洁直观，与页面的粘合性也不再这么强，相对在重用时会简单点。";
+    cell.contentLabel.width = MainScreenWidth - 20;
+    CGFloat labelHeight = [cell.contentLabel getTextHeight];
+    return labelHeight + 52;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

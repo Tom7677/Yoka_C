@@ -26,7 +26,7 @@
     UIImageView *imageView = [self imageView];
     CGRect imageFrame = imageView.frame;
     CGRect labelFrame = label.frame;
-    imageFrame.origin.x = (self.bounds.size.width - imageFrame.size.width)/ 2 - 10;
+    imageFrame.origin.x = (self.bounds.size.width - imageFrame.size.width)/ 2 - 30;
     labelFrame.origin.x = imageFrame.origin.x + imageFrame.size.width + 10;
     imageView.frame = imageFrame;
     label.frame = labelFrame;

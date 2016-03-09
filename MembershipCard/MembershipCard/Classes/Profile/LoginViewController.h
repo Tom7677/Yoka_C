@@ -8,6 +8,7 @@
 
 #import "BaseViewController.h"
 #import "MidImageLeftButton.h"
+#import <TPKeyboardAvoidingScrollView.h>
 
 @interface LoginViewController : BaseViewController
 @property (copy, nonatomic) void (^LoginCallBack)();
@@ -18,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *orLabel;
 @property (weak, nonatomic) IBOutlet MidImageLeftButton *weixinBtn;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
+@property (strong, nonatomic) IBOutlet UIView *bgView;
+@property (weak, nonatomic) IBOutlet TPKeyboardAvoidingScrollView *scrollView;
 
 
 - (IBAction)getCodeBtnAction:(id)sender;

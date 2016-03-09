@@ -70,6 +70,6 @@
 @property(nonatomic,strong) NSString *merchant_id;
 @property(nonatomic,strong) NSString *title;
 @property(nonatomic,strong) NSString *content;
-@property(nonatomic) NSInteger *create_time;
+@property(nonatomic,strong) NSString *create_time;
 @property(nonatomic,strong) NSString *announcement_id;//公告id
 @end

@@ -59,6 +59,9 @@
 		27D39A0A1C8EC6A800A3F3C3 /* DiscoveryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27D39A081C8EC6A800A3F3C3 /* DiscoveryTableViewCell.xib */; };
 		27D39A0E1C8ED83600A3F3C3 /* DiscoveryWithImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D39A0C1C8ED83600A3F3C3 /* DiscoveryWithImageCell.m */; };
 		27D39A0F1C8ED83600A3F3C3 /* DiscoveryWithImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27D39A0D1C8ED83600A3F3C3 /* DiscoveryWithImageCell.xib */; };
+		27D39A131C8FB90A00A3F3C3 /* UILabel+caculateSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D39A121C8FB90A00A3F3C3 /* UILabel+caculateSize.m */; };
+		27D39A171C8FCB5000A3F3C3 /* ChooseAreaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D39A151C8FCB5000A3F3C3 /* ChooseAreaViewController.m */; };
+		27D39A181C8FCB5000A3F3C3 /* ChooseAreaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27D39A161C8FCB5000A3F3C3 /* ChooseAreaViewController.xib */; };
 		E2004BFF1C85CD7D00CDA2E7 /* SellCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2004BFD1C85CD7D00CDA2E7 /* SellCardViewController.m */; };
 		E2004C001C85CD7D00CDA2E7 /* SellCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2004BFE1C85CD7D00CDA2E7 /* SellCardViewController.xib */; };
 		E2004C041C85CE5000CDA2E7 /* AssignmentInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2004C021C85CE5000CDA2E7 /* AssignmentInfoViewController.m */; };
@@ -209,6 +212,11 @@
 		27D39A0B1C8ED83600A3F3C3 /* DiscoveryWithImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoveryWithImageCell.h; sourceTree = "<group>"; };
 		27D39A0C1C8ED83600A3F3C3 /* DiscoveryWithImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoveryWithImageCell.m; sourceTree = "<group>"; };
 		27D39A0D1C8ED83600A3F3C3 /* DiscoveryWithImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscoveryWithImageCell.xib; sourceTree = "<group>"; };
+		27D39A111C8FB90A00A3F3C3 /* UILabel+caculateSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+caculateSize.h"; sourceTree = "<group>"; };
+		27D39A121C8FB90A00A3F3C3 /* UILabel+caculateSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+caculateSize.m"; sourceTree = "<group>"; };
+		27D39A141C8FCB5000A3F3C3 /* ChooseAreaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseAreaViewController.h; sourceTree = "<group>"; };
+		27D39A151C8FCB5000A3F3C3 /* ChooseAreaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseAreaViewController.m; sourceTree = "<group>"; };
+		27D39A161C8FCB5000A3F3C3 /* ChooseAreaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseAreaViewController.xib; sourceTree = "<group>"; };
 		4A3F338817F8EBA02DCDB671 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E2004BFC1C85CD7D00CDA2E7 /* SellCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SellCardViewController.h; sourceTree = "<group>"; };
 		E2004BFD1C85CD7D00CDA2E7 /* SellCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SellCardViewController.m; sourceTree = "<group>"; };
@@ -717,6 +725,9 @@
 				E2FEE3C71C79F5A70079B824 /* LoginViewController.h */,
 				E2FEE3C81C79F5A70079B824 /* LoginViewController.m */,
 				E2FEE3C91C79F5A70079B824 /* LoginViewController.xib */,
+				27D39A141C8FCB5000A3F3C3 /* ChooseAreaViewController.h */,
+				27D39A151C8FCB5000A3F3C3 /* ChooseAreaViewController.m */,
+				27D39A161C8FCB5000A3F3C3 /* ChooseAreaViewController.xib */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -772,6 +783,8 @@
 				E200FC5E1C7F4BE700644BB5 /* UIView+frame.m */,
 				E2FBA6041C82B57000F9F799 /* UIView+border.h */,
 				E2FBA6051C82B57000F9F799 /* UIView+border.m */,
+				27D39A111C8FB90A00A3F3C3 /* UILabel+caculateSize.h */,
+				27D39A121C8FB90A00A3F3C3 /* UILabel+caculateSize.m */,
 				E200FC601C7F4BF000644BB5 /* takePhoto.h */,
 				E200FC611C7F4BF000644BB5 /* takePhoto.m */,
 				E249839E1C8BD6D3005B77A8 /* TSImageLeftButton.h */,
@@ -917,7 +930,7 @@
 				TargetAttributes = {
 					E2FEE36D1C79E7860079B824 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = ZZ49Y24LYW;
+						DevelopmentTeam = CWPM78QMN6;
 					};
 					E2FEE3861C79E7860079B824 = {
 						CreatedOnToolsVersion = 7.2;
@@ -972,8 +985,6 @@
 				E2004C001C85CD7D00CDA2E7 /* SellCardViewController.xib in Resources */,
 				E2BDB7BB1C7B53A900274CE3 /* MyCardBagTableViewCell.xib in Resources */,
 				27D39A0F1C8ED83600A3F3C3 /* DiscoveryWithImageCell.xib in Resources */,
-				E2FF43911C8A9E8B00C9F10F /* tabbar_more@3x.png in Resources */,
-				E2FF43901C8A9E8B00C9F10F /* tabbar_more_selected@3x.png in Resources */,
 				27D39A0A1C8EC6A800A3F3C3 /* DiscoveryTableViewCell.xib in Resources */,
 				E2FEE3D51C79FD070079B824 /* VIPViewController.xib in Resources */,
 				1A1470A01C8D7CC5003A0616 /* addCard-menu@2x.png in Resources */,
@@ -996,6 +1007,7 @@
 				E2BDB8221C7B644600274CE3 /* BrandListViewController.xib in Resources */,
 				270085A31C8808B50069149F /* MyCardDetailViewController.xib in Resources */,
 				1ACFB9B81C8EACA20083FD07 /* tabbar_myCardBag@3x.png in Resources */,
+				27D39A181C8FCB5000A3F3C3 /* ChooseAreaViewController.xib in Resources */,
 				1ACFB9B01C8EACA20083FD07 /* tabbar_more.png in Resources */,
 				1ACFB9CB1C8EB8680083FD07 /* more1.png in Resources */,
 				1AEDD3C31C8D2D4000E435AC /* icon_back@2x.png in Resources */,
@@ -1126,6 +1138,7 @@
 				E2BDB8171C7B63D200274CE3 /* QRViewController.m in Sources */,
 				E2FEE3B91C79F4440079B824 /* MainTabBarViewController.m in Sources */,
 				E2FEE3C11C79F4AC0079B824 /* GuideViewController.m in Sources */,
+				27D39A171C8FCB5000A3F3C3 /* ChooseAreaViewController.m in Sources */,
 				1A344BFE1C884AA1009F3FFC /* MoreViewController.m in Sources */,
 				E2BDB8301C7B655200274CE3 /* RecordDetailViewController.m in Sources */,
 				E2FBAD391C8DB1ED0043F35D /* EditRemarkViewController.m in Sources */,
@@ -1134,6 +1147,7 @@
 				E2BDB7C51C7B5F5100274CE3 /* VIPTableViewCell.m in Sources */,
 				E2FEE3CA1C79F5A70079B824 /* LoginViewController.m in Sources */,
 				1A7300051C86CD1B0054DB1D /* AboutViewController.m in Sources */,
+				27D39A131C8FB90A00A3F3C3 /* UILabel+caculateSize.m in Sources */,
 				E2FEE3B51C79F3260079B824 /* BaseViewController.m in Sources */,
 				27D39A091C8EC6A800A3F3C3 /* DiscoveryTableViewCell.m in Sources */,
 				E2FEE3731C79E7860079B824 /* main.m in Sources */,

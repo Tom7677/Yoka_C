@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *markTextView;
 @property (weak, nonatomic) IBOutlet UIView *codeView;
 @property (weak, nonatomic) IBOutlet UIView *markView;
+@property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
 @property (strong, nonatomic) MyCardModel *model;
 
 - (IBAction)cardValueBtnAction:(id)sender;
