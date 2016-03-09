@@ -23,21 +23,11 @@
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U6W-BS-Qeu">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
                         </scrollView>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G7I-Gm-yEm">
-                            <rect key="frame" x="0.0" y="39" width="320" height="1"/>
-                            <color key="backgroundColor" white="0.84643126369999999" alpha="1" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="1" id="LWk-dt-dYV"/>
-                            </constraints>
-                        </view>
                     </subviews>
                     <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="U6W-BS-Qeu" secondAttribute="bottom" id="4Pb-Zg-eCj"/>
-                        <constraint firstAttribute="trailing" secondItem="G7I-Gm-yEm" secondAttribute="trailing" id="6M4-hl-3vD"/>
-                        <constraint firstItem="G7I-Gm-yEm" firstAttribute="leading" secondItem="I1M-vz-8gm" secondAttribute="leading" id="HOa-ya-KhI"/>
                         <constraint firstItem="U6W-BS-Qeu" firstAttribute="top" secondItem="I1M-vz-8gm" secondAttribute="top" id="SWq-6v-8YQ"/>
-                        <constraint firstAttribute="bottom" secondItem="G7I-Gm-yEm" secondAttribute="bottom" id="WX2-YM-ahP"/>
                         <constraint firstAttribute="trailing" secondItem="U6W-BS-Qeu" secondAttribute="trailing" id="ahC-jb-4ei"/>
                         <constraint firstItem="U6W-BS-Qeu" firstAttribute="leading" secondItem="I1M-vz-8gm" secondAttribute="leading" id="eO4-ib-zNh"/>
                         <constraint firstAttribute="bottom" secondItem="U6W-BS-Qeu" secondAttribute="bottom" id="fMv-pR-alD"/>
