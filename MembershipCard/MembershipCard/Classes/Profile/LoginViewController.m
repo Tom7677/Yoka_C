@@ -11,6 +11,7 @@
 #import "UIView+border.h"
 #import "WXApi.h"
 #import "WXApiObject.h"
+#import "MainTabBarViewController.h"
 
 
 #define INTERVAL_KEYBOARD 20
@@ -34,9 +35,11 @@
                                                object:nil];
     [_logoImageView circularBead:15];
     [_loginButton circularBead:4];
+    [_weixinBtn circularBoarderBead:4 withBoarder:1 color:[UIColor groupTableViewBackgroundColor]];
     UIImage *wxLogo = [UIImage imageNamed:@"wx"];
     wxLogo = [wxLogo imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     [_weixinBtn setImage:wxLogo forState:UIControlStateNormal];
+    
 //    if (![WXApi isWXAppInstalled]) {
 //        _weixinBtn.hidden = YES;
 //        _orLabel.hidden = YES;
@@ -82,6 +85,8 @@
 }
 
 - (IBAction)loginAction:(id)sender {
+    MainTabBarViewController *tabbarVC = [[MainTabBarViewController alloc]init];
+    [self showViewController:tabbarVC sender:self];
 }
 
 - (IBAction)weixinLoginAction:(id)sender {
