@@ -17,4 +17,5 @@
 @property (weak, nonatomic) IBOutlet UITextField *nameText;
 @property (weak, nonatomic) IBOutlet UITextField *cardNumText;
 @property (strong, nonatomic) IBOutlet UIView *bgView;
+@property (copy, nonatomic) NSString *logoUrl;
 @end

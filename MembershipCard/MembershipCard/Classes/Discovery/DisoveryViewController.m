@@ -59,14 +59,14 @@
  *  商户
  */
 - (void) NearbyMerchant {
-    
+    [[UMengAnalyticsUtil shared]merchants];
 }
 
 /**
  *  爆料
  */
 - (void) topNews {
-    
+    [[UMengAnalyticsUtil shared]factBtn];
 }
 
 /**

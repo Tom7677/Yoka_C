@@ -198,6 +198,7 @@
  *  @param sender description
  */
 - (IBAction)deleteBtnAction:(id)sender {
+    [[UMengAnalyticsUtil shared]deleteCardByMerchantsName:_model.name];
 }
 
 /**
@@ -237,6 +238,7 @@
  *  @param sender description
  */
 - (IBAction)infoBtnAction:(id)sender {
+    [[UMengAnalyticsUtil shared]seeCardInfo];
 }
 
 #pragma mark UITableViewDelegate/UITableViewDataSource

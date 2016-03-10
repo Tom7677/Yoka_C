@@ -30,16 +30,19 @@
 
 
 - (IBAction)qrBtnAction:(id)sender {
+    [[UMengAnalyticsUtil shared]qrCard];
     QRViewController *vc = [[QRViewController alloc]init];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)inputBtnAction:(id)sender {
+    [[UMengAnalyticsUtil shared]manuallyInputCard];
     InputCardViewController *vc = [[InputCardViewController alloc]init];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)chooseBtnAction:(id)sender {
+    [[UMengAnalyticsUtil shared]listChooseCard];
     BrandListViewController *vc = [[BrandListViewController alloc]init];
     [self.navigationController pushViewController:vc animated:YES];
 }

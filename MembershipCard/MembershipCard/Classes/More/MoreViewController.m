@@ -47,6 +47,7 @@
  */
 - (void)setting
 {
+    [[UMengAnalyticsUtil shared]setting];
     SettingViewController *vc = [[SettingViewController alloc]init];
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -58,16 +59,18 @@
 }
 
 - (IBAction)cardMartBtnAction:(id)sender {
+    [[UMengAnalyticsUtil shared]cardBrokerageCity];
 }
 
 - (IBAction)secondHandBtnAction:(id)sender {
+    [[UMengAnalyticsUtil shared]secondHandCardVoucher];
 }
 
 - (IBAction)btnAction:(id)sender {
     UIButton *btn = sender;
     if (btn.tag == 1) {
         //分享到微信
-        
+        [[UMengAnalyticsUtil shared]shareApp];
     }
     else if (btn.tag == 2) {
         //已删除会员卡

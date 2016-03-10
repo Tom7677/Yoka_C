@@ -10,7 +10,8 @@
 #import "Macro.h"
 #import "NetworkAPI.h"
 #import "YKModel.h"
+#import "UMengAnalyticsUtil.h"
 
 @interface BaseViewController : UIViewController
-
+- (BOOL)isEmpty:(NSString *)str;
 @end

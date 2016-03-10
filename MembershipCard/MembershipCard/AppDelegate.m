@@ -34,6 +34,11 @@
         [self goMainView];
     }
     [MobClick startWithAppkey:umengAppKey reportPolicy:BATCH channelId:@"App Store"];
+    //账号统计
+    NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    [MobClick setAppVersion:version];
+    //使用集成测试模式
+    [MobClick setLogEnabled:YES];
     [self.window makeKeyAndVisible];
     return YES;
 }

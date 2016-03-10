@@ -12,6 +12,7 @@
 #import "WXApi.h"
 #import "WXApiObject.h"
 #import "ChooseAreaViewController.h"
+#import <MobClick.h>
 
 #define INTERVAL_KEYBOARD 20
 @interface LoginViewController ()
@@ -71,9 +72,12 @@
     ChooseAreaViewController *vc = [[ChooseAreaViewController alloc]init];
     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:vc];
     [self presentViewController:nav animated:YES completion:nil];
+    [MobClick profileSignInWithPUID:_phoneNumTextField.text];
+    [[UMengAnalyticsUtil shared]loginByMobile];
 }
 
 - (IBAction)weixinLoginAction:(id)sender {
+    [[UMengAnalyticsUtil shared]loginByWX];
 }
 
 -(void)sendAuthRequest

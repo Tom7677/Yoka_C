@@ -60,6 +60,7 @@
 
 - (void)clearBtnAction
 {
+    [[UMengAnalyticsUtil shared]clearNotice];
     [[NetworkAPI shared]deleteAnnouncementWithFinish:^(BOOL isSuccess) {
         if (isSuccess) {
             YKInformTableViewController *informTableView = [[YKInformTableViewController alloc]init];

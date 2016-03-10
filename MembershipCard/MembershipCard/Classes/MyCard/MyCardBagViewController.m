@@ -48,13 +48,12 @@
     _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self loadNewData];
     }];
-    [self loadNewData];
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self loadNewData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -77,6 +76,7 @@
 #pragma mark Action
 - (void)notificationBtnAction
 {
+    [[UMengAnalyticsUtil shared]seeNotice];
     NotificationViewController *vc = [[NotificationViewController alloc]init];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
@@ -84,6 +84,7 @@
 
 - (void)addNewCardBtnAction
 {
+    [[UMengAnalyticsUtil shared]addNewCard];
     AddNewCardViewController *vc = [[AddNewCardViewController alloc]init];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];

@@ -52,4 +52,16 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+/*!
+ *  @brief  判断str是否为空
+ *
+ *  @param str str description
+ *
+ *  @return return value description
+ */
+- (BOOL)isEmpty:(NSString *)str
+{
+    return str == nil || [str isEqual:@""] || [str isEqual:[NSNull null]];
+}
 @end

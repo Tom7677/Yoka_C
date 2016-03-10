@@ -63,9 +63,16 @@
 
 - (void)saveBtnAction
 {
-    
+    if ([self isEmpty:_cardNum] && [self isEmpty:_logoUrl]) {
+        [[UMengAnalyticsUtil shared]saveCardByMerchantsName:_nameText.text type:@"手动输入"];
+    }
+    else {
+        if (![self isEqual:_cardNum]) {
+            [[UMengAnalyticsUtil shared]saveCardByMerchantsName:_nameText.text type:@"扫码"];
+        }
+        if (![self isEqual:_logoUrl]) {
+            [[UMengAnalyticsUtil shared]saveCardByMerchantsName:_nameText.text type:@"列表选择"];
+        }
+    }
 }
-
-
-
 @end
