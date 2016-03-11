@@ -15,6 +15,7 @@
 #import "takePhoto.h"
 #import "NotificationTableViewCell.h"
 #import "UILabel+caculateSize.h"
+#import "CommentsViewController.h"
 
 @interface MyCardDetailViewController ()<UIGestureRecognizerDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) NSNumber *fromValue;
@@ -44,9 +45,12 @@
     _markView.width = MainScreenWidth;
     [_codeScrollView setContentSize:CGSizeMake(MainScreenWidth, _codeView.height)];
     [_markScrollView setContentSize:CGSizeMake(MainScreenWidth, _markView.height)];
-    [_frontPicBtn circularBoarderBead:6 withBoarder:1 color:UIColorFromRGB(0xf0f0f0)];
-    [_backPicBtn circularBoarderBead:6 withBoarder:1 color:UIColorFromRGB(0xf0f0f0)];
-    [_markTextView circularBoarderBead:6 withBoarder:1 color:UIColorFromRGB(0xf0f0f0)];
+    [_frontPicBtn circularBoarderBead:8 withBoarder:1 color:UIColorFromRGB(0xf0f0f0)];
+    [_backPicBtn circularBoarderBead:8 withBoarder:1 color:UIColorFromRGB(0xf0f0f0)];
+    [_markTextView circularBoarderBead:8 withBoarder:1 color:UIColorFromRGB(0xf0f0f0)];
+    /** 备注文字框添加点击动作打开修改视图 */
+    UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapCommentsView:)];
+    [_markTextView addGestureRecognizer:tapGR];
     [_logoImageView circular];
     _newsTableView.delegate = self;
     _newsTableView.dataSource = self;
@@ -80,6 +84,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)tapCommentsView:(UITapGestureRecognizer *)gr {
+    CommentsViewController *commentsVC = [CommentsViewController new];
+    [self showViewController:commentsVC sender:self];
+}
 
 #pragma mark Action
 - (void)showViewByModel:(CardInfoModel *)model
