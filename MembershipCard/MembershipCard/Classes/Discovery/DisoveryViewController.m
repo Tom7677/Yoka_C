@@ -8,7 +8,7 @@
 
 #import "DisoveryViewController.h"
 #import "UIView+frame.h"
-#import <MJRefresh.h>
+#import "MJRefresh.h"
 #import "DiscoveryTableViewCell.h"
 #import "DiscoveryWithImageCell.h"
 

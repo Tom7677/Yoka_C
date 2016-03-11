@@ -37,30 +37,15 @@ typedef void(^SDWebImageCalculateSizeBlock)(NSUInteger fileCount, NSUInteger tot
 @interface SDImageCache : NSObject
 
 /**
- * Decompressing images that are downloaded and cached can improve performance but can consume lot of memory.
+ * Decompressing images that are downloaded and cached can improve peformance but can consume lot of memory.
  * Defaults to YES. Set this to NO if you are experiencing a crash due to excessive memory consumption.
  */
 @property (assign, nonatomic) BOOL shouldDecompressImages;
 
 /**
- *  disable iCloud backup [defaults to YES]
- */
-@property (assign, nonatomic) BOOL shouldDisableiCloud;
-
-/**
- * use memory cache [defaults to YES]
- */
-@property (assign, nonatomic) BOOL shouldCacheImagesInMemory;
-
-/**
  * The maximum "total cost" of the in-memory image cache. The cost function is the number of pixels held in memory.
  */
 @property (assign, nonatomic) NSUInteger maxMemoryCost;
-
-/**
- * The maximum number of objects the cache should hold.
- */
-@property (assign, nonatomic) NSUInteger maxMemoryCountLimit;
 
 /**
  * The maximum length of time to keep an image in the cache, in seconds
@@ -85,16 +70,6 @@ typedef void(^SDWebImageCalculateSizeBlock)(NSUInteger fileCount, NSUInteger tot
  * @param ns The namespace to use for this cache store
  */
 - (id)initWithNamespace:(NSString *)ns;
-
-/**
- * Init a new cache store with a specific namespace and directory
- *
- * @param ns        The namespace to use for this cache store
- * @param directory Directory to cache disk images in
- */
-- (id)initWithNamespace:(NSString *)ns diskCacheDirectory:(NSString *)directory;
-
--(NSString *)makeDiskCachePath:(NSString*)fullNamespace;
 
 /**
  * Add a read-only cache path to search for images pre-cached by SDImageCache
@@ -164,7 +139,7 @@ typedef void(^SDWebImageCalculateSizeBlock)(NSUInteger fileCount, NSUInteger tot
 
 
 /**
- * Remove the image from memory and disk cache asynchronously
+ * Remove the image from memory and disk cache synchronously
  *
  * @param key             The unique image cache key
  * @param completion      An block that should be executed after the image has been removed (optional)
@@ -172,7 +147,7 @@ typedef void(^SDWebImageCalculateSizeBlock)(NSUInteger fileCount, NSUInteger tot
 - (void)removeImageForKey:(NSString *)key withCompletion:(SDWebImageNoParamsBlock)completion;
 
 /**
- * Remove the image from memory and optionally disk cache asynchronously
+ * Remove the image from memory and optionally disk cache synchronously
  *
  * @param key      The unique image cache key
  * @param fromDisk Also remove cache entry from disk if YES
@@ -180,7 +155,7 @@ typedef void(^SDWebImageCalculateSizeBlock)(NSUInteger fileCount, NSUInteger tot
 - (void)removeImageForKey:(NSString *)key fromDisk:(BOOL)fromDisk;
 
 /**
- * Remove the image from memory and optionally disk cache asynchronously
+ * Remove the image from memory and optionally disk cache synchronously
  *
  * @param key             The unique image cache key
  * @param fromDisk        Also remove cache entry from disk if YES
@@ -254,7 +229,7 @@ typedef void(^SDWebImageCalculateSizeBlock)(NSUInteger fileCount, NSUInteger tot
  *  Get the cache path for a certain key (needs the cache path root folder)
  *
  *  @param key  the key (can be obtained from url using cacheKeyForURL)
- *  @param path the cache path root folder
+ *  @param path the cach path root folder
  *
  *  @return the cache path
  */

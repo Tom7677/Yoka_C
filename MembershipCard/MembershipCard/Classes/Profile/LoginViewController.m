@@ -72,7 +72,7 @@
     ChooseAreaViewController *vc = [[ChooseAreaViewController alloc]init];
     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:vc];
     [self presentViewController:nav animated:YES completion:nil];
-    [MobClick profileSignInWithPUID:_phoneNumTextField.text];
+    //[MobClick profileSignInWithPUID:_phoneNumTextField.text];
     [[UMengAnalyticsUtil shared]loginByMobile];
 }
 

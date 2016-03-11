@@ -20,30 +20,27 @@ PODS:
   - AFNetworking/UIKit (2.3.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - MJRefresh (3.1.0)
-  - SDWebImage (3.7.5):
-    - SDWebImage/Core (= 3.7.5)
-  - SDWebImage/Core (3.7.5)
-  - TPKeyboardAvoiding (1.2.11)
-  - UMengAnalytics (3.6.6)
+  - SDWebImage (3.7.2):
+    - SDWebImage/Core (= 3.7.2)
+  - SDWebImage/Core (3.7.2)
+  - TPKeyboardAvoiding (1.2.6)
+  - UMengAnalytics (3.5.8)
   - ZXingObjC (3.1.0):
     - ZXingObjC/All (= 3.1.0)
   - ZXingObjC/All (3.1.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.3.1)
-  - MJRefresh
   - SDWebImage (~> 3.7)
-  - TPKeyboardAvoiding (~> 1.2.11)
+  - TPKeyboardAvoiding (~> 1.2.6)
   - UMengAnalytics
   - ZXingObjC (~> 3.0)
 
 SPEC CHECKSUMS:
   AFNetworking: 05b9f6e3aa5ac45bc383b4bb108ef338080a26c7
-  MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
-  SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
-  TPKeyboardAvoiding: e5ce146b313de063957bfa75a13f1e9b0ff18ab7
-  UMengAnalytics: 4bf831415146b9c57cb10be65fbd43462ef8cf65
+  SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
+  TPKeyboardAvoiding: ee4dd35e3bb7bb64bfbda47e7cc9ba872ff10f77
+  UMengAnalytics: 020551718ba37da017bd85ac4c38ffba2774f3ce
   ZXingObjC: bf15b3814f7a105b6d99f47da2333c93a063650a
 
 COCOAPODS: 0.39.0

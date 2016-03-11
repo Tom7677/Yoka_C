@@ -11,7 +11,7 @@
 #import "NotificationViewController.h"
 #import "AddNewCardViewController.h"
 #import "MyCardDetailViewController.h"
-#import <MJRefresh.h>
+#import "MJRefresh.h"
 #import <UIImageView+WebCache.h>
 
 

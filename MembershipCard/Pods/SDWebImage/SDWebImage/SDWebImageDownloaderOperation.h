@@ -10,11 +10,6 @@
 #import "SDWebImageDownloader.h"
 #import "SDWebImageOperation.h"
 
-extern NSString *const SDWebImageDownloadStartNotification;
-extern NSString *const SDWebImageDownloadReceiveResponseNotification;
-extern NSString *const SDWebImageDownloadStopNotification;
-extern NSString *const SDWebImageDownloadFinishNotification;
-
 @interface SDWebImageDownloaderOperation : NSOperation <SDWebImageOperation>
 
 /**
@@ -43,16 +38,6 @@ extern NSString *const SDWebImageDownloadFinishNotification;
  * The SDWebImageDownloaderOptions for the receiver.
  */
 @property (assign, nonatomic, readonly) SDWebImageDownloaderOptions options;
-
-/**
- * The expected size of data.
- */
-@property (assign, nonatomic) NSInteger expectedSize;
-
-/**
- * The response returned by the operation's connection.
- */
-@property (strong, nonatomic) NSURLResponse *response;
 
 /**
  *  Initializes a `SDWebImageDownloaderOperation` object
