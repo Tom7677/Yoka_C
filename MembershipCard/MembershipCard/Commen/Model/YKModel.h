@@ -24,6 +24,7 @@
 @property(nonatomic,strong) NSString *merchant_id;//商户ID
 @property(nonatomic,strong) NSString *name;//商户名称
 @property(nonatomic,strong) NSString *merchant_bn;//商户编号
+@property(nonatomic,strong) NSString *is_cooperative;//是否合作商户
 @property(nonatomic,strong) NSString *area;//商户地区
 @property(nonatomic,strong) NSString *addr;//商户地址
 @property(nonatomic,strong) NSString *tel;//商户电话
@@ -31,7 +32,8 @@
 @property(nonatomic,strong) NSString *addon;//～暂时没有～
 @property(nonatomic,strong) NSString *remark;//备注
 @property(nonatomic,strong) NSString *card_bn;//卡号
-@property(nonatomic,strong) NSString *logoURL;
+@property(nonatomic,strong) NSString *f_image;//正面照
+@property(nonatomic,strong) NSString *b_image;//背面照
 @end
 
 /** 会员卡子卡信息模型 */
@@ -68,8 +70,11 @@
 /** 商户公告模型 */
 @interface AnnouncementModel : NSObject
 @property(nonatomic,strong) NSString *merchant_id;
-@property(nonatomic,strong) NSString *title;
-@property(nonatomic,strong) NSString *content;
-@property(nonatomic,strong) NSString *create_time;
+@property(nonatomic,strong) NSString *title;//标题
+@property(nonatomic,strong) NSString *content;//内容
+@property(nonatomic,strong) NSString *create_time;//公告创建时间
 @property(nonatomic,strong) NSString *announcement_id;//公告id
+
+/** 发现文章模型 */
+
 @end
