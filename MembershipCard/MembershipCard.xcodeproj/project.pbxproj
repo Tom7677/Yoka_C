@@ -90,6 +90,9 @@
 		27D39A591C92AC5D00A3F3C3 /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D39A441C92AC5D00A3F3C3 /* UIScrollView+MJExtension.m */; };
 		27D39A5A1C92AC5D00A3F3C3 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D39A461C92AC5D00A3F3C3 /* UIScrollView+MJRefresh.m */; };
 		27D39A5B1C92AC5D00A3F3C3 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D39A481C92AC5D00A3F3C3 /* UIView+MJExtension.m */; };
+		27D39A5E1C96967E00A3F3C3 /* ImageTopButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D39A5D1C96967E00A3F3C3 /* ImageTopButton.m */; };
+		27D39A621C96A1EF00A3F3C3 /* SecondHandCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D39A601C96A1EF00A3F3C3 /* SecondHandCardViewController.m */; };
+		27D39A631C96A1EF00A3F3C3 /* SecondHandCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27D39A611C96A1EF00A3F3C3 /* SecondHandCardViewController.xib */; };
 		E2004BFF1C85CD7D00CDA2E7 /* SellCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2004BFD1C85CD7D00CDA2E7 /* SellCardViewController.m */; };
 		E2004C001C85CD7D00CDA2E7 /* SellCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2004BFE1C85CD7D00CDA2E7 /* SellCardViewController.xib */; };
 		E2004C041C85CE5000CDA2E7 /* AssignmentInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2004C021C85CE5000CDA2E7 /* AssignmentInfoViewController.m */; };
@@ -294,6 +297,11 @@
 		27D39A461C92AC5D00A3F3C3 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		27D39A471C92AC5D00A3F3C3 /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		27D39A481C92AC5D00A3F3C3 /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
+		27D39A5C1C96967E00A3F3C3 /* ImageTopButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTopButton.h; sourceTree = "<group>"; };
+		27D39A5D1C96967E00A3F3C3 /* ImageTopButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTopButton.m; sourceTree = "<group>"; };
+		27D39A5F1C96A1EF00A3F3C3 /* SecondHandCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondHandCardViewController.h; sourceTree = "<group>"; };
+		27D39A601C96A1EF00A3F3C3 /* SecondHandCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondHandCardViewController.m; sourceTree = "<group>"; };
+		27D39A611C96A1EF00A3F3C3 /* SecondHandCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondHandCardViewController.xib; sourceTree = "<group>"; };
 		4A3F338817F8EBA02DCDB671 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E2004BFC1C85CD7D00CDA2E7 /* SellCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SellCardViewController.h; sourceTree = "<group>"; };
 		E2004BFD1C85CD7D00CDA2E7 /* SellCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SellCardViewController.m; sourceTree = "<group>"; };
@@ -502,7 +510,8 @@
 				1A56951C1C92ABF0001EA32F /* code02@2x.png */,
 				1A56951D1C92ABF0001EA32F /* code02@3x.png */,
 			);
-			path = code;
+			name = code;
+			path = ../code;
 			sourceTree = "<group>";
 		};
 		1ACFB94C1C8E98100083FD07 /* tabbar */ = {
@@ -751,6 +760,9 @@
 				E2FBA6121C82B91800F9F799 /* MartViewController.h */,
 				E2FBA6131C82B91800F9F799 /* MartViewController.m */,
 				E2FBA6141C82B91800F9F799 /* MartViewController.xib */,
+				27D39A5F1C96A1EF00A3F3C3 /* SecondHandCardViewController.h */,
+				27D39A601C96A1EF00A3F3C3 /* SecondHandCardViewController.m */,
+				27D39A611C96A1EF00A3F3C3 /* SecondHandCardViewController.xib */,
 				E2004BFC1C85CD7D00CDA2E7 /* SellCardViewController.h */,
 				E2004BFD1C85CD7D00CDA2E7 /* SellCardViewController.m */,
 				E2004BFE1C85CD7D00CDA2E7 /* SellCardViewController.xib */,
@@ -977,6 +989,8 @@
 				E249839F1C8BD6D3005B77A8 /* TSImageLeftButton.m */,
 				27D39A001C8D261200A3F3C3 /* MidImageLeftButton.h */,
 				27D39A011C8D261200A3F3C3 /* MidImageLeftButton.m */,
+				27D39A5C1C96967E00A3F3C3 /* ImageTopButton.h */,
+				27D39A5D1C96967E00A3F3C3 /* ImageTopButton.m */,
 				27D39A191C914B1F00A3F3C3 /* UMengAnalyticsUtil.h */,
 				27D39A1A1C914B1F00A3F3C3 /* UMengAnalyticsUtil.m */,
 			);
@@ -1005,7 +1019,6 @@
 			isa = PBXGroup;
 			children = (
 				E2FEE3B01C79F2620079B824 /* ImageSources */,
-				1A56950B1C92AA2B001EA32F /* code */,
 				E2FEE3B11C79F2620079B824 /* Libs */,
 			);
 			path = Resources;
@@ -1014,6 +1027,7 @@
 		E2FEE3B01C79F2620079B824 /* ImageSources */ = {
 			isa = PBXGroup;
 			children = (
+				1A56950B1C92AA2B001EA32F /* code */,
 				1ACFB94C1C8E98100083FD07 /* tabbar */,
 				1AFED1B51C8F1D6E00415ABF /* weixin */,
 				E24983A31C8C2753005B77A8 /* Login */,
@@ -1120,7 +1134,7 @@
 				TargetAttributes = {
 					E2FEE36D1C79E7860079B824 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = ZZ49Y24LYW;
+						DevelopmentTeam = CWPM78QMN6;
 					};
 					E2FEE3861C79E7860079B824 = {
 						CreatedOnToolsVersion = 7.2;
@@ -1158,6 +1172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A56951E1C92ABF0001EA32F /* code01.png in Resources */,
+				27D39A631C96A1EF00A3F3C3 /* SecondHandCardViewController.xib in Resources */,
 				1ACFB9CD1C8EB8680083FD07 /* more1@3x.png in Resources */,
 				1A14709F1C8D7CC5003A0616 /* addCard-menu.png in Resources */,
 				1ACFB9A81C8EACA20083FD07 /* tabbar_discovery_selected@2x.png in Resources */,
@@ -1354,6 +1369,7 @@
 				27D39A5B1C92AC5D00A3F3C3 /* UIView+MJExtension.m in Sources */,
 				E2FEE3B91C79F4440079B824 /* MainTabBarViewController.m in Sources */,
 				27D39A491C92AC5D00A3F3C3 /* MJRefreshAutoFooter.m in Sources */,
+				27D39A621C96A1EF00A3F3C3 /* SecondHandCardViewController.m in Sources */,
 				E2FEE3C11C79F4AC0079B824 /* GuideViewController.m in Sources */,
 				27D39A171C8FCB5000A3F3C3 /* ChooseAreaViewController.m in Sources */,
 				1A344BFE1C884AA1009F3FFC /* MoreViewController.m in Sources */,
@@ -1372,6 +1388,7 @@
 				E2FEE3CF1C79F5EA0079B824 /* SettingViewController.m in Sources */,
 				27D39A541C92AC5D00A3F3C3 /* MJRefreshGifHeader.m in Sources */,
 				E2BDB81C1C7B641200274CE3 /* InputCardViewController.m in Sources */,
+				27D39A5E1C96967E00A3F3C3 /* ImageTopButton.m in Sources */,
 				E2FBA6151C82B91800F9F799 /* MartViewController.m in Sources */,
 				E2BDB8211C7B644600274CE3 /* BrandListViewController.m in Sources */,
 			);

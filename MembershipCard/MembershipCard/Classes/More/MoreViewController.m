@@ -12,6 +12,8 @@
 #import "UIView+frame.h"
 #import "UIView+border.h"
 #import "ChooseAreaViewController.h"
+#import "MartViewController.h"
+#import "takePhoto.h"
 
 @interface MoreViewController ()
 
@@ -33,7 +35,6 @@
     _bgView.width = MainScreenWidth;
     _scrollView.contentSize = CGSizeMake(MainScreenWidth, _bgView.height);
     [_scrollView addSubview:_bgView];
-    
     [_avatarBtn circularBoarderBead:_avatarBtn.width / 2 withBoarder:1 color:UIColorFromRGB(0xf0f0f0)];
 }
 
@@ -53,6 +54,9 @@
 }
 
 - (IBAction)avatarBtnAction:(id)sender {
+    [takePhoto sharePicture:YES sendPicture:^(UIImage *image) {
+        [_avatarBtn setImage:image forState:UIControlStateNormal];
+    }];
 }
 
 - (IBAction)editBtnAction:(id)sender {
@@ -60,6 +64,8 @@
 
 - (IBAction)cardMartBtnAction:(id)sender {
     [[UMengAnalyticsUtil shared]cardBrokerageCity];
+    MartViewController *vc = [[MartViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)secondHandBtnAction:(id)sender {

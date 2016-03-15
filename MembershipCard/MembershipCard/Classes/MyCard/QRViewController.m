@@ -12,7 +12,7 @@
 #import <AVFoundation/AVFoundation.h>
 
 @interface QRViewController ()<AVCaptureMetadataOutputObjectsDelegate>
-@property (nonatomic, strong) AVCaptureDevice *device;
+@property (nonatomic, strong) AVCaptureDevice *captureDevice;
 @property (nonatomic, assign) BOOL isLightOn;
 @property (nonatomic, strong) UIButton *rightBtn;
 @property (nonatomic, assign) BOOL isFirstScan;
@@ -41,9 +41,9 @@
     
     NSError *error;
     //1.初始化捕捉设备（AVCaptureDevice），类型为AVMediaTypeVideo
-    AVCaptureDevice *captureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    _captureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     //2.用captureDevice创建输入流
-    AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:captureDevice error:&error];
+    AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:_captureDevice error:&error];
     if (!input) {
         NSLog(@"%@", [error localizedDescription]);
         return;
@@ -142,9 +142,9 @@
  */
 -(void) turnOnLed
 {
-    [_device lockForConfiguration:nil];
-    [_device setTorchMode:AVCaptureTorchModeOn];
-    [_device unlockForConfiguration];
+    [_captureDevice lockForConfiguration:nil];
+    [_captureDevice setTorchMode:AVCaptureTorchModeOn];
+    [_captureDevice unlockForConfiguration];
 }
 
 /**
@@ -152,9 +152,9 @@
  */
 -(void) turnOffLed
 {
-    [_device lockForConfiguration:nil];
-    [_device setTorchMode: AVCaptureTorchModeOff];
-    [_device unlockForConfiguration];
+    [_captureDevice lockForConfiguration:nil];
+    [_captureDevice setTorchMode: AVCaptureTorchModeOff];
+    [_captureDevice unlockForConfiguration];
 }
 
 - (IBAction)changeInputWayAction:(id)sender {

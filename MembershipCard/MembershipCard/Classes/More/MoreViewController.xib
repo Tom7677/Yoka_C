@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -145,10 +145,8 @@
                                 <constraint firstAttribute="width" constant="1" id="OS3-aZ-8Eu"/>
                             </constraints>
                         </view>
-                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ejh-la-ghv">
+                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ejh-la-ghv" customClass="ImageTopButton">
                             <rect key="frame" x="183" y="11" width="115" height="83"/>
-                            <inset key="titleEdgeInsets" minX="-63" minY="0.0" maxX="0.0" maxY="-55"/>
-                            <inset key="imageEdgeInsets" minX="36" minY="-15" maxX="0.0" maxY="0.0"/>
                             <state key="normal" image="more2.png">
                                 <attributedString key="attributedTitle">
                                     <fragment content="二手卡券">
@@ -164,10 +162,8 @@
                                 <action selector="secondHandBtnAction:" destination="-1" eventType="touchUpInside" id="3Us-fA-AhD"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vI4-6I-vgz">
+                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vI4-6I-vgz" customClass="ImageTopButton">
                             <rect key="frame" x="22" y="11" width="116" height="83"/>
-                            <inset key="titleEdgeInsets" minX="-63" minY="0.0" maxX="0.0" maxY="-55"/>
-                            <inset key="imageEdgeInsets" minX="36" minY="-15" maxX="0.0" maxY="0.0"/>
                             <state key="normal" image="more1.png">
                                 <attributedString key="attributedTitle">
                                     <fragment content="卡券商场">
@@ -334,7 +330,7 @@
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="去App Store打赏个好评吧" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cW-ga-Nln">
-                                    <rect key="frame" x="20" y="14" width="162.5" height="17"/>
+                                    <rect key="frame" x="20" y="14" width="163" height="17"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
