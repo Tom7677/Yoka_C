@@ -12,7 +12,7 @@
 
 @interface BrandListViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) NSMutableArray *itemsArray;
-@property (nonatomic, strong) NSArray *resultArray;
+@property (nonatomic, strong) NSMutableArray *resultArray;
 @property (nonatomic, strong) NSArray *initialArray; // 放字母索引的数组
 @property (nonatomic, strong) NSMutableDictionary *dataDic;
 @end
@@ -33,6 +33,8 @@
     self.searchDisplayController.searchBar.placeholder = @"搜索卡片";
     _dataDic = [[NSMutableDictionary alloc]init];
     [_tableView registerNib:[UINib nibWithNibName:@"BrandListTableViewCell" bundle:nil] forCellReuseIdentifier:@"cellIdentifier"];
+    [self.searchDisplayController.searchResultsTableView registerNib:[UINib nibWithNibName:@"BrandListTableViewCell" bundle:nil] forCellReuseIdentifier:@"cellIdentifier"];
+    self.searchDisplayController.searchResultsTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self loadData];
 }
 
@@ -55,57 +57,117 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 60;
+    return 45;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 30;
+    if (![tableView isEqual:self.searchDisplayController.searchResultsTableView]) {
+        return 20;
+    }
+    else {
+        return 0;
+    }
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, MainScreenWidth, 30)];
-    bgView.backgroundColor = UIColorFromRGB(0xf8f8f8);
-    UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, MainScreenWidth - 20 , 30)];
-    lab.text = [_initialArray objectAtIndex:section];
-    lab.textColor = [UIColor blackColor];
-    lab.font = [UIFont systemFontOfSize:16];
-    [bgView addSubview:lab];
-    return bgView;
+    if (![tableView isEqual:self.searchDisplayController.searchResultsTableView]) {
+        UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, MainScreenWidth, 20)];
+        bgView.backgroundColor = UIColorFromRGB(0xf8f8f8);
+        UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, MainScreenWidth - 20 , 20)];
+        lab.text = [_initialArray objectAtIndex:section];
+        lab.textColor = [UIColor blackColor];
+        lab.font = [UIFont systemFontOfSize:14];
+        [bgView addSubview:lab];
+        return bgView;
+    }
+    return nil;
 }
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
-    return _initialArray;
+    if ([tableView isEqual:self.searchDisplayController.searchResultsTableView]){
+        return nil;
+    }
+    else {
+        return _initialArray;;
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
 {
-    return index;
+    if ([tableView isEqual:self.searchDisplayController.searchResultsTableView]){
+        return 0;
+    }
+    else {
+        return index;
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return _initialArray.count;
+    if ([tableView isEqual:self.searchDisplayController.searchResultsTableView]){
+        return 1;
+    }
+    else {
+        return _initialArray.count;
+    }
 }
 
 #pragma mark -设置表格的行数为数组的元素个数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self getNameArraybyIndex:section].count;
+    if ([tableView isEqual:self.searchDisplayController.searchResultsTableView]){
+        return _resultArray.count;
+    }
+    else {
+        return [self getNameArraybyIndex:section].count;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView           cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    BrandListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentifier"];
     if ([tableView isEqual:self.searchDisplayController.searchResultsTableView]){
-        cell.nameLabel.text = [self.resultArray objectAtIndex:indexPath.row];
+        BrandListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentifier"];
+        BrandCardListModel *model = [_resultArray objectAtIndex:indexPath.row];
+        [cell.logoImageView sd_setImageWithURL:[NSURL URLWithString:model.round_image]];
+        cell.nameLabel.text = model.name;
+        return cell;
     }else{
+        BrandListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentifier"];
         BrandCardListModel *model = [[self getNameArraybyIndex:indexPath.section] objectAtIndex:indexPath.row];
         [cell.logoImageView sd_setImageWithURL:[NSURL URLWithString:model.round_image]];
         cell.nameLabel.text = model.name;
+        return cell;
     }
-    return cell;
+    return nil;
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    if (searchText.length == 0) {
+
+    }
+    else {
+        [_resultArray removeAllObjects];
+        NSArray *allArray = [_dataDic allValues];
+        NSMutableArray *tempMutArray = [[NSMutableArray alloc]init];
+        for (int i = 0; i < allArray.count; i ++) {
+            [tempMutArray addObjectsFromArray:allArray[i]];
+        }
+        for (NSDictionary *dic in tempMutArray) {
+            NSRange pinyinRange = [dic[@"pinyin"] rangeOfString:searchText options:NSCaseInsensitiveSearch];
+            BrandCardListModel *model = dic[@"name"];
+            NSRange nameRange = [model.name rangeOfString:searchText options:NSCaseInsensitiveSearch];
+            if (pinyinRange.location != NSNotFound) {
+                [_resultArray addObject:model];
+            }
+            else if (nameRange.location != NSNotFound) {
+                [_resultArray addObject:model];
+            }
+        }
+        [self.searchDisplayController.searchResultsTableView reloadData];
+    }
 }
 
 - (NSArray *)getNameArraybyIndex:(NSInteger)index
