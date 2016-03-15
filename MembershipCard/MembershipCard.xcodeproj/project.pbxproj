@@ -62,6 +62,8 @@
 		1AFED1BB1C8F1D6E00415ABF /* wx@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFED1B81C8F1D6E00415ABF /* wx@3x.png */; };
 		270085A21C8808B50069149F /* MyCardDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2700859F1C8808B50069149F /* MyCardDetailViewController.m */; };
 		270085A31C8808B50069149F /* MyCardDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 270085A11C8808B50069149F /* MyCardDetailViewController.xib */; };
+		2731E7571C98160400FB3323 /* BrandListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2731E7551C98160400FB3323 /* BrandListTableViewCell.m */; };
+		2731E7581C98160400FB3323 /* BrandListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2731E7561C98160400FB3323 /* BrandListTableViewCell.xib */; };
 		27D39A021C8D261200A3F3C3 /* MidImageLeftButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D39A011C8D261200A3F3C3 /* MidImageLeftButton.m */; };
 		27D39A091C8EC6A800A3F3C3 /* DiscoveryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D39A071C8EC6A800A3F3C3 /* DiscoveryTableViewCell.m */; };
 		27D39A0A1C8EC6A800A3F3C3 /* DiscoveryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27D39A081C8EC6A800A3F3C3 /* DiscoveryTableViewCell.xib */; };
@@ -244,6 +246,9 @@
 		2700859F1C8808B50069149F /* MyCardDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCardDetailViewController.m; sourceTree = "<group>"; };
 		270085A01C8808B50069149F /* MyCardDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCardDetailViewController.h; sourceTree = "<group>"; };
 		270085A11C8808B50069149F /* MyCardDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCardDetailViewController.xib; sourceTree = "<group>"; };
+		2731E7541C98160400FB3323 /* BrandListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandListTableViewCell.h; sourceTree = "<group>"; };
+		2731E7551C98160400FB3323 /* BrandListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandListTableViewCell.m; sourceTree = "<group>"; };
+		2731E7561C98160400FB3323 /* BrandListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrandListTableViewCell.xib; sourceTree = "<group>"; };
 		27D39A001C8D261200A3F3C3 /* MidImageLeftButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidImageLeftButton.h; sourceTree = "<group>"; };
 		27D39A011C8D261200A3F3C3 /* MidImageLeftButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidImageLeftButton.m; sourceTree = "<group>"; };
 		27D39A061C8EC6A800A3F3C3 /* DiscoveryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoveryTableViewCell.h; sourceTree = "<group>"; };
@@ -740,6 +745,9 @@
 				E2BDB7BC1C7B567B00274CE3 /* NotificationTableViewCell.h */,
 				E2BDB7BD1C7B567B00274CE3 /* NotificationTableViewCell.m */,
 				E2BDB7BE1C7B567B00274CE3 /* NotificationTableViewCell.xib */,
+				2731E7541C98160400FB3323 /* BrandListTableViewCell.h */,
+				2731E7551C98160400FB3323 /* BrandListTableViewCell.m */,
+				2731E7561C98160400FB3323 /* BrandListTableViewCell.xib */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -1188,6 +1196,7 @@
 				1ACFB9AB1C8EACA20083FD07 /* tabbar_discovery@2x.png in Resources */,
 				1ACFB9B41C8EACA20083FD07 /* tabbar_myCardBag_selected@2x.png in Resources */,
 				1ACFB9D01C8EB8680083FD07 /* more2@3x.png in Resources */,
+				2731E7581C98160400FB3323 /* BrandListTableViewCell.xib in Resources */,
 				E2004C001C85CD7D00CDA2E7 /* SellCardViewController.xib in Resources */,
 				E2BDB7BB1C7B53A900274CE3 /* MyCardBagTableViewCell.xib in Resources */,
 				27D39A0F1C8ED83600A3F3C3 /* DiscoveryWithImageCell.xib in Resources */,
@@ -1345,6 +1354,7 @@
 				27D39A521C92AC5D00A3F3C3 /* MJRefreshBackNormalFooter.m in Sources */,
 				E2FEE3C51C79F58B0079B824 /* MyCardBagViewController.m in Sources */,
 				27D39A551C92AC5D00A3F3C3 /* MJRefreshNormalHeader.m in Sources */,
+				2731E7571C98160400FB3323 /* BrandListTableViewCell.m in Sources */,
 				E2BDB7BF1C7B567B00274CE3 /* NotificationTableViewCell.m in Sources */,
 				27D39A4A1C92AC5D00A3F3C3 /* MJRefreshBackFooter.m in Sources */,
 				E2073CBD1C849CA30028DD8C /* NetworkAPI.m in Sources */,

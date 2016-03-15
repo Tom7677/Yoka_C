@@ -16,7 +16,6 @@
 @property(nonatomic,strong) NSString *quare_image;//方logo
 @property(nonatomic,strong) NSString *round_image;//圆logo
 @property(nonatomic,strong) NSString *source;//1为悠点卡； 2为实体卡
-
 @end
 
 /** 会员卡信息模型 */
@@ -74,7 +73,12 @@
 @property(nonatomic,strong) NSString *content;//内容
 @property(nonatomic,strong) NSString *create_time;//公告创建时间
 @property(nonatomic,strong) NSString *announcement_id;//公告id
+@end
 
-/** 发现文章模型 */
-
+/** 品牌列表模型 */
+@interface BrandCardListModel : NSObject
+@property(nonatomic,strong) NSString *merchant_id; //商户ID
+@property(nonatomic,strong) NSString *name;//商户名称
+@property(nonatomic,strong) NSString *quare_image;//方logo
+@property(nonatomic,strong) NSString *round_image;//圆logo
 @end

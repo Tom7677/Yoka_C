@@ -26,3 +26,6 @@
 
 @implementation AnnouncementModel
 @end
+
+@implementation BrandCardListModel
+@end

@@ -49,14 +49,13 @@ static NSString* hostUrl = @"http://api-ecstore.yw.bycache.com:81/index.php/appa
  *  @param errorBlock errorBlock description
  */
 - (void)getCardUsedDetailByCardId:(NSString *)cardId WithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
-/**
- *  添加消费记录
+/*!
+ *  @brief  获取品牌列表
  *
- *  @param model      消费记录模型
  *  @param block      block description
  *  @param errorBlock errorBlock description
  */
-- (void)saveCardUsedDetailByModel:(UsedDetailModel *)model WithFinish:(void(^)(UsedDetailModel *model))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+- (void)getMerchantListWithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 /**
  *  查询平台通知
  *

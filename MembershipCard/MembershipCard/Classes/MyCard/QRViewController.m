@@ -62,7 +62,7 @@
     //5.1.设置代理
     [captureMetadataOutput setMetadataObjectsDelegate:self queue:dispatchQueue];
     //5.2.设置输出媒体数据类型为条形码
-    [captureMetadataOutput setMetadataObjectTypes:[NSArray arrayWithObjects:AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeCode128Code, nil]];
+    [captureMetadataOutput setMetadataObjectTypes:[NSArray arrayWithObjects:AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeCode128Code,AVMetadataObjectTypePDF417Code, nil]];
     //6.实例化预览图层
     _videoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:_captureSession];
     //7.设置预览图层填充方式
