@@ -74,5 +74,12 @@
             [[UMengAnalyticsUtil shared]saveCardByMerchantsName:_nameText.text type:@"列表选择"];
         }
     }
+    
+    [[NetworkAPI shared]addNewCardByMerchantName:_nameText.text cardNum:_cardNumText.text WithFinish:^(BOOL isSuccess) {
+
+    } withErrorBlock:^(NSError *error) {
+        
+    }];
+
 }
 @end

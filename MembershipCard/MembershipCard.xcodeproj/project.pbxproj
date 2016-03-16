@@ -30,6 +30,8 @@
 		1A56952C1C92B6A3001EA32F /* CommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A56952A1C92B6A3001EA32F /* CommentsViewController.m */; };
 		1A56952D1C92B6A3001EA32F /* CommentsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A56952B1C92B6A3001EA32F /* CommentsViewController.xib */; };
 		1A7300051C86CD1B0054DB1D /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7300041C86CD1B0054DB1D /* AboutViewController.m */; };
+		1AA63D111C9955A1000C0589 /* mjlogo_rectangle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1AA63D0F1C9955A1000C0589 /* mjlogo_rectangle.jpg */; };
+		1AA63D121C9955A1000C0589 /* mjlogo_round.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1AA63D101C9955A1000C0589 /* mjlogo_round.jpg */; };
 		1ACFB9A71C8EACA20083FD07 /* tabbar_discovery_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFB9951C8EACA20083FD07 /* tabbar_discovery_selected.png */; };
 		1ACFB9A81C8EACA20083FD07 /* tabbar_discovery_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFB9961C8EACA20083FD07 /* tabbar_discovery_selected@2x.png */; };
 		1ACFB9A91C8EACA20083FD07 /* tabbar_discovery_selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFB9971C8EACA20083FD07 /* tabbar_discovery_selected@3x.png */; };
@@ -212,6 +214,8 @@
 		1A56952B1C92B6A3001EA32F /* CommentsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentsViewController.xib; sourceTree = "<group>"; };
 		1A7300031C86CD1B0054DB1D /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		1A7300041C86CD1B0054DB1D /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		1AA63D0F1C9955A1000C0589 /* mjlogo_rectangle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mjlogo_rectangle.jpg; sourceTree = "<group>"; };
+		1AA63D101C9955A1000C0589 /* mjlogo_round.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mjlogo_round.jpg; sourceTree = "<group>"; };
 		1ACFB9951C8EACA20083FD07 /* tabbar_discovery_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_discovery_selected.png; sourceTree = "<group>"; };
 		1ACFB9961C8EACA20083FD07 /* tabbar_discovery_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_discovery_selected@2x.png"; sourceTree = "<group>"; };
 		1ACFB9971C8EACA20083FD07 /* tabbar_discovery_selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_discovery_selected@3x.png"; sourceTree = "<group>"; };
@@ -678,6 +682,8 @@
 			children = (
 				E2073CB91C847FBC0028DD8C /* icon_horn_top@2x.png */,
 				1AEDD3BF1C8D2D4000E435AC /* icon_back.png */,
+				1AA63D0F1C9955A1000C0589 /* mjlogo_rectangle.jpg */,
+				1AA63D101C9955A1000C0589 /* mjlogo_round.jpg */,
 				1AEDD3C01C8D2D4000E435AC /* icon_back@2x.png */,
 				1AEDD3C11C8D2D4000E435AC /* icon_back@3x.png */,
 			);
@@ -1216,6 +1222,7 @@
 				E2BDB7B51C7B42E200274CE3 /* AddNewCardViewController.xib in Resources */,
 				1ACFB9CE1C8EB8680083FD07 /* more2.png in Resources */,
 				1A1470A41C8D7CC5003A0616 /* addCard-scan@3x.png in Resources */,
+				1AA63D121C9955A1000C0589 /* mjlogo_round.jpg in Resources */,
 				E2BDB7C01C7B567B00274CE3 /* NotificationTableViewCell.xib in Resources */,
 				E2004C191C85E41400CDA2E7 /* YKMerchantsViewController.xib in Resources */,
 				1AFED1B91C8F1D6E00415ABF /* wx.png in Resources */,
@@ -1232,6 +1239,7 @@
 				1ACFB9CB1C8EB8680083FD07 /* more1.png in Resources */,
 				1AEDD3C31C8D2D4000E435AC /* icon_back@2x.png in Resources */,
 				1A344BFF1C884AA1009F3FFC /* MoreViewController.xib in Resources */,
+				1AA63D111C9955A1000C0589 /* mjlogo_rectangle.jpg in Resources */,
 				E2FBAD3A1C8DB1ED0043F35D /* EditRemarkViewController.xib in Resources */,
 				E2FEE3CB1C79F5A70079B824 /* LoginViewController.xib in Resources */,
 				E2FEE3D01C79F5EA0079B824 /* SettingViewController.xib in Resources */,

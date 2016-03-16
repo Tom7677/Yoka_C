@@ -251,7 +251,7 @@
 
 - (void)addNewCardByMerchantName:(NSString *)name cardNum:(NSString *)cardNum WithFinish:(void(^)(BOOL isSuccess))block withErrorBlock:(void(^)(NSError *error)) errorBlock
 {
-    NSDictionary *param = [self creatRequestParamByMethod:@"get_announcement_list" WithParamData:@{@"member_id":[self getMemId],@"name":name,@"card_bn":cardNum}];
+    NSDictionary *param = [self creatRequestParamByMethod:@"save_merchant" WithParamData:@{@"member_id":[self getMemId],@"name":name,@"card_bn":cardNum}];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer=[AFJSONRequestSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
