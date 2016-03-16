@@ -14,6 +14,7 @@
 #import "ChooseAreaViewController.h"
 #import "MartViewController.h"
 #import "takePhoto.h"
+#import "SecondHandCardViewController.h"
 
 @interface MoreViewController ()
 
@@ -70,6 +71,8 @@
 
 - (IBAction)secondHandBtnAction:(id)sender {
     [[UMengAnalyticsUtil shared]secondHandCardVoucher];
+    SecondHandCardViewController *vc = [[SecondHandCardViewController alloc]init ];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)btnAction:(id)sender {

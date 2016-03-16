@@ -30,6 +30,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.view setFrame:[UIScreen mainScreen].bounds];
     self.title = @"扫码识别卡片";
     _rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 60, 28)];
     _rightBtn.titleLabel.font = [UIFont systemFontOfSize:14];
