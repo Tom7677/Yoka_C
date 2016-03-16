@@ -266,6 +266,23 @@
     }];
 }
 
+#pragma mark Discovery
+- (void)getTypeListByType:(NSString *)type WithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock
+{
+    NSDictionary *param = [self creatRequestParamByMethod:@"get_type_list" WithParamData:@{@"type":type}];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer=[AFJSONRequestSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    [manager GET:hostUrl parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject[@"status"] isEqualToString:@"1"]) {
+            NSDictionary *resultDic = [self jsonObjectWithJsonString:responseObject[@"data"]];
+            
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    }];
+}
+
 #pragma Action
 /*!
  *  @brief  获取memberId
