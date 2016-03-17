@@ -39,8 +39,9 @@
     _cardInfoBtn.selected = YES;
     _hornTopImageView.image = [UIImage imageNamed:@"icon_horn_top"];
     [_headView addSubview:_hornTopImageView];
+    
     float centerX = 10 + ((MainScreenWidth - 20) / 3 - _hornTopImageView.width) / 2;
-    [_hornTopImageView.layer addAnimation:[self moveTime:0.1 X:[NSNumber numberWithFloat:centerX]] forKey:nil];
+    _hornTopImageView.originX = centerX;
     _codeScrollView.hidden = NO;
     _markScrollView.hidden = YES;
     _newsTableView.hidden = YES;
@@ -144,7 +145,7 @@
  *  @param sender description
  */
 - (IBAction)cardInfoBtnAction:(id)sender {
-    float centerX = 10 + ((MainScreenWidth - 20) / 3 - _hornTopImageView.width) / 2;
+    float centerX = 0;
     [_hornTopImageView.layer addAnimation:[self moveTime:0.1 X:[NSNumber numberWithFloat:centerX]] forKey:nil];
     _cardInfoBtn.selected = YES;
     _cardValueBtn.selected = NO;
@@ -161,7 +162,7 @@
  *  @param sender description
  */
 - (IBAction)cardValueBtnAction:(id)sender {
-    [_hornTopImageView.layer addAnimation:[self moveTime:0.1 X:[NSNumber numberWithFloat:(MainScreenWidth / 2 - _hornTopImageView.width / 2)]] forKey:nil];
+    [_hornTopImageView.layer addAnimation:[self moveTime:0.1 X:[NSNumber numberWithFloat: (MainScreenWidth - 20) / 3]] forKey:nil];
     _cardInfoBtn.selected = NO;
     _cardValueBtn.selected = YES;
     _announcementBtn.selected = NO;
@@ -176,7 +177,7 @@
  *  @param sender description
  */
 - (IBAction)announcementBtnAction:(id)sender {
-    float centerX = 10 + ((MainScreenWidth - 20) / 3 - _hornTopImageView.width) / 2 + (MainScreenWidth - 20) / 3 * 2;
+    float centerX = 2 * (MainScreenWidth - 20) / 3 ;
     [_hornTopImageView.layer addAnimation:[self moveTime:0.1 X:[NSNumber numberWithFloat:centerX]] forKey:nil];
     _cardInfoBtn.selected = NO;
     _cardValueBtn.selected = NO;

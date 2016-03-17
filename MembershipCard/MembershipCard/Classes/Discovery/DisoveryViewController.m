@@ -47,7 +47,7 @@
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
     [self.navigationItem setRightBarButtonItem:rightItem];
     _typeArray = [NSArray arrayWithObjects:@"推荐",@"美食",@"丽人",@"亲子",@"购物",@"娱乐",@"其它", nil];
-    [self createBtn];
+    [self getType];
     _contentScrollView.delegate = self;
 }
 
@@ -59,7 +59,7 @@
 - (void)getType
 {
     [[NetworkAPI shared]getTypeListByType:@"1" WithFinish:^(NSArray *dataArray) {
-        
+        [self createBtn];
     } withErrorBlock:^(NSError *error) {
         
     }];
@@ -97,8 +97,11 @@
             [self actionbtn:btn];
         }
         [btn addTarget:self action:@selector(actionbtn:) forControlEvents:UIControlEventTouchUpInside];
-        [_typeScrollView addSubview:btn];
-
+        //通知主线程刷新
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //回调或者说是通知主线程刷新，
+            [_typeScrollView addSubview:btn];
+        });
     }
     [_typeScrollView setContentSize:CGSizeMake(_btnWidth * _typeArray.count + 40, _typeScrollView.height)];
     _scrollBgView = [[UIView alloc] initWithFrame:CGRectMake((_btnWidth - LINE_WIDTH) / 2 + 20, _typeScrollView.height - 4, LINE_WIDTH, 10)];
@@ -109,7 +112,10 @@
     [_typeScrollView addSubview:lineView];
     _typeScrollView.backgroundColor = [UIColor whiteColor];
     [_contentScrollView setContentSize:CGSizeMake(MainScreenWidth * _typeArray.count, 0)];
-    [self addTableViewToScrollView:_contentScrollView count:_typeArray.count frame:CGRectZero];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        // 处理耗时操作的代码块...
+        [self addTableViewToScrollView:_contentScrollView count:_typeArray.count frame:CGRectZero];
+    });
 }
 
 - (void)addTableViewToScrollView:(UIScrollView *)scrollView count:(NSUInteger)pageCount frame:(CGRect)frame
@@ -123,7 +129,11 @@
         [tableView registerNib:[UINib nibWithNibName:@"DiscoveryTableViewCell" bundle:nil] forCellReuseIdentifier:@"myIdentify"];
         [tableView registerNib:[UINib nibWithNibName:@"DiscoveryWithImageCell" bundle:nil] forCellReuseIdentifier:@"cellIdentify"];
         [_tableViewArray addObject:tableView];
-        [scrollView addSubview:tableView];
+        //通知主线程刷新
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //回调或者说是通知主线程刷新，
+            [scrollView addSubview:tableView];
+        });
         tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
             [self refreshData];
         }];

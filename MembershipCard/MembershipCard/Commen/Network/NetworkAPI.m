@@ -282,7 +282,6 @@
     }];
 }
 
-
 #pragma mark Discovery
 - (void)getTypeListByType:(NSString *)type WithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock
 {
@@ -293,7 +292,7 @@
     [manager GET:hostUrl parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject[@"status"] isEqualToString:@"1"]) {
             NSDictionary *resultDic = [self jsonObjectWithJsonString:responseObject[@"data"]];
-            
+            block(nil);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
