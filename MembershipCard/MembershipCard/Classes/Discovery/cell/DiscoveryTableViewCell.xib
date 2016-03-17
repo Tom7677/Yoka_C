@@ -59,6 +59,10 @@
                     <constraint firstItem="beC-o8-56c" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="zig-2i-Thi"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="contentLabel" destination="1hl-yz-XLL" id="hI4-wB-NAR"/>
+                <outlet property="timeLabel" destination="UiX-Ot-Jr0" id="MrF-Z1-IGl"/>
+            </connections>
             <point key="canvasLocation" x="276" y="238.5"/>
         </tableViewCell>
     </objects>

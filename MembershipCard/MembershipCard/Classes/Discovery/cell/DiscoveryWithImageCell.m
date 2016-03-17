@@ -20,4 +20,18 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)moreBtnAction:(id)sender {
+    
+}
+
+- (CGSize)sizeThatFits:(CGSize)size
+{
+    CGFloat totalHeight = 0;
+    totalHeight += [self.coverImageView sizeThatFits:size].height;
+    totalHeight += [self.titleLabel sizeThatFits:size].height;
+    totalHeight += [self.contentLabel sizeThatFits:size].height;
+    totalHeight += [self.moreBtn sizeThatFits:size].height;
+    totalHeight += 40; // margins
+    return CGSizeMake(size.width, totalHeight);
+}
 @end
