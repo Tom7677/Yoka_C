@@ -11,6 +11,7 @@
 #import "MJRefresh.h"
 #import "DiscoveryTableViewCell.h"
 #import "DiscoveryWithImageCell.h"
+#import "UITableView+FDTemplateLayoutCell.h"
 
 #define LINE_WIDTH  40
 @interface DisoveryViewController ()<UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate>
@@ -53,6 +54,15 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)getType
+{
+    [[NetworkAPI shared]getTypeListByType:@"1" WithFinish:^(NSArray *dataArray) {
+        
+    } withErrorBlock:^(NSError *error) {
+        
+    }];
 }
 
 /**
@@ -156,10 +166,12 @@
 {
     if ([_dataArray[indexPath.row] isEqualToString:@"0"]) {
         DiscoveryWithImageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentify"];
+        cell.fd_enforceFrameLayout = YES;
         return cell;
     }
     else {
         DiscoveryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myIdentify"];
+        cell.fd_enforceFrameLayout = YES;
         return cell;
     }
     return nil;
@@ -168,10 +180,14 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([_dataArray[indexPath.row] isEqualToString:@"0"]) {
-        return 300;
+        return [tableView fd_heightForCellWithIdentifier:@"cellIdentify" configuration:^(DiscoveryWithImageCell *cell) {
+            
+        }];
     }
     else {
-        return 65;
+        return [tableView fd_heightForCellWithIdentifier:@"myIdentify" configuration:^(DiscoveryTableViewCell *cell) {
+            
+        }];
     }
 }
 

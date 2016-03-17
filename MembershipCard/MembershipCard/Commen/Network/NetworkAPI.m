@@ -266,6 +266,7 @@
     }];
 }
 
+<<<<<<< HEAD
 - (void)updateCardRelationByMerchantId:(NSString *)merchantId WithDeleteAction:(BOOL)isDelete WithFinish:(void(^)(BOOL isSuccess))block withErrorBlock:(void(^)(NSError *error))errorBlock{
     NSDictionary *param = [self creatRequestParamByMethod:@"update_card_relation" WithParamData:@{@"member_id":[self getMemId],@"merchant_id":merchantId,@"action":(isDelete ? @"0" : @"1" )}];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -283,6 +284,25 @@
 }
 
 
+=======
+#pragma mark Discovery
+- (void)getTypeListByType:(NSString *)type WithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock
+{
+    NSDictionary *param = [self creatRequestParamByMethod:@"get_type_list" WithParamData:@{@"type":type}];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer=[AFJSONRequestSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    [manager GET:hostUrl parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject[@"status"] isEqualToString:@"1"]) {
+            NSDictionary *resultDic = [self jsonObjectWithJsonString:responseObject[@"data"]];
+            
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    }];
+}
+
+>>>>>>> 3cafa15f04d1af7434ce3791d9760620070c997e
 #pragma Action
 /*!
  *  @brief  获取memberId

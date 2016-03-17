@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -13,33 +13,29 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="299.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="299"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zX9-Bo-pgK">
                         <rect key="frame" x="10" y="10" width="300" height="156"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="zX9-Bo-pgK" secondAttribute="height" multiplier="25:13" id="ecp-ZM-gYa"/>
+                            <constraint firstAttribute="width" secondItem="zX9-Bo-pgK" secondAttribute="height" multiplier="25:13" id="fzH-ff-zgH"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="来自意大利的纯种红牛" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJX-zH-wuv">
-                        <rect key="frame" x="10" y="175" width="300" height="21.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="来自意大利的纯种红牛收到货时订货会的" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJX-zH-wuv">
+                        <rect key="frame" x="10" y="175" width="300" height="22"/>
                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选取澳大利亚知名品牌Riverina的谷饲安格斯牛只胸肋部位制成，是适合做日式烧烤、铁板烧的部位。" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w5V-06-d46">
-                        <rect key="frame" x="10" y="204" width="300" height="50.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="选取澳大利亚知名品牌Riverina的谷饲安格斯牛只胸肋部位制成，是适合做日式烧烤、铁板烧的部位。" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w5V-06-d46">
+                        <rect key="frame" x="10" y="204" width="300" height="51"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="877-46-lOw">
+                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="877-46-lOw">
                         <rect key="frame" x="10" y="263" width="68" height="30"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="30" id="Dg5-bH-QuO"/>
-                            <constraint firstAttribute="width" constant="68" id="Zcz-yG-yrr"/>
-                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <state key="normal" title="阅读更多">
                             <color key="titleColor" red="1" green="0.32156862749999998" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -47,17 +43,19 @@
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="877-46-lOw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="7WL-c0-xna"/>
-                    <constraint firstItem="877-46-lOw" firstAttribute="top" secondItem="w5V-06-d46" secondAttribute="bottom" constant="8" id="Aqc-Ij-C8t"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="zX9-Bo-pgK" secondAttribute="trailing" constant="2" id="CS2-6r-n7l"/>
-                    <constraint firstItem="aJX-zH-wuv" firstAttribute="top" secondItem="zX9-Bo-pgK" secondAttribute="bottom" constant="9" id="FtE-vz-Yco"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="w5V-06-d46" secondAttribute="trailing" constant="2" id="HWR-Ta-dCE"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="aJX-zH-wuv" secondAttribute="trailing" constant="2" id="KmD-LA-Bfa"/>
-                    <constraint firstItem="w5V-06-d46" firstAttribute="top" secondItem="aJX-zH-wuv" secondAttribute="bottom" constant="8" id="O7r-cW-2cc"/>
-                    <constraint firstItem="aJX-zH-wuv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="OWf-7f-rax"/>
-                    <constraint firstItem="w5V-06-d46" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="kag-Fj-c9J"/>
-                    <constraint firstItem="zX9-Bo-pgK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="luV-5s-f86"/>
-                    <constraint firstItem="zX9-Bo-pgK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="nFW-iU-rje"/>
+                    <constraint firstItem="zX9-Bo-pgK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="1Lq-Ul-Cwd"/>
+                    <constraint firstItem="w5V-06-d46" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="390-3b-6mk"/>
+                    <constraint firstItem="877-46-lOw" firstAttribute="top" secondItem="w5V-06-d46" secondAttribute="bottom" constant="8" id="46J-Tb-QaD"/>
+                    <constraint firstItem="aJX-zH-wuv" firstAttribute="top" secondItem="zX9-Bo-pgK" secondAttribute="bottom" constant="9" id="959-P6-6La"/>
+                    <constraint firstItem="zX9-Bo-pgK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="D1a-Zw-Kpz"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="aJX-zH-wuv" secondAttribute="trailing" constant="2" id="E1l-eX-eLx"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="w5V-06-d46" secondAttribute="trailing" constant="2" id="FKK-32-HMq"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="zX9-Bo-pgK" secondAttribute="trailing" constant="2" id="Qmc-fm-kf4"/>
+                    <constraint firstItem="w5V-06-d46" firstAttribute="top" secondItem="aJX-zH-wuv" secondAttribute="bottom" constant="7" id="YRF-XN-eSK"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="877-46-lOw" secondAttribute="bottom" constant="-2" id="asd-xL-XNP"/>
+                    <constraint firstItem="877-46-lOw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="e8E-dC-tOz"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="877-46-lOw" secondAttribute="trailing" constant="234" id="vdC-dD-bvP"/>
+                    <constraint firstItem="aJX-zH-wuv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="zTF-7g-aLi"/>
                 </constraints>
             </tableViewCellContentView>
             <point key="canvasLocation" x="276" y="223"/>
