@@ -76,7 +76,7 @@
     }
     
     [[NetworkAPI shared]addNewCardByMerchantName:_nameText.text cardNum:_cardNumText.text WithFinish:^(BOOL isSuccess) {
-
+        [self.navigationController popToRootViewControllerAnimated:YES];
     } withErrorBlock:^(NSError *error) {
         
     }];

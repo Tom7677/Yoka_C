@@ -16,6 +16,7 @@
 #import "NotificationTableViewCell.h"
 #import "UILabel+caculateSize.h"
 #import "CommentsViewController.h"
+#import "BaseViewController.h"
 
 @interface MyCardDetailViewController ()<UIGestureRecognizerDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) NSNumber *fromValue;
@@ -28,8 +29,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.fd_prefersNavigationBarHidden = YES;
-    self.title = _model.name;
-    [_logoImageView sd_setImageWithURL:[NSURL URLWithString:_model.round_image]];
+    self.cardTitle.text = _model.name;
+    if ([self isEmpty:_model.round_image]) {
+        _logoImageView.image = [UIImage imageNamed:@"mjlogo_round.jpg"];
+    }else {
+        [_logoImageView sd_setImageWithURL:[NSURL URLWithString:_model.round_image]];
+    }
     _hornTopImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 178, 14, 8)];
     _cardInfoBtn.selected = YES;
     _hornTopImageView.image = [UIImage imageNamed:@"icon_horn_top"];
@@ -207,6 +212,11 @@
  */
 - (IBAction)deleteBtnAction:(id)sender {
     [[UMengAnalyticsUtil shared]deleteCardByMerchantsName:_model.name];
+    [[NetworkAPI shared] updateCardRelationByMerchantId:_model.merchant_id WithDeleteAction:YES WithFinish:^(BOOL isSuccess) {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    } withErrorBlock:^(NSError *error) {
+        
+    }];
 }
 
 /**

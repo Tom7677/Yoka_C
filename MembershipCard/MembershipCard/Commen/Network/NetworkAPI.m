@@ -266,6 +266,23 @@
     }];
 }
 
+- (void)updateCardRelationByMerchantId:(NSString *)merchantId WithDeleteAction:(BOOL)isDelete WithFinish:(void(^)(BOOL isSuccess))block withErrorBlock:(void(^)(NSError *error))errorBlock{
+    NSDictionary *param = [self creatRequestParamByMethod:@"update_card_relation" WithParamData:@{@"member_id":[self getMemId],@"merchant_id":merchantId,@"action":(isDelete ? @"0" : @"1" )}];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    [manager GET:hostUrl parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject[@"status"] isEqualToString:@"1"]) {
+            block(YES);
+        }else {
+            block(NO);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        errorBlock(error);
+    }];
+}
+
+
 #pragma Action
 /*!
  *  @brief  获取memberId

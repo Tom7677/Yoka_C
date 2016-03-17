@@ -91,12 +91,19 @@ static NSString* hostUrl = @"http://api-ecstore.yw.bycache.com:81/index.php/appa
 /*!
  *  @brief  会员添加新卡
  *
- *  @param memberId   会员ID
  *  @param name       商户名
  *  @param cardNum    卡号
  *  @param block      block description
  *  @param errorBlock errorBlock description
  */
 - (void)addNewCardByMerchantName:(NSString *)name cardNum:(NSString *)cardNum WithFinish:(void(^)(BOOL isSuccess))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+
+/**
+ *  删除／恢复卡
+ *
+ *  @param merchantId 商户ID
+ *  @param isDelete   YES删除，NO恢复
+ */
+- (void)updateCardRelationByMerchantId:(NSString *)merchantId WithDeleteAction:(BOOL)isDelete WithFinish:(void(^)(BOOL isSuccess))block withErrorBlock:(void(^)(NSError *error))errorBlock;
  
 @end

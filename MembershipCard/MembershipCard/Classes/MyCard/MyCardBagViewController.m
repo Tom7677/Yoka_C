@@ -13,6 +13,7 @@
 #import "MyCardDetailViewController.h"
 #import "MJRefresh.h"
 #import <UIImageView+WebCache.h>
+#import "BaseViewController.h"
 
 
 @interface MyCardBagViewController ()
@@ -105,10 +106,10 @@
 {
     MyCardBagTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentifier"];
     MyCardModel *model = _cardArray[indexPath.row];
-    if (model.quare_image) {
-        [cell.logoImageView sd_setImageWithURL:[NSURL URLWithString:model.quare_image]];
+    if ([self isEmpty:model.quare_image]) {
+        cell.logoImageView.image = [UIImage imageNamed:@"mjlogo_rectangle.jpg"];
     }else {
-        cell.logoImageView.image = [UIImage imageNamed:@"mjlogo_rectangle"];
+        [cell.logoImageView sd_setImageWithURL:[NSURL URLWithString:model.quare_image]];
     }
     cell.shopNameLabel.text = model.name;
     cell.cardTypeLabel.hidden = YES;

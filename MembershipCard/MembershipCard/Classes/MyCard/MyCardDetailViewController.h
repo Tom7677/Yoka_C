@@ -10,6 +10,7 @@
 
 @interface MyCardDetailViewController : BaseViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *cardTitle;
 @property (weak, nonatomic) IBOutlet UIView *headView;
 @property (weak, nonatomic) IBOutlet UIButton *cardInfoBtn;
 @property (weak, nonatomic) IBOutlet UIButton *announcementBtn;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -10,6 +10,7 @@
                 <outlet property="announcementBtn" destination="ppf-qD-A8b" id="xlt-j6-6Sd"/>
                 <outlet property="backPicBtn" destination="E1Z-dK-j8D" id="hZt-gR-8cu"/>
                 <outlet property="cardInfoBtn" destination="gsk-2L-Dc2" id="bWR-9c-cUr"/>
+                <outlet property="cardTitle" destination="2s2-pd-4SA" id="nIp-WO-dlx"/>
                 <outlet property="cardValueBtn" destination="OgV-tY-C3s" id="U1d-fM-FTj"/>
                 <outlet property="codeLabel" destination="aMs-8W-MwE" id="WmG-EB-R3d"/>
                 <outlet property="codeScrollView" destination="kct-BE-IlD" id="9pN-hw-w3x"/>
@@ -75,8 +76,8 @@
                                 <action selector="cardValueBtnAction:" destination="-1" eventType="touchUpInside" id="mr5-Lt-7k2"/>
                             </connections>
                         </button>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Nk-6i-IkH">
-                            <rect key="frame" x="130" y="68" width="60" height="60"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Nk-6i-IkH">
+                            <rect key="frame" x="130" y="69" width="60" height="60"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="60" id="UN5-uA-oft"/>
                                 <constraint firstAttribute="height" constant="60" id="ePP-Xa-o1b"/>
@@ -110,8 +111,8 @@
                                 <action selector="infoBtnAction:" destination="-1" eventType="touchUpInside" id="aPC-rU-Gzs"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="星巴克" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2s2-pd-4SA">
-                            <rect key="frame" x="84" y="31" width="152" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="星巴克" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2s2-pd-4SA">
+                            <rect key="frame" x="133" y="31" width="54" height="22"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -241,7 +242,7 @@
                         <action selector="deleteBtnAction:" destination="-1" eventType="touchUpInside" id="xvX-0k-MIa"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="然而部分商家尚未采用最新的读码器，而是较为传统的扫描仪（如：激光扫描仪），此类仪器较难从手机上读取条形码。" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hpb-2V-ts6">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="部分商家尚未采用最新的读码器，而是较为传统的扫描仪（如：激光扫描仪），此类仪器较难从手机上读取条形码。" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hpb-2V-ts6">
                     <rect key="frame" x="73" y="288" width="237" height="67"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="67" id="9bJ-OT-z8W"/>
