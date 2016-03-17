@@ -35,6 +35,7 @@
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
     [self.navigationItem setRightBarButtonItem:rightItem];
     _cardNumText.text = _cardNum;
+    _nameText.text = _brandName;
     
     UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(takePhoto)];
     _logoLabel.userInteractionEnabled = YES;

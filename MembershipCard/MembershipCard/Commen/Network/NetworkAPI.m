@@ -266,7 +266,6 @@
     }];
 }
 
-<<<<<<< HEAD
 - (void)updateCardRelationByMerchantId:(NSString *)merchantId WithDeleteAction:(BOOL)isDelete WithFinish:(void(^)(BOOL isSuccess))block withErrorBlock:(void(^)(NSError *error))errorBlock{
     NSDictionary *param = [self creatRequestParamByMethod:@"update_card_relation" WithParamData:@{@"member_id":[self getMemId],@"merchant_id":merchantId,@"action":(isDelete ? @"0" : @"1" )}];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -284,7 +283,6 @@
 }
 
 
-=======
 #pragma mark Discovery
 - (void)getTypeListByType:(NSString *)type WithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock
 {
@@ -302,7 +300,6 @@
     }];
 }
 
->>>>>>> 3cafa15f04d1af7434ce3791d9760620070c997e
 #pragma Action
 /*!
  *  @brief  获取memberId

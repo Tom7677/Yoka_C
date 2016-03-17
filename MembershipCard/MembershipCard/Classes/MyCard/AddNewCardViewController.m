@@ -7,8 +7,6 @@
 //
 
 #import "AddNewCardViewController.h"
-#import "QRViewController.h"
-#import "InputCardViewController.h"
 #import "BrandListViewController.h"
 
 @interface AddNewCardViewController ()
@@ -31,19 +29,17 @@
 
 - (IBAction)qrBtnAction:(id)sender {
     [[UMengAnalyticsUtil shared]qrCard];
-    QRViewController *vc = [[QRViewController alloc]init];
+    BrandListViewController *vc = [[BrandListViewController alloc]init];
+    vc.scan = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)inputBtnAction:(id)sender {
     [[UMengAnalyticsUtil shared]manuallyInputCard];
-    InputCardViewController *vc = [[InputCardViewController alloc]init];
+    BrandListViewController *vc = [[BrandListViewController alloc]init];
+    vc.scan = NO;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (IBAction)chooseBtnAction:(id)sender {
-    [[UMengAnalyticsUtil shared]listChooseCard];
-    BrandListViewController *vc = [[BrandListViewController alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
-}
+
 @end

@@ -131,6 +131,7 @@
     [self stopReading];
     InputCardViewController *vc = [[InputCardViewController alloc]init];
     vc.cardNum = result;
+    vc.brandName = self.brandName;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

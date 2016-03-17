@@ -9,6 +9,8 @@
 #import "BrandListViewController.h"
 #import <UIImageView+WebCache.h>
 #import "BrandListTableViewCell.h"
+#import "QRViewController.h"
+#import "InputCardViewController.h"
 
 @interface BrandListViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) NSMutableArray *itemsArray;
@@ -23,6 +25,15 @@
     [super viewDidLoad];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.title = @"添加新卡";
+    UIButton *rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 60, 28)];
+    rightBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+    [rightBtn setTitle:@"其他品牌" forState:UIControlStateNormal];
+    rightBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    [rightBtn setTitleColor:UIColorFromRGB(0xE33572) forState:UIControlStateNormal];
+    [rightBtn addTarget:self action:@selector(addOtherbrand:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
+    [self.navigationItem setRightBarButtonItem:rightItem];
+    
     [_tableView setTableHeaderView:_searchBar];
     _itemsArray = [[NSMutableArray alloc]init];
     _resultArray = [[NSMutableArray alloc]init];
@@ -48,6 +59,15 @@
     } withErrorBlock:^(NSError *error) {
         
     }];
+}
+- (void)addOtherbrand:(UIButton *)sender {
+    if (self.isScan) {
+        QRViewController *vc = [[QRViewController alloc]init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else {
+        InputCardViewController *vc = [[InputCardViewController alloc]init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -141,6 +161,18 @@
         return cell;
     }
     return nil;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    BrandCardListModel *model = [[self getNameArraybyIndex:indexPath.section] objectAtIndex:indexPath.row];
+    if (self.isScan) {
+        QRViewController *vc = [[QRViewController alloc]init];
+        vc.brandName = model.name;
+        [self.navigationController pushViewController:vc animated:YES];
+    }else {
+        InputCardViewController *vc = [[InputCardViewController alloc]init];
+        vc.brandName = model.name;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText

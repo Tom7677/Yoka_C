@@ -13,4 +13,5 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UISearchDisplayController *searchDisplayController;
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (nonatomic, getter=isScan) BOOL scan;
 @end

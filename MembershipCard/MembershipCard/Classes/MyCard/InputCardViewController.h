@@ -10,6 +10,7 @@
 #import <TPKeyboardAvoidingScrollView.h>
 
 @interface InputCardViewController : BaseViewController
+@property (nonatomic, copy) NSString *brandName;
 @property (nonatomic, copy) NSString *cardNum;
 @property (weak, nonatomic) IBOutlet TPKeyboardAvoidingScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
@@ -18,4 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *cardNumText;
 @property (strong, nonatomic) IBOutlet UIView *bgView;
 @property (copy, nonatomic) NSString *logoUrl;
+
+
+
 @end
