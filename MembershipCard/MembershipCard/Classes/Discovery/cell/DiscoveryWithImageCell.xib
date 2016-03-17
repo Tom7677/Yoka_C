@@ -40,6 +40,9 @@
                         <state key="normal" title="阅读更多">
                             <color key="titleColor" red="1" green="0.32156862749999998" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
+                        <connections>
+                            <action selector="moreBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="GlG-4R-xV3"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
@@ -58,6 +61,12 @@
                     <constraint firstItem="aJX-zH-wuv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="zTF-7g-aLi"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="contentLabel" destination="w5V-06-d46" id="Oqc-EQ-8wo"/>
+                <outlet property="coverImageView" destination="zX9-Bo-pgK" id="Rbj-XV-5Co"/>
+                <outlet property="moreBtn" destination="877-46-lOw" id="agX-Du-1a2"/>
+                <outlet property="titleLabel" destination="aJX-zH-wuv" id="2fT-Yk-gbV"/>
+            </connections>
             <point key="canvasLocation" x="276" y="223"/>
         </tableViewCell>
     </objects>
