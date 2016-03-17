@@ -35,7 +35,16 @@
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
     [self.navigationItem setRightBarButtonItem:rightItem];
     _cardNumText.text = _cardNum;
-    _nameText.text = _brandName;
+    if (_brandName) {
+        _nameText.text = _brandName;
+        [_nameText setTextColor:[UIColor grayColor]];
+        _nameText.enabled = NO;
+    }
+    if (_cardNum) {
+        _cardNumText.text = _cardNum;
+        [_cardNumText setTextColor:[UIColor grayColor]];
+        _cardNumText.enabled = NO;
+    }
     
     UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(takePhoto)];
     _logoLabel.userInteractionEnabled = YES;
@@ -81,6 +90,8 @@
     } withErrorBlock:^(NSError *error) {
         
     }];
+    
+
 
 }
 @end
