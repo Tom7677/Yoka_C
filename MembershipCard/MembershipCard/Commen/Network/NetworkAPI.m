@@ -298,6 +298,30 @@
         
     }];
 }
+- (void)getArticleListWithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock {
+    NSDictionary *param = [self creatRequestParamByMethod:@"get_article_list" WithParamData:@{@"member_id":[self getMemId]}];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    [manager GET:hostUrl parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject[@"status"] isEqualToString:@"1"]) {
+            NSMutableArray *dataArray = [[NSMutableArray alloc]init];
+            NSArray *resultArray = [self jsonObjectWithJsonString:responseObject[@"data"]];
+            for (NSDictionary *dic in resultArray) {
+                ArticleModel *model = [[ArticleModel alloc]init];
+                [model setValuesForKeysWithDictionary:dic];
+                [dataArray addObject:model];
+            }
+            block([dataArray copy]);
+        }else{
+            block(nil);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        errorBlock(error);
+    }];
+
+
+}
 
 #pragma Action
 /*!

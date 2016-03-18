@@ -114,4 +114,8 @@ static NSString* hostUrl = @"http://api-ecstore.yw.bycache.com:81/index.php/appa
  *  @param errorBlock errorBlock description
  */
 - (void)getTypeListByType:(NSString *)type WithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+
+/** 发现文章 */
+- (void)getArticleListWithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+
 @end

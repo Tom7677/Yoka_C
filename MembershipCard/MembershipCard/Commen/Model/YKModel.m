@@ -29,3 +29,7 @@
 
 @implementation BrandCardListModel
 @end
+
+@implementation ArticleModel
+@end
+

@@ -82,3 +82,17 @@
 @property(nonatomic,strong) NSString *quare_image;//方logo
 @property(nonatomic,strong) NSString *round_image;//圆logo
 @end
+
+/** 文章模型 */
+@interface ArticleModel : NSObject
+@property(nonatomic,strong) NSString *notice_id; //文章ID
+@property(nonatomic,strong) NSString *name;//文章标题
+@property(nonatomic,strong) NSString *merchant_id;//参与商户的id（0为系统通知）
+@property(nonatomic,strong) NSString *area;//区域
+@property(nonatomic,strong) NSString *image;//图片地址
+@property(nonatomic,strong) NSString *url;//url
+@property(nonatomic,strong) NSString *create_time;//创建时间
+@property(nonatomic,strong) NSString *content;//文章内容
+
+
+@end
