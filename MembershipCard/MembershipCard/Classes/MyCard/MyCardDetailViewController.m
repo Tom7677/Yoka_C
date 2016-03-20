@@ -18,7 +18,7 @@
 #import "CommentsViewController.h"
 #import "BaseViewController.h"
 
-@interface MyCardDetailViewController ()<UIGestureRecognizerDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface MyCardDetailViewController ()<UIGestureRecognizerDelegate>
 @property (nonatomic, strong) NSNumber *fromValue;
 @property (nonatomic, strong) UIImageView *hornTopImageView;
 @property (nonatomic, strong) NSArray *dataArray;
@@ -44,13 +44,12 @@
     _hornTopImageView.originX = centerX;
     _codeScrollView.hidden = NO;
     _markScrollView.hidden = YES;
-    _newsTableView.hidden = YES;
+    _servicesScrollView.hidden = YES;
     [_codeScrollView addSubview:_codeView];
     _codeView.width = MainScreenWidth;
-    [_markScrollView addSubview:_markView];
-    _markView.width = MainScreenWidth;
     [_codeScrollView setContentSize:CGSizeMake(MainScreenWidth, _codeView.height)];
-    [_markScrollView setContentSize:CGSizeMake(MainScreenWidth, _markView.height)];
+    [_servicesScrollView addSubview:_serviceView];
+    _serviceView.width = MainScreenWidth;
     [_frontPicBtn circularBoarderBead:8 withBoarder:1 color:UIColorFromRGB(0xf0f0f0)];
     [_backPicBtn circularBoarderBead:8 withBoarder:1 color:UIColorFromRGB(0xf0f0f0)];
     [_markTextView circularBoarderBead:8 withBoarder:1 color:UIColorFromRGB(0xf0f0f0)];
@@ -58,12 +57,9 @@
     UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapCommentsView:)];
     [_markTextView addGestureRecognizer:tapGR];
     [_logoImageView circular];
-    _newsTableView.delegate = self;
-    _newsTableView.dataSource = self;
-    [_newsTableView registerNib:[UINib nibWithNibName:@"NotificationTableViewCell" bundle:nil] forCellReuseIdentifier:@"cellIdentifier"];
     
     [self getCradInfo];
-    [self getAnnouncementList];
+//    [self getAnnouncementList];
 }
 
 - (void)getCradInfo
@@ -75,15 +71,15 @@
     }];
 }
 
-- (void)getAnnouncementList
-{
-    [[NetworkAPI shared]getMerchantAnnouncementByMerchantId:_model.merchant_id WithFinish:^(NSArray *dataArray) {
-        _dataArray = dataArray;
-        [_newsTableView reloadData];
-    } withErrorBlock:^(NSError *error) {
-        
-    }];
-}
+//- (void)getAnnouncementList
+//{
+//    [[NetworkAPI shared]getMerchantAnnouncementByMerchantId:_model.merchant_id WithFinish:^(NSArray *dataArray) {
+//        _dataArray = dataArray;
+//        [_servicesScrollView reloadData];
+//    } withErrorBlock:^(NSError *error) {
+//        
+//    }];
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -152,7 +148,7 @@
     _announcementBtn.selected = NO;
     _codeScrollView.hidden = NO;
     _markScrollView.hidden = YES;
-    _newsTableView.hidden = YES;
+    _servicesScrollView.hidden = YES;
     
 }
 
@@ -168,7 +164,7 @@
     _announcementBtn.selected = NO;
     _codeScrollView.hidden = YES;
     _markScrollView.hidden = NO;
-    _newsTableView.hidden = YES;
+    _servicesScrollView.hidden = YES;
 }
 
 /**
@@ -184,7 +180,7 @@
     _announcementBtn.selected = YES;
     _codeScrollView.hidden = YES;
     _markScrollView.hidden = YES;
-    _newsTableView.hidden = NO;
+    _servicesScrollView.hidden = NO;
 }
 
 /**
@@ -260,40 +256,5 @@
     [[UMengAnalyticsUtil shared]seeCardInfo];
 }
 
-#pragma mark UITableViewDelegate/UITableViewDataSource
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
-}
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NotificationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentifier"];
-//    AnnouncementModel *model = _dataArray[indexPath.row];
-//    cell.contentLabel.text = model.content;
-//    cell.timeLabel.text = model.create_time;
-    cell.contentLabel.text = @"有点经验的都会觉得这种效果实现起来很简单但麻烦，常用的方法 Delegate、target-action、KVC 等组合使用，而且代码页面的粘合性也比很强。现在我们使用 ReactiveCocoa 来实现不但统一所有的消息，代码也更加的简洁直观，与页面的粘合性也不再这么强，相对在重用时会简单点。";
-    return cell;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NotificationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentifier"];
-    cell.contentLabel.text = @"有点经验的都会觉得这种效果实现起来很简单但麻烦，常用的方法 Delegate、target-action、KVC 等组合使用，而且代码页面的粘合性也比很强。现在我们使用 ReactiveCocoa 来实现不但统一所有的消息，代码也更加的简洁直观，与页面的粘合性也不再这么强，相对在重用时会简单点。";
-    cell.contentLabel.width = MainScreenWidth - 20;
-    CGFloat labelHeight = [cell.contentLabel getTextHeight];
-    return labelHeight + 52;
-}
-
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        //[dataArray removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
-        
-    }
-}
 @end

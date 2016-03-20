@@ -59,11 +59,11 @@
 		1AEDD3C21C8D2D4000E435AC /* icon_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AEDD3BF1C8D2D4000E435AC /* icon_back.png */; };
 		1AEDD3C31C8D2D4000E435AC /* icon_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AEDD3C01C8D2D4000E435AC /* icon_back@2x.png */; };
 		1AEDD3C41C8D2D4000E435AC /* icon_back@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AEDD3C11C8D2D4000E435AC /* icon_back@3x.png */; };
+		1AF9C3E31C9E8EE200F6FBAE /* MyCardDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AF9C3E11C9E8EE200F6FBAE /* MyCardDetailViewController.m */; };
+		1AF9C3E41C9E8EE200F6FBAE /* MyCardDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AF9C3E21C9E8EE200F6FBAE /* MyCardDetailViewController.xib */; };
 		1AFED1B91C8F1D6E00415ABF /* wx.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFED1B61C8F1D6E00415ABF /* wx.png */; };
 		1AFED1BA1C8F1D6E00415ABF /* wx@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFED1B71C8F1D6E00415ABF /* wx@2x.png */; };
 		1AFED1BB1C8F1D6E00415ABF /* wx@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFED1B81C8F1D6E00415ABF /* wx@3x.png */; };
-		270085A21C8808B50069149F /* MyCardDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2700859F1C8808B50069149F /* MyCardDetailViewController.m */; };
-		270085A31C8808B50069149F /* MyCardDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 270085A11C8808B50069149F /* MyCardDetailViewController.xib */; };
 		2731E7571C98160400FB3323 /* BrandListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2731E7551C98160400FB3323 /* BrandListTableViewCell.m */; };
 		2731E7581C98160400FB3323 /* BrandListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2731E7561C98160400FB3323 /* BrandListTableViewCell.xib */; };
 		2731E7A31C996ADF00FB3323 /* UITableView+FDIndexPathHeightCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2731E79C1C996ADF00FB3323 /* UITableView+FDIndexPathHeightCache.m */; };
@@ -247,13 +247,13 @@
 		1AEDD3BF1C8D2D4000E435AC /* icon_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_back.png; sourceTree = "<group>"; };
 		1AEDD3C01C8D2D4000E435AC /* icon_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_back@2x.png"; sourceTree = "<group>"; };
 		1AEDD3C11C8D2D4000E435AC /* icon_back@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_back@3x.png"; sourceTree = "<group>"; };
+		1AF9C3E01C9E8EE200F6FBAE /* MyCardDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCardDetailViewController.h; sourceTree = "<group>"; };
+		1AF9C3E11C9E8EE200F6FBAE /* MyCardDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCardDetailViewController.m; sourceTree = "<group>"; };
+		1AF9C3E21C9E8EE200F6FBAE /* MyCardDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCardDetailViewController.xib; sourceTree = "<group>"; };
 		1AFED1B61C8F1D6E00415ABF /* wx.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wx.png; sourceTree = "<group>"; };
 		1AFED1B71C8F1D6E00415ABF /* wx@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wx@2x.png"; sourceTree = "<group>"; };
 		1AFED1B81C8F1D6E00415ABF /* wx@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wx@3x.png"; sourceTree = "<group>"; };
 		229FA454613B3E0894C28FE1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		2700859F1C8808B50069149F /* MyCardDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCardDetailViewController.m; sourceTree = "<group>"; };
-		270085A01C8808B50069149F /* MyCardDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCardDetailViewController.h; sourceTree = "<group>"; };
-		270085A11C8808B50069149F /* MyCardDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCardDetailViewController.xib; sourceTree = "<group>"; };
 		2731E7541C98160400FB3323 /* BrandListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandListTableViewCell.h; sourceTree = "<group>"; };
 		2731E7551C98160400FB3323 /* BrandListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandListTableViewCell.m; sourceTree = "<group>"; };
 		2731E7561C98160400FB3323 /* BrandListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrandListTableViewCell.xib; sourceTree = "<group>"; };
@@ -942,9 +942,9 @@
 				E2BDB81E1C7B644600274CE3 /* BrandListViewController.h */,
 				E2BDB81F1C7B644600274CE3 /* BrandListViewController.m */,
 				E2BDB8201C7B644600274CE3 /* BrandListViewController.xib */,
-				270085A01C8808B50069149F /* MyCardDetailViewController.h */,
-				2700859F1C8808B50069149F /* MyCardDetailViewController.m */,
-				270085A11C8808B50069149F /* MyCardDetailViewController.xib */,
+				1AF9C3E01C9E8EE200F6FBAE /* MyCardDetailViewController.h */,
+				1AF9C3E11C9E8EE200F6FBAE /* MyCardDetailViewController.m */,
+				1AF9C3E21C9E8EE200F6FBAE /* MyCardDetailViewController.xib */,
 				1A5695291C92B6A3001EA32F /* CommentsViewController.h */,
 				1A56952A1C92B6A3001EA32F /* CommentsViewController.m */,
 				1A56952B1C92B6A3001EA32F /* CommentsViewController.xib */,
@@ -1244,6 +1244,7 @@
 				1A5695211C92ABF0001EA32F /* code02.png in Resources */,
 				E2BDB8311C7B655200274CE3 /* RecordDetailViewController.xib in Resources */,
 				1A56952D1C92B6A3001EA32F /* CommentsViewController.xib in Resources */,
+				1AF9C3E41C9E8EE200F6FBAE /* MyCardDetailViewController.xib in Resources */,
 				1A1470A21C8D7CC5003A0616 /* addCard-scan.png in Resources */,
 				1ACFB9B71C8EACA20083FD07 /* tabbar_myCardBag@2x.png in Resources */,
 				E2BDB7B51C7B42E200274CE3 /* AddNewCardViewController.xib in Resources */,
@@ -1259,7 +1260,6 @@
 				1A5695201C92ABF0001EA32F /* code01@3x.png in Resources */,
 				1ACFB9B21C8EACA20083FD07 /* tabbar_more@3x.png in Resources */,
 				E2BDB8221C7B644600274CE3 /* BrandListViewController.xib in Resources */,
-				270085A31C8808B50069149F /* MyCardDetailViewController.xib in Resources */,
 				1ACFB9B81C8EACA20083FD07 /* tabbar_myCardBag@3x.png in Resources */,
 				27D39A181C8FCB5000A3F3C3 /* ChooseAreaViewController.xib in Resources */,
 				1A56951F1C92ABF0001EA32F /* code01@2x.png in Resources */,
@@ -1378,7 +1378,6 @@
 				27D39A4D1C92AC5D00A3F3C3 /* MJRefreshHeader.m in Sources */,
 				E2004C041C85CE5000CDA2E7 /* AssignmentInfoViewController.m in Sources */,
 				27D39A511C92AC5D00A3F3C3 /* MJRefreshBackGifFooter.m in Sources */,
-				270085A21C8808B50069149F /* MyCardDetailViewController.m in Sources */,
 				27D39A4B1C92AC5D00A3F3C3 /* MJRefreshComponent.m in Sources */,
 				27D39A4E1C92AC5D00A3F3C3 /* MJRefreshAutoGifFooter.m in Sources */,
 				27D39A501C92AC5D00A3F3C3 /* MJRefreshAutoStateFooter.m in Sources */,
@@ -1397,6 +1396,7 @@
 				E2073CBD1C849CA30028DD8C /* NetworkAPI.m in Sources */,
 				27D39A1B1C914B1F00A3F3C3 /* UMengAnalyticsUtil.m in Sources */,
 				27D39A581C92AC5D00A3F3C3 /* MJRefreshConst.m in Sources */,
+				1AF9C3E31C9E8EE200F6FBAE /* MyCardDetailViewController.m in Sources */,
 				27D39A591C92AC5D00A3F3C3 /* UIScrollView+MJExtension.m in Sources */,
 				E2004C091C85D34800CDA2E7 /* YKInformTableViewController.m in Sources */,
 				27D39A4C1C92AC5D00A3F3C3 /* MJRefreshFooter.m in Sources */,
