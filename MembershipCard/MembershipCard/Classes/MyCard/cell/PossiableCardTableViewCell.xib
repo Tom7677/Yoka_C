@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="PossiableCardTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="92"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="91.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rxH-68-LBw">
+                        <rect key="frame" x="12" y="12" width="92" height="66"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="92" id="8yV-35-U40"/>
+                            <constraint firstAttribute="height" constant="66" id="BDb-h6-sgO"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lry-yH-oPL">
+                        <rect key="frame" x="116" y="34" width="120" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="FhI-MB-lrB"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="61O-sp-3o4">
+                        <rect key="frame" x="251" y="30" width="61" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="61" id="Pr7-BD-uMq"/>
+                            <constraint firstAttribute="height" constant="30" id="RP6-7x-14T"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <state key="normal" title="加入卡包"/>
+                        <connections>
+                            <action selector="addCardAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ghy-yC-HdI"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="61O-sp-3o4" firstAttribute="leading" secondItem="Lry-yH-oPL" secondAttribute="trailing" constant="15" id="JmV-4z-ejF"/>
+                    <constraint firstItem="61O-sp-3o4" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Xds-Tx-Gv0"/>
+                    <constraint firstItem="61O-sp-3o4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="22" id="dpO-bU-Svy"/>
+                    <constraint firstItem="rxH-68-LBw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="4" id="i2e-n6-eO3"/>
+                    <constraint firstItem="Lry-yH-oPL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="26" id="qfm-xe-UaU"/>
+                    <constraint firstItem="Lry-yH-oPL" firstAttribute="leading" secondItem="rxH-68-LBw" secondAttribute="trailing" constant="12" id="wTc-if-TIC"/>
+                    <constraint firstItem="rxH-68-LBw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="4" id="ynm-rw-ZIF"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="addCardBtn" destination="61O-sp-3o4" id="zAa-cq-XYk"/>
+                <outlet property="cardImageView" destination="rxH-68-LBw" id="psr-3w-fGe"/>
+                <outlet property="nameLabel" destination="Lry-yH-oPL" id="H3u-sc-kfE"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

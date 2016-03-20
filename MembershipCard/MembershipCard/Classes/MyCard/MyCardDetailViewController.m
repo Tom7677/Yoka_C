@@ -17,7 +17,7 @@
 #import "UILabel+caculateSize.h"
 #import "CommentsViewController.h"
 #import "BaseViewController.h"
-#import "TSImageLeftButton.h"
+#import "MidImageLeftButton.h"
 #import "ServiceViewController.h"
 
 @interface MyCardDetailViewController ()<UIGestureRecognizerDelegate>
@@ -78,7 +78,7 @@
 {
     NSArray *titleArray = @[@"帐户卡值",@"公告咨询",@"门店官网",@"活动展示",@"品牌商城"];
     for (int i = 0; i < titleArray.count; i++) {
-        TSImageLeftButton *button = [[TSImageLeftButton alloc]initWithFrame: CGRectMake(15, (10 + 70) * i + 15, MainScreenWidth - 30, 70)];
+        MidImageLeftButton *button = [[MidImageLeftButton alloc]initWithFrame: CGRectMake(15, (10 + 70) * i + 15, MainScreenWidth - 30, 70)];
         button.backgroundColor = [UIColor colorWithWhite:0.96 alpha:1];
         button.tag = i;
         [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"ser0%d", i + 1]] forState:UIControlStateNormal];
@@ -92,7 +92,7 @@
     }
 }
 
-- (void)serviceButtonClick:(TSImageLeftButton *)sender {
+- (void)serviceButtonClick:(MidImageLeftButton *)sender {
     ServiceViewController *vc = [[ServiceViewController alloc]init];
     vc.title = sender.titleLabel.text;
     vc.urlStr = @"www.baidu.com";
