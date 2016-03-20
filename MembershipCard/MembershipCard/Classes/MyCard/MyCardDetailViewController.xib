@@ -314,73 +314,7 @@
         <view contentMode="scaleToFill" id="QQH-JB-D8d" userLabel="Service View">
             <rect key="frame" x="0.0" y="0.0" width="320" height="415"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wcQ-Lq-v0Y">
-                    <rect key="frame" x="10" y="15" width="300" height="66"/>
-                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="66" id="SUS-DS-7V2"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <state key="normal" title="帐户卡值">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wat-Vg-KGc">
-                    <rect key="frame" x="10" y="93" width="300" height="66"/>
-                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <state key="normal" title="公告咨询">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2SQ-oU-gJL">
-                    <rect key="frame" x="10" y="171" width="300" height="66"/>
-                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <state key="normal" title="门店官网">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmc-RY-gIe">
-                    <rect key="frame" x="10" y="249" width="300" height="66"/>
-                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <state key="normal" title="活动展示">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j1m-Es-SbQ">
-                    <rect key="frame" x="10" y="327" width="300" height="66"/>
-                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <state key="normal" title="品牌商城">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
-            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstItem="j1m-Es-SbQ" firstAttribute="top" secondItem="hmc-RY-gIe" secondAttribute="bottom" constant="12" id="2Hk-ln-RYa"/>
-                <constraint firstItem="wcQ-Lq-v0Y" firstAttribute="leading" secondItem="QQH-JB-D8d" secondAttribute="leading" constant="10" id="2mK-AF-ynO"/>
-                <constraint firstItem="Wat-Vg-KGc" firstAttribute="width" secondItem="wcQ-Lq-v0Y" secondAttribute="width" id="4Ng-wt-RgF"/>
-                <constraint firstItem="j1m-Es-SbQ" firstAttribute="height" secondItem="wcQ-Lq-v0Y" secondAttribute="height" id="5Xp-Pu-k7T"/>
-                <constraint firstItem="Wat-Vg-KGc" firstAttribute="height" secondItem="wcQ-Lq-v0Y" secondAttribute="height" id="8gn-iu-sNw"/>
-                <constraint firstItem="j1m-Es-SbQ" firstAttribute="width" secondItem="wcQ-Lq-v0Y" secondAttribute="width" id="HjX-4V-AkC"/>
-                <constraint firstItem="2SQ-oU-gJL" firstAttribute="height" secondItem="wcQ-Lq-v0Y" secondAttribute="height" id="HzV-6h-egP"/>
-                <constraint firstItem="hmc-RY-gIe" firstAttribute="leading" secondItem="wcQ-Lq-v0Y" secondAttribute="leading" id="Iu6-2l-Mdf"/>
-                <constraint firstItem="j1m-Es-SbQ" firstAttribute="leading" secondItem="wcQ-Lq-v0Y" secondAttribute="leading" id="V68-c6-l6w"/>
-                <constraint firstItem="hmc-RY-gIe" firstAttribute="width" secondItem="wcQ-Lq-v0Y" secondAttribute="width" id="YbT-fW-Zyc"/>
-                <constraint firstAttribute="trailing" secondItem="wcQ-Lq-v0Y" secondAttribute="trailing" constant="10" id="ZSf-kx-nfh"/>
-                <constraint firstItem="Wat-Vg-KGc" firstAttribute="top" secondItem="wcQ-Lq-v0Y" secondAttribute="bottom" constant="12" id="cbs-8y-C2e"/>
-                <constraint firstItem="2SQ-oU-gJL" firstAttribute="width" secondItem="wcQ-Lq-v0Y" secondAttribute="width" id="n5a-8P-Byw"/>
-                <constraint firstItem="wcQ-Lq-v0Y" firstAttribute="top" secondItem="QQH-JB-D8d" secondAttribute="top" constant="15" id="rMw-Vs-rRH"/>
-                <constraint firstItem="2SQ-oU-gJL" firstAttribute="leading" secondItem="wcQ-Lq-v0Y" secondAttribute="leading" id="rta-X7-4qS"/>
-                <constraint firstItem="hmc-RY-gIe" firstAttribute="top" secondItem="2SQ-oU-gJL" secondAttribute="bottom" constant="12" id="uR4-2O-Iaw"/>
-                <constraint firstItem="hmc-RY-gIe" firstAttribute="height" secondItem="wcQ-Lq-v0Y" secondAttribute="height" id="uVR-hv-eYl"/>
-                <constraint firstItem="2SQ-oU-gJL" firstAttribute="top" secondItem="Wat-Vg-KGc" secondAttribute="bottom" constant="12" id="uZr-jM-lLz"/>
-                <constraint firstItem="Wat-Vg-KGc" firstAttribute="leading" secondItem="wcQ-Lq-v0Y" secondAttribute="leading" id="ziO-Fl-Iiw"/>
-            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-24" y="125.5"/>

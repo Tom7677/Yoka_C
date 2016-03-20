@@ -17,6 +17,8 @@
 #import "UILabel+caculateSize.h"
 #import "CommentsViewController.h"
 #import "BaseViewController.h"
+#import "TSImageLeftButton.h"
+#import "ServiceViewController.h"
 
 @interface MyCardDetailViewController ()<UIGestureRecognizerDelegate>
 @property (nonatomic, strong) NSNumber *fromValue;
@@ -59,6 +61,7 @@
     [_logoImageView circular];
     
     [self getCradInfo];
+    [self layoutServiceView];
 //    [self getAnnouncementList];
 }
 
@@ -71,6 +74,43 @@
     }];
 }
 
+- (void)layoutServiceView
+{
+    NSArray *titleArray = @[@"帐户卡值",@"公告咨询",@"门店官网",@"活动展示",@"品牌商城"];
+    for (int i = 0; i < titleArray.count; i++) {
+        TSImageLeftButton *button = [[TSImageLeftButton alloc]initWithFrame: CGRectMake(15, (10 + 70) * i + 15, MainScreenWidth - 30, 70)];
+        button.backgroundColor = [UIColor colorWithWhite:0.96 alpha:1];
+        button.tag = i;
+        [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"ser0%d", i + 1]] forState:UIControlStateNormal];
+        [button setTitle:titleArray[i] forState:UIControlStateNormal];
+        [button setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
+        button.titleLabel.font = [UIFont systemFontOfSize:16];
+        [button setTitleColor:[UIColor blackColor] forState:0];
+        [button circularBoarderBead:8 withBoarder:1 color:UIColorFromRGB(0xf0f0f0)];
+        [button addTarget:self action:@selector(serviceButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        [_serviceView addSubview:button];
+    }
+}
+
+- (void)serviceButtonClick:(TSImageLeftButton *)sender {
+    ServiceViewController *vc = [[ServiceViewController alloc]init];
+    vc.title = sender.titleLabel.text;
+    vc.urlStr = @"www.baidu.com";
+    switch (sender.tag) {
+        case 0:
+            break;
+        case 1:
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        default:
+            break;
+    }
+
+    [self.navigationController pushViewController:vc animated:YES];
+}
 //- (void)getAnnouncementList
 //{
 //    [[NetworkAPI shared]getMerchantAnnouncementByMerchantId:_model.merchant_id WithFinish:^(NSArray *dataArray) {

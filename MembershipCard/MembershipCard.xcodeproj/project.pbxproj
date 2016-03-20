@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0FB72C477A5344F2A19CAE2B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA99FE15DBFFFD8B1484D630 /* libPods.a */; };
+		1A003ACD1C9ECCFB00FF12A4 /* ser01.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A003ACC1C9ECCFB00FF12A4 /* ser01.png */; };
+		1A003AD01C9ED44600FF12A4 /* ServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A003ACF1C9ED44600FF12A4 /* ServiceViewController.m */; };
 		1A14709C1C8D7CC5003A0616 /* addCard-code.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A1470931C8D7CC5003A0616 /* addCard-code.png */; };
 		1A14709D1C8D7CC5003A0616 /* addCard-code@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A1470941C8D7CC5003A0616 /* addCard-code@2x.png */; };
 		1A14709E1C8D7CC5003A0616 /* addCard-code@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A1470951C8D7CC5003A0616 /* addCard-code@3x.png */; };
@@ -146,8 +148,6 @@
 		E2BDB81D1C7B641200274CE3 /* InputCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2BDB81B1C7B641200274CE3 /* InputCardViewController.xib */; };
 		E2BDB8211C7B644600274CE3 /* BrandListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BDB81F1C7B644600274CE3 /* BrandListViewController.m */; };
 		E2BDB8221C7B644600274CE3 /* BrandListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2BDB8201C7B644600274CE3 /* BrandListViewController.xib */; };
-		E2BDB8301C7B655200274CE3 /* RecordDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BDB82E1C7B655200274CE3 /* RecordDetailViewController.m */; };
-		E2BDB8311C7B655200274CE3 /* RecordDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2BDB82F1C7B655200274CE3 /* RecordDetailViewController.xib */; };
 		E2FBA6061C82B57000F9F799 /* UIView+border.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FBA6051C82B57000F9F799 /* UIView+border.m */; };
 		E2FBA60F1C82B70000F9F799 /* YKModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FBA60E1C82B70000F9F799 /* YKModel.m */; };
 		E2FBA6151C82B91800F9F799 /* MartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FBA6131C82B91800F9F799 /* MartViewController.m */; };
@@ -192,6 +192,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A003ACC1C9ECCFB00FF12A4 /* ser01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ser01.png; sourceTree = "<group>"; };
+		1A003ACE1C9ED44600FF12A4 /* ServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceViewController.h; sourceTree = "<group>"; };
+		1A003ACF1C9ED44600FF12A4 /* ServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceViewController.m; sourceTree = "<group>"; };
 		1A1470931C8D7CC5003A0616 /* addCard-code.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addCard-code.png"; sourceTree = "<group>"; };
 		1A1470941C8D7CC5003A0616 /* addCard-code@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addCard-code@2x.png"; sourceTree = "<group>"; };
 		1A1470951C8D7CC5003A0616 /* addCard-code@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addCard-code@3x.png"; sourceTree = "<group>"; };
@@ -393,9 +396,6 @@
 		E2BDB81E1C7B644600274CE3 /* BrandListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandListViewController.h; sourceTree = "<group>"; };
 		E2BDB81F1C7B644600274CE3 /* BrandListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandListViewController.m; sourceTree = "<group>"; };
 		E2BDB8201C7B644600274CE3 /* BrandListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrandListViewController.xib; sourceTree = "<group>"; };
-		E2BDB82D1C7B655200274CE3 /* RecordDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordDetailViewController.h; sourceTree = "<group>"; };
-		E2BDB82E1C7B655200274CE3 /* RecordDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordDetailViewController.m; sourceTree = "<group>"; };
-		E2BDB82F1C7B655200274CE3 /* RecordDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordDetailViewController.xib; sourceTree = "<group>"; };
 		E2FBA6041C82B57000F9F799 /* UIView+border.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+border.h"; sourceTree = "<group>"; };
 		E2FBA6051C82B57000F9F799 /* UIView+border.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+border.m"; sourceTree = "<group>"; };
 		E2FBA60D1C82B70000F9F799 /* YKModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YKModel.h; sourceTree = "<group>"; };
@@ -709,6 +709,7 @@
 			children = (
 				E2073CB91C847FBC0028DD8C /* icon_horn_top@2x.png */,
 				1AEDD3BF1C8D2D4000E435AC /* icon_back.png */,
+				1A003ACC1C9ECCFB00FF12A4 /* ser01.png */,
 				1AA63D0F1C9955A1000C0589 /* mjlogo_rectangle.jpg */,
 				1AA63D101C9955A1000C0589 /* mjlogo_round.jpg */,
 				1AEDD3C01C8D2D4000E435AC /* icon_back@2x.png */,
@@ -951,9 +952,8 @@
 				E2FBAD361C8DB1ED0043F35D /* EditRemarkViewController.h */,
 				E2FBAD371C8DB1ED0043F35D /* EditRemarkViewController.m */,
 				E2FBAD381C8DB1ED0043F35D /* EditRemarkViewController.xib */,
-				E2BDB82D1C7B655200274CE3 /* RecordDetailViewController.h */,
-				E2BDB82E1C7B655200274CE3 /* RecordDetailViewController.m */,
-				E2BDB82F1C7B655200274CE3 /* RecordDetailViewController.xib */,
+				1A003ACE1C9ED44600FF12A4 /* ServiceViewController.h */,
+				1A003ACF1C9ED44600FF12A4 /* ServiceViewController.m */,
 			);
 			path = MyCard;
 			sourceTree = "<group>";
@@ -1242,7 +1242,6 @@
 				1AEDD3C41C8D2D4000E435AC /* icon_back@3x.png in Resources */,
 				1AFED1BB1C8F1D6E00415ABF /* wx@3x.png in Resources */,
 				1A5695211C92ABF0001EA32F /* code02.png in Resources */,
-				E2BDB8311C7B655200274CE3 /* RecordDetailViewController.xib in Resources */,
 				1A56952D1C92B6A3001EA32F /* CommentsViewController.xib in Resources */,
 				1AF9C3E41C9E8EE200F6FBAE /* MyCardDetailViewController.xib in Resources */,
 				1A1470A21C8D7CC5003A0616 /* addCard-scan.png in Resources */,
@@ -1268,6 +1267,7 @@
 				1AEDD3C31C8D2D4000E435AC /* icon_back@2x.png in Resources */,
 				1A344BFF1C884AA1009F3FFC /* MoreViewController.xib in Resources */,
 				1AA63D111C9955A1000C0589 /* mjlogo_rectangle.jpg in Resources */,
+				1A003ACD1C9ECCFB00FF12A4 /* ser01.png in Resources */,
 				E2FBAD3A1C8DB1ED0043F35D /* EditRemarkViewController.xib in Resources */,
 				E2FEE3CB1C79F5A70079B824 /* LoginViewController.xib in Resources */,
 				E2FEE3D01C79F5EA0079B824 /* SettingViewController.xib in Resources */,
@@ -1421,7 +1421,6 @@
 				E2FEE3C11C79F4AC0079B824 /* GuideViewController.m in Sources */,
 				27D39A171C8FCB5000A3F3C3 /* ChooseAreaViewController.m in Sources */,
 				1A344BFE1C884AA1009F3FFC /* MoreViewController.m in Sources */,
-				E2BDB8301C7B655200274CE3 /* RecordDetailViewController.m in Sources */,
 				E2FBAD391C8DB1ED0043F35D /* EditRemarkViewController.m in Sources */,
 				E2004C181C85E41400CDA2E7 /* YKMerchantsViewController.m in Sources */,
 				27D39A0E1C8ED83600A3F3C3 /* DiscoveryWithImageCell.m in Sources */,
@@ -1430,6 +1429,7 @@
 				1A7300051C86CD1B0054DB1D /* AboutViewController.m in Sources */,
 				27D39A131C8FB90A00A3F3C3 /* UILabel+caculateSize.m in Sources */,
 				2731E7A61C996ADF00FB3323 /* UITableView+FDTemplateLayoutCellDebug.m in Sources */,
+				1A003AD01C9ED44600FF12A4 /* ServiceViewController.m in Sources */,
 				2731E7A41C996ADF00FB3323 /* UITableView+FDKeyedHeightCache.m in Sources */,
 				E2FEE3B51C79F3260079B824 /* BaseViewController.m in Sources */,
 				E2FEE3731C79E7860079B824 /* main.m in Sources */,
