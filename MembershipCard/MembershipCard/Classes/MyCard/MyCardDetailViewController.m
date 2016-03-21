@@ -81,7 +81,7 @@
         MidImageLeftButton *button = [[MidImageLeftButton alloc]initWithFrame: CGRectMake(15, (10 + 70) * i + 15, MainScreenWidth - 30, 70)];
         button.backgroundColor = [UIColor colorWithWhite:0.96 alpha:1];
         button.tag = i;
-        [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"ser0%d", i + 1]] forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"ser-0%d", i + 1]] forState:UIControlStateNormal];
         [button setTitle:titleArray[i] forState:UIControlStateNormal];
         [button setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
         button.titleLabel.font = [UIFont systemFontOfSize:16];
@@ -185,7 +185,7 @@
     [_hornTopImageView.layer addAnimation:[self moveTime:0.1 X:[NSNumber numberWithFloat:centerX]] forKey:nil];
     _cardInfoBtn.selected = YES;
     _cardValueBtn.selected = NO;
-    _announcementBtn.selected = NO;
+    _serviceBtn.selected = NO;
     _codeScrollView.hidden = NO;
     _markScrollView.hidden = YES;
     _servicesScrollView.hidden = YES;
@@ -201,7 +201,7 @@
     [_hornTopImageView.layer addAnimation:[self moveTime:0.1 X:[NSNumber numberWithFloat: (MainScreenWidth - 20) / 3]] forKey:nil];
     _cardInfoBtn.selected = NO;
     _cardValueBtn.selected = YES;
-    _announcementBtn.selected = NO;
+    _serviceBtn.selected = NO;
     _codeScrollView.hidden = YES;
     _markScrollView.hidden = NO;
     _servicesScrollView.hidden = YES;
@@ -212,12 +212,12 @@
  *
  *  @param sender description
  */
-- (IBAction)announcementBtnAction:(id)sender {
+- (IBAction)serviceBtnAction:(id)sender {
     float centerX = 2 * (MainScreenWidth - 20) / 3 ;
     [_hornTopImageView.layer addAnimation:[self moveTime:0.1 X:[NSNumber numberWithFloat:centerX]] forKey:nil];
     _cardInfoBtn.selected = NO;
     _cardValueBtn.selected = NO;
-    _announcementBtn.selected = YES;
+    _serviceBtn.selected = YES;
     _codeScrollView.hidden = YES;
     _markScrollView.hidden = YES;
     _servicesScrollView.hidden = NO;

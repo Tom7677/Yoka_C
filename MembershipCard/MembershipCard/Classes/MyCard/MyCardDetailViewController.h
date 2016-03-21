@@ -13,7 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *cardTitle;
 @property (weak, nonatomic) IBOutlet UIView *headView;
 @property (weak, nonatomic) IBOutlet UIButton *cardInfoBtn;
-@property (weak, nonatomic) IBOutlet UIButton *announcementBtn;
+@property (weak, nonatomic) IBOutlet UIButton *serviceBtn;
 @property (weak, nonatomic) IBOutlet UIButton *cardValueBtn;
 @property (weak, nonatomic) IBOutlet UIScrollView *codeScrollView;
 @property (weak, nonatomic) IBOutlet UIScrollView *markScrollView;
@@ -31,7 +31,7 @@
 
 - (IBAction)cardValueBtnAction:(id)sender;
 - (IBAction)cardInfoBtnAction:(id)sender;
-- (IBAction)announcementBtnAction:(id)sender;
+- (IBAction)serviceBtnAction:(id)sender;
 - (IBAction)deleteBtnAction:(id)sender;
 - (IBAction)frontBtnAction:(id)sender;
 - (IBAction)backPicAction:(id)sender;

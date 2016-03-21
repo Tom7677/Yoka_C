@@ -70,7 +70,7 @@
         [_tableView reloadData];
         [_tableView.mj_header endRefreshing];
     } withErrorBlock:^(NSError *error) {
-        
+        NSLog(@"load失败,%@",error.userInfo);
     }];
 }
 
