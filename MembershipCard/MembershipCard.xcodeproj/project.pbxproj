@@ -174,6 +174,10 @@
 		E2FBA60F1C82B70000F9F799 /* YKModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FBA60E1C82B70000F9F799 /* YKModel.m */; };
 		E2FBA6151C82B91800F9F799 /* MartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FBA6131C82B91800F9F799 /* MartViewController.m */; };
 		E2FBA6161C82B91800F9F799 /* MartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2FBA6141C82B91800F9F799 /* MartViewController.xib */; };
+		E2FEBB0E1CA19A7F004F9042 /* YouzanIOSSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2FEBB0B1CA19A7F004F9042 /* YouzanIOSSDK.a */; };
+		E2FEBB111CA1A231004F9042 /* CacheUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FEBB101CA1A231004F9042 /* CacheUserInfo.m */; };
+		E2FEBB151CA1A57A004F9042 /* MartWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FEBB131CA1A57A004F9042 /* MartWebViewController.m */; };
+		E2FEBB161CA1A57A004F9042 /* MartWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2FEBB141CA1A57A004F9042 /* MartWebViewController.xib */; };
 		E2FEE3731C79E7860079B824 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FEE3721C79E7860079B824 /* main.m */; };
 		E2FEE3761C79E7860079B824 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FEE3751C79E7860079B824 /* AppDelegate.m */; };
 		E2FEE37C1C79E7860079B824 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2FEE37A1C79E7860079B824 /* Main.storyboard */; };
@@ -447,6 +451,21 @@
 		E2FBA6121C82B91800F9F799 /* MartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MartViewController.h; sourceTree = "<group>"; };
 		E2FBA6131C82B91800F9F799 /* MartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MartViewController.m; sourceTree = "<group>"; };
 		E2FBA6141C82B91800F9F799 /* MartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MartViewController.xib; sourceTree = "<group>"; };
+		E2FEBB021CA19A7F004F9042 /* NSError+YZNetworkError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+YZNetworkError.h"; sourceTree = "<group>"; };
+		E2FEBB031CA19A7F004F9042 /* NSMutableDictionary+NullObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+NullObject.h"; sourceTree = "<group>"; };
+		E2FEBB051CA19A7F004F9042 /* YZUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZUserModel.h; sourceTree = "<group>"; };
+		E2FEBB071CA19A7F004F9042 /* OpenGoodsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGoodsService.h; sourceTree = "<group>"; };
+		E2FEBB081CA19A7F004F9042 /* OpenGoodsServiceProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGoodsServiceProtocol.h; sourceTree = "<group>"; };
+		E2FEBB091CA19A7F004F9042 /* OpenTradeService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenTradeService.h; sourceTree = "<group>"; };
+		E2FEBB0A1CA19A7F004F9042 /* OpenTradeServiceProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenTradeServiceProtocol.h; sourceTree = "<group>"; };
+		E2FEBB0B1CA19A7F004F9042 /* YouzanIOSSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = YouzanIOSSDK.a; sourceTree = "<group>"; };
+		E2FEBB0C1CA19A7F004F9042 /* YZSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZSDK.h; sourceTree = "<group>"; };
+		E2FEBB0D1CA19A7F004F9042 /* YZSDKDefination.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZSDKDefination.h; sourceTree = "<group>"; };
+		E2FEBB0F1CA1A231004F9042 /* CacheUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CacheUserInfo.h; sourceTree = "<group>"; };
+		E2FEBB101CA1A231004F9042 /* CacheUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CacheUserInfo.m; sourceTree = "<group>"; };
+		E2FEBB121CA1A57A004F9042 /* MartWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MartWebViewController.h; sourceTree = "<group>"; };
+		E2FEBB131CA1A57A004F9042 /* MartWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MartWebViewController.m; sourceTree = "<group>"; };
+		E2FEBB141CA1A57A004F9042 /* MartWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MartWebViewController.xib; sourceTree = "<group>"; };
 		E2FEE36E1C79E7860079B824 /* MembershipCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MembershipCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2FEE3721C79E7860079B824 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E2FEE3741C79E7860079B824 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -487,6 +506,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2FEBB0E1CA19A7F004F9042 /* YouzanIOSSDK.a in Frameworks */,
 				E20788EE1C7DF87500D59F63 /* CoreTelephony.framework in Frameworks */,
 				E20788EC1C7DF76A00D59F63 /* libc++.tbd in Frameworks */,
 				E20788EA1C7DF75E00D59F63 /* libsqlite3.0.tbd in Frameworks */,
@@ -880,8 +900,52 @@
 				E2004C011C85CE5000CDA2E7 /* AssignmentInfoViewController.h */,
 				E2004C021C85CE5000CDA2E7 /* AssignmentInfoViewController.m */,
 				E2004C031C85CE5000CDA2E7 /* AssignmentInfoViewController.xib */,
+				E2FEBB121CA1A57A004F9042 /* MartWebViewController.h */,
+				E2FEBB131CA1A57A004F9042 /* MartWebViewController.m */,
+				E2FEBB141CA1A57A004F9042 /* MartWebViewController.xib */,
 			);
 			path = Mart;
+			sourceTree = "<group>";
+		};
+		E2FEBB001CA19A7F004F9042 /* YouzanSDK */ = {
+			isa = PBXGroup;
+			children = (
+				E2FEBB011CA19A7F004F9042 /* Category */,
+				E2FEBB041CA19A7F004F9042 /* Model */,
+				E2FEBB061CA19A7F004F9042 /* Service */,
+				E2FEBB0B1CA19A7F004F9042 /* YouzanIOSSDK.a */,
+				E2FEBB0C1CA19A7F004F9042 /* YZSDK.h */,
+				E2FEBB0D1CA19A7F004F9042 /* YZSDKDefination.h */,
+			);
+			path = YouzanSDK;
+			sourceTree = "<group>";
+		};
+		E2FEBB011CA19A7F004F9042 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				E2FEBB021CA19A7F004F9042 /* NSError+YZNetworkError.h */,
+				E2FEBB031CA19A7F004F9042 /* NSMutableDictionary+NullObject.h */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		E2FEBB041CA19A7F004F9042 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E2FEBB051CA19A7F004F9042 /* YZUserModel.h */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E2FEBB061CA19A7F004F9042 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				E2FEBB071CA19A7F004F9042 /* OpenGoodsService.h */,
+				E2FEBB081CA19A7F004F9042 /* OpenGoodsServiceProtocol.h */,
+				E2FEBB091CA19A7F004F9042 /* OpenTradeService.h */,
+				E2FEBB0A1CA19A7F004F9042 /* OpenTradeServiceProtocol.h */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		E2FEE3651C79E7860079B824 = {
@@ -1112,6 +1176,8 @@
 			children = (
 				E2FBA60D1C82B70000F9F799 /* YKModel.h */,
 				E2FBA60E1C82B70000F9F799 /* YKModel.m */,
+				E2FEBB0F1CA1A231004F9042 /* CacheUserInfo.h */,
+				E2FEBB101CA1A231004F9042 /* CacheUserInfo.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1152,6 +1218,7 @@
 		E2FEE3B11C79F2620079B824 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				E2FEBB001CA19A7F004F9042 /* YouzanSDK */,
 				2731E79A1C996ADF00FB3323 /* UITableView-FDTemplateLayoutCell */,
 				27D39A1C1C92AC5D00A3F3C3 /* MJRefresh */,
 				E24983971C8BD0E9005B77A8 /* FDFullscreenPopGesture */,
@@ -1382,6 +1449,7 @@
 				E2FEE37E1C79E7860079B824 /* Assets.xcassets in Resources */,
 				27D39A571C92AC5D00A3F3C3 /* MJRefresh.bundle in Resources */,
 				1AFED1BA1C8F1D6E00415ABF /* wx@2x.png in Resources */,
+				E2FEBB161CA1A57A004F9042 /* MartWebViewController.xib in Resources */,
 				1ACFB9A91C8EACA20083FD07 /* tabbar_discovery_selected@3x.png in Resources */,
 				1ACC385D1C9FBC3500C9E837 /* guess@3x.png in Resources */,
 				1ACFB9B51C8EACA20083FD07 /* tabbar_myCardBag_selected@3x.png in Resources */,
@@ -1485,6 +1553,7 @@
 				27D39A4A1C92AC5D00A3F3C3 /* MJRefreshBackFooter.m in Sources */,
 				E2073CBD1C849CA30028DD8C /* NetworkAPI.m in Sources */,
 				27D39A1B1C914B1F00A3F3C3 /* UMengAnalyticsUtil.m in Sources */,
+				E2FEBB111CA1A231004F9042 /* CacheUserInfo.m in Sources */,
 				27D39A581C92AC5D00A3F3C3 /* MJRefreshConst.m in Sources */,
 				1AF9C3E31C9E8EE200F6FBAE /* MyCardDetailViewController.m in Sources */,
 				27D39A591C92AC5D00A3F3C3 /* UIScrollView+MJExtension.m in Sources */,
@@ -1524,6 +1593,7 @@
 				E2FEE3B51C79F3260079B824 /* BaseViewController.m in Sources */,
 				E2FEE3731C79E7860079B824 /* main.m in Sources */,
 				E200FC5F1C7F4BE700644BB5 /* UIView+frame.m in Sources */,
+				E2FEBB151CA1A57A004F9042 /* MartWebViewController.m in Sources */,
 				E2FEE3CF1C79F5EA0079B824 /* SettingViewController.m in Sources */,
 				27D39A541C92AC5D00A3F3C3 /* MJRefreshGifHeader.m in Sources */,
 				E2BDB81C1C7B641200274CE3 /* InputCardViewController.m in Sources */,
@@ -1681,6 +1751,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MembershipCard/Resources/Libs/weixinSDK1.6.2",
+					"$(PROJECT_DIR)/MembershipCard/Resources/Libs/YouzanSDK",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.MembershipCard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1702,6 +1773,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MembershipCard/Resources/Libs/weixinSDK1.6.2",
+					"$(PROJECT_DIR)/MembershipCard/Resources/Libs/YouzanSDK",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.MembershipCard;
 				PRODUCT_NAME = "$(TARGET_NAME)";

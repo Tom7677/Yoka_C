@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MartViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MartWebViewController">
             <connections>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outlet property="webView" destination="ZoH-Wd-b3N" id="XNa-ki-c4m"/>
+                <outlet property="webView" destination="Kkq-lP-HaO" id="uLV-Xc-tBg"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -16,17 +16,17 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZoH-Wd-b3N">
+                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kkq-lP-HaO">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                 </webView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="ZoH-Wd-b3N" secondAttribute="bottom" id="0I8-TX-5UI"/>
-                <constraint firstItem="ZoH-Wd-b3N" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="9HL-hl-h7z"/>
-                <constraint firstAttribute="trailing" secondItem="ZoH-Wd-b3N" secondAttribute="trailing" id="Esx-ar-jFs"/>
-                <constraint firstItem="ZoH-Wd-b3N" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="mWh-hD-12o"/>
+                <constraint firstAttribute="trailing" secondItem="Kkq-lP-HaO" secondAttribute="trailing" id="0sP-Rv-jAj"/>
+                <constraint firstAttribute="bottom" secondItem="Kkq-lP-HaO" secondAttribute="bottom" id="VtK-Kl-qfo"/>
+                <constraint firstItem="Kkq-lP-HaO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="i5n-0E-yCr"/>
+                <constraint firstItem="Kkq-lP-HaO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="wgp-dp-dzt"/>
             </constraints>
             <point key="canvasLocation" x="233" y="200"/>
         </view>

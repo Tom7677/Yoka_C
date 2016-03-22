@@ -11,6 +11,7 @@
 #import "LoginViewController.h"
 #import "MainTabBarViewController.h"
 #import <MobClick.h>
+#import "YZSDK.h"
 
 @interface AppDelegate ()
 
@@ -39,6 +40,10 @@
     [MobClick setAppVersion:version];
     //使用集成测试模式
     [MobClick setLogEnabled:YES];
+    //有赞
+    [YZSDK setOpenDebugLog:YES];
+    [YZSDK userAgentInit:userAgent version:@""];
+    [YZSDK setOpenInterfaceAppID:appID appSecret:appSecret];
     [self.window makeKeyAndVisible];
     return YES;
 }

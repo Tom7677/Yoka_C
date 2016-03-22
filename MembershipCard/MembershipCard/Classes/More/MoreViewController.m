@@ -66,6 +66,7 @@
 - (IBAction)cardMartBtnAction:(id)sender {
     [[UMengAnalyticsUtil shared]cardBrokerageCity];
     MartViewController *vc = [[MartViewController alloc]init];
+    vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

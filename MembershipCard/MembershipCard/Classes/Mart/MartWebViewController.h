@@ -1,14 +1,14 @@
 //
-//  MartViewController.h
+//  MartWebViewController.h
 //  MembershipCard
 //
-//  Created by 孙鹏 on 16/2/28.
+//  Created by 孙鹏 on 16/3/23.
 //  Copyright © 2016年 tom.sun. All rights reserved.
 //
 
 #import "BaseViewController.h"
 
-@interface MartViewController : BaseViewController
-
+@interface MartWebViewController : BaseViewController
+@property (copy, nonatomic) NSString *commonWebViewUrl;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @end
