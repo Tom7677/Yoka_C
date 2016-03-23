@@ -23,6 +23,8 @@ static NSString *homePageUrl = @"https://shop16479842.koudaitong.com/v2/showcase
     [super viewDidLoad];
     self.title = @"卡券商场";
     _webView.delegate = self;
+    _webView.scalesPageToFit = YES;
+    [self loadRequestFromString:homePageUrl];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -77,7 +79,6 @@ static NSString *homePageUrl = @"https://shop16479842.koudaitong.com/v2/showcase
  */
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     NSURL *url = [request URL];
-    
     NSLog(@"测试url的链接数据:  %@ " , [url absoluteString]);
     
     if([[url absoluteString] isEqualToString:homePageUrl]) {//第一个页面加载
