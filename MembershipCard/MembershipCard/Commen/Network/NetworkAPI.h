@@ -12,9 +12,19 @@
 @class AnnouncementModel;
 
 
-static NSString* hostUrl = @"http://api-ecstore.yw.bycache.com:81/index.php/appapi/";
+static NSString* hostUrl = @"http://www.51mumaren.com:8080/index.php/Client/";
 @interface NetworkAPI : NSObject
 + (NetworkAPI *)shared;
+
+/**
+ *  用户登录注册
+ *
+ *  @param mobile     手机号
+ *  @param code       验证码
+ *  @param block      block description
+ *  @param errorBlock errorBlock description
+ */
+- (void)userLoginByMobile:(NSString *)mobile AndCode:(NSString *)code WithFinish:(void(^)(BOOL isSuccess))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 /**
  *  获取卡包列表
  *
