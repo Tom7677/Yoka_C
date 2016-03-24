@@ -57,10 +57,7 @@ static NSString *homePageUrl = @"https://shop16479842.koudaitong.com/v2/showcase
 
 #pragma mark - webview delegate
 - (void)webViewDidStartLoad:(UIWebView *)webView {
-    
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    //    self.navigationItem.title = @"载入中...";
-    
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
@@ -69,7 +66,6 @@ static NSString *homePageUrl = @"https://shop16479842.koudaitong.com/v2/showcase
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
-    
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
@@ -77,36 +73,36 @@ static NSString *homePageUrl = @"https://shop16479842.koudaitong.com/v2/showcase
  *  页面监听请看这里
  *
  */
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
     NSURL *url = [request URL];
-    NSLog(@"测试url的链接数据:  %@ " , [url absoluteString]);
-    
     if([[url absoluteString] isEqualToString:homePageUrl]) {//第一个页面加载
         
-    }else if(![[url absoluteString] hasPrefix:@"http"]){//非http
-        
+    }
+    else if(![[url absoluteString] hasPrefix:@"http"]){//非http
         NSString *jsBridageString = [[YZSDK sharedInstance] parseYOUZANScheme:url];
-        
         if(jsBridageString) {
-            
-            if([jsBridageString isEqualToString:@"check_login"]) {//首页面不涉及到登录  具体实现看commonVC
+            if([jsBridageString isEqualToString:CHECK_LOGIN]) {//首页面不涉及到登录  具体实现看commonVC
                 
-            } else if([jsBridageString isEqualToString:@"share_data"]) {
+            }
+            else if([jsBridageString isEqualToString:SHARE_DATA]) {
                 
                 NSDictionary * shareDic = [[YZSDK sharedInstance] shareDataInfo:url];
-                NSString *message = [NSString stringWithFormat:@"title:%@ \\n 链接: %@ " , shareDic[@"title"],shareDic[@"link"]];
+                NSString *message = [NSString stringWithFormat:@"title:%@ \\n 链接: %@ " , shareDic[SHARE_TITLE],shareDic[SHARE_LINK]];
                 UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"数据已经获取到了,赶紧来分享吧" message:message delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil];
                 [alertView show];
+            }
+            else if([jsBridageString isEqualToString:WEB_READY]) {
                 
-            } else if([jsBridageString isEqualToString:@"web_ready"]) {
-                
-                
-            } else if([jsBridageString isEqualToString:@"wx_pay"]) { //首页面不涉及到微信支付  具体实现看commonVC
+            }
+            else if([jsBridageString isEqualToString:WX_PAY]) { //首页面不涉及到微信支付  具体实现看commonVC
             }
         }
-    } else if ([[url absoluteString] hasSuffix:@"common/prefetching"]) {//加载静态资源 暂时先屏蔽
+    }
+    else if ([[url absoluteString] hasSuffix:@"common/prefetching"]) {//加载静态资源 暂时先屏蔽
         return YES;
-    } else {
+    }
+    else {
         MartWebViewController *vc = [[MartWebViewController alloc]init];
         vc.commonWebViewUrl = [url absoluteString];
         [self.navigationController pushViewController:vc animated:YES];
