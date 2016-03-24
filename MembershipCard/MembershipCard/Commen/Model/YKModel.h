@@ -8,11 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+/** 城市列表模型 */
+@interface CityListModel : NSObject
+@property (nonatomic, copy) NSString *city_id;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *name_index;
+@end
 
 /** 我的会员卡模型 */
 @interface MyCardModel : NSObject
 @property(nonatomic,strong) NSString *merchant_id; //商户ID
-@property(nonatomic,strong) NSString *name;//商户名称
+@property(nonatomic,strong) NSString *merchant_name;//商户名称
 @property(nonatomic,strong) NSString *quare_image;//方logo
 @property(nonatomic,strong) NSString *round_image;//圆logo
 @property(nonatomic,strong) NSString *source;//1为悠点卡； 2为实体卡

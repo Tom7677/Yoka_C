@@ -13,7 +13,7 @@
 @interface ChooseAreaViewController ()<CLLocationManagerDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, copy) NSString *currentCity;
-@property (nonatomic, strong) NSArray *areaArray;
+@property (nonatomic, strong) NSMutableArray *areaArray;
 @property (nonatomic, assign) NSInteger currentRow;
 @property (nonatomic, assign) NSInteger currentSection;
 @end
@@ -22,9 +22,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _areaArray = [[NSMutableArray alloc]init];
     _tableView.delegate = self;
     _tableView.dataSource = self;
-    _areaArray = @[@"上海",@"北京",@"深圳"];
     [self locate];
     if (_fromSetting) {
         self.title = @"切换城市";
@@ -46,6 +46,24 @@
         UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
         [self.navigationItem setLeftBarButtonItem:leftItem];
     }
+    [self getCityArray];
+}
+
+- (void)getCityArray
+{
+    [[NetworkAPI shared]getCityListWithFinish:^(BOOL isSuccess, NSArray *cityArray) {
+        if (isSuccess) {
+            [_areaArray addObjectsFromArray:cityArray];
+            [_tableView reloadData];
+        }
+    } withErrorBlock:^(NSError *error) {
+        if (error.code == NSURLErrorNotConnectedToInternet) {
+            
+        }
+        else {
+            
+        }
+    }];
 }
 
 - (void)locate {
@@ -197,7 +215,8 @@
             line2.backgroundColor = UIColorFromRGB(0xf0f0f0);
             [cell.contentView addSubview:line2];
         }
-        cell.textLabel.text = _areaArray[indexPath.row];
+        CityListModel *model = _areaArray[indexPath.row];
+        cell.textLabel.text = model.name;
     }
     return cell;
 }

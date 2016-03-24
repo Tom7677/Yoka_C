@@ -13,6 +13,7 @@
 #import "WXApiObject.h"
 #import "ChooseAreaViewController.h"
 #import <MobClick.h>
+#import "NetworkAPI.h"
 
 #define INTERVAL_KEYBOARD 20
 @interface LoginViewController ()
@@ -69,11 +70,24 @@
 }
 
 - (IBAction)loginAction:(id)sender {
-    ChooseAreaViewController *vc = [[ChooseAreaViewController alloc]init];
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:vc];
-    [self presentViewController:nav animated:YES completion:nil];
-    //[MobClick profileSignInWithPUID:_phoneNumTextField.text];
-    [[UMengAnalyticsUtil shared]loginByMobile];
+    [[NetworkAPI shared]userLoginByMobile:_phoneNumTextField.text AndCode:_codeTextField.text WithFinish:^(BOOL isSuccess, NSString *msg) {
+        if (isSuccess) {
+            ChooseAreaViewController *vc = [[ChooseAreaViewController alloc]init];
+            UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:vc];
+            [self presentViewController:nav animated:YES completion:nil];
+            [[UMengAnalyticsUtil shared]loginByMobile];
+        }
+        else {
+            
+        }
+    } withErrorBlock:^(NSError *error) {
+        if (error.code == NSURLErrorNotConnectedToInternet) {
+            
+        }
+        else {
+            
+        }
+    }];
 }
 
 - (IBAction)weixinLoginAction:(id)sender {

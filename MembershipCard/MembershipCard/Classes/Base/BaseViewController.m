@@ -64,4 +64,6 @@
 {
     return str == nil || [str isEqual:@""] || [str isEqual:[NSNull null]];
 }
+
+
 @end

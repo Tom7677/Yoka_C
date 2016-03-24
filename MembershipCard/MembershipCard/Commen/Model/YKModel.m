@@ -8,6 +8,8 @@
 
 #import "YKModel.h"
 
+@implementation CityListModel
+@end
 
 @implementation MyCardModel
 @end

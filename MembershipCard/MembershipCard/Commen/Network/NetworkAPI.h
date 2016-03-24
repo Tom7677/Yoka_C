@@ -24,7 +24,14 @@ static NSString* hostUrl = @"http://www.51mumaren.com:8080/index.php/Client/";
  *  @param block      block description
  *  @param errorBlock errorBlock description
  */
-- (void)userLoginByMobile:(NSString *)mobile AndCode:(NSString *)code WithFinish:(void(^)(BOOL isSuccess))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+- (void)userLoginByMobile:(NSString *)mobile AndCode:(NSString *)code WithFinish:(void(^)(BOOL isSuccess ,NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+/**
+ *  获取城市列表
+ *
+ *  @param block      block description
+ *  @param errorBlock errorBlock description
+ */
+- (void)getCityListWithFinish:(void(^)(BOOL isSuccess ,NSArray *cityArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 /**
  *  获取卡包列表
  *

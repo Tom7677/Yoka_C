@@ -21,37 +21,54 @@
     return sharedClient;
 }
 
-- (void)userLoginByMobile:(NSString *)mobile AndCode:(NSString *)code WithFinish:(void(^)(BOOL isSuccess))block withErrorBlock:(void(^)(NSError *error)) errorBlock {
+#pragma mark Login
+- (void)userLoginByMobile:(NSString *)mobile AndCode:(NSString *)code WithFinish:(void(^)(BOOL isSuccess ,NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock {
     NSString *urlStr = [hostUrl stringByAppendingString:@"User/login"];
     NSDictionary *param = @{@"mobile":mobile, @"code":code};
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer=[AFJSONRequestSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-    [manager POST:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if ([responseObject[@"status"] isEqualToString:@"-1"]) {
-            block(YES);
+    [manager GET:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject[@"status"] integerValue] == 1) {
+            [[NSUserDefaults standardUserDefaults]setObject:responseObject[@"data"][@"token"] forKey:@"accessToken"];
+            block(YES,responseObject[@"msg"]);
         }else {
-            block(NO);
+            block(NO,responseObject[@"msg"]);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         errorBlock(error);
-        NSLog(@"登录错误");
     }];
-    
+}
+
+- (void)getCityListWithFinish:(void(^)(BOOL isSuccess ,NSArray *cityArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock
+{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSString *urlStr = [hostUrl stringByAppendingString:@"Index/get_city"];
+    [manager GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject[@"status"] integerValue] == 1) {
+            NSMutableArray *dataArray = [[NSMutableArray alloc]init];
+            for (NSDictionary *dic in responseObject[@"data"]) {
+                CityListModel *model = [[CityListModel alloc]init];
+                [model setValuesForKeysWithDictionary:dic];
+                [dataArray addObject:model];
+            }
+            block(YES,dataArray);
+        }else {
+            block(NO,nil);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        errorBlock(error);
+    }];
 }
 
 #pragma mark cardBag
 - (void)getMyCardBagListWithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock
 {
-    NSDictionary *param = [self creatRequestParamByMethod:@"get_mycardpkg_list" WithParamData:@{@"member_id":[self getMemId]}];
+    NSString *urlStr = [hostUrl stringByAppendingString:@"User/login"];
+    NSDictionary *param = @{@"token":[self getAccessToken]};
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer=[AFJSONRequestSerializer serializer];
-//    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-    [manager GET:hostUrl parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager GET:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject[@"status"] isEqualToString:@"1"]) {
             NSMutableArray *dataArray = [[NSMutableArray alloc]init];
-            NSArray *resultArray = [self jsonObjectWithJsonString:responseObject[@"data"]];
-            for (NSDictionary *dic in resultArray) {
+            for (NSDictionary *dic in responseObject[@"data"]) {
                 MyCardModel *model = [[MyCardModel alloc]init];
                 [model setValuesForKeysWithDictionary:dic];
                 [dataArray addObject:model];
@@ -98,15 +115,12 @@
 
 - (void)getMerchantListWithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock
 {
-    NSDictionary *param = [self creatRequestParamByMethod:@"get_merchant_list" WithParamData:@{@"member_id":[self getMemId]}];
+    NSString *urlStr = [hostUrl stringByAppendingString:@"User/login"];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer=[AFJSONRequestSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-    [manager GET:hostUrl parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject[@"status"] isEqualToString:@"1"]) {
             NSMutableArray *dataArray = [[NSMutableArray alloc]init];
-            NSArray *resultArray = [self jsonObjectWithJsonString:responseObject[@"data"]];
-            for (NSDictionary *dic in resultArray) {
+            for (NSDictionary *dic in responseObject[@"data"]) {
                 BrandCardListModel *model = [[BrandCardListModel alloc]init];
                 [model setValuesForKeysWithDictionary:dic];
                 [dataArray addObject:model];
@@ -404,5 +418,15 @@
         return nil;
     }
     return jsonObject;
+}
+
+/**
+ *  获取Token
+ *
+ *  @return token
+ */
+- (NSString *)getAccessToken
+{
+    return  [[NSUserDefaults standardUserDefaults]objectForKey:@"accessToken"];
 }
 @end
