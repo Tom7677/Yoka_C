@@ -50,7 +50,7 @@
 
 - (void)goMainView
 {
-    NSString *accessToken = [[NSUserDefaults standardUserDefaults]objectForKey:@"Mobile"];
+    NSString *accessToken = [[NSUserDefaults standardUserDefaults]objectForKey:@"accessToken"];
     if (nil == accessToken || [@"" isEqualToString:accessToken]) {
         LoginViewController * vc = [[LoginViewController alloc] init];
         self.window.rootViewController = vc;

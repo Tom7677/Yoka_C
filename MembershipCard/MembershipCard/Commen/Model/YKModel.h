@@ -85,8 +85,9 @@
 @interface BrandCardListModel : NSObject
 @property(nonatomic,strong) NSString *merchant_id; //商户ID
 @property(nonatomic,strong) NSString *name;//商户名称
-@property(nonatomic,strong) NSString *quare_image;//方logo
-@property(nonatomic,strong) NSString *round_image;//圆logo
+@property(nonatomic,strong) NSString *f_logo;//方logo
+@property(nonatomic,strong) NSString *y_logo;//圆logo
+@property(nonatomic,strong) NSString *name_index;
 @end
 
 /** 文章模型 */

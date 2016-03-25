@@ -99,15 +99,16 @@ static NSString* hostUrl = @"http://www.51mumaren.com:8080/index.php/Client/";
  *  @param errorBlock errorBlock description
  */
 - (void)addNewNonBrandCardByMerchantName:(NSString *)name cardNum:(NSString *)cardNum WithFinish:(void(^)(BOOL isSuccess, NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
-/**
- *  会员添加品牌卡片
+/*!
+ *  @brief  会员添加品牌卡片
  *
  *  @param merchantId 商户ID
  *  @param cardNum    卡号
+ *  @param type       条码类型
  *  @param block      block description
  *  @param errorBlock errorBlock description
  */
-- (void)addNewBrandCardByMerchantID:(NSString *)merchantId AndCardNum:(NSString *)cardNum WithFinish:(void(^)(BOOL isSuccess, NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+- (void)addNewBrandCardByMerchantID:(NSString *)merchantId cardNum:(NSString *)cardNum cardType:(NSString *)type WithFinish:(void(^)(BOOL isSuccess, NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 /**
  *  删除／恢复卡
  *

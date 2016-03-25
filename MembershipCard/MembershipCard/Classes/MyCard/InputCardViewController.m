@@ -44,16 +44,6 @@
         [_cardNumText setTextColor:[UIColor grayColor]];
         _cardNumText.enabled = NO;
     }
-    
-//    UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(takePhoto)];
-//    _logoLabel.userInteractionEnabled = YES;
-//    [_logoLabel addGestureRecognizer:tap1];
-//    
-//    UITapGestureRecognizer *tap2 = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(takePhoto)];
-//    _logoImageView.userInteractionEnabled = YES;
-//    [_logoImageView addGestureRecognizer:tap2];
-//    [_logoLabel circular];
-//    [_logoImageView circularBoarderBead:_logoImageView.width / 2 withBoarder:1 color:UIColorFromRGB(0xf0f0f0)];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -61,20 +51,11 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)takePhoto
-{
-    [takePhoto sharePicture:YES sendPicture:^(UIImage *image) {
-        _logoLabel.hidden = YES;
-        _logoImageView.image = image;
-    }];
-}
-
-
 - (void)saveBtnAction
 {
     if (_brandId) {
-        [[NetworkAPI shared] addNewBrandCardByMerchantID:_brandId AndCardNum:_cardNumText.text WithFinish:^(BOOL isSuccess, NSString *msg) {
-           [self.navigationController popToRootViewControllerAnimated:YES];
+        [[NetworkAPI shared] addNewBrandCardByMerchantID:_brandId cardNum:_cardNumText.text cardType:_type WithFinish:^(BOOL isSuccess, NSString *msg) {
+            [self.navigationController popToRootViewControllerAnimated:YES];
         } withErrorBlock:^(NSError *error) {
             
         }];

@@ -14,13 +14,11 @@
 @property(nonatomic,strong) NSString *brandId;
 @property (nonatomic, copy) NSString *cardNum;
 @property (weak, nonatomic) IBOutlet TPKeyboardAvoidingScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
-@property (weak, nonatomic) IBOutlet UILabel *logoLabel;
 @property (weak, nonatomic) IBOutlet UITextField *nameText;
 @property (weak, nonatomic) IBOutlet UITextField *cardNumText;
 @property (strong, nonatomic) IBOutlet UIView *bgView;
 @property (copy, nonatomic) NSString *logoUrl;
-
+@property (copy, nonatomic) NSString *type;
 
 
 @end

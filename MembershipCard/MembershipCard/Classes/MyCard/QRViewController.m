@@ -121,23 +121,39 @@
             AVMetadataMachineReadableCodeObject *metadataObj = [metadataObjects objectAtIndex:0];
             //判断回传的数据类型
             _isFirstScan = NO;
-            [self performSelectorOnMainThread:@selector(reportScanResult:) withObject:[metadataObj stringValue] waitUntilDone:NO];
+            NSString *type;
+            if ([[metadataObj type] isEqualToString:AVMetadataObjectTypePDF417Code]) {
+                type = @"";
+            }
+            else if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeCode128Code]) {
+                type = @"";
+            }
+            else if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeEAN8Code]) {
+                type = @"";
+            }
+            else if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeEAN13Code]) {
+                type = @"";
+            }
+            else {
+                type = @"";
+            }
+            [self reportScanResult:[metadataObj stringValue] cardType:type];
         }
     }
-    //判断是否有数据
 }
 
-- (void)reportScanResult:(NSString *)result {
+- (void)reportScanResult:(NSString *)result cardType:(NSString *)type {
     [self stopReading];
     if (!self.brandId) {
         InputCardViewController *vc = [[InputCardViewController alloc]init];
         vc.cardNum = result;
+        vc.type = type;
         [self.navigationController pushViewController:vc animated:YES];
     }else {
-        [[NetworkAPI shared] addNewBrandCardByMerchantID:self.brandId AndCardNum:result WithFinish:^(BOOL isSuccess, NSString *msg) {
-            [self.navigationController popToRootViewControllerAnimated:YES];
+        [[NetworkAPI shared]addNewBrandCardByMerchantID:self.brandId cardNum:result cardType:type WithFinish:^(BOOL isSuccess, NSString *msg) {
+            
         } withErrorBlock:^(NSError *error) {
-        
+            
         }];
     }
 }
