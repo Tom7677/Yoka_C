@@ -129,15 +129,15 @@
 
 - (void)reportScanResult:(NSString *)result {
     [self stopReading];
-    if (!self.brandName) {
+    if (!self.brandId) {
         InputCardViewController *vc = [[InputCardViewController alloc]init];
         vc.cardNum = result;
         [self.navigationController pushViewController:vc animated:YES];
     }else {
-        [[NetworkAPI shared]addNewCardByMerchantName:self.brandName cardNum:result WithFinish:^(BOOL isSuccess) {
+        [[NetworkAPI shared] addNewBrandCardByMerchantID:self.brandId AndCardNum:result WithFinish:^(BOOL isSuccess, NSString *msg) {
             [self.navigationController popToRootViewControllerAnimated:YES];
         } withErrorBlock:^(NSError *error) {
-            
+        
         }];
     }
 }

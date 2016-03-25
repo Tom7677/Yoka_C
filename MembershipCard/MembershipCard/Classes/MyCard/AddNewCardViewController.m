@@ -8,6 +8,7 @@
 
 #import "AddNewCardViewController.h"
 #import "BrandListViewController.h"
+#import "PossiableCardViewController.h"
 
 @interface AddNewCardViewController ()
 
@@ -41,5 +42,9 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+- (IBAction)guessBtnAction:(id)sender {
+    PossiableCardViewController *vc = [[PossiableCardViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 @end

@@ -31,7 +31,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.fd_prefersNavigationBarHidden = YES;
-    self.cardTitle.text = _model.name;
+    self.cardTitle.text = _model.merchant_name;
     if ([self isEmpty:_model.round_image]) {
         _logoImageView.image = [UIImage imageNamed:@"mjlogo_round.jpg"];
     }else {
@@ -248,7 +248,7 @@
  *  @param sender description
  */
 - (IBAction)deleteBtnAction:(id)sender {
-    [[UMengAnalyticsUtil shared]deleteCardByMerchantsName:_model.name];
+    [[UMengAnalyticsUtil shared]deleteCardByMerchantsName:_model.merchant_name];
     [[NetworkAPI shared] updateCardRelationByMerchantId:_model.merchant_id WithDeleteAction:YES WithFinish:^(BOOL isSuccess) {
         [self.navigationController popToRootViewControllerAnimated:YES];
     } withErrorBlock:^(NSError *error) {

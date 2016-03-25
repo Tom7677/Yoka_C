@@ -166,13 +166,16 @@
     BrandCardListModel *model = [[self getNameArraybyIndex:indexPath.section] objectAtIndex:indexPath.row];
     if (self.isScan) {
         QRViewController *vc = [[QRViewController alloc]init];
-        vc.brandName = model.name;
+        vc.brandId = model.merchant_id;
         [self.navigationController pushViewController:vc animated:YES];
     }else {
         InputCardViewController *vc = [[InputCardViewController alloc]init];
         vc.brandName = model.name;
+        vc.brandId = model.merchant_id;
         [self.navigationController pushViewController:vc animated:YES];
     }
+    [[UMengAnalyticsUtil shared]saveCardByMerchantsName:model.name type:@"品牌选择"];
+
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText

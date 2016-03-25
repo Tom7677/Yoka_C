@@ -111,7 +111,7 @@
     }else {
         [cell.logoImageView sd_setImageWithURL:[NSURL URLWithString:model.quare_image]];
     }
-    cell.shopNameLabel.text = model.name;
+    cell.shopNameLabel.text = model.merchant_name;
     cell.cardTypeLabel.hidden = YES;
     return cell;
 }

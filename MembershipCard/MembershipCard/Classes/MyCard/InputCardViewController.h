@@ -11,6 +11,7 @@
 
 @interface InputCardViewController : BaseViewController
 @property (nonatomic, copy) NSString *brandName;
+@property(nonatomic,strong) NSString *brandId;
 @property (nonatomic, copy) NSString *cardNum;
 @property (weak, nonatomic) IBOutlet TPKeyboardAvoidingScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *logoImageView;

@@ -34,14 +34,14 @@
     else {
         [self goMainView];
     }
+    //友盟统计配置
     [MobClick startWithAppkey:umengAppKey reportPolicy:BATCH channelId:@"App Store"];
     //账号统计
     NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     [MobClick setAppVersion:version];
     //使用集成测试模式
     [MobClick setLogEnabled:YES];
-    //有赞
-    [YZSDK setOpenDebugLog:YES];
+    //有赞86    [YZSDK setOpenDebugLog:YES];
     [YZSDK userAgentInit:userAgent version:@""];
     [YZSDK setOpenInterfaceAppID:appID appSecret:appSecret];
     [self.window makeKeyAndVisible];

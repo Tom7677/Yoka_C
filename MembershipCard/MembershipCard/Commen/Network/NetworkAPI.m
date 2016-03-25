@@ -62,11 +62,11 @@
 #pragma mark cardBag
 - (void)getMyCardBagListWithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock
 {
-    NSString *urlStr = [hostUrl stringByAppendingString:@"User/login"];
+    NSString *urlStr = [hostUrl stringByAppendingString:@"User/get_card_list"];
     NSDictionary *param = @{@"token":[self getAccessToken]};
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if ([responseObject[@"status"] isEqualToString:@"1"]) {
+    [manager POST:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject[@"status"] integerValue] == 1) {
             NSMutableArray *dataArray = [[NSMutableArray alloc]init];
             for (NSDictionary *dic in responseObject[@"data"]) {
                 MyCardModel *model = [[MyCardModel alloc]init];
@@ -85,6 +85,7 @@
 
 - (void)getMyCardInfoByMerchantId:(NSString *)merchantId WithFinish:(void(^)(CardInfoModel *model))block withErrorBlock:(void(^)(NSError *error)) errorBlock
 {
+    NSString *urlStr = [hostUrl stringByAppendingString:@"Card/get_card_info"];
     NSDictionary *param = [self creatRequestParamByMethod:@"get_card_info" WithParamData:@{@"member_id":[self getMemId],@"merchant_id":merchantId}];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer=[AFJSONRequestSerializer serializer];
@@ -115,10 +116,10 @@
 
 - (void)getMerchantListWithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock
 {
-    NSString *urlStr = [hostUrl stringByAppendingString:@"User/login"];
+    NSString *urlStr = [hostUrl stringByAppendingString:@"Merchant/get_list"];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if ([responseObject[@"status"] isEqualToString:@"1"]) {
+        if ([responseObject[@"status"] integerValue] == 1) {
             NSMutableArray *dataArray = [[NSMutableArray alloc]init];
             for (NSDictionary *dic in responseObject[@"data"]) {
                 BrandCardListModel *model = [[BrandCardListModel alloc]init];
@@ -282,17 +283,32 @@
     }];
 }
 
-- (void)addNewCardByMerchantName:(NSString *)name cardNum:(NSString *)cardNum WithFinish:(void(^)(BOOL isSuccess))block withErrorBlock:(void(^)(NSError *error)) errorBlock
+- (void)addNewNonBrandCardByMerchantName:(NSString *)name cardNum:(NSString *)cardNum WithFinish:(void(^)(BOOL isSuccess, NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock
 {
-    NSDictionary *param = [self creatRequestParamByMethod:@"save_merchant" WithParamData:@{@"member_id":[self getMemId],@"name":name,@"card_bn":cardNum}];
+    NSString *urlStr = [hostUrl stringByAppendingString:@"User/add_card_nonbrand"];
+    NSDictionary  *param = @{@"merchant_name":name,@"card_no":cardNum,@"token":[self getAccessToken]};
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer=[AFJSONRequestSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-    [manager GET:hostUrl parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if ([responseObject[@"status"] isEqualToString:@"1"]) {
-            block (YES);
+   [manager POST:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject[@"status"] integerValue] == 1) {
+            block(YES, responseObject[@"msg"]);
         }else {
-            block(NO);
+            block(NO, responseObject[@"msg"]);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        errorBlock(error);
+
+    }];
+}
+
+- (void)addNewBrandCardByMerchantID:(NSString *)merchantId AndCardNum:(NSString *)cardNum WithFinish:(void(^)(BOOL isSuccess, NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock {
+    NSString *urlStr = [hostUrl stringByAppendingString:@"User/add_card_brand"];
+    NSDictionary  *param = @{@"merchant_id":merchantId,@"card_no":cardNum,@"token":[self getAccessToken]};
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject[@"status"] integerValue] == 1) {
+            block(YES, responseObject[@"msg"]);
+        }else {
+            block(NO, responseObject[@"msg"]);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         errorBlock(error);

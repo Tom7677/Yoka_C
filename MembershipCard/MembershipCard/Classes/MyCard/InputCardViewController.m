@@ -34,7 +34,6 @@
     [rightBtn addTarget:self action:@selector(saveBtnAction) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
     [self.navigationItem setRightBarButtonItem:rightItem];
-    _cardNumText.text = _cardNum;
     if (_brandName) {
         _nameText.text = _brandName;
         [_nameText setTextColor:[UIColor grayColor]];
@@ -46,15 +45,15 @@
         _cardNumText.enabled = NO;
     }
     
-    UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(takePhoto)];
-    _logoLabel.userInteractionEnabled = YES;
-    [_logoLabel addGestureRecognizer:tap1];
-    
-    UITapGestureRecognizer *tap2 = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(takePhoto)];
-    _logoImageView.userInteractionEnabled = YES;
-    [_logoImageView addGestureRecognizer:tap2];
-    [_logoLabel circular];
-    [_logoImageView circularBoarderBead:_logoImageView.width / 2 withBoarder:1 color:UIColorFromRGB(0xf0f0f0)];
+//    UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(takePhoto)];
+//    _logoLabel.userInteractionEnabled = YES;
+//    [_logoLabel addGestureRecognizer:tap1];
+//    
+//    UITapGestureRecognizer *tap2 = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(takePhoto)];
+//    _logoImageView.userInteractionEnabled = YES;
+//    [_logoImageView addGestureRecognizer:tap2];
+//    [_logoLabel circular];
+//    [_logoImageView circularBoarderBead:_logoImageView.width / 2 withBoarder:1 color:UIColorFromRGB(0xf0f0f0)];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -73,25 +72,24 @@
 
 - (void)saveBtnAction
 {
-    if ([self isEmpty:_cardNum] && [self isEmpty:_logoUrl]) {
-        [[UMengAnalyticsUtil shared]saveCardByMerchantsName:_nameText.text type:@"手动输入"];
+    if (_brandId) {
+        [[NetworkAPI shared] addNewBrandCardByMerchantID:_brandId AndCardNum:_cardNumText.text WithFinish:^(BOOL isSuccess, NSString *msg) {
+           [self.navigationController popToRootViewControllerAnimated:YES];
+        } withErrorBlock:^(NSError *error) {
+            
+        }];
+    }else {
+        [[NetworkAPI shared] addNewNonBrandCardByMerchantName:_nameText.text cardNum:_cardNumText.text WithFinish:^(BOOL isSuccess, NSString *msg) {
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        } withErrorBlock:^(NSError *error) {
+        }];
     }
-    else {
-        if (![self isEqual:_cardNum]) {
-            [[UMengAnalyticsUtil shared]saveCardByMerchantsName:_nameText.text type:@"扫码"];
-        }
-        if (![self isEqual:_logoUrl]) {
-            [[UMengAnalyticsUtil shared]saveCardByMerchantsName:_nameText.text type:@"列表选择"];
-        }
+    if (!_cardNum) {
+      [[UMengAnalyticsUtil shared]saveCardByMerchantsName:_nameText.text type:@"手动输入"];
+    }else {
+       [[UMengAnalyticsUtil shared]saveCardByMerchantsName:_nameText.text type:@"扫码"];
     }
     
-    [[NetworkAPI shared]addNewCardByMerchantName:_nameText.text cardNum:_cardNumText.text WithFinish:^(BOOL isSuccess) {
-        [self.navigationController popToRootViewControllerAnimated:YES];
-    } withErrorBlock:^(NSError *error) {
-        
-    }];
-    
-
 
 }
 @end

@@ -58,14 +58,6 @@ static NSString* hostUrl = @"http://www.51mumaren.com:8080/index.php/Client/";
  *  @param errorBlock errorBlock description
  */
 - (void)getMyCardInfoListByMemId:(NSString *)memId merchantId:(NSString *)merchantId WithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
-/**
- *  查询子卡消费明细
- *
- *  @param cardId     子卡ID
- *  @param block      block description
- *  @param errorBlock errorBlock description
- */
-- (void)getCardUsedDetailByCardId:(NSString *)cardId WithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 /*!
  *  @brief  获取品牌列表
  *
@@ -81,14 +73,7 @@ static NSString* hostUrl = @"http://www.51mumaren.com:8080/index.php/Client/";
  *  @param errorBlock errorBlock description
  */
 - (void)getNoticeListByMemberId:(NSString *)memberId WithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
-/**
- *  添加商户公告
- *
- *  @param model      商户公告模型数据
- *  @param block      block description
- *  @param errorBlock errorBlock description
- */
-- (void)saveMerchantAnnouncementByModel:(AnnouncementModel *)model WithFinish:(void(^)(AnnouncementModel *model))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+
 /*!
  *  @brief  获取商户公告
  *
@@ -106,15 +91,23 @@ static NSString* hostUrl = @"http://www.51mumaren.com:8080/index.php/Client/";
  */
 - (void)deleteAnnouncementWithFinish:(void(^)(BOOL isSuccess))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 /*!
- *  @brief  会员添加新卡
+ *  @brief  会员添加非品牌卡片
  *
  *  @param name       商户名
  *  @param cardNum    卡号
  *  @param block      block description
  *  @param errorBlock errorBlock description
  */
-- (void)addNewCardByMerchantName:(NSString *)name cardNum:(NSString *)cardNum WithFinish:(void(^)(BOOL isSuccess))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
-
+- (void)addNewNonBrandCardByMerchantName:(NSString *)name cardNum:(NSString *)cardNum WithFinish:(void(^)(BOOL isSuccess, NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+/**
+ *  会员添加品牌卡片
+ *
+ *  @param merchantId 商户ID
+ *  @param cardNum    卡号
+ *  @param block      block description
+ *  @param errorBlock errorBlock description
+ */
+- (void)addNewBrandCardByMerchantID:(NSString *)merchantId AndCardNum:(NSString *)cardNum WithFinish:(void(^)(BOOL isSuccess, NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 /**
  *  删除／恢复卡
  *

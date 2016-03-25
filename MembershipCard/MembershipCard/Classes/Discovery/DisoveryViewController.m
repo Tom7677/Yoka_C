@@ -12,6 +12,7 @@
 #import "DiscoveryTableViewCell.h"
 #import "DiscoveryWithImageCell.h"
 #import "UITableView+FDTemplateLayoutCell.h"
+#import "ArticleViewController.h"
 
 #define LINE_WIDTH  40
 @interface DisoveryViewController ()<UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate>
@@ -185,6 +186,11 @@
         return cell;
     }
     return nil;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    ArticleViewController *vc = [[ArticleViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

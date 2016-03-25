@@ -12,5 +12,5 @@
 
 - (IBAction)qrBtnAction:(id)sender;
 - (IBAction)inputBtnAction:(id)sender;
-- (IBAction)chooseBtnAction:(id)sender;
+- (IBAction)guessBtnAction:(id)sender;
 @end
