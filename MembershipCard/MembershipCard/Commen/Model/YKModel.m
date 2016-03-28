@@ -35,3 +35,5 @@
 @implementation ArticleModel
 @end
 
+@implementation UserInfoModel
+@end

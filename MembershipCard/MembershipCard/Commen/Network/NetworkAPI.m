@@ -22,6 +22,23 @@
 }
 
 #pragma mark Login
+- (void)getMobileCodeByMobile:(NSString *)mobile WithFinish:(void(^)(BOOL isSuccess ,NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock
+{
+    NSString *urlStr = [hostUrl stringByAppendingString:@"User/get_mobile_code"];
+    NSDictionary *param = @{@"mobile":mobile};
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject[@"status"] integerValue] == 1) {
+            [[NSUserDefaults standardUserDefaults]setObject:responseObject[@"data"][@"token"] forKey:@"accessToken"];
+            block(YES,responseObject[@"msg"]);
+        }else {
+            block(NO,responseObject[@"msg"]);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        errorBlock(error);
+    }];
+}
+
 - (void)userLoginByMobile:(NSString *)mobile AndCode:(NSString *)code WithFinish:(void(^)(BOOL isSuccess ,NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock {
     NSString *urlStr = [hostUrl stringByAppendingString:@"User/login"];
     NSDictionary *param = @{@"mobile":mobile, @"code":code};
@@ -86,10 +103,8 @@
 - (void)getMyCardInfoByMerchantId:(NSString *)merchantId WithFinish:(void(^)(CardInfoModel *model))block withErrorBlock:(void(^)(NSError *error)) errorBlock
 {
     NSString *urlStr = [hostUrl stringByAppendingString:@"Card/get_card_info"];
-    NSDictionary *param = [self creatRequestParamByMethod:@"get_card_info" WithParamData:@{@"member_id":[self getMemId],@"merchant_id":merchantId}];
+    NSDictionary *param = @{@"token":[self getAccessToken]};
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer=[AFJSONRequestSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     [manager GET:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject[@"status"] isEqualToString:@"1"]) {
             NSDictionary *dic = [self jsonObjectWithJsonString:responseObject[@"data"]];
@@ -111,6 +126,23 @@
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         errorBlock(error);
+    }];
+}
+
+- (void)deleteCardByCardId:(NSString *)cardId WithFinish:(void(^)(BOOL isSuccess , NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock
+{
+    NSString *urlStr = [hostUrl stringByAppendingString:@"Card/delete_card"];
+    NSDictionary *param = @{@"token":[self getAccessToken],@"card_id":cardId};
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject[@"status"] isEqualToString:@"1"]) {
+            block(YES, responseObject[@"msg"]);
+        }
+        else {
+            block(NO, responseObject[@"msg"]);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        errorBlock (error);
     }];
 }
 
@@ -200,7 +232,6 @@
         errorBlock(error);
     }];
 }
-
 
 - (void)getNoticeListByMemberId:(NSString *)memberId WithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock {
     NSDictionary *param = [self creatRequestParamByMethod:@"get_notice_list" WithParamData:@{@"member_id":memberId}];
@@ -331,21 +362,19 @@
 }
 
 #pragma mark Discovery
-- (void)getTypeListByType:(NSString *)type WithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock
+- (void)getArticleTypeWithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock
 {
-    NSDictionary *param = [self creatRequestParamByMethod:@"get_type_list" WithParamData:@{@"type":type}];
+    NSString *urlStr = [hostUrl stringByAppendingString:@"Article/get_article_list"];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer=[AFJSONRequestSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-    [manager GET:hostUrl parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject[@"status"] isEqualToString:@"1"]) {
-            NSDictionary *resultDic = [self jsonObjectWithJsonString:responseObject[@"data"]];
-            block(nil);
+            
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
     }];
 }
+
 - (void)getArticleListWithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock {
     NSDictionary *param = [self creatRequestParamByMethod:@"get_article_list" WithParamData:@{@"member_id":[self getMemId]}];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -367,8 +396,26 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         errorBlock(error);
     }];
+}
 
-
+#pragma mark More
+- (void)getUserInfoWithFinish:(void(^)(UserInfoModel *model))block withErrorBlock:(void(^)(NSError *error)) errorBlock
+{
+    NSString *urlStr = [hostUrl stringByAppendingString:@"User/get_user_info"];
+    NSDictionary *param = @{@"token":[self getAccessToken]};
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject[@"status"] integerValue] == 1) {
+            UserInfoModel *model = [[UserInfoModel alloc]init];
+            [model setValuesForKeysWithDictionary:responseObject[@"data"]];
+            block (model);
+        }
+        else {
+            block (nil);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        errorBlock(error);
+    }];
 }
 
 #pragma Action

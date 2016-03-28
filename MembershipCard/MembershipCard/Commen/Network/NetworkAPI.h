@@ -7,14 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
-@class CardInfoModel;
-@class UsedDetailModel;
-@class AnnouncementModel;
-
+#import "YKModel.h"
 
 static NSString* hostUrl = @"http://www.51mumaren.com:8080/index.php/Client/";
 @interface NetworkAPI : NSObject
 + (NetworkAPI *)shared;
+
+/*!
+ *  @brief  用户获取验证码
+ *
+ *  @param mobile     手机号
+ *  @param block      block description
+ *  @param errorBlock errorBlock description
+ */
+- (void)getMobileCodeByMobile:(NSString *)mobile WithFinish:(void(^)(BOOL isSuccess ,NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 
 /**
  *  用户登录注册
@@ -25,6 +31,7 @@ static NSString* hostUrl = @"http://www.51mumaren.com:8080/index.php/Client/";
  *  @param errorBlock errorBlock description
  */
 - (void)userLoginByMobile:(NSString *)mobile AndCode:(NSString *)code WithFinish:(void(^)(BOOL isSuccess ,NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+
 /**
  *  获取城市列表
  *
@@ -32,6 +39,7 @@ static NSString* hostUrl = @"http://www.51mumaren.com:8080/index.php/Client/";
  *  @param errorBlock errorBlock description
  */
 - (void)getCityListWithFinish:(void(^)(BOOL isSuccess ,NSArray *cityArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+
 /**
  *  获取卡包列表
  *
@@ -40,15 +48,25 @@ static NSString* hostUrl = @"http://www.51mumaren.com:8080/index.php/Client/";
  *  @param errorBlock errorBlock description
  */
 - (void)getMyCardBagListWithFinish:(void(^)(NSArray *imageUrlArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+
 /**
  *  获取某个会员卡简介
  *
- *  @param memId      会员ID
  *  @param merchantId 商户ID
  *  @param block      block description
  *  @param errorBlock errorBlock description
  */
 - (void)getMyCardInfoByMerchantId:(NSString *)merchantId WithFinish:(void(^)(CardInfoModel *model))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+
+/*!
+ *  @brief  删除卡片
+ *
+ *  @param cardId     卡片ID
+ *  @param block      <#block description#>
+ *  @param errorBlock <#errorBlock description#>
+ */
+- (void)deleteCardByCardId:(NSString *)cardId WithFinish:(void(^)(BOOL isSuccess , NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+
 /**
  *  获取某张会员卡的子卡信息
  *
@@ -58,6 +76,7 @@ static NSString* hostUrl = @"http://www.51mumaren.com:8080/index.php/Client/";
  *  @param errorBlock errorBlock description
  */
 - (void)getMyCardInfoListByMemId:(NSString *)memId merchantId:(NSString *)merchantId WithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+
 /*!
  *  @brief  获取品牌列表
  *
@@ -65,6 +84,7 @@ static NSString* hostUrl = @"http://www.51mumaren.com:8080/index.php/Client/";
  *  @param errorBlock errorBlock description
  */
 - (void)getMerchantListWithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+
 /**
  *  查询平台通知
  *
@@ -90,6 +110,7 @@ static NSString* hostUrl = @"http://www.51mumaren.com:8080/index.php/Client/";
  *  @param errorBlock errorBlock description
  */
 - (void)deleteAnnouncementWithFinish:(void(^)(BOOL isSuccess))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+
 /*!
  *  @brief  会员添加非品牌卡片
  *
@@ -99,6 +120,7 @@ static NSString* hostUrl = @"http://www.51mumaren.com:8080/index.php/Client/";
  *  @param errorBlock errorBlock description
  */
 - (void)addNewNonBrandCardByMerchantName:(NSString *)name cardNum:(NSString *)cardNum WithFinish:(void(^)(BOOL isSuccess, NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+
 /*!
  *  @brief  会员添加品牌卡片
  *
@@ -109,6 +131,7 @@ static NSString* hostUrl = @"http://www.51mumaren.com:8080/index.php/Client/";
  *  @param errorBlock errorBlock description
  */
 - (void)addNewBrandCardByMerchantID:(NSString *)merchantId cardNum:(NSString *)cardNum cardType:(NSString *)type WithFinish:(void(^)(BOOL isSuccess, NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+
 /**
  *  删除／恢复卡
  *
@@ -118,15 +141,25 @@ static NSString* hostUrl = @"http://www.51mumaren.com:8080/index.php/Client/";
 - (void)updateCardRelationByMerchantId:(NSString *)merchantId WithDeleteAction:(BOOL)isDelete WithFinish:(void(^)(BOOL isSuccess))block withErrorBlock:(void(^)(NSError *error))errorBlock;
 
 /*!
- *  @brief  查询文章/卡券分类列表
+ *  @brief  查询文章分类列表
  *
- *  @param type       类型（1：文章，2：卡券）
  *  @param block      block description
  *  @param errorBlock errorBlock description
  */
-- (void)getTypeListByType:(NSString *)type WithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+- (void)getArticleTypeWithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 
-/** 发现文章 */
+/*!
+ *  @brief  发现文章列表
+ *
+ *  @param block      block description
+ *  @param errorBlock errorBlock description
+ */
 - (void)getArticleListWithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
-
+/*!
+ *  @brief  获取用户信息
+ *
+ *  @param block      block description
+ *  @param errorBlock errorBlock description
+ */
+- (void)getUserInfoWithFinish:(void(^)(UserInfoModel *model))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 @end

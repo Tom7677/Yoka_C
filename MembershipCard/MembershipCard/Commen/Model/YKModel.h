@@ -90,6 +90,10 @@
 @property(nonatomic,strong) NSString *name_index;
 @end
 
+@interface ArticleTypeModel : NSObject
+
+@end
+
 /** 文章模型 */
 @interface ArticleModel : NSObject
 @property(nonatomic,strong) NSString *notice_id; //文章ID
@@ -100,6 +104,11 @@
 @property(nonatomic,strong) NSString *url;//url
 @property(nonatomic,strong) NSString *create_time;//创建时间
 @property(nonatomic,strong) NSString *content;//文章内容
+@end
 
-
+/** 用户信息模型 */
+@interface UserInfoModel : NSObject
+@property(nonatomic,strong) NSString *mobile;//手机号
+@property(nonatomic,strong) NSString *nick_name;//创建时间
+@property(nonatomic,strong) NSString *avatar;//文章内容
 @end

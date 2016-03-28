@@ -59,11 +59,7 @@
 
 - (void)getType
 {
-    [[NetworkAPI shared]getTypeListByType:@"1" WithFinish:^(NSArray *dataArray) {
-        [self createBtn];
-    } withErrorBlock:^(NSError *error) {
-        
-    }];
+    [self createBtn];
 }
 
 /**
