@@ -106,10 +106,10 @@
 {
     MyCardBagTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentifier"];
     MyCardModel *model = _cardArray[indexPath.row];
-    if ([self isEmpty:model.quare_image]) {
+    if ([self isEmpty:model.f_logo]) {
         cell.logoImageView.image = [UIImage imageNamed:@"mjlogo_rectangle.jpg"];
     }else {
-        [cell.logoImageView sd_setImageWithURL:[NSURL URLWithString:model.quare_image]];
+        [cell.logoImageView sd_setImageWithURL:[NSURL URLWithString:model.f_logo]];
     }
     cell.shopNameLabel.text = model.merchant_name;
     cell.cardTypeLabel.hidden = YES;

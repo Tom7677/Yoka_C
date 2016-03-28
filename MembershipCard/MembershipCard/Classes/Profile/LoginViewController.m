@@ -17,6 +17,9 @@
 
 #define INTERVAL_KEYBOARD 20
 @interface LoginViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *wxPhoneNumTextField;
+@property (weak, nonatomic) IBOutlet UITextField *wxCodeTextField;
+@property (nonatomic, getter=isWXLogin) BOOL wxLogin;
 @property (nonatomic, assign) int count;
 @property (nonatomic, strong) NSTimer *timer;
 @end
@@ -25,6 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.wxLogin = NO;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ChangeNameNotification) name:@"ChangeNameNotification" object:nil];
     [_logoImageView circularBead:15];
     [_loginButton circularBead:4];
@@ -87,7 +91,12 @@
 }
 
 - (IBAction)loginAction:(id)sender {
-    if (_phoneNumTextField.text.length == 0) {
+    if (self.isWXLogin) {
+        _codeTextField.text = _wxCodeTextField.text;
+        _phoneNumTextField.text = _wxPhoneNumTextField.text;
+
+    }
+        if (_phoneNumTextField.text.length == 0) {
         //@"请输入手机号码"
         return;
     }
@@ -116,10 +125,14 @@
 }
 
 - (IBAction)weixinLoginAction:(id)sender {
+    [self sendAuthRequest];
     [[UMengAnalyticsUtil shared]loginByWX];
+    [_scrollView addSubview:_wxView];
+    _wxLogin = YES;
+
 }
 
--(void)sendAuthRequest
+- (void)sendAuthRequest
 {
     //构造SendAuthReq结构体
     SendAuthReq* req =[[SendAuthReq alloc ]init];
@@ -128,6 +141,8 @@
     //第三方向微信终端发送一个SendAuthReq消息结构
     [WXApi sendReq:req];
 }
+
+
 
 /*!
  *  @brief  检验手机号码格式是否正确

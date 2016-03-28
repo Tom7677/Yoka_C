@@ -12,8 +12,9 @@
 #import "MainTabBarViewController.h"
 #import <MobClick.h>
 #import "YZSDK.h"
+#import "WXApi.h"
 
-@interface AppDelegate ()
+@interface AppDelegate ()<WXApiDelegate>
 
 @end
 
@@ -34,6 +35,8 @@
     else {
         [self goMainView];
     }
+    //向微信注册
+    [WXApi registerApp:wxID];
     //友盟统计配置
     [MobClick startWithAppkey:umengAppKey reportPolicy:BATCH channelId:@"App Store"];
     //账号统计
@@ -68,7 +71,52 @@
     MainTabBarViewController *tabbarVC = [[MainTabBarViewController alloc]init];
     self.window.rootViewController = tabbarVC;
 }
+#pragma mark WX
+- (void)onResp:(BaseResp *)resp {
+    SendAuthResp *aresp = (SendAuthResp *)resp;
+    if (aresp.errCode == 0) {
+        [self getAccess_tokenWithCode:aresp.code];
+    }
+}
+- (void)getAccess_tokenWithCode:(NSString *)code {
+    
+    NSString *url = [NSString stringWithFormat:@"https://api.weixin.qq.com/sns/oauth2/access_token?appid=%@&secret=%@&code=%@&grant_type=authorization_code",wxID,wxSecret,code];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSData *data = [url dataUsingEncoding:NSUTF8StringEncoding];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (data) {
+                NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+                NSString *token = [dic objectForKey:@"access_token"];
+                NSString *openid = [dic objectForKey:@"openid"];
+                [self getUserInoWithToken:token AndOpenid:openid];
+            }
+        });
+    });
 
+}
+- (void)getUserInoWithToken:(NSString *)token AndOpenid:(NSString *)openid {
+    NSString *url =[NSString stringWithFormat:@"https://api.weixin.qq.com/sns/userinfo?access_token=%@&openid=%@",token,openid];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSData *data = [url dataUsingEncoding:NSUTF8StringEncoding];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (data) {
+                NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+                [[NSUserDefaults standardUserDefaults] setObject:[dic objectForKey:@"nickname"] forKey:@"nickname"];
+                [[NSUserDefaults standardUserDefaults] setObject:[dic objectForKey:@"headimgurl"] forKey:@"headImg"];
+            }
+        });
+        
+    });
+}
+
+-(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    return [WXApi handleOpenURL:url delegate:self];
+}
+
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [WXApi handleOpenURL:url delegate:self];
+}
+#pragma mark
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

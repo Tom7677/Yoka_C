@@ -87,7 +87,9 @@
             NSMutableArray *dataArray = [[NSMutableArray alloc]init];
             for (NSDictionary *dic in responseObject[@"data"]) {
                 MyCardModel *model = [[MyCardModel alloc]init];
-                [model setValuesForKeysWithDictionary:dic];
+                model.merchant_id = dic[@"merchant_id"];
+                model.merchant_name = dic[@"merchant_name"];
+                model.f_logo = dic[@"f_logo"];
                 [dataArray addObject:model];
             }
             block (dataArray);

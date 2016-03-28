@@ -20,7 +20,9 @@
 @property (weak, nonatomic) IBOutlet MidImageLeftButton *weixinBtn;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (strong, nonatomic) IBOutlet UIView *bgView;
+@property (strong, nonatomic) IBOutlet UIView *wxView;
 @property (weak, nonatomic) IBOutlet TPKeyboardAvoidingScrollView *scrollView;
+
 
 
 - (IBAction)getCodeBtnAction:(id)sender;

@@ -32,10 +32,10 @@
     [super viewDidLoad];
     self.fd_prefersNavigationBarHidden = YES;
     self.cardTitle.text = _model.merchant_name;
-    if ([self isEmpty:_model.round_image]) {
+    if ([self isEmpty:_model.y_logo]) {
         _logoImageView.image = [UIImage imageNamed:@"mjlogo_round.jpg"];
     }else {
-        [_logoImageView sd_setImageWithURL:[NSURL URLWithString:_model.round_image]];
+        [_logoImageView sd_setImageWithURL:[NSURL URLWithString:_model.y_logo]];
     }
     _hornTopImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 178, 14, 8)];
     _cardInfoBtn.selected = YES;

@@ -19,9 +19,8 @@
 @interface MyCardModel : NSObject
 @property(nonatomic,strong) NSString *merchant_id; //商户ID
 @property(nonatomic,strong) NSString *merchant_name;//商户名称
-@property(nonatomic,strong) NSString *quare_image;//方logo
-@property(nonatomic,strong) NSString *round_image;//圆logo
-@property(nonatomic,strong) NSString *source;//1为悠点卡； 2为实体卡
+@property(nonatomic,strong) NSString *f_logo;//方logo
+@property(nonatomic,strong) NSString *y_logo;//圆logo
 @end
 
 /** 会员卡信息模型 */
