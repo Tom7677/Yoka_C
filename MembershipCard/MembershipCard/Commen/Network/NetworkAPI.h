@@ -10,6 +10,7 @@
 #import "YKModel.h"
 
 static NSString* hostUrl = @"http://www.51mumaren.com:8080/index.php/Client/";
+static NSInteger pageSize = 20;
 @interface NetworkAPI : NSObject
 + (NetworkAPI *)shared;
 
@@ -151,10 +152,13 @@ static NSString* hostUrl = @"http://www.51mumaren.com:8080/index.php/Client/";
 /*!
  *  @brief  发现文章列表
  *
+ *  @param catId      分类ID
+ *  @param city       城市
+ *  @param page       第几页
  *  @param block      block description
  *  @param errorBlock errorBlock description
  */
-- (void)getArticleListWithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+- (void)getArticleListByCatId:(NSString *)catId cityName:(NSString *)city page:(NSInteger)page WithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 /*!
  *  @brief  获取用户信息
  *
@@ -162,4 +166,6 @@ static NSString* hostUrl = @"http://www.51mumaren.com:8080/index.php/Client/";
  *  @param errorBlock errorBlock description
  */
 - (void)getUserInfoWithFinish:(void(^)(UserInfoModel *model))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+
+
 @end

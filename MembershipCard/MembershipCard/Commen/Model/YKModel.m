@@ -32,6 +32,9 @@
 @implementation BrandCardListModel
 @end
 
+@implementation ArticleTypeModel
+@end
+
 @implementation ArticleModel
 @end
 

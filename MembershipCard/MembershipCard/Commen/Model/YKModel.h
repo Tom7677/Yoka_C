@@ -89,20 +89,26 @@
 @property(nonatomic,strong) NSString *name_index;
 @end
 
+/** 文章分类模型 */
 @interface ArticleTypeModel : NSObject
-
+@property(nonatomic,strong) NSString *cat_id; //文章分类ID
+@property(nonatomic,strong) NSString *cat_name;//文章名称
+@property(nonatomic,strong) NSString *create_date;
+@property(nonatomic,strong) NSString *sort;
+@property(nonatomic,strong) NSString *state;
 @end
 
 /** 文章模型 */
 @interface ArticleModel : NSObject
-@property(nonatomic,strong) NSString *notice_id; //文章ID
-@property(nonatomic,strong) NSString *name;//文章标题
-@property(nonatomic,strong) NSString *merchant_id;//参与商户的id（0为系统通知）
-@property(nonatomic,strong) NSString *area;//区域
+@property(nonatomic,strong) NSString *article_id; //文章ID
+@property(nonatomic,strong) NSString *title;//文章标题
 @property(nonatomic,strong) NSString *image;//图片地址
-@property(nonatomic,strong) NSString *url;//url
-@property(nonatomic,strong) NSString *create_time;//创建时间
+@property(nonatomic,strong) NSString *create_date;//创建时间
 @property(nonatomic,strong) NSString *content;//文章内容
+@property(nonatomic, strong) NSString *read_num;//阅读次数
+@property(nonatomic, strong) NSString *like_num;//点赞次数
+@property(nonatomic, strong) NSString *share_num;//分享次数
+@property(nonatomic, strong) NSString *jump_link;//跳转链接
 @end
 
 /** 用户信息模型 */

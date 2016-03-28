@@ -16,7 +16,7 @@
 
 #define LINE_WIDTH  40
 @interface DisoveryViewController ()<UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate>
-@property (nonatomic, strong) NSArray *typeArray;
+@property (nonatomic, strong) NSMutableArray *typeArray;
 @property (nonatomic, assign) NSInteger tag;
 @property (nonatomic, assign) CGFloat btnWidth;
 @property (nonatomic, strong) NSMutableArray *tableViewArray;
@@ -47,7 +47,6 @@
     rightBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
     [self.navigationItem setRightBarButtonItem:rightItem];
-    _typeArray = [NSArray arrayWithObjects:@"推荐",@"美食",@"丽人",@"亲子",@"购物",@"娱乐",@"其它", nil];
     [self getType];
     _contentScrollView.delegate = self;
 }
@@ -59,7 +58,13 @@
 
 - (void)getType
 {
-    [self createBtn];
+    _typeArray = [[NSMutableArray alloc]init];
+    [[NetworkAPI shared]getArticleTypeWithFinish:^(NSArray *dataArray) {
+        [_typeArray addObjectsFromArray:dataArray];
+        [self createBtn];
+    } withErrorBlock:^(NSError *error) {
+        
+    }];
 }
 
 /**
@@ -81,11 +86,16 @@
  */
 - (void) createBtn {
     _btnWidth = (MainScreenWidth-40) / 7;
-    for (int i = 0; i < _typeArray.count; i ++) {
+    for (int i = 0; i < _typeArray.count + 1; i ++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-
         [btn setFrame:CGRectMake(20 + _btnWidth * i, 0, _btnWidth, _typeScrollView.height)];
-        [btn setTitle:[_typeArray objectAtIndex:i] forState:UIControlStateNormal];
+        if (i == 0) {
+            [btn setTitle:@"推荐" forState:UIControlStateNormal];
+        }
+        else {
+            ArticleTypeModel *model = _typeArray[i - 1];
+            [btn setTitle:model.cat_name forState:UIControlStateNormal];
+        }
         [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [btn setTitleColor:UIColorFromRGB(0xFF526E) forState:UIControlStateSelected];
         btn.titleLabel.font = [UIFont systemFontOfSize:14];
@@ -100,7 +110,7 @@
             [_typeScrollView addSubview:btn];
         });
     }
-    [_typeScrollView setContentSize:CGSizeMake(_btnWidth * _typeArray.count + 40, _typeScrollView.height)];
+    [_typeScrollView setContentSize:CGSizeMake(_btnWidth * (_typeArray.count + 1) + 40, _typeScrollView.height)];
     _scrollBgView = [[UIView alloc] initWithFrame:CGRectMake((_btnWidth - LINE_WIDTH) / 2 + 20, _typeScrollView.height - 4, LINE_WIDTH, 10)];
     [_scrollBgView setBackgroundColor:UIColorFromRGB(0xffd500)];
     [_typeScrollView addSubview:_scrollBgView];
@@ -108,10 +118,10 @@
     lineView.backgroundColor = [UIColor lightGrayColor];
     [_typeScrollView addSubview:lineView];
     _typeScrollView.backgroundColor = [UIColor whiteColor];
-    [_contentScrollView setContentSize:CGSizeMake(MainScreenWidth * _typeArray.count, 0)];
+    [_contentScrollView setContentSize:CGSizeMake(MainScreenWidth * (_typeArray.count + 1), 0)];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
         // 处理耗时操作的代码块...
-        [self addTableViewToScrollView:_contentScrollView count:_typeArray.count frame:CGRectZero];
+        [self addTableViewToScrollView:_contentScrollView count:_typeArray.count + 1 frame:CGRectZero];
     });
 }
 
@@ -130,13 +140,13 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             //回调或者说是通知主线程刷新，
             [scrollView addSubview:tableView];
+            tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+                [self refreshData];
+            }];
+            tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+                [self loadMoreData];
+            }];
         });
-        tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            [self refreshData];
-        }];
-        tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-            [self loadMoreData];
-        }];
     }
 }
 

@@ -9,6 +9,7 @@
 #import "NetworkAPI.h"
 #import "YKModel.h"
 #import <AFHTTPRequestOperationManager.h>
+
 @implementation NetworkAPI
 
 + (NetworkAPI *)shared
@@ -366,27 +367,34 @@
 #pragma mark Discovery
 - (void)getArticleTypeWithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock
 {
-    NSString *urlStr = [hostUrl stringByAppendingString:@"Article/get_article_list"];
+    NSString *urlStr = [hostUrl stringByAppendingString:@"Article/get_cat_list"];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if ([responseObject[@"status"] isEqualToString:@"1"]) {
-            
+        if ([responseObject[@"status"] integerValue] == 1) {
+            NSMutableArray *resultArray = [[NSMutableArray alloc]init];
+            for (NSDictionary *dic in responseObject[@"data"]) {
+                ArticleTypeModel *model = [[ArticleTypeModel alloc]init];
+                [model setValuesForKeysWithDictionary:dic];
+                [resultArray addObject:model];
+            }
+            block (resultArray);
+        }
+        else {
+            block (nil);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
+        errorBlock(error);
     }];
 }
 
-- (void)getArticleListWithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock {
-    NSDictionary *param = [self creatRequestParamByMethod:@"get_article_list" WithParamData:@{@"member_id":[self getMemId]}];
+- (void)getArticleListByCatId:(NSString *)catId cityName:(NSString *)city page:(NSInteger)page WithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock {
+    NSString *urlStr = [hostUrl stringByAppendingString:@"Article/get_article_list"];
+    NSDictionary *param = @{@"cat_id":catId,@"city":city,@"page":[NSNumber numberWithInteger:page],@"limit":[NSNumber numberWithInteger:pageSize]};
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-    [manager GET:hostUrl parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager GET:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject[@"status"] isEqualToString:@"1"]) {
             NSMutableArray *dataArray = [[NSMutableArray alloc]init];
-            NSArray *resultArray = [self jsonObjectWithJsonString:responseObject[@"data"]];
-            for (NSDictionary *dic in resultArray) {
+            for (NSDictionary *dic in responseObject[@"data"]) {
                 ArticleModel *model = [[ArticleModel alloc]init];
                 [model setValuesForKeysWithDictionary:dic];
                 [dataArray addObject:model];
@@ -415,6 +423,29 @@
         else {
             block (nil);
         }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        errorBlock(error);
+    }];
+}
+
+- (void)saveUserInfoByNickName:(NSString *)nickName avatar:(NSData *)avatar WithFinish:(void(^)(BOOL isSuccess ,NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock
+{
+    NSString *urlStr = [hostUrl stringByAppendingString:@"User/set_user_info"];
+    NSDictionary *param;
+    if ([nickName isEqualToString:@""]) {
+        param = @{@"token":[self getAccessToken]};
+    }
+    else {
+        param = @{@"token":[self getAccessToken],@"nick_name":nickName};
+    }
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:urlStr parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        if (avatar != nil) {
+            NSString *fileName = @"user_avatar.jpg";
+            [formData appendPartWithFileData:avatar name:@"avatar" fileName:fileName mimeType:@"image/jpeg"];
+        }
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        block(YES,nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         errorBlock(error);
     }];
