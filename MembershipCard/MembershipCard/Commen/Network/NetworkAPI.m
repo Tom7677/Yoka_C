@@ -65,7 +65,7 @@
             NSMutableArray *dataArray = [[NSMutableArray alloc]init];
             for (NSDictionary *dic in responseObject[@"data"]) {
                 CityListModel *model = [[CityListModel alloc]init];
-                [model setValuesForKeysWithDictionary:dic];
+                model = [CityListModel mj_objectWithKeyValues:dic];
                 [dataArray addObject:model];
             }
             block(YES,dataArray);
@@ -88,9 +88,7 @@
             NSMutableArray *dataArray = [[NSMutableArray alloc]init];
             for (NSDictionary *dic in responseObject[@"data"]) {
                 MyCardModel *model = [[MyCardModel alloc]init];
-                model.merchant_id = dic[@"merchant_id"];
-                model.merchant_name = dic[@"merchant_name"];
-                model.f_logo = dic[@"f_logo"];
+                model = [MyCardModel mj_objectWithKeyValues:dic];
                 [dataArray addObject:model];
             }
             block (dataArray);
@@ -112,16 +110,7 @@
         if ([responseObject[@"status"] isEqualToString:@"1"]) {
             NSDictionary *dic = [self jsonObjectWithJsonString:responseObject[@"data"]];
             CardInfoModel *model = [[CardInfoModel alloc]init];
-            model.merchant_id = dic[@"merchant_id"];
-            model.name = dic[@"name"];
-            model.merchant_bn = dic[@"merchant_bn"];
-            model.area = dic[@"area"];
-            model.addr = dic[@"addr"];
-            model.tel = dic[@"tel"];
-            model.business_hous = dic[@"business_hous"];
-            model.addon = dic[@"addon"];
-            model.remark = dic[@"remark"];
-            model.card_bn = dic[@"card_bn"];
+            model = [CardInfoModel mj_objectWithKeyValues:dic];
             block (model);
         }
         else {
@@ -158,7 +147,7 @@
             NSMutableArray *dataArray = [[NSMutableArray alloc]init];
             for (NSDictionary *dic in responseObject[@"data"]) {
                 BrandCardListModel *model = [[BrandCardListModel alloc]init];
-                [model setValuesForKeysWithDictionary:dic];
+                model = [BrandCardListModel mj_objectWithKeyValues:dic];
                 [dataArray addObject:model];
             }
             block (dataArray);
@@ -182,7 +171,7 @@
             NSMutableArray *tempArr = [NSMutableArray array];
             for (NSDictionary *dic in responseObject[@"data"]) {
                 CardListModel *model = [[CardListModel alloc]init];
-                [model setValuesForKeysWithDictionary:dic];
+                model = [CardListModel mj_objectWithKeyValues:dic];
                 [tempArr addObject:model];
             }
             block ([tempArr copy]);
@@ -205,7 +194,7 @@
             NSMutableArray *tempArr = [NSMutableArray array];
             for (NSDictionary *dic in responseObject[@"data"]) {
                 UsedDetailModel *model = [[UsedDetailModel alloc]init];
-                [model setValuesForKeysWithDictionary:dic];
+                model = [UsedDetailModel mj_objectWithKeyValues:dic];
                 [tempArr addObject:model];
             }
             block([tempArr copy]);
@@ -217,7 +206,6 @@
     }];
 }
 
-
 - (void)saveCardUsedDetailByModel:(UsedDetailModel *)model WithFinish:(void(^)(UsedDetailModel *model))block withErrorBlock:(void(^)(NSError *error)) errorBlock {
     NSDictionary *param = [self creatRequestParamByMethod:@"save_used_detail" WithParamData:@{@"card_id":model.card_id, @"title":model.title, @"num":model.number, @"type":model.count_type}];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -226,7 +214,7 @@
     [manager GET:hostUrl parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject[@"status"] isEqualToString:@"1"]) {
             UsedDetailModel *model = [[UsedDetailModel alloc]init];
-            [model setValuesForKeysWithDictionary:responseObject[@"data"]];
+            model = [UsedDetailModel mj_objectWithKeyValues:responseObject[@"data"]];
             block(model);
         }else {
             block(nil);
@@ -246,7 +234,7 @@
             NSMutableArray *tempArr = [NSMutableArray array];
             for (NSDictionary *dic in responseObject[@"data"]) {
                 NoticeModel *model = [[NoticeModel alloc]init];
-                [model setValuesForKeysWithDictionary:dic];
+                model = [NoticeModel mj_objectWithKeyValues:dic];
                 [tempArr addObject:model];
             }
             block([tempArr copy]);
@@ -374,7 +362,7 @@
             NSMutableArray *resultArray = [[NSMutableArray alloc]init];
             for (NSDictionary *dic in responseObject[@"data"]) {
                 ArticleTypeModel *model = [[ArticleTypeModel alloc]init];
-                [model setValuesForKeysWithDictionary:dic];
+                model = [ArticleTypeModel mj_objectWithKeyValues:dic];
                 [resultArray addObject:model];
             }
             block (resultArray);
@@ -396,7 +384,7 @@
             NSMutableArray *dataArray = [[NSMutableArray alloc]init];
             for (NSDictionary *dic in responseObject[@"data"]) {
                 ArticleModel *model = [[ArticleModel alloc]init];
-                [model setValuesForKeysWithDictionary:dic];
+                model = [ArticleModel mj_objectWithKeyValues:dic];
                 [dataArray addObject:model];
             }
             block([dataArray copy]);
@@ -416,8 +404,7 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject[@"status"] integerValue] == 1) {
-            UserInfoModel *model = [[UserInfoModel alloc]init];
-            [model setValuesForKeysWithDictionary:responseObject[@"data"]];
+            UserInfoModel *model = [UserInfoModel mj_objectWithKeyValues:responseObject[@"data"]];
             block (model);
         }
         else {

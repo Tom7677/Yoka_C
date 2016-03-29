@@ -93,9 +93,6 @@
 @interface ArticleTypeModel : NSObject
 @property(nonatomic,strong) NSString *cat_id; //文章分类ID
 @property(nonatomic,strong) NSString *cat_name;//文章名称
-@property(nonatomic,strong) NSString *create_date;
-@property(nonatomic,strong) NSString *sort;
-@property(nonatomic,strong) NSString *state;
 @end
 
 /** 文章模型 */
