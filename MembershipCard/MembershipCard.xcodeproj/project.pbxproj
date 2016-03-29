@@ -103,6 +103,7 @@
 		27512FE31CAA054300BCADA1 /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 27512FD71CAA054300BCADA1 /* NSObject+MJKeyValue.m */; };
 		27512FE41CAA054300BCADA1 /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 27512FD91CAA054300BCADA1 /* NSObject+MJProperty.m */; };
 		27512FE51CAA054300BCADA1 /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 27512FDB1CAA054300BCADA1 /* NSString+MJExtension.m */; };
+		276BBCF61CAA8BB600CA392E /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 276BBCF51CAA8BB600CA392E /* WebViewController.m */; };
 		27D39A021C8D261200A3F3C3 /* MidImageLeftButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D39A011C8D261200A3F3C3 /* MidImageLeftButton.m */; };
 		27D39A0E1C8ED83600A3F3C3 /* DiscoveryWithImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D39A0C1C8ED83600A3F3C3 /* DiscoveryWithImageCell.m */; };
 		27D39A0F1C8ED83600A3F3C3 /* DiscoveryWithImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27D39A0D1C8ED83600A3F3C3 /* DiscoveryWithImageCell.xib */; };
@@ -347,6 +348,8 @@
 		27512FD91CAA054300BCADA1 /* NSObject+MJProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJProperty.m"; sourceTree = "<group>"; };
 		27512FDA1CAA054300BCADA1 /* NSString+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MJExtension.h"; sourceTree = "<group>"; };
 		27512FDB1CAA054300BCADA1 /* NSString+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MJExtension.m"; sourceTree = "<group>"; };
+		276BBCF41CAA8BB600CA392E /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		276BBCF51CAA8BB600CA392E /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		27D39A001C8D261200A3F3C3 /* MidImageLeftButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidImageLeftButton.h; sourceTree = "<group>"; };
 		27D39A011C8D261200A3F3C3 /* MidImageLeftButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidImageLeftButton.m; sourceTree = "<group>"; };
 		27D39A0B1C8ED83600A3F3C3 /* DiscoveryWithImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoveryWithImageCell.h; sourceTree = "<group>"; };
@@ -752,6 +755,15 @@
 			path = MJExtension;
 			sourceTree = "<group>";
 		};
+		276BBCF31CAA8B8700CA392E /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				276BBCF41CAA8BB600CA392E /* WebViewController.h */,
+				276BBCF51CAA8BB600CA392E /* WebViewController.m */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
 		27D39A1C1C92AC5D00A3F3C3 /* MJRefresh */ = {
 			isa = PBXGroup;
 			children = (
@@ -1090,6 +1102,7 @@
 				E2FBA6111C82B90800F9F799 /* Mart */,
 				1A344BEF1C882D87009F3FFC /* Discovery */,
 				1A344BEE1C882BAC009F3FFC /* More */,
+				276BBCF31CAA8B8700CA392E /* WebView */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1669,6 +1682,7 @@
 				E2FEBB151CA1A57A004F9042 /* MartWebViewController.m in Sources */,
 				E2FEE3CF1C79F5EA0079B824 /* SettingViewController.m in Sources */,
 				27D39A541C92AC5D00A3F3C3 /* MJRefreshGifHeader.m in Sources */,
+				276BBCF61CAA8BB600CA392E /* WebViewController.m in Sources */,
 				E2BDB81C1C7B641200274CE3 /* InputCardViewController.m in Sources */,
 				27D39A5E1C96967E00A3F3C3 /* ImageTopButton.m in Sources */,
 				27512FE41CAA054300BCADA1 /* NSObject+MJProperty.m in Sources */,

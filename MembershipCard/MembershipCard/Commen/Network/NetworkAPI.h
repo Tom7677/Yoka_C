@@ -64,20 +64,10 @@ static NSInteger pageSize = 20;
  *  @brief  删除卡片
  *
  *  @param cardId     卡片ID
- *  @param block      <#block description#>
- *  @param errorBlock <#errorBlock description#>
- */
-- (void)deleteCardByCardId:(NSString *)cardId WithFinish:(void(^)(BOOL isSuccess , NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
-
-/**
- *  获取某张会员卡的子卡信息
- *
- *  @param memId      会员ID
- *  @param merchantId 商户ID
  *  @param block      block description
  *  @param errorBlock errorBlock description
  */
-- (void)getMyCardInfoListByMemId:(NSString *)memId merchantId:(NSString *)merchantId WithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+- (void)deleteCardByCardId:(NSString *)cardId WithFinish:(void(^)(BOOL isSuccess , NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 
 /*!
  *  @brief  获取品牌列表
@@ -143,6 +133,14 @@ static NSInteger pageSize = 20;
 - (void)updateCardRelationByMerchantId:(NSString *)merchantId WithDeleteAction:(BOOL)isDelete WithFinish:(void(^)(BOOL isSuccess))block withErrorBlock:(void(^)(NSError *error))errorBlock;
 
 /*!
+ *  @brief  爆料链接
+ *
+ *  @param block      block description
+ *  @param errorBlock errorBlock description
+ */
+- (void)getTopNewsWithFinish:(void(^)(BOOL isSuccess, NSString *url))block withErrorBlock:(void(^)(NSError *error))errorBlock;
+
+/*!
  *  @brief  查询文章分类列表
  *
  *  @param block      block description
@@ -177,4 +175,58 @@ static NSInteger pageSize = 20;
  *  @param errorBlock errorBlock description
  */
 - (void)saveUserInfoByNickName:(NSString *)nickName avatar:(NSData *)avatar WithFinish:(void(^)(BOOL isSuccess ,NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+
+/*!
+ *  @brief  获取二手卡券分类
+ *
+ *  @param block      block description
+ *  @param errorBlock errorBlock description
+ */
+- (void)getVoucherTypeWithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+
+/*!
+ *  @brief  获取二手卡券列表
+ *
+ *  @param catId      分类ID
+ *  @param page       第几页
+ *  @param block      block description
+ *  @param errorBlock errorBlock description
+ */
+- (void)getVoucherListByCatId:(NSString *)catId page:(NSInteger)page WithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+
+/*!
+ *  @brief  获取已发布卡券列表
+ *
+ *  @param page       第几页
+ *  @param block      block description
+ *  @param errorBlock errorBlock description
+ */
+- (void)getVoucherReleasedListByPage:(NSInteger)page WithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+
+/*!
+ *  @brief  获取卡券信息
+ *
+ *  @param voucherId  卡券id
+ *  @param block      block description
+ *  @param errorBlock errorBlock description
+ */
+- (void)getVoucherInfoByVoucherId:(NSString *)voucherId WithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+
+/*!
+ *  @brief  发布卡券
+ *
+ *  @param dic        卡券信息
+ *  @param block      block description
+ *  @param errorBlock errorBlock description
+ */
+- (void)addVoucherWithInfo:(NSDictionary *)dic WithFinish:(void(^)(BOOL isSuccess, NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+
+/*!
+ *  @brief  删除卡券
+ *
+ *  @param voucherId  卡券id
+ *  @param block      block description
+ *  @param errorBlock errorBlock description
+ */
+- (void)deleteVoucherWithVoucherId:(NSString *)voucherId WithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 @end

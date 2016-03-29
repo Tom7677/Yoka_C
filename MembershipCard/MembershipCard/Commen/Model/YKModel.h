@@ -114,3 +114,4 @@
 @property(nonatomic,strong) NSString *nick_name;//创建时间
 @property(nonatomic,strong) NSString *avatar;//文章内容
 @end
+

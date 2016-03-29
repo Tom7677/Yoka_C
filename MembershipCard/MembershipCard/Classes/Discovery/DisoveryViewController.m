@@ -13,6 +13,7 @@
 #import "DiscoveryWithImageCell.h"
 #import "UITableView+FDTemplateLayoutCell.h"
 #import "ArticleViewController.h"
+#import "WebViewController.h"
 
 #define LINE_WIDTH  40
 @interface DisoveryViewController ()<UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate>
