@@ -19,6 +19,7 @@
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *wxPhoneNumTextField;
 @property (weak, nonatomic) IBOutlet UITextField *wxCodeTextField;
+@property (weak, nonatomic) IBOutlet UIButton *wxGetCodeBtn;
 @property (nonatomic, getter=isWXLogin) BOOL wxLogin;
 @property (nonatomic, assign) int count;
 @property (nonatomic, strong) NSTimer *timer;
@@ -57,6 +58,9 @@
 }
 
 - (IBAction)getCodeBtnAction:(id)sender {
+    if (self.isWXLogin) {
+        _getCodeBtn = _wxGetCodeBtn;
+    }
     if (_phoneNumTextField.text.length == 0) {
         //@"请输入手机号码"
         return;
@@ -109,6 +113,10 @@
             ChooseAreaViewController *vc = [[ChooseAreaViewController alloc]init];
             UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:vc];
             [self presentViewController:nav animated:YES completion:nil];
+            if (self.isWXLogin) {
+                [_wxView removeFromSuperview];
+                self.wxLogin = NO;
+            }
             [[UMengAnalyticsUtil shared]loginByMobile];
         }
         else {

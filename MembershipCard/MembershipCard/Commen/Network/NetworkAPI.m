@@ -53,6 +53,7 @@
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         errorBlock(error);
+        NSLog(@"%@",error.userInfo);
     }];
 }
 

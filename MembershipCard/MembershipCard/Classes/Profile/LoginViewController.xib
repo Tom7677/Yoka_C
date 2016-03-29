@@ -18,6 +18,7 @@
                 <outlet property="view" destination="A1S-KD-0yG" id="WeP-IV-Nji"/>
                 <outlet property="weixinBtn" destination="wlJ-PX-Ya8" id="zAa-oW-KNk"/>
                 <outlet property="wxCodeTextField" destination="44q-LL-UPu" id="13e-gg-1Jl"/>
+                <outlet property="wxGetCodeBtn" destination="O97-wW-XXc" id="lnG-v1-XjL"/>
                 <outlet property="wxPhoneNumTextField" destination="e7f-QY-mae" id="gmN-tL-Eax"/>
                 <outlet property="wxView" destination="kWi-Z1-n6f" id="Sge-dC-fCz"/>
             </connections>
@@ -41,7 +42,7 @@
             <point key="canvasLocation" x="255" y="333"/>
         </view>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="564"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="566"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="tvd-g5-us2">
@@ -238,7 +239,7 @@
                 <constraint firstAttribute="trailing" secondItem="Cqa-sr-u5N" secondAttribute="trailing" constant="15" id="w1d-DJ-yCh"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="677" y="333"/>
+            <point key="canvasLocation" x="677" y="334"/>
         </view>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="kWi-Z1-n6f" userLabel="WX View">
             <rect key="frame" x="0.0" y="0.0" width="320" height="564"/>

@@ -168,5 +168,13 @@ static NSInteger pageSize = 20;
  */
 - (void)getUserInfoWithFinish:(void(^)(UserInfoModel *model))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 
-
+/*!
+ *  @brief  保存用户信息
+ *
+ *  @param nickName   昵称
+ *  @param avatar     头像
+ *  @param block      block description
+ *  @param errorBlock errorBlock description
+ */
+- (void)saveUserInfoByNickName:(NSString *)nickName avatar:(NSData *)avatar WithFinish:(void(^)(BOOL isSuccess ,NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 @end

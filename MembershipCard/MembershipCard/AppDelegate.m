@@ -13,6 +13,9 @@
 #import <MobClick.h>
 #import "YZSDK.h"
 #import "WXApi.h"
+#import "NetworkAPI.h"
+#import <AFHTTPRequestOperationManager.h>
+
 
 @interface AppDelegate ()<WXApiDelegate>
 
@@ -78,11 +81,14 @@
         [self getAccess_tokenWithCode:aresp.code];
     }
 }
+//获取微信access_token
 - (void)getAccess_tokenWithCode:(NSString *)code {
     
     NSString *url = [NSString stringWithFormat:@"https://api.weixin.qq.com/sns/oauth2/access_token?appid=%@&secret=%@&code=%@&grant_type=authorization_code",wxID,wxSecret,code];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSData *data = [url dataUsingEncoding:NSUTF8StringEncoding];
+        NSURL *zoneUrl = [NSURL URLWithString:url];
+        NSString *zoneStr = [NSString stringWithContentsOfURL:zoneUrl encoding:NSUTF8StringEncoding error:nil];
+        NSData *data = [zoneStr dataUsingEncoding:NSUTF8StringEncoding];
         dispatch_async(dispatch_get_main_queue(), ^{
             if (data) {
                 NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
@@ -94,15 +100,18 @@
     });
 
 }
+//获取微信用户信息
 - (void)getUserInoWithToken:(NSString *)token AndOpenid:(NSString *)openid {
     NSString *url =[NSString stringWithFormat:@"https://api.weixin.qq.com/sns/userinfo?access_token=%@&openid=%@",token,openid];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSData *data = [url dataUsingEncoding:NSUTF8StringEncoding];
+        NSURL *zoneUrl = [NSURL URLWithString:url];
+        NSString *zoneStr = [NSString stringWithContentsOfURL:zoneUrl encoding:NSUTF8StringEncoding error:nil];
+        NSData *data = [zoneStr dataUsingEncoding:NSUTF8StringEncoding];
         dispatch_async(dispatch_get_main_queue(), ^{
             if (data) {
                 NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
                 [[NSUserDefaults standardUserDefaults] setObject:[dic objectForKey:@"nickname"] forKey:@"nickname"];
-                [[NSUserDefaults standardUserDefaults] setObject:[dic objectForKey:@"headimgurl"] forKey:@"headImg"];
+                [[NSUserDefaults standardUserDefaults] setObject:[dic objectForKey:@"headimgurl"] forKey:@"headimg"];
             }
         });
         
