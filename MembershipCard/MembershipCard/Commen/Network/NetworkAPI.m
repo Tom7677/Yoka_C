@@ -43,6 +43,7 @@
 - (void)userLoginByMobile:(NSString *)mobile AndCode:(NSString *)code WithFinish:(void(^)(BOOL isSuccess ,NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock {
     NSString *urlStr = [hostUrl stringByAppendingString:@"User/login"];
     NSDictionary *param = @{@"mobile":mobile, @"code":code};
+    NSLog(@"login---%@,%@", mobile, code);
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject[@"status"] integerValue] == 1) {
@@ -105,7 +106,7 @@
 - (void)getMyCardInfoByMerchantId:(NSString *)merchantId WithFinish:(void(^)(CardInfoModel *model))block withErrorBlock:(void(^)(NSError *error)) errorBlock
 {
     NSString *urlStr = [hostUrl stringByAppendingString:@"Card/get_card_info"];
-    NSDictionary *param = @{@"token":[self getAccessToken]};
+    NSDictionary *param = @{@"token":[self getAccessToken], @"card_id":merchantId};
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject[@"status"] isEqualToString:@"1"]) {
@@ -300,9 +301,9 @@
     }];
 }
 
-- (void)addNewBrandCardByMerchantID:(NSString *)merchantId cardNum:(NSString *)cardNum cardType:(NSString *)type WithFinish:(void(^)(BOOL isSuccess, NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock {
+- (void)addNewBrandCardByMerchantID:(NSString *)merchantId cardNum:(NSString *)cardNum WithFinish:(void(^)(BOOL isSuccess, NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock {
     NSString *urlStr = [hostUrl stringByAppendingString:@"User/add_card_brand"];
-    NSDictionary  *param = @{@"merchant_id":merchantId,@"card_no":cardNum,@"token":[self getAccessToken],@"type":type};
+    NSDictionary  *param = @{@"merchant_id":merchantId,@"card_no":cardNum,@"token":[self getAccessToken]};
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager POST:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject[@"status"] integerValue] == 1) {
@@ -391,6 +392,28 @@
     }];
 }
 
+- (void)getTopArticleListByCity:(NSString *)city page:(NSInteger)page WithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock {
+    NSString *urlStr = [hostUrl stringByAppendingString:@"Article/get_top_list"];
+    NSDictionary *param = @{@"city":city,@"page":[NSNumber numberWithInteger:page],@"limit":[NSNumber numberWithInteger:pageSize]};
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject[@"status"] integerValue]) {
+            NSMutableArray *dataArray = [[NSMutableArray alloc]init];
+            for (NSDictionary *dic in responseObject[@"data"]) {
+                ArticleModel *model = [[ArticleModel alloc]init];
+                model = [ArticleModel mj_objectWithKeyValues:dic];
+                [dataArray addObject:model];
+            }
+            block([dataArray copy]);
+        }else{
+            block(nil);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        errorBlock(error);
+    }];
+
+}
+    
 #pragma mark More
 - (void)getUserInfoWithFinish:(void(^)(UserInfoModel *model))block withErrorBlock:(void(^)(NSError *error)) errorBlock
 {

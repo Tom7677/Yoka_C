@@ -122,7 +122,7 @@ static NSInteger pageSize = 20;
  *  @param block      block description
  *  @param errorBlock errorBlock description
  */
-- (void)addNewBrandCardByMerchantID:(NSString *)merchantId cardNum:(NSString *)cardNum cardType:(NSString *)type WithFinish:(void(^)(BOOL isSuccess, NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+- (void)addNewBrandCardByMerchantID:(NSString *)merchantId cardNum:(NSString *)cardNum WithFinish:(void(^)(BOOL isSuccess, NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 
 /**
  *  删除／恢复卡
@@ -158,6 +158,17 @@ static NSInteger pageSize = 20;
  *  @param errorBlock errorBlock description
  */
 - (void)getArticleListByCatId:(NSString *)catId cityName:(NSString *)city page:(NSInteger)page WithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+
+/*!
+ *  @brief  发现推荐文章列表
+ *
+ *  @param city       城市
+ *  @param page       第几页
+ *  @param block      block description
+ *  @param errorBlock errorBlock description
+ */
+- (void)getTopArticleListByCity:(NSString *)city page:(NSInteger)page WithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+
 /*!
  *  @brief  获取用户信息
  *

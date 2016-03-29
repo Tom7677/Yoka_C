@@ -113,7 +113,9 @@
 - (void)chooseAction
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+    CityListModel *myCity = _areaArray[_currentRow];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeNameNotification" object:self userInfo:nil];
+    [[NSUserDefaults standardUserDefaults]setObject:myCity.name forKey:@"MyCity"];
 }
 
 /*!
@@ -121,7 +123,7 @@
  */
 - (void)changeAction
 {
-    
+    [self chooseAction];
 }
 
 #pragma mark UITableViewDelegate/UITableViewDataSource
@@ -160,7 +162,7 @@
         label.text = @"GPS定位城市";
     }
     if (section == 1) {
-        label.text = @"咨询覆盖城市";
+        label.text = @"选择城市";
     }
     [view addSubview:label];
     return view;

@@ -17,6 +17,7 @@
 #import "SecondHandCardViewController.h"
 
 @interface MoreViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *cityLabel;
 
 @end
 

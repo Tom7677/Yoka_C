@@ -64,8 +64,8 @@
                                 <action selector="cardValueBtnAction:" destination="-1" eventType="touchUpInside" id="mr5-Lt-7k2"/>
                             </connections>
                         </button>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Nk-6i-IkH">
-                            <rect key="frame" x="130" y="68" width="60" height="60"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Nk-6i-IkH">
+                            <rect key="frame" x="130" y="69" width="60" height="60"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="60" id="UN5-uA-oft"/>
                                 <constraint firstAttribute="height" constant="60" id="ePP-Xa-o1b"/>
@@ -309,7 +309,7 @@
                 <constraint firstAttribute="trailing" secondItem="mpT-re-ACV" secondAttribute="trailing" constant="10" id="vwU-q5-MTh"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="771" y="123.5"/>
+            <point key="canvasLocation" x="794" y="21"/>
         </view>
         <view contentMode="scaleToFill" id="QQH-JB-D8d" userLabel="Service View">
             <rect key="frame" x="0.0" y="0.0" width="320" height="415"/>

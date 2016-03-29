@@ -18,7 +18,7 @@
 /** 我的会员卡模型 */
 @interface MyCardModel : NSObject
 @property(nonatomic,strong) NSString *merchant_id; //商户ID
-@property(nonatomic,strong) NSString *merchant_name;//商户名称
+@property(nonatomic,strong) NSString *name;//商户名称
 @property(nonatomic,strong) NSString *f_logo;//方logo
 @property(nonatomic,strong) NSString *y_logo;//圆logo
 @end
@@ -26,18 +26,14 @@
 /** 会员卡信息模型 */
 @interface CardInfoModel : NSObject
 @property(nonatomic,strong) NSString *merchant_id;//商户ID
-@property(nonatomic,strong) NSString *name;//商户名称
+@property(nonatomic,strong) NSString *merchant_name;//商户名称
 @property(nonatomic,strong) NSString *merchant_bn;//商户编号
-@property(nonatomic,strong) NSString *is_cooperative;//是否合作商户
-@property(nonatomic,strong) NSString *area;//商户地区
-@property(nonatomic,strong) NSString *addr;//商户地址
-@property(nonatomic,strong) NSString *tel;//商户电话
-@property(nonatomic,strong) NSString *business_hous;//营业时间
-@property(nonatomic,strong) NSString *addon;//～暂时没有～
 @property(nonatomic,strong) NSString *remark;//备注
-@property(nonatomic,strong) NSString *card_bn;//卡号
+@property(nonatomic,strong) NSString *card_no;//卡号
 @property(nonatomic,strong) NSString *f_image;//正面照
 @property(nonatomic,strong) NSString *b_image;//背面照
+@property(nonatomic,strong) NSDictionary *merchant_info;
+
 @end
 
 /** 会员卡子卡信息模型 */

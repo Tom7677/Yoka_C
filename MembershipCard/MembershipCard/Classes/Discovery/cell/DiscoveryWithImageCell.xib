@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -23,19 +23,22 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="来自意大利的纯种红牛收到货时订货会的" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJX-zH-wuv">
-                        <rect key="frame" x="10" y="175" width="300" height="22"/>
+                        <rect key="frame" x="10" y="175" width="300" height="25"/>
                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="选取澳大利亚知名品牌Riverina的谷饲安格斯牛只胸肋部位制成，是适合做日式烧烤、铁板烧的部位。" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w5V-06-d46">
-                        <rect key="frame" x="10" y="204" width="300" height="51"/>
+                        <rect key="frame" x="10" y="207" width="300" height="51"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="877-46-lOw">
-                        <rect key="frame" x="10" y="263" width="68" height="30"/>
+                        <rect key="frame" x="10" y="262" width="68" height="27"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="68" id="oBW-CW-T40"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <state key="normal" title="阅读更多">
                             <color key="titleColor" red="1" green="0.32156862749999998" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -55,9 +58,8 @@
                     <constraint firstAttribute="trailingMargin" secondItem="w5V-06-d46" secondAttribute="trailing" constant="2" id="FKK-32-HMq"/>
                     <constraint firstAttribute="trailingMargin" secondItem="zX9-Bo-pgK" secondAttribute="trailing" constant="2" id="Qmc-fm-kf4"/>
                     <constraint firstItem="w5V-06-d46" firstAttribute="top" secondItem="aJX-zH-wuv" secondAttribute="bottom" constant="7" id="YRF-XN-eSK"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="877-46-lOw" secondAttribute="bottom" constant="-2" id="asd-xL-XNP"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="877-46-lOw" secondAttribute="bottom" constant="2" id="asd-xL-XNP"/>
                     <constraint firstItem="877-46-lOw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="e8E-dC-tOz"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="877-46-lOw" secondAttribute="trailing" constant="234" id="vdC-dD-bvP"/>
                     <constraint firstItem="aJX-zH-wuv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="zTF-7g-aLi"/>
                 </constraints>
             </tableViewCellContentView>

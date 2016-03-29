@@ -150,7 +150,7 @@
         vc.type = type;
         [self.navigationController pushViewController:vc animated:YES];
     }else {
-        [[NetworkAPI shared]addNewBrandCardByMerchantID:self.brandId cardNum:result cardType:type WithFinish:^(BOOL isSuccess, NSString *msg) {
+        [[NetworkAPI shared]addNewBrandCardByMerchantID:self.brandId cardNum:result WithFinish:^(BOOL isSuccess, NSString *msg) {
             
         } withErrorBlock:^(NSError *error) {
             

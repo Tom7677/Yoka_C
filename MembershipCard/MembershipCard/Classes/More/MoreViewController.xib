@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="avatarBtn" destination="6nX-vM-6Q7" id="gaM-Y6-ytq"/>
                 <outlet property="bgView" destination="mZU-C1-zON" id="yOC-bC-xwL"/>
+                <outlet property="cityLabel" destination="Ciu-55-pea" id="Jia-hW-Gk5"/>
                 <outlet property="nickNameLabel" destination="42t-TK-GjF" id="KeY-Ml-jpC"/>
                 <outlet property="phoneNumLabel" destination="DWm-FK-dJE" id="R2i-Tw-bPN"/>
                 <outlet property="scrollView" destination="6Gi-bf-M6T" id="nwP-wF-6P7"/>

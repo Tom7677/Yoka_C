@@ -13,7 +13,9 @@
 #import "DiscoveryWithImageCell.h"
 #import "UITableView+FDTemplateLayoutCell.h"
 #import "ArticleViewController.h"
-#import "WebViewController.h"
+#import "YKModel.h"
+#import <UIImageView+WebCache.h>
+
 
 #define LINE_WIDTH  40
 @interface DisoveryViewController ()<UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate>
@@ -22,16 +24,20 @@
 @property (nonatomic, assign) CGFloat btnWidth;
 @property (nonatomic, strong) NSMutableArray *tableViewArray;
 @property (nonatomic, strong) NSMutableArray *dataArray;
+@property (nonatomic, assign) NSInteger page;
+@property (nonatomic, strong) NSString *cityName;
 @end
 
 @implementation DisoveryViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ChangeNameNotification) name:@"ChangeNameNotification" object:nil];
+    _page = 1;
     self.title = @"发现";
     _tableViewArray = [[NSMutableArray alloc]init];
     _dataArray = [[NSMutableArray alloc]init];
-    [_dataArray addObjectsFromArray:[NSArray arrayWithObjects:@"1",@"0",@"1",@"0",@"0",@"1",@"1",@"0", nil]];
+    _cityName = [[NSUserDefaults standardUserDefaults]objectForKey:@"MyCity"];
     UIButton *leftBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 28, 28)];
     [leftBtn setTitle:@"爆料" forState:UIControlStateNormal];
     [leftBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -39,22 +45,20 @@
     [leftBtn addTarget:self action:@selector(topNews) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
     [self.navigationItem setLeftBarButtonItem:leftItem];
-    
-    UIButton *rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 60, 28)];
-    rightBtn.titleLabel.font = [UIFont systemFontOfSize:14];
-    [rightBtn setTitle:@"商户" forState:UIControlStateNormal];
-    [rightBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [rightBtn addTarget:self action:@selector(NearbyMerchant) forControlEvents:UIControlEventTouchUpInside];
-    rightBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
-    [self.navigationItem setRightBarButtonItem:rightItem];
     [self getType];
+    [self getTopArticleListByPage:_page];
     _contentScrollView.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)ChangeNameNotification
+{
+    _page = 1;
+    [self refreshData];
 }
 
 - (void)getType
@@ -69,13 +73,6 @@
 }
 
 /**
- *  商户
- */
-- (void) NearbyMerchant {
-    [[UMengAnalyticsUtil shared]merchants];
-}
-
-/**
  *  爆料
  */
 - (void) topNews {
@@ -86,7 +83,7 @@
  *  创建顶部选择按钮
  */
 - (void) createBtn {
-    _btnWidth = (MainScreenWidth-40) / 7;
+    _btnWidth = (MainScreenWidth-40) / (_typeArray.count + 1);
     for (int i = 0; i < _typeArray.count + 1; i ++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         [btn setFrame:CGRectMake(20 + _btnWidth * i, 0, _btnWidth, _typeScrollView.height)];
@@ -151,15 +148,30 @@
     }
 }
 
-
 - (void)refreshData
 {
-    
+   
 }
 
 - (void)loadMoreData
 {
     
+}
+- (void)getTopArticleListByPage:(NSInteger)pageNo{
+    [[NetworkAPI shared]getTopArticleListByCity:_cityName page:pageNo WithFinish:^(NSArray *dataArray) {
+        [_dataArray addObject:dataArray];
+        [self refreshData];
+        _page ++;
+    } withErrorBlock:^(NSError *error) {
+        
+    }];
+}
+- (void)getArticleListByCatId:(NSString *)catId AndPage:(NSInteger)pageNo {
+    [[NetworkAPI shared]getArticleListByCatId:catId cityName:_cityName page:pageNo WithFinish:^(NSArray *dataArray) {
+        
+    } withErrorBlock:^(NSError *error) {
+        
+    }];
 }
 
 - (void)actionbtn:(UIButton *)btn
@@ -167,6 +179,7 @@
     [_contentScrollView setContentOffset:CGPointMake(MainScreenWidth * (btn.tag - 1), 0) animated:YES];
     float xx = MainScreenWidth * (btn.tag - 1) * (_btnWidth / MainScreenWidth) - _btnWidth;
     [_typeScrollView scrollRectToVisible:CGRectMake(xx, 0, MainScreenWidth, _typeScrollView.height) animated:YES];
+
 }
 
 - (void)changeView:(float)x
@@ -174,7 +187,7 @@
     float xx = x * (_btnWidth / MainScreenWidth);
     [_scrollBgView setFrame:CGRectMake(xx + (_btnWidth - LINE_WIDTH) / 2 + 20, _scrollBgView.originY, _scrollBgView.width, _scrollBgView.height)];
 }
-
+#pragma mark tableView
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return _dataArray.count;
@@ -182,17 +195,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([_dataArray[indexPath.row] isEqualToString:@"0"]) {
-        DiscoveryWithImageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentify"];
-        cell.fd_enforceFrameLayout = YES;
-        return cell;
-    }
-    else {
-        DiscoveryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myIdentify"];
-        cell.fd_enforceFrameLayout = YES;
-        return cell;
-    }
-    return nil;
+    DiscoveryWithImageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentify"];
+    cell.fd_enforceFrameLayout = YES;
+    ArticleModel *model = _dataArray[indexPath.row];
+    cell.titleLabel.text = model.title;
+    cell.contentLabel.text = model.content;
+    [cell.coverImageView sd_setImageWithURL:[NSURL URLWithString:model.image]];
+    return cell;
+    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -202,16 +212,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([_dataArray[indexPath.row] isEqualToString:@"0"]) {
-        return [tableView fd_heightForCellWithIdentifier:@"cellIdentify" configuration:^(DiscoveryWithImageCell *cell) {
+    return [tableView fd_heightForCellWithIdentifier:@"cellIdentify" configuration:^(DiscoveryWithImageCell *cell) {
             
         }];
-    }
-    else {
-        return [tableView fd_heightForCellWithIdentifier:@"myIdentify" configuration:^(DiscoveryTableViewCell *cell) {
-            
-        }];
-    }
 }
 
 #pragma mark - UIScrollViewDelegate

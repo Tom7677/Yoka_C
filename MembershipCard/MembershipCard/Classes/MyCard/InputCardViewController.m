@@ -54,7 +54,7 @@
 - (void)saveBtnAction
 {
     if (_brandId) {
-        [[NetworkAPI shared] addNewBrandCardByMerchantID:_brandId cardNum:_cardNumText.text cardType:_type WithFinish:^(BOOL isSuccess, NSString *msg) {
+        [[NetworkAPI shared] addNewBrandCardByMerchantID:_brandId cardNum:_cardNumText.text WithFinish:^(BOOL isSuccess, NSString *msg) {
             [self.navigationController popToRootViewControllerAnimated:YES];
         } withErrorBlock:^(NSError *error) {
             

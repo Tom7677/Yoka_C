@@ -31,12 +31,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.fd_prefersNavigationBarHidden = YES;
-    self.cardTitle.text = _model.merchant_name;
-    if ([self isEmpty:_model.y_logo]) {
-        _logoImageView.image = [UIImage imageNamed:@"mjlogo_round.jpg"];
-    }else {
-        [_logoImageView sd_setImageWithURL:[NSURL URLWithString:_model.y_logo]];
-    }
+    self.cardTitle.text = _model.name;
+//    if ([self isEmpty:_model.y_logo]) {
+//        _logoImageView.image = [UIImage imageNamed:@"mjlogo_round.jpg"];
+//    }else {
+//        [_logoImageView sd_setImageWithURL:[NSURL URLWithString:_model.y_logo]];
+//    }
     _hornTopImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 178, 14, 8)];
     _cardInfoBtn.selected = YES;
     _hornTopImageView.image = [UIImage imageNamed:@"icon_horn_top"];
@@ -137,12 +137,12 @@
     //卡号生成条形码
     NSError *error = nil;
     ZXMultiFormatWriter *writer = [ZXMultiFormatWriter writer];
-    ZXBitMatrix* result = [writer encode:model.card_bn format:kBarcodeFormatCode128 width:180 height:60 error:&error];
+    ZXBitMatrix* result = [writer encode:model.card_no format:kBarcodeFormatCode128 width:180 height:60 error:&error];
     if (result) {
         CGImageRef image = [[ZXImage imageWithMatrix:result] cgimage ];
         _qrCodeImageView.image = [UIImage imageWithCGImage:image];
     }
-    _codeLabel.text = [self countNumAndChangeformat:model.card_bn];
+    _codeLabel.text = [self countNumAndChangeformat:model.card_no];
 }
 
 /**
@@ -248,7 +248,7 @@
  *  @param sender description
  */
 - (IBAction)deleteBtnAction:(id)sender {
-    [[UMengAnalyticsUtil shared]deleteCardByMerchantsName:_model.merchant_name];
+    [[UMengAnalyticsUtil shared]deleteCardByMerchantsName:_model.name];
     [[NetworkAPI shared] updateCardRelationByMerchantId:_model.merchant_id WithDeleteAction:YES WithFinish:^(BOOL isSuccess) {
         [self.navigationController popToRootViewControllerAnimated:YES];
     } withErrorBlock:^(NSError *error) {
