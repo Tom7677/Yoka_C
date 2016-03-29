@@ -109,7 +109,7 @@
     NSDictionary *param = @{@"token":[self getAccessToken], @"card_id":merchantId};
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if ([responseObject[@"status"] isEqualToString:@"1"]) {
+        if ([responseObject[@"status"] integerValue] == 1) {
             NSDictionary *dic = [self jsonObjectWithJsonString:responseObject[@"data"]];
             CardInfoModel *model = [[CardInfoModel alloc]init];
             model = [CardInfoModel mj_objectWithKeyValues:dic];
@@ -129,7 +129,7 @@
     NSDictionary *param = @{@"token":[self getAccessToken],@"card_id":cardId};
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if ([responseObject[@"status"] isEqualToString:@"1"]) {
+        if ([responseObject[@"status"] integerValue] == 1) {
             block(YES, responseObject[@"msg"]);
         }
         else {
@@ -169,7 +169,7 @@
     manager.requestSerializer=[AFJSONRequestSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     [manager GET:hostUrl parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if ([responseObject[@"status"] isEqualToString:@"1"]) {
+        if ([responseObject[@"status"] integerValue] == 1) {
             NSMutableArray *tempArr = [NSMutableArray array];
             for (NSDictionary *dic in responseObject[@"data"]) {
                 CardListModel *model = [[CardListModel alloc]init];
@@ -192,7 +192,7 @@
     manager.requestSerializer=[AFJSONRequestSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     [manager GET:hostUrl parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if ([responseObject[@"status"] isEqualToString:@"1"]) {
+        if ([responseObject[@"status"] integerValue] == 1) {
             UsedDetailModel *model = [[UsedDetailModel alloc]init];
             model = [UsedDetailModel mj_objectWithKeyValues:responseObject[@"data"]];
             block(model);
@@ -210,7 +210,7 @@
     manager.requestSerializer=[AFJSONRequestSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     [manager GET:hostUrl parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if ([responseObject[@"status"] isEqualToString:@"1"]) {
+        if ([responseObject[@"status"] integerValue] == 1) {
             NSMutableArray *tempArr = [NSMutableArray array];
             for (NSDictionary *dic in responseObject[@"data"]) {
                 NoticeModel *model = [[NoticeModel alloc]init];
@@ -232,7 +232,7 @@
     manager.requestSerializer=[AFJSONRequestSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     [manager GET:hostUrl parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if ([responseObject[@"status"] isEqualToString:@"1"]) {
+        if ([responseObject[@"status"] integerValue] == 1) {
             AnnouncementModel *model = [[AnnouncementModel alloc]init];
             [model setValuesForKeysWithDictionary:responseObject[@"data"]];
             block(model);
@@ -251,7 +251,7 @@
     manager.requestSerializer=[AFJSONRequestSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     [manager GET:hostUrl parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if ([responseObject[@"status"] isEqualToString:@"1"]) {
+        if ([responseObject[@"status"] integerValue] == 1) {
             NSMutableArray *dataArray = [[NSMutableArray alloc]init];
             NSArray *resultArray = [self jsonObjectWithJsonString:responseObject[@"data"]];
             for (NSDictionary *dic in resultArray) {
@@ -275,7 +275,7 @@
     manager.requestSerializer=[AFJSONRequestSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     [manager GET:hostUrl parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if ([responseObject[@"status"] isEqualToString:@"1"]) {
+        if ([responseObject[@"status"] integerValue] == 1) {
             block (YES);
         }else {
             block(NO);
@@ -322,7 +322,7 @@
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     [manager GET:hostUrl parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if ([responseObject[@"status"] isEqualToString:@"1"]) {
+        if ([responseObject[@"status"] integerValue] == 1) {
             block(YES);
         }else {
             block(NO);
@@ -376,7 +376,7 @@
     NSDictionary *param = @{@"cat_id":catId,@"city":city,@"page":[NSNumber numberWithInteger:page],@"limit":[NSNumber numberWithInteger:pageSize]};
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if ([responseObject[@"status"] isEqualToString:@"1"]) {
+        if ([responseObject[@"status"] integerValue] == 1) {
             NSMutableArray *dataArray = [[NSMutableArray alloc]init];
             for (NSDictionary *dic in responseObject[@"data"]) {
                 ArticleModel *model = [[ArticleModel alloc]init];
@@ -484,7 +484,7 @@
     NSDictionary *param = @{@"cat_id":catId,@"page":[NSNumber numberWithInteger:page],@"limit":[NSNumber numberWithInteger:pageSize]};
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if ([responseObject[@"status"] isEqualToString:@"1"]) {
+        if ([responseObject[@"status"] integerValue] == 1) {
             NSMutableArray *dataArray = [[NSMutableArray alloc]init];
             for (NSDictionary *dic in responseObject[@"data"]) {
                 ArticleModel *model = [[ArticleModel alloc]init];

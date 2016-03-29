@@ -97,6 +97,7 @@
 @property(nonatomic,strong) NSString *title;//文章标题
 @property(nonatomic,strong) NSString *image;//图片地址
 @property(nonatomic,strong) NSString *create_date;//创建时间
+@property(nonatomic,strong) NSString *preview;//文章预览信息
 @property(nonatomic,strong) NSString *content;//文章内容
 @property(nonatomic, strong) NSString *read_num;//阅读次数
 @property(nonatomic, strong) NSString *like_num;//点赞次数
