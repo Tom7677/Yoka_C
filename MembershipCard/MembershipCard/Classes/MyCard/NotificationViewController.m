@@ -7,12 +7,13 @@
 //
 
 #import "NotificationViewController.h"
-#import "YKInformTableViewController.h"
-#import "AnnouncementTableViewController.h"
 #import "UIView+frame.h"
+#import "NotificationTableViewCell.h"
+#import "MJRefresh.h"
 
-@interface NotificationViewController ()
+@interface NotificationViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UIButton *rightBtn;
+@property (nonatomic, strong) NSMutableArray *resultArray;
 @end
 
 @implementation NotificationViewController
@@ -28,29 +29,10 @@
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:_rightBtn];
     [self.navigationItem setRightBarButtonItem:rightItem];
     
-    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc]initWithItems:[NSArray arrayWithObjects:@"系统通知",@"商户公告", nil]];
-    segmentedControl.selectedSegmentIndex = 0;
-    [segmentedControl addTarget:self action:@selector(controlPressed:) forControlEvents:UIControlEventValueChanged];
-    NSDictionary *selectDic = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName,nil];
-    NSDictionary *normalDic = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName,nil];
-    [segmentedControl setTitleTextAttributes:normalDic forState:UIControlStateNormal];
-    [segmentedControl setTitleTextAttributes:selectDic forState:UIControlStateSelected];
-    segmentedControl.tintColor = [UIColor blackColor];
-    self.navigationItem.titleView = segmentedControl;
-    [self addChildVC];
-}
-
-- (void)addChildVC
-{
-    _scrollView.contentSize = CGSizeMake(MainScreenWidth*2,MainScreenHeight);
-    YKInformTableViewController *informTableView = [[YKInformTableViewController alloc]init];
-    [_scrollView addSubview:informTableView.view];
-    [self addChildViewController:informTableView];
-    
-    AnnouncementTableViewController *announcementTableView = [[AnnouncementTableViewController alloc]init];
-    announcementTableView.view.originX = MainScreenWidth;
-    [_scrollView addSubview:announcementTableView.view];
-    [self addChildViewController:announcementTableView];
+    [_tableView registerNib:[UINib nibWithNibName:@"NotificationTableViewCell" bundle:nil] forCellReuseIdentifier:@"cellIdentifier"];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    [self loadNewData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,27 +40,46 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)loadNewData
+{
+    [[NetworkAPI shared]getNoticeListWithFinish:^(NSArray *dataArray) {
+        
+    } withErrorBlock:^(NSError *error) {
+        
+    }];
+}
+
 - (void)clearBtnAction
 {
     [[UMengAnalyticsUtil shared]clearNotice];
     [[NetworkAPI shared]deleteAnnouncementWithFinish:^(BOOL isSuccess) {
         if (isSuccess) {
-            YKInformTableViewController *informTableView = [[YKInformTableViewController alloc]init];
-            [informTableView.tableView reloadData];
+            [_tableView reloadData];
         }
     } withErrorBlock:^(NSError *error) {
         
     }];
 }
 
-- (void)controlPressed:(UISegmentedControl*)segmented
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 10;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [_scrollView setContentOffset:CGPointMake(segmented.selectedSegmentIndex * MainScreenWidth, 0) animated:YES];
-    if (segmented.selectedSegmentIndex == 0) {
-        _rightBtn.hidden = NO;
-    }
-    if (segmented.selectedSegmentIndex == 1) {
-        _rightBtn.hidden = YES;
+    NotificationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentifier"];
+    cell.contentLabel.text = @"tom";
+    return cell;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        //[dataArray removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
     }
 }
 @end
