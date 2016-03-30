@@ -10,6 +10,7 @@
 #import "UIView+frame.h"
 #import "NotificationTableViewCell.h"
 #import "MJRefresh.h"
+#import "UITableView+FDTemplateLayoutCell.h"
 
 @interface NotificationViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UIButton *rightBtn;
@@ -20,6 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _resultArray = [[NSMutableArray alloc]init];
     _rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 60, 28)];
     _rightBtn.titleLabel.font = [UIFont systemFontOfSize:14];
     [_rightBtn setTitle:@"清空" forState:UIControlStateNormal];
@@ -43,7 +45,11 @@
 - (void)loadNewData
 {
     [[NetworkAPI shared]getNoticeListWithFinish:^(NSArray *dataArray) {
-        
+        if (dataArray != nil) {
+            [_resultArray removeAllObjects];
+            [_resultArray addObjectsFromArray:dataArray];
+            [_tableView reloadData];
+        }
     } withErrorBlock:^(NSError *error) {
         
     }];
@@ -54,6 +60,7 @@
     [[UMengAnalyticsUtil shared]clearNotice];
     [[NetworkAPI shared]deleteAnnouncementWithFinish:^(BOOL isSuccess) {
         if (isSuccess) {
+            [_resultArray removeAllObjects];
             [_tableView reloadData];
         }
     } withErrorBlock:^(NSError *error) {
@@ -62,18 +69,29 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return _resultArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NotificationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentifier"];
-    cell.contentLabel.text = @"tom";
+    cell.fd_enforceFrameLayout = YES;
+    NoticeModel *model = _resultArray[indexPath.row];
+    cell.contentLabel.text = model.content;
+    cell.timeLabel.text = model.create_date;
+    cell.shopNameLabel.text = model.merchant_name;
     return cell;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [tableView fd_heightForCellWithIdentifier:@"cellIdentify" configuration:^(NotificationTableViewCell *cell) {
+        
+    }];
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {

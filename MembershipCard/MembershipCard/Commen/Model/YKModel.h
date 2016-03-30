@@ -65,7 +65,7 @@
 @property(nonatomic,strong) NSString *merchant_name;//参与商户的名字
 @property(nonatomic,strong) NSString *create_date;//创建时间
 @property(nonatomic,strong) NSString *jump_link;//跳转链接
-@property(nonatomic,strong) NSString *url;
+@property(nonatomic,strong) NSString *content;//内容
 @end
 
 /** 商户公告模型 */
