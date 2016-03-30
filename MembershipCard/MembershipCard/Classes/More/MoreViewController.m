@@ -52,6 +52,7 @@
 {
     [[UMengAnalyticsUtil shared]setting];
     SettingViewController *vc = [[SettingViewController alloc]init];
+    vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -73,7 +74,8 @@
 
 - (IBAction)secondHandBtnAction:(id)sender {
     [[UMengAnalyticsUtil shared]secondHandCardVoucher];
-    SecondHandCardViewController *vc = [[SecondHandCardViewController alloc]init ];
+    SecondHandCardViewController *vc = [[SecondHandCardViewController alloc]init];
+    vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -86,6 +88,7 @@
     else if (btn.tag == 2) {
         //已删除会员卡
         ShowDeteledCardViewController  *vc = [[ShowDeteledCardViewController alloc]init];
+        vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }
     else if (btn.tag == 3) {
@@ -98,6 +101,7 @@
     }
     else {
         ChooseAreaViewController *vc = [[ChooseAreaViewController alloc]init];
+        vc.hidesBottomBarWhenPushed = YES;
         vc.fromSetting = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }

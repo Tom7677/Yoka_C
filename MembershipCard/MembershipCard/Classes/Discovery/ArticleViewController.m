@@ -23,7 +23,6 @@
     [self.view addSubview:webView];
     webView.delegate = self;
     [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.urlStr]]];
-
 }
 - (void)shareButtonClick {
 

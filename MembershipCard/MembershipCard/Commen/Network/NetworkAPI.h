@@ -11,6 +11,7 @@
 #import "MJExtension.h"
 
 static NSString* hostUrl = @"http://www.51mumaren.com:8080/index.php/Client/";
+static NSString* imageUrl = @"http://www.51mumaren.com:8080";
 static NSInteger pageSize = 20;
 @interface NetworkAPI : NSObject
 + (NetworkAPI *)shared;
