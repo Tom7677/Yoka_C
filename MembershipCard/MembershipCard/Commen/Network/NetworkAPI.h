@@ -82,11 +82,10 @@ static NSInteger pageSize = 20;
 /**
  *  查询平台通知
  *
- *  @param memberId   会员Id
  *  @param block      block description
  *  @param errorBlock errorBlock description
  */
-- (void)getNoticeListByMemberId:(NSString *)memberId WithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+- (void)getNoticeListWithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 
 /*!
  *  @brief  获取商户公告

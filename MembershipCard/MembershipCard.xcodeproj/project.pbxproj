@@ -141,10 +141,6 @@
 		E2004C001C85CD7D00CDA2E7 /* SellCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2004BFE1C85CD7D00CDA2E7 /* SellCardViewController.xib */; };
 		E2004C041C85CE5000CDA2E7 /* AssignmentInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2004C021C85CE5000CDA2E7 /* AssignmentInfoViewController.m */; };
 		E2004C051C85CE5000CDA2E7 /* AssignmentInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2004C031C85CE5000CDA2E7 /* AssignmentInfoViewController.xib */; };
-		E2004C091C85D34800CDA2E7 /* YKInformTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2004C071C85D34800CDA2E7 /* YKInformTableViewController.m */; };
-		E2004C0A1C85D34800CDA2E7 /* YKInformTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2004C081C85D34800CDA2E7 /* YKInformTableViewController.xib */; };
-		E2004C0E1C85D3EF00CDA2E7 /* AnnouncementTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2004C0C1C85D3EF00CDA2E7 /* AnnouncementTableViewController.m */; };
-		E2004C0F1C85D3EF00CDA2E7 /* AnnouncementTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2004C0D1C85D3EF00CDA2E7 /* AnnouncementTableViewController.xib */; };
 		E2004C131C85E3C200CDA2E7 /* VIPServiceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2004C111C85E3C200CDA2E7 /* VIPServiceTableViewController.m */; };
 		E2004C141C85E3C200CDA2E7 /* VIPServiceTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2004C121C85E3C200CDA2E7 /* VIPServiceTableViewController.xib */; };
 		E2004C181C85E41400CDA2E7 /* YKMerchantsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2004C161C85E41400CDA2E7 /* YKMerchantsViewController.m */; };
@@ -418,12 +414,6 @@
 		E2004C011C85CE5000CDA2E7 /* AssignmentInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssignmentInfoViewController.h; sourceTree = "<group>"; };
 		E2004C021C85CE5000CDA2E7 /* AssignmentInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssignmentInfoViewController.m; sourceTree = "<group>"; };
 		E2004C031C85CE5000CDA2E7 /* AssignmentInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AssignmentInfoViewController.xib; sourceTree = "<group>"; };
-		E2004C061C85D34800CDA2E7 /* YKInformTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YKInformTableViewController.h; sourceTree = "<group>"; };
-		E2004C071C85D34800CDA2E7 /* YKInformTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YKInformTableViewController.m; sourceTree = "<group>"; };
-		E2004C081C85D34800CDA2E7 /* YKInformTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YKInformTableViewController.xib; sourceTree = "<group>"; };
-		E2004C0B1C85D3EF00CDA2E7 /* AnnouncementTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnouncementTableViewController.h; sourceTree = "<group>"; };
-		E2004C0C1C85D3EF00CDA2E7 /* AnnouncementTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnouncementTableViewController.m; sourceTree = "<group>"; };
-		E2004C0D1C85D3EF00CDA2E7 /* AnnouncementTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnnouncementTableViewController.xib; sourceTree = "<group>"; };
 		E2004C101C85E3C200CDA2E7 /* VIPServiceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIPServiceTableViewController.h; sourceTree = "<group>"; };
 		E2004C111C85E3C200CDA2E7 /* VIPServiceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIPServiceTableViewController.m; sourceTree = "<group>"; };
 		E2004C121C85E3C200CDA2E7 /* VIPServiceTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VIPServiceTableViewController.xib; sourceTree = "<group>"; };
@@ -1135,12 +1125,6 @@
 				E2BDB7AC1C7B42BD00274CE3 /* NotificationViewController.h */,
 				E2BDB7AD1C7B42BD00274CE3 /* NotificationViewController.m */,
 				E2BDB7AE1C7B42BD00274CE3 /* NotificationViewController.xib */,
-				E2004C061C85D34800CDA2E7 /* YKInformTableViewController.h */,
-				E2004C071C85D34800CDA2E7 /* YKInformTableViewController.m */,
-				E2004C081C85D34800CDA2E7 /* YKInformTableViewController.xib */,
-				E2004C0B1C85D3EF00CDA2E7 /* AnnouncementTableViewController.h */,
-				E2004C0C1C85D3EF00CDA2E7 /* AnnouncementTableViewController.m */,
-				E2004C0D1C85D3EF00CDA2E7 /* AnnouncementTableViewController.xib */,
 				E2BDB7B11C7B42E200274CE3 /* AddNewCardViewController.h */,
 				E2BDB7B21C7B42E200274CE3 /* AddNewCardViewController.m */,
 				E2BDB7B31C7B42E200274CE3 /* AddNewCardViewController.xib */,
@@ -1434,7 +1418,6 @@
 				1A14709F1C8D7CC5003A0616 /* addCard-menu.png in Resources */,
 				1ACFB9A81C8EACA20083FD07 /* tabbar_discovery_selected@2x.png in Resources */,
 				1ACC38761C9FC4DB00C9E837 /* ser-03@3x.png in Resources */,
-				E2004C0F1C85D3EF00CDA2E7 /* AnnouncementTableViewController.xib in Resources */,
 				1ACFB9B11C8EACA20083FD07 /* tabbar_more@2x.png in Resources */,
 				1A344BF41C882DCD009F3FFC /* DisoveryViewController.xib in Resources */,
 				1ACC38751C9FC4DB00C9E837 /* ser-03@2x.png in Resources */,
@@ -1501,7 +1484,6 @@
 				E2FEE3D01C79F5EA0079B824 /* SettingViewController.xib in Resources */,
 				1ACFB9AA1C8EACA20083FD07 /* tabbar_discovery.png in Resources */,
 				1A1470A31C8D7CC5003A0616 /* addCard-scan@2x.png in Resources */,
-				E2004C0A1C85D34800CDA2E7 /* YKInformTableViewController.xib in Resources */,
 				1ACFB9AF1C8EACA20083FD07 /* tabbar_more_selected@3x.png in Resources */,
 				E2004C141C85E3C200CDA2E7 /* VIPServiceTableViewController.xib in Resources */,
 				1ACC38731C9FC4DB00C9E837 /* ser-02@3x.png in Resources */,
@@ -1640,7 +1622,6 @@
 				27D39A581C92AC5D00A3F3C3 /* MJRefreshConst.m in Sources */,
 				1AF9C3E31C9E8EE200F6FBAE /* MyCardDetailViewController.m in Sources */,
 				27D39A591C92AC5D00A3F3C3 /* UIScrollView+MJExtension.m in Sources */,
-				E2004C091C85D34800CDA2E7 /* YKInformTableViewController.m in Sources */,
 				27D39A4C1C92AC5D00A3F3C3 /* MJRefreshFooter.m in Sources */,
 				E24983A01C8BD6D3005B77A8 /* TSImageLeftButton.m in Sources */,
 				E2662CBB1C7CA1D100FE42F1 /* ShowDeteledCardViewController.m in Sources */,
@@ -1650,7 +1631,6 @@
 				27D39A5A1C92AC5D00A3F3C3 /* UIScrollView+MJRefresh.m in Sources */,
 				27D39A4F1C92AC5D00A3F3C3 /* MJRefreshAutoNormalFooter.m in Sources */,
 				2731E7AA1C9970ED00FB3323 /* DiscoveryTableViewCell.m in Sources */,
-				E2004C0E1C85D3EF00CDA2E7 /* AnnouncementTableViewController.m in Sources */,
 				E2BDB7BA1C7B53A900274CE3 /* MyCardBagTableViewCell.m in Sources */,
 				27D39A561C92AC5D00A3F3C3 /* MJRefreshStateHeader.m in Sources */,
 				E2004BFF1C85CD7D00CDA2E7 /* SellCardViewController.m in Sources */,
