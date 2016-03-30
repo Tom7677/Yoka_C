@@ -7,11 +7,14 @@
 //
 
 #import "DiscoveryWithImageCell.h"
+#import "Macro.h"
 
 @implementation DiscoveryWithImageCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    [_moreBtn setTitleColor:UIColorFromRGB(0xFF526E) forState:0];
+    _moreBtn.layer.borderWidth = 1;
+    _moreBtn.layer.borderColor = [UIColorFromRGB(0xFF526E) CGColor];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

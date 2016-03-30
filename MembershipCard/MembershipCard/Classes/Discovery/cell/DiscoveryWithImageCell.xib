@@ -9,34 +9,38 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellIdentify" rowHeight="298" id="KGk-i7-Jjw" customClass="DiscoveryWithImageCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellIdentify" rowHeight="315" id="KGk-i7-Jjw" customClass="DiscoveryWithImageCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="317"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="299"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="316"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zX9-Bo-pgK">
-                        <rect key="frame" x="10" y="10" width="300" height="156"/>
+                        <rect key="frame" x="10" y="10" width="300" height="120"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="zX9-Bo-pgK" secondAttribute="height" multiplier="25:13" id="fzH-ff-zgH"/>
+                            <constraint firstAttribute="width" secondItem="zX9-Bo-pgK" secondAttribute="height" multiplier="25:10" id="fzH-ff-zgH"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="来自意大利的纯种红牛收到货时订货会的" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJX-zH-wuv">
-                        <rect key="frame" x="10" y="175" width="300" height="25"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="来自意大利的纯种红牛" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJX-zH-wuv">
+                        <rect key="frame" x="10" y="139" width="300" height="38"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="38" id="uBJ-I2-ZD1"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="选取澳大利亚知名品牌Riverina的谷饲安格斯牛只胸肋部位制成，是适合做日式烧烤、铁板烧的部位。" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w5V-06-d46">
-                        <rect key="frame" x="10" y="207" width="300" height="51"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选取澳大利亚知名品牌Riverina的谷饲安格斯牛只胸肋部位制成，是适合做日式烧烤、铁板烧的部位。选取澳大利亚知名品牌Riverina的谷饲安格斯牛只胸肋部位制成，是适合做日式烧烤、铁板烧的部位。是适合做日式烧烤、铁板烧的部位。" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w5V-06-d46">
+                        <rect key="frame" x="10" y="179" width="300" height="92"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="877-46-lOw">
-                        <rect key="frame" x="10" y="262" width="68" height="27"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="877-46-lOw">
+                        <rect key="frame" x="10" y="279" width="68" height="27"/>
                         <constraints>
+                            <constraint firstAttribute="height" constant="27" id="dd0-Kk-KqD"/>
                             <constraint firstAttribute="width" constant="68" id="oBW-CW-T40"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -57,7 +61,7 @@
                     <constraint firstAttribute="trailingMargin" secondItem="aJX-zH-wuv" secondAttribute="trailing" constant="2" id="E1l-eX-eLx"/>
                     <constraint firstAttribute="trailingMargin" secondItem="w5V-06-d46" secondAttribute="trailing" constant="2" id="FKK-32-HMq"/>
                     <constraint firstAttribute="trailingMargin" secondItem="zX9-Bo-pgK" secondAttribute="trailing" constant="2" id="Qmc-fm-kf4"/>
-                    <constraint firstItem="w5V-06-d46" firstAttribute="top" secondItem="aJX-zH-wuv" secondAttribute="bottom" constant="7" id="YRF-XN-eSK"/>
+                    <constraint firstItem="w5V-06-d46" firstAttribute="top" secondItem="aJX-zH-wuv" secondAttribute="bottom" constant="2" id="YRF-XN-eSK"/>
                     <constraint firstAttribute="bottomMargin" secondItem="877-46-lOw" secondAttribute="bottom" constant="2" id="asd-xL-XNP"/>
                     <constraint firstItem="877-46-lOw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="e8E-dC-tOz"/>
                     <constraint firstItem="aJX-zH-wuv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="zTF-7g-aLi"/>
@@ -69,7 +73,7 @@
                 <outlet property="moreBtn" destination="877-46-lOw" id="agX-Du-1a2"/>
                 <outlet property="titleLabel" destination="aJX-zH-wuv" id="2fT-Yk-gbV"/>
             </connections>
-            <point key="canvasLocation" x="276" y="223"/>
+            <point key="canvasLocation" x="276" y="231.5"/>
         </tableViewCell>
     </objects>
 </document>
