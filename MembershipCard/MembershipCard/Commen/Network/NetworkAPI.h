@@ -87,6 +87,15 @@ static NSInteger pageSize = 20;
  */
 - (void)getNoticeListWithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 
+/**
+ *  删除消息
+ *
+ *  @param messageId  消息ID
+ *  @param block      block description
+ *  @param errorBlock errorBlock description
+ */
+- (void)deleteNoticeWithMessageId:(NSString *)messageId WithFinish:(void(^)(NSString *msg, BOOL isSuccess))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+
 /*!
  *  @brief  获取商户公告
  *
@@ -239,7 +248,7 @@ typedef enum {
  *  @param block      block description
  *  @param errorBlock errorBlock description
  */
-- (void)getVoucherInfoByVoucherId:(NSString *)voucherId WithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+- (void)getVoucherInfoByVoucherId:(NSString *)voucherId WithFinish:(void(^)(VoucherDetailModel *model))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 
 /*!
  *  @brief  发布卡券

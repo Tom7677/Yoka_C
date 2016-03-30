@@ -113,3 +113,28 @@
 @property(nonatomic,strong) NSString *avatar;//文章内容
 @end
 
+/** 二手卡券列表模型 */
+@interface VoucherListModel : NSObject
+@property(nonatomic,strong) NSString *voucher_id;//卡券ID
+@property(nonatomic,strong) NSString *title;//标题
+@property(nonatomic,strong) NSString *type;//方式
+@property(nonatomic,strong) NSString *name;//城市
+@property(nonatomic,strong) NSString *location;//地点
+@property(nonatomic,strong) NSString *price;//价格
+@property(nonatomic,strong) NSString *create_date;//创建时间
+@end
+
+@interface VoucherDetailModel : NSObject
+@property(nonatomic,copy) NSString *voucher_id;//卡券ID
+@property(nonatomic,copy) NSString *title;//标题
+@property(nonatomic,copy) NSString *type;//方式
+@property(nonatomic,copy) NSString *city_name;//城市
+@property(nonatomic,copy) NSString *location;//地点
+@property(nonatomic,copy) NSString *price;//价格
+@property(nonatomic,copy) NSString *create_date;//创建时间
+@property(nonatomic,copy) NSString *content;//内容
+@property(nonatomic,copy) NSString *cat_name;//卡片类别名字
+@property(nonatomic,copy) NSString *mobile;//联系人手机号码
+@property(nonatomic,copy) NSString *contact;//联系人
+@property(nonatomic,strong) NSArray *images;//联系人
+@end

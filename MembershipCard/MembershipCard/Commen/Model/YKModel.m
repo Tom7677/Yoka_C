@@ -40,3 +40,9 @@
 
 @implementation UserInfoModel
 @end
+
+@implementation VoucherListModel
+@end
+
+@implementation VoucherDetailModel
+@end

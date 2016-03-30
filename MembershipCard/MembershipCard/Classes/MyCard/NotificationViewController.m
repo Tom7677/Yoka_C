@@ -89,15 +89,22 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [tableView fd_heightForCellWithIdentifier:@"cellIdentify" configuration:^(NotificationTableViewCell *cell) {
+    return [tableView fd_heightForCellWithIdentifier:@"cellIdentifier" configuration:^(NotificationTableViewCell *cell) {
         
     }];
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        //[dataArray removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
+        NoticeModel *model = _resultArray[indexPath.row];
+        [[NetworkAPI shared]deleteNoticeWithMessageId:model.message_id WithFinish:^(NSString *msg, BOOL isSuccess) {
+            if (isSuccess) {
+                [_resultArray removeObjectAtIndex:indexPath.row];
+                [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
+            }
+        } withErrorBlock:^(NSError *error) {
+            
+        }];
     }
 }
 @end

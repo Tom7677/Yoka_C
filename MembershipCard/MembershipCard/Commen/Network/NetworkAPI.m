@@ -225,6 +225,23 @@
     }];
 }
 
+- (void)deleteNoticeWithMessageId:(NSString *)messageId WithFinish:(void(^)(NSString *msg, BOOL isSuccess))block withErrorBlock:(void(^)(NSError *error)) errorBlock
+{
+    NSString *urlStr = [hostUrl stringByAppendingString:@"User/delete_message"];
+    NSDictionary *param = @{@"token":[self getAccessToken],@"message_id":messageId};
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject[@"status"] integerValue] == 1) {
+            block(responseObject[@"msg"],YES);
+        }
+        else {
+            block(responseObject[@"msg"],NO);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        errorBlock(error);
+    }];
+}
+
 - (void)saveMerchantAnnouncementByModel:(AnnouncementModel *)model WithFinish:(void(^)(AnnouncementModel *model))block withErrorBlock:(void(^)(NSError *error)) errorBlock {
     NSDictionary *param = [self creatRequestParamByMethod:@"save_merchant_announcement" WithParamData:@{@"merchant_id":model.merchant_id, @"title":model.title, @"content":model.content}];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -495,8 +512,8 @@
         if ([responseObject[@"status"] integerValue] == 1) {
             NSMutableArray *dataArray = [[NSMutableArray alloc]init];
             for (NSDictionary *dic in responseObject[@"data"]) {
-                ArticleModel *model = [[ArticleModel alloc]init];
-                model = [ArticleModel mj_objectWithKeyValues:dic];
+                VoucherListModel *model = [[VoucherListModel alloc]init];
+                model = [VoucherListModel mj_objectWithKeyValues:dic];
                 [dataArray addObject:model];
             }
             block([dataArray copy]);
@@ -510,17 +527,57 @@
 
 - (void)getVoucherReleasedListByPage:(NSInteger)page WithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock
 {
-    
+    NSString *urlStr = [hostUrl stringByAppendingString:@"Voucher/get_voucher_released"];
+    NSDictionary *param = @{@"token":[self getAccessToken],@"page":[NSNumber numberWithInteger:page],@"limit":[NSNumber numberWithInteger:pageSize]};
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject[@"status"] integerValue] == 1) {
+            NSMutableArray *dataArray = [[NSMutableArray alloc]init];
+            for (NSDictionary *dic in responseObject[@"data"]) {
+                VoucherListModel *model = [[VoucherListModel alloc]init];
+                model = [VoucherListModel mj_objectWithKeyValues:dic];
+                [dataArray addObject:model];
+            }
+            block([dataArray copy]);
+        }else{
+            block(nil);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        errorBlock(error);
+    }];
 }
 
-- (void)getVoucherInfoByVoucherId:(NSString *)voucherId WithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock
+- (void)getVoucherInfoByVoucherId:(NSString *)voucherId WithFinish:(void(^)(VoucherDetailModel *model))block withErrorBlock:(void(^)(NSError *error)) errorBlock
 {
-    
+    NSString *urlStr = [hostUrl stringByAppendingString:@"Voucher/get_voucher_info"];
+    NSDictionary *param = @{@"voucher_id":voucherId};
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject[@"status"] integerValue] == 1) {
+            VoucherDetailModel *model = [VoucherDetailModel mj_objectWithKeyValues:responseObject[@"data"]];
+            block(model);
+        }else{
+            block(nil);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        errorBlock(error);
+    }];
 }
 
 - (void)addVoucherWithInfo:(NSDictionary *)dic WithFinish:(void(^)(BOOL isSuccess, NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock
 {
-    
+    NSString *urlStr = [hostUrl stringByAppendingString:@"Voucher/add_voucher"];
+    NSDictionary *param = @{@"token":[self getAccessToken],@"title":dic[@"title"],@"price":dic[@"price"],@"type":dic[@"type"],@"content":dic[@"content"],@"cat_id":dic[@"cat_id"],@"city_id":dic[@"city_id"],@"location":dic[@"location"],@"contact":dic[@"contact"],@"mobile":dic[@"mobile"]};
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:urlStr parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        for (int i = 0; i < [dic[@"images"] count]; i ++) {
+            
+        }
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    }];
 }
 
 - (void)deleteVoucherWithVoucherId:(NSString *)voucherId WithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock
