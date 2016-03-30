@@ -273,9 +273,9 @@
     ArticleModel *model = dataArray[indexPath.row];
     ArticleViewController *vc = [[ArticleViewController alloc]init];
     vc.urlStr = model.jump_link;
-    vc.articleTitle = model.title;
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
+    [[NetworkAPI shared]updateArticleDataByType:hasread AndArticleId:model.article_id];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

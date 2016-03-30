@@ -413,6 +413,15 @@
     }];
 
 }
+
+- (void)updateArticleDataByType:(ArticleDataType)dataType AndArticleId:(NSString *)articleId {
+    NSString *urlStr = [hostUrl stringByAppendingString:@"Article/add_num"];
+    NSDictionary *param = @{@"type":[NSString stringWithFormat:@"%u", dataType], @"article_id":articleId};
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    }];
+}
     
 #pragma mark More
 - (void)getUserInfoWithFinish:(void(^)(UserInfoModel *model))block withErrorBlock:(void(^)(NSError *error)) errorBlock

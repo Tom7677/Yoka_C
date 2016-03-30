@@ -7,6 +7,7 @@
 //
 
 #import "ArticleViewController.h"
+#import "TSImageLeftButton.h"
 
 @interface ArticleViewController ()<UIWebViewDelegate>
 
@@ -16,9 +17,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = self.articleTitle;
-    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithTitle:@"分享" style:UIBarButtonItemStylePlain target:self action:@selector(shareButtonClick)];
-    self.navigationItem.rightBarButtonItem = item;
+    NSMutableArray *tempArray = [NSMutableArray array];
+    for (int i = 0; i < 3; i++) {
+        if (i == 1) {
+            UIBarButtonItem *fixedSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+            fixedSpace.width = 20;
+            [tempArray addObject:fixedSpace];
+        }else {
+            TSImageLeftButton *btn = [[TSImageLeftButton alloc]initWithFrame:CGRectMake(0, 0, 60, 30)];
+            [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            btn.titleLabel.font = [UIFont systemFontOfSize:14];
+            if (i == 0) {
+                [btn setTitle:@"分享" forState:UIControlStateNormal];
+//图片暂缺                [btn setImage:@"" forState:UIControlStateNormal];
+                [btn addTarget:self action:@selector(shareButtonClick) forControlEvents:UIControlEventTouchUpInside];
+            }else {
+                [btn setTitle:@"点赞" forState:UIControlStateNormal];
+//图片暂缺                  [btn setImage:@"" forState:UIControlStateNormal];
+                [btn addTarget:self action:@selector(likeButtonClick) forControlEvents:UIControlEventTouchUpInside];
+            }
+            UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:btn];
+            [tempArray addObject:item];
+        }
+     }
+    self.navigationItem.rightBarButtonItems = [tempArray copy];
     UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:webView];
     webView.delegate = self;
@@ -26,6 +48,10 @@
 }
 - (void)shareButtonClick {
 
+    
+}
+
+- (void)likeButtonClick {
     
 }
 

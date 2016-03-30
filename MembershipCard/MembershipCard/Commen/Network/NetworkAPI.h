@@ -43,6 +43,7 @@ static NSInteger pageSize = 20;
  */
 - (void)getCityListWithFinish:(void(^)(BOOL isSuccess ,NSArray *cityArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 
+#pragma mark 卡包
 /**
  *  获取卡包列表
  *
@@ -133,6 +134,7 @@ static NSInteger pageSize = 20;
  */
 - (void)updateCardRelationByMerchantId:(NSString *)merchantId WithDeleteAction:(BOOL)isDelete WithFinish:(void(^)(BOOL isSuccess))block withErrorBlock:(void(^)(NSError *error))errorBlock;
 
+#pragma mark 发现
 /*!
  *  @brief  爆料链接
  *
@@ -170,6 +172,21 @@ static NSInteger pageSize = 20;
  */
 - (void)getTopArticleListByCity:(NSString *)city page:(NSInteger)page WithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 
+typedef enum {
+    like, // 喜欢
+    share, // 分享
+    hasread // 阅读
+} ArticleDataType;
+
+/*!
+ *  @brief  更新文章数据
+ *
+ *  @param dataType   文章数据类别
+ *  @param articleId  文章id
+ */
+- (void)updateArticleDataByType:(ArticleDataType)dataType AndArticleId:(NSString *)articleId;
+
+#pragma mark 用户
 /*!
  *  @brief  获取用户信息
  *
@@ -188,6 +205,7 @@ static NSInteger pageSize = 20;
  */
 - (void)saveUserInfoByNickName:(NSString *)nickName avatar:(NSData *)avatar WithFinish:(void(^)(BOOL isSuccess ,NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 
+#pragma mark 二手卡券
 /*!
  *  @brief  获取二手卡券分类
  *

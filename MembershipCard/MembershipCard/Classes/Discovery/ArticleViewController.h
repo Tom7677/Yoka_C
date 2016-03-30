@@ -12,6 +12,5 @@
 
 @interface ArticleViewController : BaseViewController
 @property(nonatomic,strong) NSString *urlStr;
-@property(nonatomic,strong) NSString *articleTitle;
 
 @end
