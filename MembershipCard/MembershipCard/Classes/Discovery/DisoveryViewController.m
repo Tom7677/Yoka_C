@@ -273,6 +273,7 @@
     ArticleModel *model = dataArray[indexPath.row];
     ArticleViewController *vc = [[ArticleViewController alloc]init];
     vc.urlStr = model.jump_link;
+    vc.articleId = model.article_id;
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
     [[NetworkAPI shared]updateArticleDataByType:hasread AndArticleId:model.article_id];

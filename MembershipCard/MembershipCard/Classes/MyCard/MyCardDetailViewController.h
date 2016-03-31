@@ -25,7 +25,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *markTextView;
 @property (weak, nonatomic) IBOutlet UIView *codeView;
 @property (weak, nonatomic) IBOutlet UIView *markView;
-@property (strong, nonatomic) IBOutlet UIView *serviceView;
+@property (weak, nonatomic) IBOutlet UIView *serviceView;
 @property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
 @property (strong, nonatomic) MyCardModel *model;
 

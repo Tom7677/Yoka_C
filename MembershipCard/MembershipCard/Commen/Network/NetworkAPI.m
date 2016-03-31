@@ -431,10 +431,23 @@
 }
 
 - (void)updateArticleDataByType:(ArticleDataType)dataType AndArticleId:(NSString *)articleId {
+    NSString *type;
+    switch (dataType) {
+        case 0:
+            type = @"like";
+            break;
+        case 1:
+            type = @"share";
+            break;
+        default:
+            type = @"read";
+            break;
+    }
     NSString *urlStr = [hostUrl stringByAppendingString:@"Article/add_num"];
-    NSDictionary *param = @{@"type":[NSString stringWithFormat:@"%u", dataType], @"article_id":articleId};
+    NSDictionary *param = @{@"type":type, @"article_id":articleId};
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
     }];
 }
