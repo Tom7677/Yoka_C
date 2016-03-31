@@ -120,7 +120,7 @@
 @property(nonatomic,strong) NSString *type;//方式
 @property(nonatomic,strong) NSString *name;//城市
 @property(nonatomic,strong) NSString *location;//地点
-@property(nonatomic,strong) NSString *price;//价格
+@property(nonatomic,strong) NSNumber *price;//价格
 @property(nonatomic,strong) NSString *create_date;//创建时间
 @end
 

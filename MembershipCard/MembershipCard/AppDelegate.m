@@ -50,6 +50,8 @@
     //有赞86    [YZSDK setOpenDebugLog:YES];
     [YZSDK userAgentInit:userAgent version:@""];
     [YZSDK setOpenInterfaceAppID:appID appSecret:appSecret];
+    
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"VoucherType"];
     [self.window makeKeyAndVisible];
     return YES;
 }

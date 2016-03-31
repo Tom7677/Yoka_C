@@ -487,13 +487,7 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject[@"status"] integerValue] == 1) {
-            NSMutableArray *resultArray = [[NSMutableArray alloc]init];
-            for (NSDictionary *dic in responseObject[@"data"]) {
-                ArticleTypeModel *model = [[ArticleTypeModel alloc]init];
-                model = [ArticleTypeModel mj_objectWithKeyValues:dic];
-                [resultArray addObject:model];
-            }
-            block (resultArray);
+            block (responseObject[@"data"]);
         }
         else {
             block (nil);
