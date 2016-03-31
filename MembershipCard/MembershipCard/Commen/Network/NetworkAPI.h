@@ -35,6 +35,25 @@ static NSInteger pageSize = 20;
  */
 - (void)userLoginByMobile:(NSString *)mobile AndCode:(NSString *)code WithFinish:(void(^)(BOOL isSuccess ,NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 
+/*!
+ *  @brief 第三方微信登录
+ *
+ *  @param code       微信code
+ *  @param block      block description
+ *  @param errorBlock errorBlock description
+ */
+- (void)wechatLoginByWXCode:(NSString *)code WithFinish:(void(^)(BOOL isSuccess ,NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+
+/*!
+ *  @brief  绑定手机
+ 
+ *  @param mobile     手机号
+ *  @param code       验证码
+ *  @param block      block description
+ *  @param errorBlock errorBlock description
+ */
+- (void)bindMobileByMobile:(NSString *)mobile AndCode:(NSString *)code WithFinish:(void(^)(BOOL isSuccess ,NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+
 /**
  *  获取城市列表
  *
@@ -212,6 +231,7 @@ typedef enum {
  *  @param errorBlock errorBlock description
  */
 - (void)saveUserInfoByNickName:(NSString *)nickName avatar:(NSData *)avatar WithFinish:(void(^)(BOOL isSuccess ,NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+
 
 #pragma mark 二手卡券
 /*!

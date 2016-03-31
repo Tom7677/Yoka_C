@@ -43,7 +43,6 @@
 - (void)userLoginByMobile:(NSString *)mobile AndCode:(NSString *)code WithFinish:(void(^)(BOOL isSuccess ,NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock {
     NSString *urlStr = [hostUrl stringByAppendingString:@"User/login"];
     NSDictionary *param = @{@"mobile":mobile, @"code":code};
-    NSLog(@"login---%@,%@", mobile, code);
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject[@"status"] integerValue] == 1) {
@@ -55,6 +54,39 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         errorBlock(error);
         NSLog(@"%@",error.userInfo);
+    }];
+}
+
+- (void)wechatLoginByWXCode:(NSString *)code WithFinish:(void(^)(BOOL isSuccess ,NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock {
+    NSString *urlStr = [hostUrl stringByAppendingString:@"User/delete_message"];
+    NSDictionary *param = @{@"code":code};
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject[@"status"] integerValue] == 1) {
+            [[NSUserDefaults standardUserDefaults]setObject:responseObject[@"data"][@"token"] forKey:@"accessToken"];
+            [[NSUserDefaults standardUserDefaults]setObject:responseObject[@"data"][@"nick_name"] forKey:@"nickName"];
+            [[NSUserDefaults standardUserDefaults]setObject:responseObject[@"data"][@"avatar"] forKey:@"avator"];
+            block(YES, responseObject[@"msg"]);
+        }else {
+            block(NO, responseObject[@"msg"]);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        errorBlock(error);
+    }];
+}
+
+- (void)bindMobileByMobile:(NSString *)mobile AndCode:(NSString *)code WithFinish:(void(^)(BOOL isSuccess ,NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock {
+    NSString *urlStr = [hostUrl stringByAppendingString:@"User/bind_mobile"];
+    NSDictionary *param = @{@"token":[self getAccessToken], @"code":code, @"mobile":mobile};
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject[@"status"] integerValue] == 1) {
+            block(YES, responseObject[@"msg"]);
+        }else {
+            block(NO, responseObject[@"msg"]);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        errorBlock(error);
     }];
 }
 
