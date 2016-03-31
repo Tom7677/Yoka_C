@@ -10,4 +10,5 @@
 
 @interface SellCardViewController : BaseViewController
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
