@@ -86,7 +86,12 @@
  *  创建顶部选择按钮
  */
 - (void) createBtn {
-    _btnWidth = (MainScreenWidth-40) / (_typeArray.count + 1);
+    if (_typeArray.count + 1 >= 7) {
+        _btnWidth = (MainScreenWidth-40) / 7;
+    }
+    else {
+        _btnWidth = (MainScreenWidth-40) / (_typeArray.count + 1);
+    }
     for (int i = 0; i < _typeArray.count + 1; i ++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         [btn setFrame:CGRectMake(20 + _btnWidth * i, 0, _btnWidth, _typeScrollView.height)];

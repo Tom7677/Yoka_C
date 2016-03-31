@@ -545,7 +545,13 @@
 - (void)getVoucherListByCatId:(NSString *)catId page:(NSInteger)page WithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock
 {
     NSString *urlStr = [hostUrl stringByAppendingString:@"Voucher/get_voucher_list"];
-    NSDictionary *param = @{@"cat_id":catId,@"page":[NSNumber numberWithInteger:page],@"limit":[NSNumber numberWithInteger:pageSize]};
+    NSDictionary *param = [[NSDictionary alloc]init];
+    if ([catId isEqualToString:@""]) {
+        param = @{@"page":[NSNumber numberWithInteger:page],@"limit":[NSNumber numberWithInteger:pageSize]};
+    }
+    else {
+        param = @{@"cat_id":catId,@"page":[NSNumber numberWithInteger:page],@"limit":[NSNumber numberWithInteger:pageSize]};
+    }
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject[@"status"] integerValue] == 1) {

@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface AssignmentInfoViewController : BaseViewController
-
+@property (assign, nonatomic) NSString *voucher_id;
 @end
