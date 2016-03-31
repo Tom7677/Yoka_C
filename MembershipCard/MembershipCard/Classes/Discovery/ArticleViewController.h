@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface ArticleViewController : UIViewController
+@interface ArticleViewController : BaseViewController
 @property(nonatomic,strong) NSString *urlStr;
 @property(nonatomic,strong) NSString *articleId;
 

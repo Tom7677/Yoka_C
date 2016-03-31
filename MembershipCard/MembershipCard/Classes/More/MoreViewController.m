@@ -33,7 +33,7 @@
     [rightBtn addTarget:self action:@selector(setting) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
     [self.navigationItem setRightBarButtonItem:rightItem];
-    
+    _cityLabel.text = [[NSUserDefaults standardUserDefaults]objectForKey:@"MyCity"];
     _bgView.width = MainScreenWidth;
     _scrollView.contentSize = CGSizeMake(MainScreenWidth, _bgView.height);
     [_scrollView addSubview:_bgView];

@@ -9,16 +9,21 @@
 #import "ArticleViewController.h"
 #import "TSImageLeftButton.h"
 #import "NetworkAPI.h"
+#import "UIView+border.h"
 
 @interface ArticleViewController ()<UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *shareView;
-
+@property (weak, nonatomic) IBOutlet UIButton *shareToWXBtn;
+@property (weak, nonatomic) IBOutlet UIButton *shareToCircelBtn;
 @end
 
 @implementation ArticleViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [_shareToWXBtn circularBoarderBead:_shareToWXBtn.frame.size.width/2 withBoarder:1 color:[UIColor lightGrayColor]];
+    [_shareToCircelBtn circularBoarderBead:_shareToCircelBtn.frame.size.width/2 withBoarder:1 color:[UIColor lightGrayColor]];
+
     NSMutableArray *tempArray = [NSMutableArray array];
     for (int i = 0; i < 2; i++) {
         TSImageLeftButton *btn = [[TSImageLeftButton alloc]initWithFrame:CGRectMake(0, 0, 56, 30)];
@@ -42,9 +47,10 @@
     [self.view addSubview:webView];
     webView.delegate = self;
     [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.urlStr]]];
+    
 }
 - (void)shareButtonClick {
-    
+
 }
 
 - (void)likeButtonClick:(UIButton *)sender {
@@ -56,6 +62,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 
 #pragma mark - UIWebViewDelegate

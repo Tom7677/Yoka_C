@@ -262,6 +262,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSArray *dataArray;
     if (_index == 0) {
         dataArray = _resultDic[@"推荐"];

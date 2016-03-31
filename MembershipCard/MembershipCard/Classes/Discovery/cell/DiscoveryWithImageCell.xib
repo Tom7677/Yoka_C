@@ -9,11 +9,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellIdentify" rowHeight="315" id="KGk-i7-Jjw" customClass="DiscoveryWithImageCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="317"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellIdentify" rowHeight="320" id="KGk-i7-Jjw" customClass="DiscoveryWithImageCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="322"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="316"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="321"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zX9-Bo-pgK">
@@ -32,13 +32,13 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选取澳大利亚知名品牌Riverina的谷饲安格斯牛只胸肋部位制成，是适合做日式烧烤、铁板烧的部位。选取澳大利亚知名品牌Riverina的谷饲安格斯牛只胸肋部位制成，是适合做日式烧烤、铁板烧的部位。是适合做日式烧烤、铁板烧的部位。" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w5V-06-d46">
-                        <rect key="frame" x="10" y="179" width="300" height="92"/>
+                        <rect key="frame" x="10" y="179" width="300" height="89"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="877-46-lOw">
-                        <rect key="frame" x="10" y="279" width="68" height="27"/>
+                        <rect key="frame" x="10" y="278" width="68" height="27"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="27" id="dd0-Kk-KqD"/>
                             <constraint firstAttribute="width" constant="68" id="oBW-CW-T40"/>
@@ -51,18 +51,28 @@
                             <action selector="moreBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="GlG-4R-xV3"/>
                         </connections>
                     </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Mg-CO-Fwn">
+                        <rect key="frame" x="8" y="314" width="304" height="1"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="fei-HC-YLr"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="zX9-Bo-pgK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="1Lq-Ul-Cwd"/>
                     <constraint firstItem="w5V-06-d46" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="390-3b-6mk"/>
-                    <constraint firstItem="877-46-lOw" firstAttribute="top" secondItem="w5V-06-d46" secondAttribute="bottom" constant="8" id="46J-Tb-QaD"/>
+                    <constraint firstItem="877-46-lOw" firstAttribute="top" secondItem="w5V-06-d46" secondAttribute="bottom" constant="10" id="46J-Tb-QaD"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="4Mg-CO-Fwn" secondAttribute="bottom" constant="-2" id="7UY-gd-DN6"/>
                     <constraint firstItem="aJX-zH-wuv" firstAttribute="top" secondItem="zX9-Bo-pgK" secondAttribute="bottom" constant="9" id="959-P6-6La"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="4Mg-CO-Fwn" secondAttribute="trailing" id="97G-KA-lUL"/>
+                    <constraint firstItem="4Mg-CO-Fwn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Cr5-jy-s74"/>
                     <constraint firstItem="zX9-Bo-pgK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="D1a-Zw-Kpz"/>
                     <constraint firstAttribute="trailingMargin" secondItem="aJX-zH-wuv" secondAttribute="trailing" constant="2" id="E1l-eX-eLx"/>
                     <constraint firstAttribute="trailingMargin" secondItem="w5V-06-d46" secondAttribute="trailing" constant="2" id="FKK-32-HMq"/>
                     <constraint firstAttribute="trailingMargin" secondItem="zX9-Bo-pgK" secondAttribute="trailing" constant="2" id="Qmc-fm-kf4"/>
                     <constraint firstItem="w5V-06-d46" firstAttribute="top" secondItem="aJX-zH-wuv" secondAttribute="bottom" constant="2" id="YRF-XN-eSK"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="877-46-lOw" secondAttribute="bottom" constant="2" id="asd-xL-XNP"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="877-46-lOw" secondAttribute="bottom" constant="8" id="asd-xL-XNP"/>
                     <constraint firstItem="877-46-lOw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="e8E-dC-tOz"/>
                     <constraint firstItem="aJX-zH-wuv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="zTF-7g-aLi"/>
                 </constraints>
@@ -73,7 +83,7 @@
                 <outlet property="moreBtn" destination="877-46-lOw" id="agX-Du-1a2"/>
                 <outlet property="titleLabel" destination="aJX-zH-wuv" id="2fT-Yk-gbV"/>
             </connections>
-            <point key="canvasLocation" x="276" y="231.5"/>
+            <point key="canvasLocation" x="276" y="234"/>
         </tableViewCell>
     </objects>
 </document>
