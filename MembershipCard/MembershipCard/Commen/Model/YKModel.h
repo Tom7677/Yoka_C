@@ -28,6 +28,7 @@
 @property(nonatomic,strong) NSString *merchant_id;//商户ID
 @property(nonatomic,strong) NSString *merchant_name;//商户名称
 @property(nonatomic,strong) NSString *merchant_bn;//商户编号
+@property(nonatomic,strong) NSString *type;//条码类型
 @property(nonatomic,strong) NSString *remark;//备注
 @property(nonatomic,strong) NSString *card_no;//卡号
 @property(nonatomic,strong) NSString *f_image;//正面照

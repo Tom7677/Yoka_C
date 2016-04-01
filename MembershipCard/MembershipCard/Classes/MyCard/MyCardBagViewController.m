@@ -109,7 +109,7 @@
     if ([self isEmpty:model.f_logo]) {
         cell.logoImageView.image = [UIImage imageNamed:@"mjlogo_rectangle.jpg"];
     }else {
-        [cell.logoImageView sd_setImageWithURL:[NSURL URLWithString:model.f_logo]];
+        [cell.logoImageView sd_setImageWithURL:[NSURL URLWithString:[imageUrl stringByAppendingString:model.f_logo]]];
     }
     cell.shopNameLabel.text = model.name;
     cell.cardTypeLabel.hidden = YES;

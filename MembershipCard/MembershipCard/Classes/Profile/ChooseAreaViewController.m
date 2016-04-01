@@ -112,7 +112,11 @@
  */
 - (void)chooseAction
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    if (_fromSetting) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }else {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
     CityListModel *myCity = _areaArray[_currentRow];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeNameNotification" object:self userInfo:nil];
     [[NSUserDefaults standardUserDefaults]setObject:myCity.name forKey:@"MyCity"];

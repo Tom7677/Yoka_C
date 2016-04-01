@@ -32,20 +32,19 @@
     [super viewDidLoad];
     self.fd_prefersNavigationBarHidden = YES;
     self.cardTitle.text = _model.name;
-//    if ([self isEmpty:_model.y_logo]) {
-//        _logoImageView.image = [UIImage imageNamed:@"mjlogo_round.jpg"];
-//    }else {
-//        [_logoImageView sd_setImageWithURL:[NSURL URLWithString:_model.y_logo]];
-//    }
+    if ([self isEmpty:_model.y_logo]) {
+        _logoImageView.image = [UIImage imageNamed:@"mjlogo_round.jpg"];
+    }else {
+        [_logoImageView sd_setImageWithURL:[NSURL URLWithString:[imageUrl stringByAppendingString:_model.y_logo]]];
+    }
     _hornTopImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 178, 14, 8)];
     _cardInfoBtn.selected = YES;
     _hornTopImageView.image = [UIImage imageNamed:@"icon_horn_top"];
     [_headView addSubview:_hornTopImageView];
     
-    float centerX = 10 + ((MainScreenWidth - 20) / 3 - _hornTopImageView.width) / 2;
+    float centerX = 10 + ((MainScreenWidth - 20) / 2 - _hornTopImageView.width) / 2;
     _hornTopImageView.originX = centerX;
     _codeScrollView.hidden = NO;
-    _markScrollView.hidden = YES;
     _servicesScrollView.hidden = YES;
     [_codeScrollView addSubview:_codeView];
     _codeView.width = MainScreenWidth;
@@ -58,8 +57,10 @@
     /** 备注文字框添加点击动作打开修改视图 */
     UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapCommentsView:)];
     [_markTextView addGestureRecognizer:tapGR];
+    if (_markTextView.text.length != 0) {
+        _markNotesLabel.hidden = YES;
+    }
     [_logoImageView circular];
-    
     [self getCradInfo];
     [self layoutServiceView];
 //    [self getAnnouncementList];
@@ -127,6 +128,7 @@
 }
 
 - (void)tapCommentsView:(UITapGestureRecognizer *)gr {
+    _markNotesLabel.hidden = YES;
     CommentsViewController *commentsVC = [CommentsViewController new];
     [self showViewController:commentsVC sender:self];
 }
@@ -176,7 +178,7 @@
 }
 
 /**
- *  条码
+ *  卡片信息展示
  *
  *  @param sender description
  */
@@ -184,31 +186,14 @@
     float centerX = 0;
     [_hornTopImageView.layer addAnimation:[self moveTime:0.1 X:[NSNumber numberWithFloat:centerX]] forKey:nil];
     _cardInfoBtn.selected = YES;
-    _cardValueBtn.selected = NO;
     _serviceBtn.selected = NO;
     _codeScrollView.hidden = NO;
-    _markScrollView.hidden = YES;
     _servicesScrollView.hidden = YES;
     
 }
 
 /**
- *  备注
- *
- *  @param sender description
- */
-- (IBAction)cardValueBtnAction:(id)sender {
-    [_hornTopImageView.layer addAnimation:[self moveTime:0.1 X:[NSNumber numberWithFloat: (MainScreenWidth - 20) / 3]] forKey:nil];
-    _cardInfoBtn.selected = NO;
-    _cardValueBtn.selected = YES;
-    _serviceBtn.selected = NO;
-    _codeScrollView.hidden = YES;
-    _markScrollView.hidden = NO;
-    _servicesScrollView.hidden = YES;
-}
-
-/**
- *  公告
+ *  服务信息展示
  *
  *  @param sender description
  */
@@ -216,10 +201,8 @@
     float centerX = 2 * (MainScreenWidth - 20) / 3 ;
     [_hornTopImageView.layer addAnimation:[self moveTime:0.1 X:[NSNumber numberWithFloat:centerX]] forKey:nil];
     _cardInfoBtn.selected = NO;
-    _cardValueBtn.selected = NO;
     _serviceBtn.selected = YES;
     _codeScrollView.hidden = YES;
-    _markScrollView.hidden = YES;
     _servicesScrollView.hidden = NO;
 }
 
@@ -285,15 +268,6 @@
  */
 - (IBAction)backBtnAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
-}
-
-/**
- *  账户信息
- *
- *  @param sender description
- */
-- (IBAction)infoBtnAction:(id)sender {
-    [[UMengAnalyticsUtil shared]seeCardInfo];
 }
 
 

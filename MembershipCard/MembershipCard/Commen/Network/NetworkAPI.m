@@ -135,14 +135,14 @@
     }];
 }
 
-- (void)getMyCardInfoByMerchantId:(NSString *)merchantId WithFinish:(void(^)(CardInfoModel *model))block withErrorBlock:(void(^)(NSError *error)) errorBlock
+- (void)getMyCardInfoByCardId:(NSString *)merchantId WithFinish:(void(^)(CardInfoModel *model))block withErrorBlock:(void(^)(NSError *error)) errorBlock
 {
     NSString *urlStr = [hostUrl stringByAppendingString:@"Card/get_card_info"];
     NSDictionary *param = @{@"token":[self getAccessToken], @"card_id":merchantId};
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject[@"status"] integerValue] == 1) {
-            NSDictionary *dic = [self jsonObjectWithJsonString:responseObject[@"data"]];
+            NSDictionary *dic = responseObject[@"data"];
             CardInfoModel *model = [[CardInfoModel alloc]init];
             model = [CardInfoModel mj_objectWithKeyValues:dic];
             block (model);
