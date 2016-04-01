@@ -96,14 +96,14 @@
                 NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
                 NSString *token = [dic objectForKey:@"access_token"];
                 NSString *openid = [dic objectForKey:@"openid"];
-                [self getUserInoWithToken:token AndOpenid:openid andArespCode:code];
+                [self getUserInoWithToken:token AndOpenid:openid];
             }
         });
     });
 
 }
 //获取微信用户信息
-- (void)getUserInoWithToken:(NSString *)token AndOpenid:(NSString *)openid andArespCode:(NSString *)arespCode {
+- (void)getUserInoWithToken:(NSString *)token AndOpenid:(NSString *)openid {
     NSString *url =[NSString stringWithFormat:@"https://api.weixin.qq.com/sns/userinfo?access_token=%@&openid=%@",token,openid];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSURL *zoneUrl = [NSURL URLWithString:url];
@@ -111,13 +111,11 @@
         NSData *data = [zoneStr dataUsingEncoding:NSUTF8StringEncoding];
         dispatch_async(dispatch_get_main_queue(), ^{
             if (data) {
-                [[NetworkAPI shared]wechatLoginByWXCode:arespCode WithFinish:^(BOOL isSuccess, NSString *msg) {
-                    
-                } withErrorBlock:^(NSError *error) {
-                    
-                }];
+                NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+                
             }
         });
+        
     });
 }
 

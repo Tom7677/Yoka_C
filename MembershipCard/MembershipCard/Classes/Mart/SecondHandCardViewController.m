@@ -88,7 +88,10 @@
 
 - (void)releaseAction
 {
-    SellCardViewController *vc = [[SellCardViewController alloc]init];
+//    SellCardViewController *vc = [[SellCardViewController alloc]init];
+//    [self.navigationController pushViewController:vc animated:YES];
+    AssignmentInfoViewController *vc = [[AssignmentInfoViewController alloc]init];
+    vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
