@@ -9,6 +9,7 @@
 #import "SellCardViewController.h"
 #import "VoucherListTableViewCell.h"
 #import "MJRefresh.h"
+#import "AddNewVoucherViewController.h"
 
 @interface SellCardViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, assign) NSInteger page;
@@ -92,7 +93,8 @@
  */
 - (void)addNew
 {
-    
+    AddNewVoucherViewController *vc = [[AddNewVoucherViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

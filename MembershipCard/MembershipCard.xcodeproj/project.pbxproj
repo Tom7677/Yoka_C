@@ -122,6 +122,8 @@
 		276BBCF61CAA8BB600CA392E /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 276BBCF51CAA8BB600CA392E /* WebViewController.m */; };
 		276BBD1E1CACC12700CA392E /* VoucherListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 276BBD1C1CACC12700CA392E /* VoucherListTableViewCell.m */; };
 		276BBD1F1CACC12700CA392E /* VoucherListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 276BBD1D1CACC12700CA392E /* VoucherListTableViewCell.xib */; };
+		276BBD231CACF5F500CA392E /* AddNewVoucherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 276BBD211CACF5F500CA392E /* AddNewVoucherViewController.m */; };
+		276BBD241CACF5F500CA392E /* AddNewVoucherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 276BBD221CACF5F500CA392E /* AddNewVoucherViewController.xib */; };
 		27D39A021C8D261200A3F3C3 /* MidImageLeftButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D39A011C8D261200A3F3C3 /* MidImageLeftButton.m */; };
 		27D39A0E1C8ED83600A3F3C3 /* DiscoveryWithImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D39A0C1C8ED83600A3F3C3 /* DiscoveryWithImageCell.m */; };
 		27D39A0F1C8ED83600A3F3C3 /* DiscoveryWithImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27D39A0D1C8ED83600A3F3C3 /* DiscoveryWithImageCell.xib */; };
@@ -383,6 +385,9 @@
 		276BBD1B1CACC12700CA392E /* VoucherListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoucherListTableViewCell.h; sourceTree = "<group>"; };
 		276BBD1C1CACC12700CA392E /* VoucherListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoucherListTableViewCell.m; sourceTree = "<group>"; };
 		276BBD1D1CACC12700CA392E /* VoucherListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VoucherListTableViewCell.xib; sourceTree = "<group>"; };
+		276BBD201CACF5F500CA392E /* AddNewVoucherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNewVoucherViewController.h; sourceTree = "<group>"; };
+		276BBD211CACF5F500CA392E /* AddNewVoucherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNewVoucherViewController.m; sourceTree = "<group>"; };
+		276BBD221CACF5F500CA392E /* AddNewVoucherViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddNewVoucherViewController.xib; sourceTree = "<group>"; };
 		27D39A001C8D261200A3F3C3 /* MidImageLeftButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidImageLeftButton.h; sourceTree = "<group>"; };
 		27D39A011C8D261200A3F3C3 /* MidImageLeftButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidImageLeftButton.m; sourceTree = "<group>"; };
 		27D39A0B1C8ED83600A3F3C3 /* DiscoveryWithImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoveryWithImageCell.h; sourceTree = "<group>"; };
@@ -1048,6 +1053,9 @@
 				E2FEBB121CA1A57A004F9042 /* MartWebViewController.h */,
 				E2FEBB131CA1A57A004F9042 /* MartWebViewController.m */,
 				E2FEBB141CA1A57A004F9042 /* MartWebViewController.xib */,
+				276BBD201CACF5F500CA392E /* AddNewVoucherViewController.h */,
+				276BBD211CACF5F500CA392E /* AddNewVoucherViewController.m */,
+				276BBD221CACF5F500CA392E /* AddNewVoucherViewController.xib */,
 			);
 			path = Mart;
 			sourceTree = "<group>";
@@ -1557,6 +1565,7 @@
 				1A4F321D1CACE0BA001E4AFA /* like@2x.png in Resources */,
 				1ACC38791C9FC4DB00C9E837 /* ser-04@3x.png in Resources */,
 				1A5695201C92ABF0001EA32F /* code01@3x.png in Resources */,
+				276BBD241CACF5F500CA392E /* AddNewVoucherViewController.xib in Resources */,
 				1ACFB9B21C8EACA20083FD07 /* tabbar_more@3x.png in Resources */,
 				E2BDB8221C7B644600274CE3 /* BrandListViewController.xib in Resources */,
 				1ACFB9B81C8EACA20083FD07 /* tabbar_myCardBag@3x.png in Resources */,
@@ -1708,6 +1717,7 @@
 				E2FEE3761C79E7860079B824 /* AppDelegate.m in Sources */,
 				27D39A021C8D261200A3F3C3 /* MidImageLeftButton.m in Sources */,
 				27D39A521C92AC5D00A3F3C3 /* MJRefreshBackNormalFooter.m in Sources */,
+				276BBD231CACF5F500CA392E /* AddNewVoucherViewController.m in Sources */,
 				E2FEE3C51C79F58B0079B824 /* MyCardBagViewController.m in Sources */,
 				27512FDD1CAA054300BCADA1 /* MJFoundation.m in Sources */,
 				27D39A551C92AC5D00A3F3C3 /* MJRefreshNormalHeader.m in Sources */,
