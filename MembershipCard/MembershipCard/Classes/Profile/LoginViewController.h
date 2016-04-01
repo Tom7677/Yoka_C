@@ -23,10 +23,4 @@
 @property (strong, nonatomic) IBOutlet UIView *wxView;
 @property (weak, nonatomic) IBOutlet TPKeyboardAvoidingScrollView *scrollView;
 
-
-
-- (IBAction)getCodeBtnAction:(id)sender;
-- (IBAction)loginAction:(id)sender;
-- (IBAction)weixinLoginAction:(id)sender;
-
 @end

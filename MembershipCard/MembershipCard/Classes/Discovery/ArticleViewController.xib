@@ -121,7 +121,7 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="842" y="639"/>
+            <point key="canvasLocation" x="708" y="658"/>
         </view>
     </objects>
     <resources>

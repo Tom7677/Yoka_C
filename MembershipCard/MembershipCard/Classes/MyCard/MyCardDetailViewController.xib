@@ -137,14 +137,14 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kdF-dO-a2Z">
-                    <rect key="frame" x="70" y="23" width="180" height="65"/>
+                    <rect key="frame" x="50" y="23" width="220" height="100"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="180" id="U88-J3-hKt"/>
-                        <constraint firstAttribute="height" constant="65" id="Veb-5s-mUb"/>
+                        <constraint firstAttribute="width" constant="220" id="U88-J3-hKt"/>
+                        <constraint firstAttribute="height" constant="100" id="Veb-5s-mUb"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="463826849508202" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aMs-8W-MwE">
-                    <rect key="frame" x="10" y="96" width="300" height="28"/>
+                    <rect key="frame" x="10" y="131" width="300" height="28"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="28" id="Kmi-mS-Khu"/>
                     </constraints>
@@ -153,7 +153,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="无法扫描" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWf-IJ-41r">
-                    <rect key="frame" x="124" y="144" width="73" height="21"/>
+                    <rect key="frame" x="124" y="179" width="73" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="73" id="0yK-xS-GXt"/>
                         <constraint firstAttribute="height" constant="21" id="RnR-6v-9Yx"/>
@@ -163,7 +163,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="All-Bh-BrT" userLabel="Mark View">
-                    <rect key="frame" x="0.0" y="169" width="320" height="310"/>
+                    <rect key="frame" x="0.0" y="204" width="320" height="310"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hod-kt-yfo">
                             <rect key="frame" x="15" y="30" width="135" height="90"/>
@@ -231,7 +231,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G7M-Ll-Uf8">
-                    <rect key="frame" x="10" y="501" width="300" height="35"/>
+                    <rect key="frame" x="10" y="536" width="300" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="vMT-4u-cYD"/>
                     </constraints>

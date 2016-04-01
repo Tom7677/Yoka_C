@@ -68,7 +68,7 @@
 
 - (void)getCradInfo
 {
-    [[NetworkAPI shared]getMyCardInfoByMerchantId:_model.merchant_id WithFinish:^(CardInfoModel *model) {
+    [[NetworkAPI shared]getMyCardInfoByCardId:_model.card_id WithFinish:^(CardInfoModel *model) {
         [self showViewByModel:model];
     } withErrorBlock:^(NSError *error) {
         
@@ -139,7 +139,17 @@
     //卡号生成条形码
     NSError *error = nil;
     ZXMultiFormatWriter *writer = [ZXMultiFormatWriter writer];
-    ZXBitMatrix* result = [writer encode:model.card_no format:kBarcodeFormatCode128 width:180 height:60 error:&error];
+    ZXBarcodeFormat type;
+    if ([model.type isEqualToString:@"pdf417"]) {
+        type = kBarcodeFormatPDF417;
+    }else if ([model.type isEqualToString:@"EAN-13"]){
+        type = kBarcodeFormatEan13;
+    }else if ([model.type isEqualToString:@"EAN-8"]){
+        type = kBarcodeFormatEan8;
+    }else {
+        type = kBarcodeFormatCode128;
+    }
+    ZXBitMatrix* result = [writer encode:model.card_no format: type width:180 height:60 error:&error];
     if (result) {
         CGImageRef image = [[ZXImage imageWithMatrix:result] cgimage ];
         _qrCodeImageView.image = [UIImage imageWithCGImage:image];

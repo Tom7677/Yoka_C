@@ -19,17 +19,21 @@
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *wxPhoneNumTextField;
 @property (weak, nonatomic) IBOutlet UITextField *wxCodeTextField;
-@property (weak, nonatomic) IBOutlet UIButton *wxGetCodeBtn;
-@property (nonatomic, getter=isWXLogin) BOOL wxLogin;
 @property (nonatomic, assign) int count;
 @property (nonatomic, strong) NSTimer *timer;
+@property (weak, nonatomic) IBOutlet UIButton *wxGetCodeBtn;
+@property (nonatomic, getter=isWXLogin) BOOL wxLogin;
+@property (weak, nonatomic) IBOutlet UIButton *cancelWXloginBtn;
 @end
 
 @implementation LoginViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.wxLogin = NO;
+    _wxLogin = NO;
+    _wxGetCodeBtn = _getCodeBtn;
+    _cancelWXloginBtn.layer.borderWidth = 1;
+    _cancelWXloginBtn.layer.borderColor = [[UIColor groupTableViewBackgroundColor] CGColor];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ChangeNameNotification) name:@"ChangeNameNotification" object:nil];
     [_logoImageView circularBead:15];
     [_loginButton circularBead:4];
@@ -58,28 +62,36 @@
 }
 
 - (IBAction)getCodeBtnAction:(id)sender {
-    if (self.isWXLogin) {
-        _getCodeBtn = _wxGetCodeBtn;
+    NSString *phoneNum;
+    if (_wxLogin) {
+        phoneNum = _wxPhoneNumTextField.text;
+    }else {
+        phoneNum = _phoneNumTextField.text;
     }
-    if (_phoneNumTextField.text.length == 0) {
+    if (phoneNum.length == 0) {
         //@"请输入手机号码"
         return;
     }
-    if (![self checkTelNumber:_phoneNumTextField.text]) {
+    if (![self checkTelNumber:phoneNum]) {
         //@"请输入格式正确的手机号码"
         return;
     }
-    [[NetworkAPI shared]getMobileCodeByMobile:_phoneNumTextField.text WithFinish:^(BOOL isSuccess, NSString *msg) {
-        if (isSuccess) {
-            _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
-        }
-        else {
+    if (!_getCodeBtn.enabled) {
+        return;
+    }else {
+        [[NetworkAPI shared]getMobileCodeByMobile:phoneNum WithFinish:^(BOOL isSuccess, NSString *msg) {
+            if (isSuccess) {
+                _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
+            }
+            else {
+                
+            }
+        } withErrorBlock:^(NSError *error) {
             
-        }
-    } withErrorBlock:^(NSError *error) {
-        
-    }];
+        }];
+    }
 }
+
 
 -(void)updateTime
 {
@@ -95,12 +107,7 @@
 }
 
 - (IBAction)loginAction:(id)sender {
-    if (self.isWXLogin) {
-        _codeTextField.text = _wxCodeTextField.text;
-        _phoneNumTextField.text = _wxPhoneNumTextField.text;
-
-    }
-        if (_phoneNumTextField.text.length == 0) {
+    if (_phoneNumTextField.text.length == 0) {
         //@"请输入手机号码"
         return;
     }
@@ -108,36 +115,65 @@
         //@"请输入格式正确的手机号码"
         return;
     }
-    [[NetworkAPI shared]userLoginByMobile:_phoneNumTextField.text AndCode:_codeTextField.text WithFinish:^(BOOL isSuccess, NSString *msg) {
-        if (isSuccess) {
-            ChooseAreaViewController *vc = [[ChooseAreaViewController alloc]init];
-            UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:vc];
-            [self presentViewController:nav animated:YES completion:nil];
-            if (self.isWXLogin) {
-                [_wxView removeFromSuperview];
-                self.wxLogin = NO;
+    if (_getCodeBtn.enabled) {
+        return;
+    }else {
+        [[NetworkAPI shared]userLoginByMobile:_phoneNumTextField.text AndCode:_codeTextField.text WithFinish:^(BOOL isSuccess, NSString *msg) {
+            if (isSuccess) {
+                [self goHomeView];
+                [[NSUserDefaults standardUserDefaults]setObject:_phoneNumTextField.text forKey:@"phoneNum"];
+                [[UMengAnalyticsUtil shared]loginByMobile];
             }
-            [[UMengAnalyticsUtil shared]loginByMobile];
-        }
-        else {
-            
+            else {
+                
+            }
+        } withErrorBlock:^(NSError *error) {
+            if (error.code == NSURLErrorNotConnectedToInternet) {
+                
+            }
+            else {
+                
+            }
+        }];
+    }
+}
+
+-(void)goHomeView {
+    ChooseAreaViewController *vc = [[ChooseAreaViewController alloc]init];
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:vc];
+    [self presentViewController:nav animated:YES completion:nil];
+}
+
+- (IBAction)wxLoginAction:(id)sender {
+    if (_wxPhoneNumTextField.text.length == 0) {
+        //@"请输入手机号码"
+        return;
+    }
+    if (![self checkTelNumber:_wxPhoneNumTextField.text]) {
+        //@"请输入格式正确的手机号码"
+        return;
+    }
+
+    [[NetworkAPI shared]bindMobileByMobile:_wxPhoneNumTextField.text AndCode:_wxCodeTextField.text WithFinish:^(BOOL isSuccess, NSString *msg) {
+        if (isSuccess) {
+            [self goHomeView];
+            [[NSUserDefaults standardUserDefaults]setObject:_wxPhoneNumTextField.text forKey:@"phoneNum"];
         }
     } withErrorBlock:^(NSError *error) {
-        if (error.code == NSURLErrorNotConnectedToInternet) {
-            
-        }
-        else {
-            
-        }
+        
     }];
 }
 
-- (IBAction)weixinLoginAction:(id)sender {
+- (IBAction)chooseWXLoginBtn:(id)sender {
+    _wxLogin = YES;
     [self sendAuthRequest];
     [[UMengAnalyticsUtil shared]loginByWX];
     [_scrollView addSubview:_wxView];
-    _wxLogin = YES;
-
+    _wxView.width = MainScreenWidth;
+}
+- (IBAction)cancelWXLoginAction:(id)sender {
+    _wxLogin = NO;
+    [_wxView removeFromSuperview];
 }
 
 - (void)sendAuthRequest

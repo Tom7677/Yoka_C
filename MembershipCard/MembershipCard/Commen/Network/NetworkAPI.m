@@ -57,8 +57,8 @@
     }];
 }
 
-- (void)wechatLoginByWXCode:(NSString *)code WithFinish:(void(^)(BOOL isSuccess ,NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock {
-    NSString *urlStr = [hostUrl stringByAppendingString:@"User/delete_message"];
+- (void)wechatLoginByWXCode:(NSString *)code WithFinish:(void(^)(BOOL isSuccess, NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock {
+    NSString *urlStr = [hostUrl stringByAppendingString:@"User/wx_login"];
     NSDictionary *param = @{@"code":code};
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager POST:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -135,10 +135,10 @@
     }];
 }
 
-- (void)getMyCardInfoByCardId:(NSString *)merchantId WithFinish:(void(^)(CardInfoModel *model))block withErrorBlock:(void(^)(NSError *error)) errorBlock
+- (void)getMyCardInfoByCardId:(NSString *)cardId WithFinish:(void(^)(CardInfoModel *model))block withErrorBlock:(void(^)(NSError *error)) errorBlock
 {
     NSString *urlStr = [hostUrl stringByAppendingString:@"Card/get_card_info"];
-    NSDictionary *param = @{@"token":[self getAccessToken], @"card_id":merchantId};
+    NSDictionary *param = @{@"token":[self getAccessToken], @"card_id":cardId};
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject[@"status"] integerValue] == 1) {

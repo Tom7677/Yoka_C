@@ -38,6 +38,15 @@
     _scrollView.contentSize = CGSizeMake(MainScreenWidth, _bgView.height);
     [_scrollView addSubview:_bgView];
     [_avatarBtn circularBoarderBead:_avatarBtn.width / 2 withBoarder:1 color:UIColorFromRGB(0xf0f0f0)];
+    [_avatarBtn setImage:[[NSUserDefaults standardUserDefaults]objectForKey:@"avator"] forState:0];
+    NSString *nickName = [[NSUserDefaults standardUserDefaults]objectForKey:@"nickName"];
+    NSString *phoneNum = [[NSUserDefaults standardUserDefaults]objectForKey:@"phoneNum"];
+    if (nickName) {
+        _nickNameLabel.text = nickName;
+    }
+    if (phoneNum) {
+        _phoneNumLabel.text = phoneNum;
+    }
 }
 
 - (void)didReceiveMemoryWarning {

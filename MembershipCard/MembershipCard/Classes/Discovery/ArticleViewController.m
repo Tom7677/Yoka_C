@@ -11,7 +11,7 @@
 #import "NetworkAPI.h"
 #import "UIView+border.h"
 
-@interface ArticleViewController ()<UIWebViewDelegate>
+@interface ArticleViewController ()<UIWebViewDelegate,UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *shareView;
 @property (weak, nonatomic) IBOutlet UIButton *shareToWXBtn;
 @property (weak, nonatomic) IBOutlet UIButton *shareToCircelBtn;
@@ -50,7 +50,9 @@
     
 }
 - (void)shareButtonClick {
-
+    [self.view addSubview:_shareView];
+    _shareView.frame = CGRectMake(0, MainScreenHeight-150, MainScreenWidth, 150);
+    
 }
 
 - (void)likeButtonClick:(UIButton *)sender {

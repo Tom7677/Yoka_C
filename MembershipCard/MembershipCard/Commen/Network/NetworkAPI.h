@@ -79,7 +79,7 @@ static NSInteger pageSize = 20;
  *  @param block      block description
  *  @param errorBlock errorBlock description
  */
-- (void)getMyCardInfoByMerchantId:(NSString *)merchantId WithFinish:(void(^)(CardInfoModel *model))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+- (void)getMyCardInfoByCardId:(NSString *)cardId WithFinish:(void(^)(CardInfoModel *model))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 
 /*!
  *  @brief  删除卡片

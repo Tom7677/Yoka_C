@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
             <connections>
                 <outlet property="bgView" destination="i5M-Pr-FkT" id="Wtc-fe-2Xr"/>
+                <outlet property="cancelWXloginBtn" destination="hai-f2-boR" id="ZHD-WX-kDu"/>
                 <outlet property="codeTextField" destination="49O-Bk-um2" id="h6f-eJ-mYH"/>
                 <outlet property="getCodeBtn" destination="sHp-HW-35K" id="6AD-sR-bp2"/>
                 <outlet property="loginButton" destination="3EH-1A-mZr" id="tIG-Yh-9mp"/>
@@ -18,7 +19,7 @@
                 <outlet property="view" destination="A1S-KD-0yG" id="WeP-IV-Nji"/>
                 <outlet property="weixinBtn" destination="wlJ-PX-Ya8" id="zAa-oW-KNk"/>
                 <outlet property="wxCodeTextField" destination="44q-LL-UPu" id="13e-gg-1Jl"/>
-                <outlet property="wxGetCodeBtn" destination="O97-wW-XXc" id="lnG-v1-XjL"/>
+                <outlet property="wxGetCodeBtn" destination="O97-wW-XXc" id="DZV-ve-VKa"/>
                 <outlet property="wxPhoneNumTextField" destination="e7f-QY-mae" id="gmN-tL-Eax"/>
                 <outlet property="wxView" destination="kWi-Z1-n6f" id="Sge-dC-fCz"/>
             </connections>
@@ -197,7 +198,7 @@
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
-                                <action selector="weixinLoginAction:" destination="-1" eventType="touchUpInside" id="LFm-0W-Vjv"/>
+                                <action selector="chooseWXLoginBtn:" destination="-1" eventType="touchUpInside" id="cXE-uN-4fW"/>
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="或者" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PHv-DW-9Md">
@@ -335,7 +336,7 @@
                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
-                                <action selector="getCodeBtnAction:" destination="-1" eventType="touchUpInside" id="dQo-HN-Ofx"/>
+                                <action selector="getCodeBtnAction:" destination="-1" eventType="touchUpInside" id="mZf-cR-Zzc"/>
                             </connections>
                         </button>
                     </subviews>
@@ -383,7 +384,20 @@
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
-                        <action selector="loginAction:" destination="-1" eventType="touchUpInside" id="DBn-qA-xcJ"/>
+                        <action selector="wxLoginAction:" destination="-1" eventType="touchUpInside" id="56B-LY-HrU"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hai-f2-boR">
+                    <rect key="frame" x="15" y="324" width="290" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="Rsf-7y-OXE"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="取消">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="cancelWXLoginAction:" destination="-1" eventType="touchUpInside" id="7pt-Xu-n1q"/>
                     </connections>
                 </button>
             </subviews>
@@ -396,9 +410,12 @@
                 <constraint firstAttribute="trailing" secondItem="I0m-Bv-gL4" secondAttribute="trailing" constant="15" id="Sd3-mv-0ql"/>
                 <constraint firstItem="zDZ-yn-nct" firstAttribute="top" secondItem="mo4-ov-tdR" secondAttribute="bottom" id="Tuz-wz-6KP"/>
                 <constraint firstAttribute="trailing" secondItem="yp6-nh-uFt" secondAttribute="trailing" constant="15" id="VRP-Ad-crg"/>
+                <constraint firstAttribute="trailing" secondItem="hai-f2-boR" secondAttribute="trailing" constant="15" id="dPK-dv-eDY"/>
+                <constraint firstItem="hai-f2-boR" firstAttribute="top" secondItem="I0m-Bv-gL4" secondAttribute="bottom" constant="30" id="hLq-M8-xEc"/>
                 <constraint firstItem="yp6-nh-uFt" firstAttribute="leading" secondItem="kWi-Z1-n6f" secondAttribute="leading" constant="15" id="iAU-i2-jEC"/>
                 <constraint firstItem="yp6-nh-uFt" firstAttribute="top" secondItem="zDZ-yn-nct" secondAttribute="bottom" constant="30" id="oAK-yf-BEy"/>
                 <constraint firstItem="mo4-ov-tdR" firstAttribute="top" secondItem="kWi-Z1-n6f" secondAttribute="top" constant="40" id="ooX-pT-3rP"/>
+                <constraint firstItem="hai-f2-boR" firstAttribute="leading" secondItem="kWi-Z1-n6f" secondAttribute="leading" constant="15" id="p22-He-KFm"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="1108" y="326"/>
