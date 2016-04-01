@@ -72,14 +72,14 @@ static NSInteger pageSize = 20;
  */
 - (void)getMyCardBagListWithFinish:(void(^)(NSArray *imageUrlArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 
-/**
- *  获取某个会员卡简介
+/*!
+ *  @brief  获取某个会员卡简介
  *
- *  @param merchantId 商户ID
+ *  @param cardId     卡片ID
  *  @param block      block description
  *  @param errorBlock errorBlock description
  */
-- (void)getMyCardInfoByMerchantId:(NSString *)merchantId WithFinish:(void(^)(CardInfoModel *model))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+- (void)getMyCardInfoByCardId:(NSString *)cardId WithFinish:(void(^)(CardInfoModel *model))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 
 /*!
  *  @brief  删除卡片

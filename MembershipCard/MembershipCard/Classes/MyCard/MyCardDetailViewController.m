@@ -68,7 +68,7 @@
 
 - (void)getCradInfo
 {
-    [[NetworkAPI shared]getMyCardInfoByMerchantId:_model.merchant_id WithFinish:^(CardInfoModel *model) {
+    [[NetworkAPI shared]getMyCardInfoByCardId:_model.card_id WithFinish:^(CardInfoModel *model) {
         [self showViewByModel:model];
     } withErrorBlock:^(NSError *error) {
         
@@ -112,15 +112,6 @@
 
     [self.navigationController pushViewController:vc animated:YES];
 }
-//- (void)getAnnouncementList
-//{
-//    [[NetworkAPI shared]getMerchantAnnouncementByMerchantId:_model.merchant_id WithFinish:^(NSArray *dataArray) {
-//        _dataArray = dataArray;
-//        [_servicesScrollView reloadData];
-//    } withErrorBlock:^(NSError *error) {
-//        
-//    }];
-//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -198,7 +189,7 @@
  *  @param sender description
  */
 - (IBAction)serviceBtnAction:(id)sender {
-    float centerX = 2 * (MainScreenWidth - 20) / 3 ;
+    float centerX = (MainScreenWidth - 20) / 2;
     [_hornTopImageView.layer addAnimation:[self moveTime:0.1 X:[NSNumber numberWithFloat:centerX]] forKey:nil];
     _cardInfoBtn.selected = NO;
     _serviceBtn.selected = YES;
@@ -232,7 +223,7 @@
  */
 - (IBAction)deleteBtnAction:(id)sender {
     [[UMengAnalyticsUtil shared]deleteCardByMerchantsName:_model.name];
-    [[NetworkAPI shared] updateCardRelationByMerchantId:_model.merchant_id WithDeleteAction:YES WithFinish:^(BOOL isSuccess) {
+    [[NetworkAPI shared] updateCardRelationByMerchantId:_model.card_id WithDeleteAction:YES WithFinish:^(BOOL isSuccess) {
         [self.navigationController popToRootViewControllerAnimated:YES];
     } withErrorBlock:^(NSError *error) {
         

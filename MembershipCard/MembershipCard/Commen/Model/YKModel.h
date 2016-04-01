@@ -17,7 +17,7 @@
 
 /** 我的会员卡模型 */
 @interface MyCardModel : NSObject
-@property(nonatomic,strong) NSString *merchant_id; //商户ID
+@property(nonatomic,strong) NSString *card_id; //卡ID
 @property(nonatomic,strong) NSString *name;//商户名称
 @property(nonatomic,strong) NSString *f_logo;//方logo
 @property(nonatomic,strong) NSString *y_logo;//圆logo
@@ -137,5 +137,5 @@
 @property(nonatomic,copy) NSString *cat_name;//卡片类别名字
 @property(nonatomic,copy) NSString *mobile;//联系人手机号码
 @property(nonatomic,copy) NSString *contact;//联系人
-@property(nonatomic,strong) NSArray *images;//联系人
+@property(nonatomic,strong) NSArray *images;//图片
 @end
