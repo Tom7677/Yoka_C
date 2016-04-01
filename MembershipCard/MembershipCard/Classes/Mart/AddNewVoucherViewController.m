@@ -51,7 +51,6 @@
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(28, 0, 30, 200)];
     label.font = [UIFont systemFontOfSize:12];
     [cell.contentView addSubview:label];
-    label
     return cell;
 }
 @end
