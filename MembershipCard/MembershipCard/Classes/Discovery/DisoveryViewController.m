@@ -204,7 +204,45 @@
 
 - (void)loadMoreData
 {
-    
+    __weak DisoveryViewController *weakSelf = self;
+    _page = _page + 1;
+    if (_index == 0) {
+        [[NetworkAPI shared]getTopArticleListByCity:_cityName page:_page WithFinish:^(NSArray *dataArray) {
+            if (dataArray != nil) {
+                NSMutableArray *resultArray = [[NSMutableArray alloc]init];
+                [resultArray addObjectsFromArray:_resultDic[@"推荐"]];
+                [_resultDic setObject:resultArray forKey:@"推荐"];
+                [weakSelf.currentTableView reloadData];
+            }
+            if (dataArray.count >= pageSize) {
+                [weakSelf.currentTableView.mj_footer endRefreshing];
+            }
+            else {
+                [weakSelf.currentTableView.mj_footer endRefreshingWithNoMoreData];
+            }
+        } withErrorBlock:^(NSError *error) {
+            
+        }];
+    }
+    else {
+        ArticleTypeModel *model = _typeArray[_index - 1];
+        [[NetworkAPI shared]getArticleListByCatId:model.cat_id cityName:_cityName page:_page WithFinish:^(NSArray *dataArray) {
+            if (dataArray != nil) {
+                NSMutableArray *resultArray = [[NSMutableArray alloc]init];
+                [resultArray addObjectsFromArray:_resultDic[model.cat_name]];
+                [_resultDic setObject:resultArray forKey:model.cat_name];
+                [weakSelf.currentTableView reloadData];
+            }
+            if (dataArray.count >= pageSize) {
+                [weakSelf.currentTableView.mj_footer endRefreshing];
+            }
+            else {
+                [weakSelf.currentTableView.mj_footer endRefreshingWithNoMoreData];
+            }
+        } withErrorBlock:^(NSError *error) {
+            
+        }];
+    }
 }
 
 - (void)actionbtn:(UIButton *)btn
