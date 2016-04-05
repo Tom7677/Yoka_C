@@ -43,16 +43,16 @@
         [tempArray addObject:item];
     }
     self.navigationItem.rightBarButtonItems = [tempArray copy];
-    UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
+    UIWebView *webView = [[UIWebView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.view addSubview:webView];
     webView.delegate = self;
     [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.urlStr]]];
-    
+    _shareView.frame = CGRectMake(0, MainScreenHeight - 150 - NavAndStatusBarHeight, MainScreenWidth, 150);
+    [self.view addSubview:_shareView];
+    _shareView.hidden = YES;
 }
 - (void)shareButtonClick {
-    [self.view addSubview:_shareView];
-    _shareView.frame = CGRectMake(0, MainScreenHeight-150, MainScreenWidth, 150);
-    
+    _shareView.hidden = NO;
 }
 
 - (void)likeButtonClick:(UIButton *)sender {

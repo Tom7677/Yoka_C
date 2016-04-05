@@ -15,6 +15,8 @@
 #import "MartViewController.h"
 #import "takePhoto.h"
 #import "SecondHandCardViewController.h"
+#import "EditNameViewController.h"
+#import <UIButton+WebCache.h>
 
 @interface MoreViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *cityLabel;
@@ -54,6 +56,25 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self loadUserInfo];
+}
+
+- (void)loadUserInfo
+{
+    [[NetworkAPI shared]getUserInfoWithFinish:^(UserInfoModel *model) {
+        if (![self isEmpty:model.avatar]) {
+            [_avatarBtn sd_setImageWithURL:[NSURL URLWithString:model.avatar] forState:UIControlStateNormal];
+        }
+        _nickNameLabel.text = model.nick_name;
+        _phoneNumLabel.text = model.mobile;
+    } withErrorBlock:^(NSError *error) {
+        
+    }];
+}
+
 /**
  *  跳设置
  */
@@ -72,6 +93,9 @@
 }
 
 - (IBAction)editBtnAction:(id)sender {
+    EditNameViewController *vc = [[EditNameViewController alloc]init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)cardMartBtnAction:(id)sender {

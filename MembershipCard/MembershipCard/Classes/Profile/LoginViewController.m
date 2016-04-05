@@ -186,8 +186,6 @@
     [WXApi sendReq:req];
 }
 
-
-
 /*!
  *  @brief  检验手机号码格式是否正确
  *

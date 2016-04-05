@@ -8,20 +8,34 @@
 
 #import "WebViewController.h"
 
-@interface WebViewController ()
+@interface WebViewController ()<UIWebViewDelegate>
 @property (nonatomic, strong) UIWebView *webView;
+@property (nonatomic, copy) NSString *titleString;
+@property (nonatomic, copy) NSString *urlStr;
 @end
 
 @implementation WebViewController
+- (instancetype)initWithURLString:(NSString *)urlStr titleLabel:(NSString *)title
+{
+    self = [super init];
+    if (self) {
+        _urlStr = urlStr;
+        _titleString = title;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = _titleString;
     _webView = [[UIWebView alloc]initWithFrame:CGRectMake(0, 0, MainScreenWidth, MainScreenHeight)];
     [self.view addSubview:_webView];
+    _webView.delegate = self;
+    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_urlStr]]];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
 @end

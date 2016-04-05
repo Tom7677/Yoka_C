@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0FB72C477A5344F2A19CAE2B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA99FE15DBFFFD8B1484D630 /* libPods.a */; };
 		1A003ACD1C9ECCFB00FF12A4 /* ser01.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A003ACC1C9ECCFB00FF12A4 /* ser01.png */; };
-		1A003AD01C9ED44600FF12A4 /* ServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A003ACF1C9ED44600FF12A4 /* ServiceViewController.m */; };
 		1A14709C1C8D7CC5003A0616 /* addCard-code.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A1470931C8D7CC5003A0616 /* addCard-code.png */; };
 		1A14709D1C8D7CC5003A0616 /* addCard-code@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A1470941C8D7CC5003A0616 /* addCard-code@2x.png */; };
 		1A14709E1C8D7CC5003A0616 /* addCard-code@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A1470951C8D7CC5003A0616 /* addCard-code@3x.png */; };
@@ -109,6 +108,8 @@
 		2731E7A61C996ADF00FB3323 /* UITableView+FDTemplateLayoutCellDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = 2731E7A21C996ADF00FB3323 /* UITableView+FDTemplateLayoutCellDebug.m */; };
 		2731E7AA1C9970ED00FB3323 /* DiscoveryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2731E7A81C9970ED00FB3323 /* DiscoveryTableViewCell.m */; };
 		2731E7AB1C9970ED00FB3323 /* DiscoveryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2731E7A91C9970ED00FB3323 /* DiscoveryTableViewCell.xib */; };
+		273476381CB35D0D00FAF042 /* EditNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 273476361CB35D0D00FAF042 /* EditNameViewController.m */; };
+		273476391CB35D0D00FAF042 /* EditNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 273476371CB35D0D00FAF042 /* EditNameViewController.xib */; };
 		27512FDC1CAA054300BCADA1 /* MJExtensionConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 27512FC91CAA054300BCADA1 /* MJExtensionConst.m */; };
 		27512FDD1CAA054300BCADA1 /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 27512FCB1CAA054300BCADA1 /* MJFoundation.m */; };
 		27512FDE1CAA054300BCADA1 /* MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 27512FCD1CAA054300BCADA1 /* MJProperty.m */; };
@@ -245,8 +246,6 @@
 
 /* Begin PBXFileReference section */
 		1A003ACC1C9ECCFB00FF12A4 /* ser01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ser01.png; sourceTree = "<group>"; };
-		1A003ACE1C9ED44600FF12A4 /* ServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceViewController.h; sourceTree = "<group>"; };
-		1A003ACF1C9ED44600FF12A4 /* ServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceViewController.m; sourceTree = "<group>"; };
 		1A1470931C8D7CC5003A0616 /* addCard-code.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addCard-code.png"; sourceTree = "<group>"; };
 		1A1470941C8D7CC5003A0616 /* addCard-code@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addCard-code@2x.png"; sourceTree = "<group>"; };
 		1A1470951C8D7CC5003A0616 /* addCard-code@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addCard-code@3x.png"; sourceTree = "<group>"; };
@@ -359,6 +358,9 @@
 		2731E7A71C9970ED00FB3323 /* DiscoveryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoveryTableViewCell.h; sourceTree = "<group>"; };
 		2731E7A81C9970ED00FB3323 /* DiscoveryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoveryTableViewCell.m; sourceTree = "<group>"; };
 		2731E7A91C9970ED00FB3323 /* DiscoveryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscoveryTableViewCell.xib; sourceTree = "<group>"; };
+		273476351CB35D0D00FAF042 /* EditNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditNameViewController.h; sourceTree = "<group>"; };
+		273476361CB35D0D00FAF042 /* EditNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditNameViewController.m; sourceTree = "<group>"; };
+		273476371CB35D0D00FAF042 /* EditNameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditNameViewController.xib; sourceTree = "<group>"; };
 		27512FC71CAA054300BCADA1 /* MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtension.h; sourceTree = "<group>"; };
 		27512FC81CAA054300BCADA1 /* MJExtensionConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtensionConst.h; sourceTree = "<group>"; };
 		27512FC91CAA054300BCADA1 /* MJExtensionConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJExtensionConst.m; sourceTree = "<group>"; };
@@ -623,6 +625,9 @@
 				1A344BFB1C884AA1009F3FFC /* MoreViewController.h */,
 				1A344BFC1C884AA1009F3FFC /* MoreViewController.m */,
 				1A344BFD1C884AA1009F3FFC /* MoreViewController.xib */,
+				273476351CB35D0D00FAF042 /* EditNameViewController.h */,
+				273476361CB35D0D00FAF042 /* EditNameViewController.m */,
+				273476371CB35D0D00FAF042 /* EditNameViewController.xib */,
 			);
 			path = More;
 			sourceTree = "<group>";
@@ -1233,8 +1238,6 @@
 				1A5695291C92B6A3001EA32F /* CommentsViewController.h */,
 				1A56952A1C92B6A3001EA32F /* CommentsViewController.m */,
 				1A56952B1C92B6A3001EA32F /* CommentsViewController.xib */,
-				1A003ACE1C9ED44600FF12A4 /* ServiceViewController.h */,
-				1A003ACF1C9ED44600FF12A4 /* ServiceViewController.m */,
 			);
 			path = MyCard;
 			sourceTree = "<group>";
@@ -1572,6 +1575,7 @@
 				27D39A181C8FCB5000A3F3C3 /* ChooseAreaViewController.xib in Resources */,
 				1A56951F1C92ABF0001EA32F /* code01@2x.png in Resources */,
 				1A4F321E1CACE0BA001E4AFA /* like@3x.png in Resources */,
+				273476391CB35D0D00FAF042 /* EditNameViewController.xib in Resources */,
 				1ACFB9B01C8EACA20083FD07 /* tabbar_more.png in Resources */,
 				1A4F32371CACE612001E4AFA /* share_wx@3x.png in Resources */,
 				1ACFB9CB1C8EB8680083FD07 /* more1.png in Resources */,
@@ -1716,6 +1720,7 @@
 				E2FBA6061C82B57000F9F799 /* UIView+border.m in Sources */,
 				E2FEE3761C79E7860079B824 /* AppDelegate.m in Sources */,
 				27D39A021C8D261200A3F3C3 /* MidImageLeftButton.m in Sources */,
+				273476381CB35D0D00FAF042 /* EditNameViewController.m in Sources */,
 				27D39A521C92AC5D00A3F3C3 /* MJRefreshBackNormalFooter.m in Sources */,
 				276BBD231CACF5F500CA392E /* AddNewVoucherViewController.m in Sources */,
 				E2FEE3C51C79F58B0079B824 /* MyCardBagViewController.m in Sources */,
@@ -1762,7 +1767,6 @@
 				1A7300051C86CD1B0054DB1D /* AboutViewController.m in Sources */,
 				27D39A131C8FB90A00A3F3C3 /* UILabel+caculateSize.m in Sources */,
 				2731E7A61C996ADF00FB3323 /* UITableView+FDTemplateLayoutCellDebug.m in Sources */,
-				1A003AD01C9ED44600FF12A4 /* ServiceViewController.m in Sources */,
 				2731E7A41C996ADF00FB3323 /* UITableView+FDKeyedHeightCache.m in Sources */,
 				27512FDE1CAA054300BCADA1 /* MJProperty.m in Sources */,
 				E2FEE3B51C79F3260079B824 /* BaseViewController.m in Sources */,

@@ -116,6 +116,13 @@ static NSInteger pageSize = 20;
 - (void)deleteNoticeWithMessageId:(NSString *)messageId WithFinish:(void(^)(NSString *msg, BOOL isSuccess))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 
 /*!
+ *  @brief  清空消息
+ *
+ *  @param block      block description
+ *  @param errorBlock errorBlock description
+ */
+- (void)clearNoticeWithFinish:(void(^)(NSString *msg, BOOL isSuccess))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+/*!
  *  @brief  获取商户公告
  *
  *  @param memberId   会员ID

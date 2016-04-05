@@ -21,6 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"通知";
     _resultArray = [[NSMutableArray alloc]init];
     _rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 60, 28)];
     _rightBtn.titleLabel.font = [UIFont systemFontOfSize:14];
@@ -58,7 +59,7 @@
 - (void)clearBtnAction
 {
     [[UMengAnalyticsUtil shared]clearNotice];
-    [[NetworkAPI shared]deleteAnnouncementWithFinish:^(BOOL isSuccess) {
+    [[NetworkAPI shared] clearNoticeWithFinish:^(NSString *msg, BOOL isSuccess) {
         if (isSuccess) {
             [_resultArray removeAllObjects];
             [_tableView reloadData];

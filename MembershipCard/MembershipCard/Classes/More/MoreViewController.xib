@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -66,7 +66,7 @@
                                 <constraint firstAttribute="height" constant="1" id="BOn-N3-MoO"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未命名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="42t-TK-GjF">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="未命名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="42t-TK-GjF">
                             <rect key="frame" x="109" y="31" width="110" height="18"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -87,9 +87,9 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oNG-IB-m4S">
-                            <rect key="frame" x="227" y="45" width="85" height="16"/>
+                            <rect key="frame" x="234" y="0.0" width="78" height="105"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="85" id="4KS-VV-ybR"/>
+                                <constraint firstAttribute="width" constant="78" id="yPP-hE-e1h"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <inset key="titleEdgeInsets" minX="9" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -106,7 +106,6 @@
                     <constraints>
                         <constraint firstItem="6nX-vM-6Q7" firstAttribute="centerY" secondItem="zeS-rG-NVL" secondAttribute="centerY" id="4XJ-TX-8LE"/>
                         <constraint firstItem="bxM-tX-sc9" firstAttribute="leading" secondItem="zeS-rG-NVL" secondAttribute="leading" id="6ZW-oD-TTA"/>
-                        <constraint firstItem="oNG-IB-m4S" firstAttribute="leading" secondItem="42t-TK-GjF" secondAttribute="trailing" constant="8" id="CTF-hW-58D"/>
                         <constraint firstItem="42t-TK-GjF" firstAttribute="top" secondItem="bxM-tX-sc9" secondAttribute="bottom" constant="30" id="F4v-By-7lX"/>
                         <constraint firstAttribute="height" constant="105" id="Fac-1y-Q6x"/>
                         <constraint firstAttribute="trailing" secondItem="oNG-IB-m4S" secondAttribute="trailing" constant="8" id="Koe-Vx-bML"/>

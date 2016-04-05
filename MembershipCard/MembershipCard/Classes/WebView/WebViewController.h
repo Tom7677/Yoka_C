@@ -10,4 +10,5 @@
 
 @interface WebViewController : BaseViewController
 
+- (instancetype)initWithURLString:(NSString *)aURL titleLabel:(NSString *)title;
 @end

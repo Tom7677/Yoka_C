@@ -19,6 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _webView.delegate = self;
+    [self loadRequestFromString:_commonWebViewUrl];
 }
 
 - (void)loadRequestFromString:(NSString*)urlString {

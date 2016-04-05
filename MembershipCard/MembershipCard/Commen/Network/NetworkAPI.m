@@ -274,6 +274,23 @@
     }];
 }
 
+- (void)clearNoticeWithFinish:(void(^)(NSString *msg, BOOL isSuccess))block withErrorBlock:(void(^)(NSError *error)) errorBlock
+{
+    NSString *urlStr = [hostUrl stringByAppendingString:@"User/clear_message"];
+    NSDictionary *param = @{@"token":[self getAccessToken]};
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject[@"status"] integerValue] == 1) {
+            block(responseObject[@"msg"],YES);
+        }
+        else {
+            block(responseObject[@"msg"],NO);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        errorBlock(error);
+    }];
+}
+
 - (void)saveMerchantAnnouncementByModel:(AnnouncementModel *)model WithFinish:(void(^)(AnnouncementModel *model))block withErrorBlock:(void(^)(NSError *error)) errorBlock {
     NSDictionary *param = [self creatRequestParamByMethod:@"save_merchant_announcement" WithParamData:@{@"merchant_id":model.merchant_id, @"title":model.title, @"content":model.content}];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];

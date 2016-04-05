@@ -18,7 +18,7 @@
 #import "CommentsViewController.h"
 #import "BaseViewController.h"
 #import "MidImageLeftButton.h"
-#import "ServiceViewController.h"
+#import "WebViewController.h"
 
 @interface MyCardDetailViewController ()<UIGestureRecognizerDelegate>
 @property (nonatomic, strong) NSNumber *fromValue;
@@ -94,9 +94,6 @@
 }
 
 - (void)serviceButtonClick:(MidImageLeftButton *)sender {
-    ServiceViewController *vc = [[ServiceViewController alloc]init];
-    vc.title = sender.titleLabel.text;
-    vc.urlStr = @"www.baidu.com";
     switch (sender.tag) {
         case 0:
             break;
@@ -109,7 +106,7 @@
         default:
             break;
     }
-
+    WebViewController *vc = [[WebViewController alloc]initWithURLString:@"www.baidu.com" titleLabel:sender.titleLabel.text];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
