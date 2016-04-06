@@ -7,7 +7,7 @@
 //
 
 #import "SettingViewController.h"
-#import "AboutViewController.h"
+#import "WebViewController.h"
 
 
 @interface SettingViewController ()
@@ -31,21 +31,15 @@
 - (IBAction)btnAction:(id)sender {
     UIButton *btn = sender;
     if (btn.tag == 1 ) {
-        
-        //关于我们
-        AboutViewController *vc = [[AboutViewController alloc]init];
-        vc.urlStr = ABOUTUS;
+        WebViewController *vc = [[WebViewController alloc]initWithURLString:ABOUTUS titleLabel:@"关于我们"];
         vc.navigationController.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }
     else if (btn.tag == 2) {
-        //使用条款
-        AboutViewController *vc = [[AboutViewController alloc]init];
-        vc.urlStr = TEMSOFUSE;
+        WebViewController *vc = [[WebViewController alloc]initWithURLString:TEMSOFUSE titleLabel:@"使用条款与法律声明"];
         vc.navigationController.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }
-
     else if (btn.tag == 3) {
         
     }

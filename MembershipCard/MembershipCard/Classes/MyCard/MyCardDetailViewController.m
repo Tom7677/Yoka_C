@@ -24,6 +24,7 @@
 @property (nonatomic, strong) NSNumber *fromValue;
 @property (nonatomic, strong) UIImageView *hornTopImageView;
 @property (nonatomic, strong) NSArray *dataArray;
+@property (nonatomic, strong) NSDictionary *cardInfo;
 @end
 
 @implementation MyCardDetailViewController
@@ -69,6 +70,7 @@
 - (void)getCradInfo
 {
     [[NetworkAPI shared]getMyCardInfoByCardId:_model.card_id WithFinish:^(CardInfoModel *model) {
+        _cardInfo = model.merchant_info;
         [self showViewByModel:model];
     } withErrorBlock:^(NSError *error) {
         
@@ -94,20 +96,30 @@
 }
 
 - (void)serviceButtonClick:(MidImageLeftButton *)sender {
+    NSString *urlStr;
     switch (sender.tag) {
         case 0:
+            urlStr = _cardInfo[@"account_value"];
             break;
         case 1:
+            urlStr = _cardInfo[@"announcement"];
             break;
         case 2:
+            urlStr = _cardInfo[@"website"];
             break;
         case 3:
+            urlStr = _cardInfo[@"activities"];
             break;
         default:
+            urlStr = _cardInfo[@"estore"];
             break;
     }
-    WebViewController *vc = [[WebViewController alloc]initWithURLString:@"www.baidu.com" titleLabel:sender.titleLabel.text];
+    if ([self isEmpty:urlStr]) {
+        urlStr = EMPTYWEBURL;
+    }
+    WebViewController *vc = [[WebViewController alloc]initWithURLString:urlStr titleLabel:sender.titleLabel.text];
     [self.navigationController pushViewController:vc animated:YES];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -137,12 +149,13 @@
     }else {
         type = kBarcodeFormatCode128;
     }
-    ZXBitMatrix* result = [writer encode:model.card_no format: type width:180 height:60 error:&error];
+    ZXBitMatrix* result = [writer encode:model.card_no format: type width:180 height:40 error:&error];
     if (result) {
         CGImageRef image = [[ZXImage imageWithMatrix:result] cgimage ];
         _qrCodeImageView.image = [UIImage imageWithCGImage:image];
     }
     _codeLabel.text = [self countNumAndChangeformat:model.card_no];
+    
 }
 
 /**
