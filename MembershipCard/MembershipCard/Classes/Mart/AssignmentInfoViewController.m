@@ -24,7 +24,7 @@
     [_callBtn setTitle:@"拨打\n电话" forState:UIControlStateNormal];
     _callBtn.titleLabel.numberOfLines = 2;
     _callBtn.titleLabel.lineBreakMode = 0;
-    [self loadData];
+    //[self loadData];
 }
 
 - (void)loadData

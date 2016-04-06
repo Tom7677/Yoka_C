@@ -537,7 +537,12 @@
             [formData appendPartWithFileData:avatar name:@"avatar" fileName:fileName mimeType:@"image/jpeg"];
         }
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        block(YES,nil);
+        if ([responseObject[@"status"] integerValue] == 1) {
+            block(YES,responseObject[@"msg"]);
+        }
+        else {
+            block(NO,responseObject[@"msg"]);
+        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         errorBlock(error);
     }];

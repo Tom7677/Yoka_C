@@ -40,9 +40,13 @@
     _scrollView.contentSize = CGSizeMake(MainScreenWidth, _bgView.height);
     [_scrollView addSubview:_bgView];
     [_avatarBtn circularBoarderBead:_avatarBtn.width / 2 withBoarder:1 color:UIColorFromRGB(0xf0f0f0)];
-    [_avatarBtn setImage:[[NSUserDefaults standardUserDefaults]objectForKey:@"avator"] forState:0];
     NSString *nickName = [[NSUserDefaults standardUserDefaults]objectForKey:@"nickName"];
     NSString *phoneNum = [[NSUserDefaults standardUserDefaults]objectForKey:@"phoneNum"];
+    NSString *avator = [[NSUserDefaults standardUserDefaults]objectForKey:@"avator"];
+    if (avator) {
+        [_avatarBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:avator] forState:UIControlStateNormal];
+        [_avatarBtn setTitle:@"" forState:UIControlStateNormal];
+    }
     if (nickName) {
         _nickNameLabel.text = nickName;
     }
@@ -66,7 +70,8 @@
 {
     [[NetworkAPI shared]getUserInfoWithFinish:^(UserInfoModel *model) {
         if (![self isEmpty:model.avatar]) {
-            [_avatarBtn sd_setImageWithURL:[NSURL URLWithString:model.avatar] forState:UIControlStateNormal];
+            [_avatarBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:[imageUrl stringByAppendingString:model.avatar]] forState:UIControlStateNormal];
+            [_avatarBtn setTitle:@"" forState:UIControlStateNormal];
         }
         _nickNameLabel.text = model.nick_name;
         _phoneNumLabel.text = model.mobile;
@@ -88,7 +93,14 @@
 
 - (IBAction)avatarBtnAction:(id)sender {
     [takePhoto sharePicture:YES sendPicture:^(UIImage *image) {
-        [_avatarBtn setImage:image forState:UIControlStateNormal];
+        [_avatarBtn setTitle:@"" forState:UIControlStateNormal];
+        [_avatarBtn setBackgroundImage:image forState:UIControlStateNormal];
+        NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
+        [[NetworkAPI shared]saveUserInfoByNickName:@"" avatar:imageData WithFinish:^(BOOL isSuccess, NSString *msg) {
+            
+        } withErrorBlock:^(NSError *error) {
+            
+        }];
     }];
 }
 

@@ -13,6 +13,7 @@
 #import "MJRefresh.h"
 #import "AssignmentInfoViewController.h"
 #import "VoucherListTableViewCell.h"
+#import "AlbumPickerViewController.h"
 
 #define LINE_WIDTH  50
 @interface SecondHandCardViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
@@ -90,7 +91,11 @@
 {
 //    SellCardViewController *vc = [[SellCardViewController alloc]init];
 //    [self.navigationController pushViewController:vc animated:YES];
-    AssignmentInfoViewController *vc = [[AssignmentInfoViewController alloc]init];
+//    AssignmentInfoViewController *vc = [[AssignmentInfoViewController alloc]init];
+//    vc.hidesBottomBarWhenPushed = YES;
+//    [self.navigationController pushViewController:vc animated:YES];
+    AlbumPickerViewController *vc = [[AlbumPickerViewController alloc]init];
+    vc.isToAlbum = NO;
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
