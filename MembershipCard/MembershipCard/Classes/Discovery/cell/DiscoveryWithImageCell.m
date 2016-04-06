@@ -12,9 +12,9 @@
 @implementation DiscoveryWithImageCell
 
 - (void)awakeFromNib {
-    [_moreBtn setTitleColor:UIColorFromRGB(0xFF526E) forState:0];
-    _moreBtn.layer.borderWidth = 1;
-    _moreBtn.layer.borderColor = [UIColorFromRGB(0xFF526E) CGColor];
+    _moreLabel.textColor = UIColorFromRGB(0xFF526E);
+    _moreLabel.layer.borderWidth = 1;
+    _moreLabel.layer.borderColor = [UIColorFromRGB(0xFF526E) CGColor];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -23,17 +23,14 @@
     // Configure the view for the selected state
 }
 
-- (IBAction)moreBtnAction:(id)sender {
-    
-}
-
 - (CGSize)sizeThatFits:(CGSize)size
 {
     CGFloat totalHeight = 0;
     totalHeight += [self.coverImageView sizeThatFits:size].height;
     totalHeight += [self.titleLabel sizeThatFits:size].height;
     totalHeight += [self.contentLabel sizeThatFits:size].height;
-    totalHeight += [self.moreBtn sizeThatFits:size].height;
+    totalHeight += [self.detailsLabel sizeThatFits:size].height;
+    totalHeight += [self.moreLabel sizeThatFits:size].height;
     totalHeight += 40; // margins
     return CGSizeMake(size.width, totalHeight);
 }

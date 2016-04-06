@@ -31,6 +31,10 @@
     _webView = [[UIWebView alloc]initWithFrame:CGRectMake(0, 0, MainScreenWidth, MainScreenHeight)];
     [self.view addSubview:_webView];
     _webView.delegate = self;
+    //webVeiw禁止左右滑动
+    _webView.scrollView.contentSize = CGSizeMake(MainScreenWidth, MainScreenHeight);
+    _webView.scrollView.bounces = YES;
+    _webView.scalesPageToFit = NO;
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_urlStr]]];
 }
 

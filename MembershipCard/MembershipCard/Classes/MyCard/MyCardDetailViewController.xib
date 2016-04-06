@@ -263,12 +263,12 @@
             <point key="canvasLocation" x="794" y="21"/>
         </view>
         <view contentMode="scaleToFill" id="QQH-JB-D8d" userLabel="Service View">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="415"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-24" y="125.5"/>
+            <point key="canvasLocation" x="-24" y="103"/>
         </view>
     </objects>
     <resources>

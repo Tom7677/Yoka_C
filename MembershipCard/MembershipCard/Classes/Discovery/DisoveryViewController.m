@@ -28,6 +28,7 @@
 @property (nonatomic, strong) UITableView *currentTableView;
 @property (nonatomic, assign) NSInteger index;
 @property (nonatomic, strong) NSMutableDictionary *resultDic;
+@property (nonatomic, assign) BOOL hasimage;
 @end
 
 @implementation DisoveryViewController
@@ -46,7 +47,7 @@
     leftBtn.titleLabel.font = [UIFont systemFontOfSize:14];
     [leftBtn addTarget:self action:@selector(topNews) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
-    [self.navigationItem setLeftBarButtonItem:leftItem];
+    [self.navigationItem setRightBarButtonItem:leftItem];
     [self getType];
     _contentScrollView.delegate = self;
     _resultDic = [[NSMutableDictionary alloc]init];
@@ -140,7 +141,7 @@
         tableView.dataSource = self;
         [tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
         tableView.tag = i;
-//        [tableView registerNib:[UINib nibWithNibName:@"DiscoveryTableViewCell" bundle:nil] forCellReuseIdentifier:@"myIdentify"];
+        [tableView registerNib:[UINib nibWithNibName:@"DiscoveryTableViewCell" bundle:nil] forCellReuseIdentifier:@"myIdentify"];
         [tableView registerNib:[UINib nibWithNibName:@"DiscoveryWithImageCell" bundle:nil] forCellReuseIdentifier:@"cellIdentify"];
         [_tableViewArray addObject:tableView];
         //通知主线程刷新
@@ -287,8 +288,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DiscoveryWithImageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentify"];
-    cell.fd_enforceFrameLayout = YES;
+
     NSArray *dataArray;
     if (_index == 0) {
         dataArray = _resultDic[@"推荐"];
@@ -298,10 +298,24 @@
         dataArray = _resultDic[model.cat_name];
     }
     ArticleModel *model = dataArray[indexPath.row];
-    cell.titleLabel.text = model.title;
-    cell.contentLabel.text = model.preview;
-    [cell.coverImageView sd_setImageWithURL:[NSURL URLWithString:[imageUrl stringByAppendingString:model.image]]];
-    return cell;
+    if ([self isEmpty:model.image]) {
+        _hasimage = NO;
+        DiscoveryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myIdentify"];
+        cell.fd_enforceFrameLayout = YES;
+        cell.titleLabel.text = model.title;
+        cell.detailsLabel.text = [NSString stringWithFormat:@"日期：%@    阅读：%@   点赞：%@   分享：%@", model.create_date, model.read_num, model.like_num, model.share_num];
+        return cell;
+    }else {
+        _hasimage = YES;
+        DiscoveryWithImageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentify"];
+        cell.fd_enforceFrameLayout = YES;
+        cell.titleLabel.text = model.title;
+        cell.contentLabel.text = model.preview;
+        cell.detailsLabel.text = [NSString stringWithFormat:@"日期：%@    阅读：%@   点赞：%@   分享：%@", model.create_date, model.read_num, model.like_num, model.share_num];
+        [cell.coverImageView sd_setImageWithURL:[NSURL URLWithString:[imageUrl stringByAppendingString:model.image]]];
+        return cell;
+    }
+    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -325,9 +339,13 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [tableView fd_heightForCellWithIdentifier:@"cellIdentify" configuration:^(DiscoveryWithImageCell *cell) {
-            
+    if (_hasimage) {
+        return [tableView fd_heightForCellWithIdentifier:@"cellIdentify" configuration:^(DiscoveryWithImageCell *cell) {
         }];
+    }else {
+        return [tableView fd_heightForCellWithIdentifier:@"myIdentify" configuration:^(DiscoveryTableViewCell *cell) {
+        }];
+    }
 }
 
 #pragma mark - UIScrollViewDelegate

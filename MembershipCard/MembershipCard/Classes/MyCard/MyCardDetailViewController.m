@@ -52,6 +52,7 @@
     [_codeScrollView setContentSize:CGSizeMake(MainScreenWidth, _codeView.height)];
     [_servicesScrollView addSubview:_serviceView];
     _serviceView.width = MainScreenWidth;
+    [_servicesScrollView setContentSize:CGSizeMake(MainScreenWidth, _serviceView.height)];
     [_frontPicBtn circularBoarderBead:8 withBoarder:1 color:UIColorFromRGB(0xf0f0f0)];
     [_backPicBtn circularBoarderBead:8 withBoarder:1 color:UIColorFromRGB(0xf0f0f0)];
     [_markTextView circularBoarderBead:8 withBoarder:1 color:UIColorFromRGB(0xf0f0f0)];
@@ -243,11 +244,12 @@
  */
 - (IBAction)deleteBtnAction:(id)sender {
     [[UMengAnalyticsUtil shared]deleteCardByMerchantsName:_model.name];
-    [[NetworkAPI shared] updateCardRelationByMerchantId:_model.card_id WithDeleteAction:YES WithFinish:^(BOOL isSuccess) {
+    [[NetworkAPI shared]deleteCardByCardId:_model.card_id WithFinish:^(BOOL isSuccess, NSString *msg) {
         [self.navigationController popToRootViewControllerAnimated:YES];
     } withErrorBlock:^(NSError *error) {
         
     }];
+
 }
 
 /**
