@@ -22,6 +22,8 @@
 		1A344BF41C882DCD009F3FFC /* DisoveryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A344BF21C882DCD009F3FFC /* DisoveryViewController.xib */; };
 		1A344BFE1C884AA1009F3FFC /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A344BFC1C884AA1009F3FFC /* MoreViewController.m */; };
 		1A344BFF1C884AA1009F3FFC /* MoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A344BFD1C884AA1009F3FFC /* MoreViewController.xib */; };
+		1A4406C81CB658900013A4FC /* ExplainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4406C61CB658900013A4FC /* ExplainViewController.m */; };
+		1A4406C91CB658900013A4FC /* ExplainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A4406C71CB658900013A4FC /* ExplainViewController.xib */; };
 		1A4F321C1CACE0BA001E4AFA /* like.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A4F32131CACE0BA001E4AFA /* like.png */; };
 		1A4F321D1CACE0BA001E4AFA /* like@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A4F32141CACE0BA001E4AFA /* like@2x.png */; };
 		1A4F321E1CACE0BA001E4AFA /* like@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A4F32151CACE0BA001E4AFA /* like@3x.png */; };
@@ -296,6 +298,9 @@
 		1A344BFB1C884AA1009F3FFC /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
 		1A344BFC1C884AA1009F3FFC /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
 		1A344BFD1C884AA1009F3FFC /* MoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreViewController.xib; sourceTree = "<group>"; };
+		1A4406C51CB658900013A4FC /* ExplainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExplainViewController.h; sourceTree = "<group>"; };
+		1A4406C61CB658900013A4FC /* ExplainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExplainViewController.m; sourceTree = "<group>"; };
+		1A4406C71CB658900013A4FC /* ExplainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExplainViewController.xib; sourceTree = "<group>"; };
 		1A4F32131CACE0BA001E4AFA /* like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = like.png; sourceTree = "<group>"; };
 		1A4F32141CACE0BA001E4AFA /* like@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "like@2x.png"; sourceTree = "<group>"; };
 		1A4F32151CACE0BA001E4AFA /* like@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "like@3x.png"; sourceTree = "<group>"; };
@@ -1381,6 +1386,9 @@
 				1AF9C3E01C9E8EE200F6FBAE /* MyCardDetailViewController.h */,
 				1AF9C3E11C9E8EE200F6FBAE /* MyCardDetailViewController.m */,
 				1AF9C3E21C9E8EE200F6FBAE /* MyCardDetailViewController.xib */,
+				1A4406C51CB658900013A4FC /* ExplainViewController.h */,
+				1A4406C61CB658900013A4FC /* ExplainViewController.m */,
+				1A4406C71CB658900013A4FC /* ExplainViewController.xib */,
 				1A5695291C92B6A3001EA32F /* CommentsViewController.h */,
 				1A56952A1C92B6A3001EA32F /* CommentsViewController.m */,
 				1A56952B1C92B6A3001EA32F /* CommentsViewController.xib */,
@@ -1653,6 +1661,7 @@
 			files = (
 				1A56951E1C92ABF0001EA32F /* code01.png in Resources */,
 				27D39A631C96A1EF00A3F3C3 /* SecondHandCardViewController.xib in Resources */,
+				1A4406C91CB658900013A4FC /* ExplainViewController.xib in Resources */,
 				1ACFB9CD1C8EB8680083FD07 /* more1@3x.png in Resources */,
 				1A14709F1C8D7CC5003A0616 /* addCard-menu.png in Resources */,
 				1ACFB9A81C8EACA20083FD07 /* tabbar_discovery_selected@2x.png in Resources */,
@@ -1901,6 +1910,7 @@
 				27D39A551C92AC5D00A3F3C3 /* MJRefreshNormalHeader.m in Sources */,
 				2731E7571C98160400FB3323 /* BrandListTableViewCell.m in Sources */,
 				E2BDB7BF1C7B567B00274CE3 /* NotificationTableViewCell.m in Sources */,
+				1A4406C81CB658900013A4FC /* ExplainViewController.m in Sources */,
 				2734768F1CB5EB3F00FAF042 /* TZImagePickerController.m in Sources */,
 				2734768D1CB5EB3F00FAF042 /* TZAssetModel.m in Sources */,
 				27D39A4A1C92AC5D00A3F3C3 /* MJRefreshBackFooter.m in Sources */,

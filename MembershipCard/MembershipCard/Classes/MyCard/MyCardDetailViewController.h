@@ -34,5 +34,6 @@
 - (IBAction)frontBtnAction:(id)sender;
 - (IBAction)backPicAction:(id)sender;
 - (IBAction)backBtnAction:(id)sender;
+- (IBAction)explainBtnAction:(id)sender;
 
 @end

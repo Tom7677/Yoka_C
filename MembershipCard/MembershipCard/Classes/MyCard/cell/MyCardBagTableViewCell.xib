@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -16,14 +17,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bZj-i5-qSY">
-                        <rect key="frame" x="12" y="12" width="92" height="66"/>
+                        <rect key="frame" x="12" y="9" width="108" height="72"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="92" id="836-KT-1pE"/>
-                            <constraint firstAttribute="height" constant="66" id="wix-ri-acc"/>
+                            <constraint firstAttribute="height" constant="72" id="wix-ri-acc"/>
+                            <constraint firstAttribute="width" secondItem="bZj-i5-qSY" secondAttribute="height" multiplier="3:2" id="yzS-ai-Bve"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="卡名Card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hgm-JE-f6T">
-                        <rect key="frame" x="116" y="36" width="63" height="18"/>
+                        <rect key="frame" x="132" y="36" width="63" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>

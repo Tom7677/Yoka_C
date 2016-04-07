@@ -35,7 +35,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ChangeNameNotification) name:@"ChangeNameNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeNameNotification) name:@"ChangeNameNotification" object:nil];
     _index = 0;
     self.title = @"发现";
     _tableViewArray = [[NSMutableArray alloc]init];
@@ -58,9 +58,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)ChangeNameNotification
+- (void)changeNameNotification
 {
     _page = 1;
+    _cityName = [[NSUserDefaults standardUserDefaults]objectForKey:@"MyCity"];
     [self refreshData];
 }
 
@@ -303,7 +304,7 @@
         DiscoveryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myIdentify"];
         cell.fd_enforceFrameLayout = YES;
         cell.titleLabel.text = model.title;
-        cell.detailsLabel.text = [NSString stringWithFormat:@"日期：%@    阅读：%@   点赞：%@   分享：%@", model.create_date, model.read_num, model.like_num, model.share_num];
+        cell.detailsLabel.text = [NSString stringWithFormat:@"阅读：%@   点赞：%@   分享：%@",  model.read_num, model.like_num, model.share_num];
         return cell;
     }else {
         _hasimage = YES;
@@ -311,7 +312,7 @@
         cell.fd_enforceFrameLayout = YES;
         cell.titleLabel.text = model.title;
         cell.contentLabel.text = model.preview;
-        cell.detailsLabel.text = [NSString stringWithFormat:@"日期：%@    阅读：%@   点赞：%@   分享：%@", model.create_date, model.read_num, model.like_num, model.share_num];
+        cell.detailsLabel.text = [NSString stringWithFormat:@"阅读：%@   点赞：%@   分享：%@", model.read_num, model.like_num, model.share_num];
         [cell.coverImageView sd_setImageWithURL:[NSURL URLWithString:[imageUrl stringByAppendingString:model.image]]];
         return cell;
     }

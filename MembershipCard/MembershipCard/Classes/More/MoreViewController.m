@@ -41,19 +41,19 @@
     _scrollView.contentSize = CGSizeMake(MainScreenWidth, _bgView.height);
     [_scrollView addSubview:_bgView];
     [_avatarBtn circularBoarderBead:_avatarBtn.width / 2 withBoarder:1 color:UIColorFromRGB(0xf0f0f0)];
-    NSString *nickName = [[NSUserDefaults standardUserDefaults]objectForKey:@"nickName"];
-    NSString *phoneNum = [[NSUserDefaults standardUserDefaults]objectForKey:@"phoneNum"];
-    NSString *avator = [[NSUserDefaults standardUserDefaults]objectForKey:@"avator"];
-    if (avator) {
-        [_avatarBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:avator] forState:UIControlStateNormal];
-        [_avatarBtn setTitle:@"" forState:UIControlStateNormal];
-    }
-    if (nickName) {
-        _nickNameLabel.text = nickName;
-    }
-    if (phoneNum) {
-        _phoneNumLabel.text = phoneNum;
-    }
+//    NSString *nickName = [[NSUserDefaults standardUserDefaults]objectForKey:@"nickName"];
+//    NSString *phoneNum = [[NSUserDefaults standardUserDefaults]objectForKey:@"phoneNum"];
+//    NSString *avator = [[NSUserDefaults standardUserDefaults]objectForKey:@"avator"];
+//    if (avator) {
+//        [_avatarBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:avator] forState:UIControlStateNormal];
+//        [_avatarBtn setTitle:@"" forState:UIControlStateNormal];
+//    }
+//    if (nickName) {
+//        _nickNameLabel.text = nickName;
+//    }
+//    if (phoneNum) {
+//        _phoneNumLabel.text = phoneNum;
+//    }
 }
 
 - (void)didReceiveMemoryWarning {

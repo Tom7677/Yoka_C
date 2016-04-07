@@ -19,6 +19,7 @@
 #import "BaseViewController.h"
 #import "MidImageLeftButton.h"
 #import "WebViewController.h"
+#import "ExplainViewController.h"
 
 @interface MyCardDetailViewController ()<UIGestureRecognizerDelegate>
 @property (nonatomic, strong) NSNumber *fromValue;
@@ -237,6 +238,11 @@
     return animation;
 }
 
+- (IBAction)explainBtnAction:(id)sender {
+    ExplainViewController *vc = [[ExplainViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 /**
  *  删除卡片
  *
@@ -281,6 +287,9 @@
  */
 - (IBAction)backBtnAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)explainBtnAction:(id)sender {
 }
 
 

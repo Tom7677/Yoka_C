@@ -99,6 +99,7 @@
 //    vc.isToAlbum = NO;
 //    vc.hidesBottomBarWhenPushed = YES;
 //    [self.navigationController pushViewController:vc animated:YES];
+    
     TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc] initWithMaxImagesCount:9 delegate:self];
     imagePickerVc.allowPickingOriginalPhoto = NO;
     // You can get the photos by block, the same as by delegate.
