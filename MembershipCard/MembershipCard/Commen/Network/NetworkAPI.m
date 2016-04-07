@@ -194,45 +194,21 @@
     }];
 }
 
-- (void)getMyCardInfoListByMemId:(NSString *)memId merchantId:(NSString *)merchantId WithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock
-{
-    NSDictionary *param = [self creatRequestParamByMethod:@"get_card_list" WithParamData:@{@"member_id":memId,@"merchant_id":merchantId}];
+- (void)saveCardInfoByCardId:(NSString *)cardId remark:(NSString *)remark f_image:(NSData *)f_image b_image:(NSData *)b_image WithFinish:(void(^)(UsedDetailModel *model))block withErrorBlock:(void(^)(NSError *error)) errorBlock {
+    NSString *urlStr = [hostUrl stringByAppendingString:@"Card/set_card_info"];
+    NSMutableDictionary *param = [[NSMutableDictionary alloc]init];
+    [param setObject:cardId forKey:@"card_id"];
+    [param setObject:[self getAccessToken] forKey:@"token"];
+    if (remark!= nil) {
+        [param setObject:remark forKey:@"remark"];
+    }
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer=[AFJSONRequestSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-    [manager GET:hostUrl parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if ([responseObject[@"status"] integerValue] == 1) {
-            NSMutableArray *tempArr = [NSMutableArray array];
-            for (NSDictionary *dic in responseObject[@"data"]) {
-                CardListModel *model = [[CardListModel alloc]init];
-                model = [CardListModel mj_objectWithKeyValues:dic];
-                [tempArr addObject:model];
-            }
-            block ([tempArr copy]);
-        }
-        else {
-            block (nil);
-        }
+    [manager POST:urlStr parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        errorBlock(error);
-    }];
-}
-
-- (void)saveCardUsedDetailByModel:(UsedDetailModel *)model WithFinish:(void(^)(UsedDetailModel *model))block withErrorBlock:(void(^)(NSError *error)) errorBlock {
-    NSDictionary *param = [self creatRequestParamByMethod:@"save_used_detail" WithParamData:@{@"card_id":model.card_id, @"title":model.title, @"num":model.number, @"type":model.count_type}];
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer=[AFJSONRequestSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-    [manager GET:hostUrl parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if ([responseObject[@"status"] integerValue] == 1) {
-            UsedDetailModel *model = [[UsedDetailModel alloc]init];
-            model = [UsedDetailModel mj_objectWithKeyValues:responseObject[@"data"]];
-            block(model);
-        }else {
-            block(nil);
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        errorBlock(error);
+        
     }];
 }
 
@@ -291,65 +267,6 @@
     }];
 }
 
-- (void)saveMerchantAnnouncementByModel:(AnnouncementModel *)model WithFinish:(void(^)(AnnouncementModel *model))block withErrorBlock:(void(^)(NSError *error)) errorBlock {
-    NSDictionary *param = [self creatRequestParamByMethod:@"save_merchant_announcement" WithParamData:@{@"merchant_id":model.merchant_id, @"title":model.title, @"content":model.content}];
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer=[AFJSONRequestSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-    [manager GET:hostUrl parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if ([responseObject[@"status"] integerValue] == 1) {
-            AnnouncementModel *model = [[AnnouncementModel alloc]init];
-            [model setValuesForKeysWithDictionary:responseObject[@"data"]];
-            block(model);
-        }else {
-            block(nil);
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        errorBlock(error);
-    }];
-}
-
-- (void)getMerchantAnnouncementByMerchantId:(NSString *)merchantId WithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock
-{
-    NSDictionary *param = [self creatRequestParamByMethod:@"get_announcement_list" WithParamData:@{@"merchant_id":merchantId, @"member_id":[self getMemId]}];
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer=[AFJSONRequestSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-    [manager GET:hostUrl parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if ([responseObject[@"status"] integerValue] == 1) {
-            NSMutableArray *dataArray = [[NSMutableArray alloc]init];
-            NSArray *resultArray = [self jsonObjectWithJsonString:responseObject[@"data"]];
-            for (NSDictionary *dic in resultArray) {
-                AnnouncementModel *model = [[AnnouncementModel alloc]init];
-                [model setValuesForKeysWithDictionary:dic];
-                [dataArray addObject:model];
-            }
-            block (dataArray);
-        }else {
-            block(nil);
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        errorBlock(error);
-    }];
-}
-
-- (void)deleteAnnouncementWithFinish:(void(^)(BOOL isSuccess))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
-{
-    NSDictionary *param = [self creatRequestParamByMethod:@"get_announcement_list" WithParamData:@{@"id":[self getMemId]}];
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer=[AFJSONRequestSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-    [manager GET:hostUrl parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if ([responseObject[@"status"] integerValue] == 1) {
-            block (YES);
-        }else {
-            block(NO);
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        errorBlock(error);
-    }];
-}
-
 - (void)addNewNonBrandCardByMerchantName:(NSString *)name cardNum:(NSString *)cardNum WithFinish:(void(^)(BOOL isSuccess, NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock
 {
     NSString *urlStr = [hostUrl stringByAppendingString:@"User/add_card_nonbrand"];
@@ -375,22 +292,6 @@
             block(YES, responseObject[@"msg"]);
         }else {
             block(NO, responseObject[@"msg"]);
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        errorBlock(error);
-    }];
-}
-
-- (void)updateCardRelationByMerchantId:(NSString *)merchantId WithDeleteAction:(BOOL)isDelete WithFinish:(void(^)(BOOL isSuccess))block withErrorBlock:(void(^)(NSError *error))errorBlock{
-    NSDictionary *param = [self creatRequestParamByMethod:@"update_card_relation" WithParamData:@{@"member_id":[self getMemId],@"merchant_id":merchantId,@"action":(isDelete ? @"0" : @"1" )}];
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-    [manager GET:hostUrl parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if ([responseObject[@"status"] integerValue] == 1) {
-            block(YES);
-        }else {
-            block(NO);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         errorBlock(error);
@@ -653,69 +554,6 @@
 }
 
 #pragma Action
-/*!
- *  @brief  获取memberId
- *
- *  @return return value description
- */
-- (NSString *)getMemId
-{
-    return @"2";
-}
-
-/**
- *  生成请求参数
- *
- *  @param methodName 接口名称
- *  @param ParamData  参数设置
- *
- *  @return 请求参数param
- */
-- (NSDictionary *)creatRequestParamByMethod:(NSString *)methodName WithParamData:(NSDictionary *)ParamData 
- {
-    NSMutableDictionary *tempParam = [[NSMutableDictionary alloc]init];
-    [tempParam setObject:[NSString stringWithFormat:@"appapi_response.%@", methodName] forKey:@"method"];
-    [tempParam setObject:ParamData forKey:@"data"];
-    return @{@"info":[self dictionaryToJson:tempParam]};
-}
-
-/**
- *  dic转json
- *
- *  @param dic dic description
- *
- *  @return return value description
- */
-- (NSString *)dictionaryToJson:(NSDictionary *)dic
-{
-    NSError *parseError = nil;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:&parseError];
-    return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-}
-
-/*!
- *  @brief  json转obj
- *
- *  @param jsonString json
- *
- *  @return return value description
- */
-- (id)jsonObjectWithJsonString:(NSString *)jsonString {
-    if (jsonString == nil) {
-        return nil;
-    }
-    NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
-    NSError *err;
-    id jsonObject = [NSJSONSerialization
-                     JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments
-                     error:&err];
-    if(err) {
-        NSLog(@"json解析失败：%@",err);
-        return nil;
-    }
-    return jsonObject;
-}
-
 /**
  *  获取Token
  *

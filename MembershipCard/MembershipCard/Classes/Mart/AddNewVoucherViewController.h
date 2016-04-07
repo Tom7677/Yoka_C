@@ -14,4 +14,5 @@
 @property (weak, nonatomic) IBOutlet TPKeyboardAvoidingTableView *tableView;
 @property (strong, nonatomic) IBOutlet UIView *headView;
 @property (strong, nonatomic) IBOutlet UIView *footView;
+@property (weak, nonatomic) IBOutlet UIView *scrollView;
 @end

@@ -42,6 +42,7 @@
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame= CGRectMake(0, 0, 40, 44);
     [button setTitle:@"取消" forState:UIControlStateNormal];
+    button.titleLabel.font = [UIFont systemFontOfSize:14];
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(cancel) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:button];

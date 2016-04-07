@@ -120,6 +120,31 @@
 		2734764C1CB3ABA500FAF042 /* AlbumPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2734764A1CB3ABA500FAF042 /* AlbumPickerViewController.xib */; };
 		273476501CB3ACC300FAF042 /* AlbumPickerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2734764E1CB3ACC300FAF042 /* AlbumPickerTableViewCell.m */; };
 		273476511CB3ACC300FAF042 /* AlbumPickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2734764F1CB3ACC300FAF042 /* AlbumPickerTableViewCell.xib */; };
+		2734767C1CB5EB3F00FAF042 /* MMVideoPreviewPlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2734765A1CB5EB3F00FAF042 /* MMVideoPreviewPlay@2x.png */; };
+		2734767D1CB5EB3F00FAF042 /* MMVideoPreviewPlayHL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2734765B1CB5EB3F00FAF042 /* MMVideoPreviewPlayHL@2x.png */; };
+		2734767E1CB5EB3F00FAF042 /* navi_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2734765C1CB5EB3F00FAF042 /* navi_back@2x.png */; };
+		2734767F1CB5EB3F00FAF042 /* photo_def_photoPickerVc@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2734765D1CB5EB3F00FAF042 /* photo_def_photoPickerVc@2x.png */; };
+		273476801CB5EB3F00FAF042 /* photo_def_previewVc@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2734765E1CB5EB3F00FAF042 /* photo_def_previewVc@2x.png */; };
+		273476811CB5EB3F00FAF042 /* photo_number_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2734765F1CB5EB3F00FAF042 /* photo_number_icon@2x.png */; };
+		273476821CB5EB3F00FAF042 /* photo_original_def@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 273476601CB5EB3F00FAF042 /* photo_original_def@2x.png */; };
+		273476831CB5EB3F00FAF042 /* photo_original_sel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 273476611CB5EB3F00FAF042 /* photo_original_sel@2x.png */; };
+		273476841CB5EB3F00FAF042 /* photo_sel_photoPickerVc@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 273476621CB5EB3F00FAF042 /* photo_sel_photoPickerVc@2x.png */; };
+		273476851CB5EB3F00FAF042 /* photo_sel_previewVc@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 273476631CB5EB3F00FAF042 /* photo_sel_previewVc@2x.png */; };
+		273476861CB5EB3F00FAF042 /* preview_number_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 273476641CB5EB3F00FAF042 /* preview_number_icon@2x.png */; };
+		273476871CB5EB3F00FAF042 /* preview_original_def@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 273476651CB5EB3F00FAF042 /* preview_original_def@2x.png */; };
+		273476881CB5EB3F00FAF042 /* TableViewArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 273476661CB5EB3F00FAF042 /* TableViewArrow@2x.png */; };
+		273476891CB5EB3F00FAF042 /* TZAlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 273476671CB5EB3F00FAF042 /* TZAlbumCell.xib */; };
+		2734768A1CB5EB3F00FAF042 /* TZAssetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 273476681CB5EB3F00FAF042 /* TZAssetCell.xib */; };
+		2734768B1CB5EB3F00FAF042 /* VideoSendIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 273476691CB5EB3F00FAF042 /* VideoSendIcon@2x.png */; };
+		2734768C1CB5EB3F00FAF042 /* TZAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2734766B1CB5EB3F00FAF042 /* TZAssetCell.m */; };
+		2734768D1CB5EB3F00FAF042 /* TZAssetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2734766D1CB5EB3F00FAF042 /* TZAssetModel.m */; };
+		2734768E1CB5EB3F00FAF042 /* TZImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2734766F1CB5EB3F00FAF042 /* TZImageManager.m */; };
+		2734768F1CB5EB3F00FAF042 /* TZImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 273476711CB5EB3F00FAF042 /* TZImagePickerController.m */; };
+		273476901CB5EB3F00FAF042 /* TZPhotoPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 273476731CB5EB3F00FAF042 /* TZPhotoPickerController.m */; };
+		273476911CB5EB3F00FAF042 /* TZPhotoPreviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 273476751CB5EB3F00FAF042 /* TZPhotoPreviewCell.m */; };
+		273476921CB5EB3F00FAF042 /* TZPhotoPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 273476771CB5EB3F00FAF042 /* TZPhotoPreviewController.m */; };
+		273476931CB5EB3F00FAF042 /* TZVideoPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 273476791CB5EB3F00FAF042 /* TZVideoPlayerController.m */; };
+		273476941CB5EB3F00FAF042 /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2734767B1CB5EB3F00FAF042 /* UIView+Layout.m */; };
 		27512FDC1CAA054300BCADA1 /* MJExtensionConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 27512FC91CAA054300BCADA1 /* MJExtensionConst.m */; };
 		27512FDD1CAA054300BCADA1 /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 27512FCB1CAA054300BCADA1 /* MJFoundation.m */; };
 		27512FDE1CAA054300BCADA1 /* MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 27512FCD1CAA054300BCADA1 /* MJProperty.m */; };
@@ -385,6 +410,40 @@
 		2734764D1CB3ACC300FAF042 /* AlbumPickerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumPickerTableViewCell.h; sourceTree = "<group>"; };
 		2734764E1CB3ACC300FAF042 /* AlbumPickerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumPickerTableViewCell.m; sourceTree = "<group>"; };
 		2734764F1CB3ACC300FAF042 /* AlbumPickerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlbumPickerTableViewCell.xib; sourceTree = "<group>"; };
+		2734765A1CB5EB3F00FAF042 /* MMVideoPreviewPlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MMVideoPreviewPlay@2x.png"; sourceTree = "<group>"; };
+		2734765B1CB5EB3F00FAF042 /* MMVideoPreviewPlayHL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MMVideoPreviewPlayHL@2x.png"; sourceTree = "<group>"; };
+		2734765C1CB5EB3F00FAF042 /* navi_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navi_back@2x.png"; sourceTree = "<group>"; };
+		2734765D1CB5EB3F00FAF042 /* photo_def_photoPickerVc@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo_def_photoPickerVc@2x.png"; sourceTree = "<group>"; };
+		2734765E1CB5EB3F00FAF042 /* photo_def_previewVc@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo_def_previewVc@2x.png"; sourceTree = "<group>"; };
+		2734765F1CB5EB3F00FAF042 /* photo_number_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo_number_icon@2x.png"; sourceTree = "<group>"; };
+		273476601CB5EB3F00FAF042 /* photo_original_def@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo_original_def@2x.png"; sourceTree = "<group>"; };
+		273476611CB5EB3F00FAF042 /* photo_original_sel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo_original_sel@2x.png"; sourceTree = "<group>"; };
+		273476621CB5EB3F00FAF042 /* photo_sel_photoPickerVc@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo_sel_photoPickerVc@2x.png"; sourceTree = "<group>"; };
+		273476631CB5EB3F00FAF042 /* photo_sel_previewVc@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo_sel_previewVc@2x.png"; sourceTree = "<group>"; };
+		273476641CB5EB3F00FAF042 /* preview_number_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "preview_number_icon@2x.png"; sourceTree = "<group>"; };
+		273476651CB5EB3F00FAF042 /* preview_original_def@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "preview_original_def@2x.png"; sourceTree = "<group>"; };
+		273476661CB5EB3F00FAF042 /* TableViewArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TableViewArrow@2x.png"; sourceTree = "<group>"; };
+		273476671CB5EB3F00FAF042 /* TZAlbumCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TZAlbumCell.xib; sourceTree = "<group>"; };
+		273476681CB5EB3F00FAF042 /* TZAssetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TZAssetCell.xib; sourceTree = "<group>"; };
+		273476691CB5EB3F00FAF042 /* VideoSendIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VideoSendIcon@2x.png"; sourceTree = "<group>"; };
+		2734766A1CB5EB3F00FAF042 /* TZAssetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZAssetCell.h; sourceTree = "<group>"; };
+		2734766B1CB5EB3F00FAF042 /* TZAssetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZAssetCell.m; sourceTree = "<group>"; };
+		2734766C1CB5EB3F00FAF042 /* TZAssetModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZAssetModel.h; sourceTree = "<group>"; };
+		2734766D1CB5EB3F00FAF042 /* TZAssetModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZAssetModel.m; sourceTree = "<group>"; };
+		2734766E1CB5EB3F00FAF042 /* TZImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZImageManager.h; sourceTree = "<group>"; };
+		2734766F1CB5EB3F00FAF042 /* TZImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZImageManager.m; sourceTree = "<group>"; };
+		273476701CB5EB3F00FAF042 /* TZImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZImagePickerController.h; sourceTree = "<group>"; };
+		273476711CB5EB3F00FAF042 /* TZImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZImagePickerController.m; sourceTree = "<group>"; };
+		273476721CB5EB3F00FAF042 /* TZPhotoPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZPhotoPickerController.h; sourceTree = "<group>"; };
+		273476731CB5EB3F00FAF042 /* TZPhotoPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZPhotoPickerController.m; sourceTree = "<group>"; };
+		273476741CB5EB3F00FAF042 /* TZPhotoPreviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZPhotoPreviewCell.h; sourceTree = "<group>"; };
+		273476751CB5EB3F00FAF042 /* TZPhotoPreviewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZPhotoPreviewCell.m; sourceTree = "<group>"; };
+		273476761CB5EB3F00FAF042 /* TZPhotoPreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZPhotoPreviewController.h; sourceTree = "<group>"; };
+		273476771CB5EB3F00FAF042 /* TZPhotoPreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZPhotoPreviewController.m; sourceTree = "<group>"; };
+		273476781CB5EB3F00FAF042 /* TZVideoPlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZVideoPlayerController.h; sourceTree = "<group>"; };
+		273476791CB5EB3F00FAF042 /* TZVideoPlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZVideoPlayerController.m; sourceTree = "<group>"; };
+		2734767A1CB5EB3F00FAF042 /* UIView+Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Layout.h"; sourceTree = "<group>"; };
+		2734767B1CB5EB3F00FAF042 /* UIView+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Layout.m"; sourceTree = "<group>"; };
 		27512FC71CAA054300BCADA1 /* MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtension.h; sourceTree = "<group>"; };
 		27512FC81CAA054300BCADA1 /* MJExtensionConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtensionConst.h; sourceTree = "<group>"; };
 		27512FC91CAA054300BCADA1 /* MJExtensionConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJExtensionConst.m; sourceTree = "<group>"; };
@@ -819,6 +878,55 @@
 				2731E7A21C996ADF00FB3323 /* UITableView+FDTemplateLayoutCellDebug.m */,
 			);
 			path = "UITableView-FDTemplateLayoutCell";
+			sourceTree = "<group>";
+		};
+		273476581CB5EB3F00FAF042 /* TZImagePickerController */ = {
+			isa = PBXGroup;
+			children = (
+				273476591CB5EB3F00FAF042 /* Resource */,
+				2734766A1CB5EB3F00FAF042 /* TZAssetCell.h */,
+				2734766B1CB5EB3F00FAF042 /* TZAssetCell.m */,
+				2734766C1CB5EB3F00FAF042 /* TZAssetModel.h */,
+				2734766D1CB5EB3F00FAF042 /* TZAssetModel.m */,
+				2734766E1CB5EB3F00FAF042 /* TZImageManager.h */,
+				2734766F1CB5EB3F00FAF042 /* TZImageManager.m */,
+				273476701CB5EB3F00FAF042 /* TZImagePickerController.h */,
+				273476711CB5EB3F00FAF042 /* TZImagePickerController.m */,
+				273476721CB5EB3F00FAF042 /* TZPhotoPickerController.h */,
+				273476731CB5EB3F00FAF042 /* TZPhotoPickerController.m */,
+				273476741CB5EB3F00FAF042 /* TZPhotoPreviewCell.h */,
+				273476751CB5EB3F00FAF042 /* TZPhotoPreviewCell.m */,
+				273476761CB5EB3F00FAF042 /* TZPhotoPreviewController.h */,
+				273476771CB5EB3F00FAF042 /* TZPhotoPreviewController.m */,
+				273476781CB5EB3F00FAF042 /* TZVideoPlayerController.h */,
+				273476791CB5EB3F00FAF042 /* TZVideoPlayerController.m */,
+				2734767A1CB5EB3F00FAF042 /* UIView+Layout.h */,
+				2734767B1CB5EB3F00FAF042 /* UIView+Layout.m */,
+			);
+			path = TZImagePickerController;
+			sourceTree = "<group>";
+		};
+		273476591CB5EB3F00FAF042 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				2734765A1CB5EB3F00FAF042 /* MMVideoPreviewPlay@2x.png */,
+				2734765B1CB5EB3F00FAF042 /* MMVideoPreviewPlayHL@2x.png */,
+				2734765C1CB5EB3F00FAF042 /* navi_back@2x.png */,
+				2734765D1CB5EB3F00FAF042 /* photo_def_photoPickerVc@2x.png */,
+				2734765E1CB5EB3F00FAF042 /* photo_def_previewVc@2x.png */,
+				2734765F1CB5EB3F00FAF042 /* photo_number_icon@2x.png */,
+				273476601CB5EB3F00FAF042 /* photo_original_def@2x.png */,
+				273476611CB5EB3F00FAF042 /* photo_original_sel@2x.png */,
+				273476621CB5EB3F00FAF042 /* photo_sel_photoPickerVc@2x.png */,
+				273476631CB5EB3F00FAF042 /* photo_sel_previewVc@2x.png */,
+				273476641CB5EB3F00FAF042 /* preview_number_icon@2x.png */,
+				273476651CB5EB3F00FAF042 /* preview_original_def@2x.png */,
+				273476661CB5EB3F00FAF042 /* TableViewArrow@2x.png */,
+				273476671CB5EB3F00FAF042 /* TZAlbumCell.xib */,
+				273476681CB5EB3F00FAF042 /* TZAssetCell.xib */,
+				273476691CB5EB3F00FAF042 /* VideoSendIcon@2x.png */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		27512FC61CAA054300BCADA1 /* MJExtension */ = {
@@ -1409,6 +1517,7 @@
 		E2FEE3B11C79F2620079B824 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				273476581CB5EB3F00FAF042 /* TZImagePickerController */,
 				27512FC61CAA054300BCADA1 /* MJExtension */,
 				E2FEBB001CA19A7F004F9042 /* YouzanSDK */,
 				2731E79A1C996ADF00FB3323 /* UITableView-FDTemplateLayoutCell */,
@@ -1556,7 +1665,10 @@
 				E2BDB8181C7B63D200274CE3 /* QRViewController.xib in Resources */,
 				1A4F321C1CACE0BA001E4AFA /* like.png in Resources */,
 				1AEDD3C21C8D2D4000E435AC /* icon_back.png in Resources */,
+				2734768A1CB5EB3F00FAF042 /* TZAssetCell.xib in Resources */,
 				1ACFB9AD1C8EACA20083FD07 /* tabbar_more_selected.png in Resources */,
+				2734767F1CB5EB3F00FAF042 /* photo_def_photoPickerVc@2x.png in Resources */,
+				2734767E1CB5EB3F00FAF042 /* navi_back@2x.png in Resources */,
 				1ACFB9CC1C8EB8680083FD07 /* more1@2x.png in Resources */,
 				1ACFB9CF1C8EB8680083FD07 /* more2@2x.png in Resources */,
 				1ACFB9AE1C8EACA20083FD07 /* tabbar_more_selected@2x.png in Resources */,
@@ -1572,9 +1684,11 @@
 				27D39A0F1C8ED83600A3F3C3 /* DiscoveryWithImageCell.xib in Resources */,
 				2734764C1CB3ABA500FAF042 /* AlbumPickerViewController.xib in Resources */,
 				1ACC38711C9FC4DB00C9E837 /* ser-02.png in Resources */,
+				273476881CB5EB3F00FAF042 /* TableViewArrow@2x.png in Resources */,
 				2734763E1CB39A2600FAF042 /* PicturePickerViewController.xib in Resources */,
 				E2FEE3D51C79FD070079B824 /* VIPViewController.xib in Resources */,
 				1A1470A01C8D7CC5003A0616 /* addCard-menu@2x.png in Resources */,
+				2734767D1CB5EB3F00FAF042 /* MMVideoPreviewPlayHL@2x.png in Resources */,
 				1A4F32331CACE612001E4AFA /* share_pyq@2x.png in Resources */,
 				1ACFB9AC1C8EACA20083FD07 /* tabbar_discovery@3x.png in Resources */,
 				1ACFB9B61C8EACA20083FD07 /* tabbar_myCardBag.png in Resources */,
@@ -1583,6 +1697,7 @@
 				1AFED1BB1C8F1D6E00415ABF /* wx@3x.png in Resources */,
 				1A4F32411CACEF03001E4AFA /* ArticleViewController.xib in Resources */,
 				1A4F32291CACE1BC001E4AFA /* share.png@2x.png in Resources */,
+				273476841CB5EB3F00FAF042 /* photo_sel_photoPickerVc@2x.png in Resources */,
 				1A5695211C92ABF0001EA32F /* code02.png in Resources */,
 				273476461CB3A08700FAF042 /* icon_selected_24x24@2x.png in Resources */,
 				1A56952D1C92B6A3001EA32F /* CommentsViewController.xib in Resources */,
@@ -1591,7 +1706,9 @@
 				1ACC387C1C9FC4DB00C9E837 /* ser-05@3x.png in Resources */,
 				1A4F32361CACE612001E4AFA /* share_wx@2x.png in Resources */,
 				1A1470A21C8D7CC5003A0616 /* addCard-scan.png in Resources */,
+				2734767C1CB5EB3F00FAF042 /* MMVideoPreviewPlay@2x.png in Resources */,
 				1ACFB9B71C8EACA20083FD07 /* tabbar_myCardBag@2x.png in Resources */,
+				273476831CB5EB3F00FAF042 /* photo_original_sel@2x.png in Resources */,
 				E2BDB7B51C7B42E200274CE3 /* AddNewCardViewController.xib in Resources */,
 				1ACC38741C9FC4DB00C9E837 /* ser-03.png in Resources */,
 				1ACFB9CE1C8EB8680083FD07 /* more2.png in Resources */,
@@ -1603,6 +1720,7 @@
 				1ACC386F1C9FC4DB00C9E837 /* ser-01@2x.png in Resources */,
 				1AFED1B91C8F1D6E00415ABF /* wx.png in Resources */,
 				E2004C051C85CE5000CDA2E7 /* AssignmentInfoViewController.xib in Resources */,
+				273476891CB5EB3F00FAF042 /* TZAlbumCell.xib in Resources */,
 				1A4F32351CACE612001E4AFA /* share_wx.png in Resources */,
 				E2BDB81D1C7B641200274CE3 /* InputCardViewController.xib in Resources */,
 				2731E7AB1C9970ED00FB3323 /* DiscoveryTableViewCell.xib in Resources */,
@@ -1612,10 +1730,13 @@
 				276BBD241CACF5F500CA392E /* AddNewVoucherViewController.xib in Resources */,
 				1ACFB9B21C8EACA20083FD07 /* tabbar_more@3x.png in Resources */,
 				E2BDB8221C7B644600274CE3 /* BrandListViewController.xib in Resources */,
+				273476821CB5EB3F00FAF042 /* photo_original_def@2x.png in Resources */,
 				1ACFB9B81C8EACA20083FD07 /* tabbar_myCardBag@3x.png in Resources */,
 				27D39A181C8FCB5000A3F3C3 /* ChooseAreaViewController.xib in Resources */,
+				273476851CB5EB3F00FAF042 /* photo_sel_previewVc@2x.png in Resources */,
 				1A56951F1C92ABF0001EA32F /* code01@2x.png in Resources */,
 				1A4F321E1CACE0BA001E4AFA /* like@3x.png in Resources */,
+				273476871CB5EB3F00FAF042 /* preview_original_def@2x.png in Resources */,
 				273476391CB35D0D00FAF042 /* EditNameViewController.xib in Resources */,
 				1ACFB9B01C8EACA20083FD07 /* tabbar_more.png in Resources */,
 				1A4F32371CACE612001E4AFA /* share_wx@3x.png in Resources */,
@@ -1629,6 +1750,7 @@
 				1ACC387A1C9FC4DB00C9E837 /* ser-05.png in Resources */,
 				1AA63D111C9955A1000C0589 /* mjlogo_rectangle.jpg in Resources */,
 				1A4F321F1CACE0BA001E4AFA /* like_selected.png in Resources */,
+				273476801CB5EB3F00FAF042 /* photo_def_previewVc@2x.png in Resources */,
 				1A003ACD1C9ECCFB00FF12A4 /* ser01.png in Resources */,
 				1ACC38771C9FC4DB00C9E837 /* ser-04.png in Resources */,
 				E2FEE3CB1C79F5A70079B824 /* LoginViewController.xib in Resources */,
@@ -1637,6 +1759,7 @@
 				1A1470A31C8D7CC5003A0616 /* addCard-scan@2x.png in Resources */,
 				1ACFB9AF1C8EACA20083FD07 /* tabbar_more_selected@3x.png in Resources */,
 				1A4F32321CACE612001E4AFA /* share_pyq.png in Resources */,
+				273476811CB5EB3F00FAF042 /* photo_number_icon@2x.png in Resources */,
 				E2004C141C85E3C200CDA2E7 /* VIPServiceTableViewController.xib in Resources */,
 				1ACC38731C9FC4DB00C9E837 /* ser-02@3x.png in Resources */,
 				E24983A61C8C27BA005B77A8 /* icon_logo.png in Resources */,
@@ -1657,6 +1780,7 @@
 				E2FBA6161C82B91800F9F799 /* MartViewController.xib in Resources */,
 				1A14709E1C8D7CC5003A0616 /* addCard-code@3x.png in Resources */,
 				273476431CB39AD400FAF042 /* PicturePickerCollectionViewCell.xib in Resources */,
+				273476861CB5EB3F00FAF042 /* preview_number_icon@2x.png in Resources */,
 				E2073CBA1C847FBC0028DD8C /* icon_horn_top@2x.png in Resources */,
 				1ACC38701C9FC4DB00C9E837 /* ser-01@3x.png in Resources */,
 				E2662CBC1C7CA1D100FE42F1 /* ShowDeteledCardViewController.xib in Resources */,
@@ -1667,6 +1791,7 @@
 				E2FEBB161CA1A57A004F9042 /* MartWebViewController.xib in Resources */,
 				1ACFB9A91C8EACA20083FD07 /* tabbar_discovery_selected@3x.png in Resources */,
 				1ACC385D1C9FBC3500C9E837 /* guess@3x.png in Resources */,
+				2734768B1CB5EB3F00FAF042 /* VideoSendIcon@2x.png in Resources */,
 				1ACFB9B51C8EACA20083FD07 /* tabbar_myCardBag_selected@3x.png in Resources */,
 				E24983A71C8C27BA005B77A8 /* icon_logo@2x.png in Resources */,
 				E2FEE37C1C79E7860079B824 /* Main.storyboard in Resources */,
@@ -1761,7 +1886,9 @@
 				27512FE11CAA054300BCADA1 /* NSObject+MJClass.m in Sources */,
 				2731E7A51C996ADF00FB3323 /* UITableView+FDTemplateLayoutCell.m in Sources */,
 				E2FEE3D41C79FD070079B824 /* VIPViewController.m in Sources */,
+				273476931CB5EB3F00FAF042 /* TZVideoPlayerController.m in Sources */,
 				1A4F32401CACEF03001E4AFA /* ArticleViewController.m in Sources */,
+				273476921CB5EB3F00FAF042 /* TZPhotoPreviewController.m in Sources */,
 				E2FBA6061C82B57000F9F799 /* UIView+border.m in Sources */,
 				E2FEE3761C79E7860079B824 /* AppDelegate.m in Sources */,
 				27D39A021C8D261200A3F3C3 /* MidImageLeftButton.m in Sources */,
@@ -1774,17 +1901,21 @@
 				27D39A551C92AC5D00A3F3C3 /* MJRefreshNormalHeader.m in Sources */,
 				2731E7571C98160400FB3323 /* BrandListTableViewCell.m in Sources */,
 				E2BDB7BF1C7B567B00274CE3 /* NotificationTableViewCell.m in Sources */,
+				2734768F1CB5EB3F00FAF042 /* TZImagePickerController.m in Sources */,
+				2734768D1CB5EB3F00FAF042 /* TZAssetModel.m in Sources */,
 				27D39A4A1C92AC5D00A3F3C3 /* MJRefreshBackFooter.m in Sources */,
 				E2073CBD1C849CA30028DD8C /* NetworkAPI.m in Sources */,
 				27D39A1B1C914B1F00A3F3C3 /* UMengAnalyticsUtil.m in Sources */,
 				E2FEBB111CA1A231004F9042 /* CacheUserInfo.m in Sources */,
 				27D39A581C92AC5D00A3F3C3 /* MJRefreshConst.m in Sources */,
+				273476911CB5EB3F00FAF042 /* TZPhotoPreviewCell.m in Sources */,
 				1AF9C3E31C9E8EE200F6FBAE /* MyCardDetailViewController.m in Sources */,
 				27D39A591C92AC5D00A3F3C3 /* UIScrollView+MJExtension.m in Sources */,
 				27D39A4C1C92AC5D00A3F3C3 /* MJRefreshFooter.m in Sources */,
 				E24983A01C8BD6D3005B77A8 /* TSImageLeftButton.m in Sources */,
 				E2662CBB1C7CA1D100FE42F1 /* ShowDeteledCardViewController.m in Sources */,
 				E2FBA60F1C82B70000F9F799 /* YKModel.m in Sources */,
+				273476901CB5EB3F00FAF042 /* TZPhotoPickerController.m in Sources */,
 				E2000D781C9E771F003DCA39 /* PossiableCardTableViewCell.m in Sources */,
 				27512FDF1CAA054300BCADA1 /* MJPropertyKey.m in Sources */,
 				27D39A5A1C92AC5D00A3F3C3 /* UIScrollView+MJRefresh.m in Sources */,
@@ -1797,6 +1928,8 @@
 				E2BDB7AF1C7B42BD00274CE3 /* NotificationViewController.m in Sources */,
 				1A56952C1C92B6A3001EA32F /* CommentsViewController.m in Sources */,
 				27512FDC1CAA054300BCADA1 /* MJExtensionConst.m in Sources */,
+				273476941CB5EB3F00FAF042 /* UIView+Layout.m in Sources */,
+				2734768E1CB5EB3F00FAF042 /* TZImageManager.m in Sources */,
 				E2BDB8171C7B63D200274CE3 /* QRViewController.m in Sources */,
 				27D39A5B1C92AC5D00A3F3C3 /* UIView+MJExtension.m in Sources */,
 				E2FEE3B91C79F4440079B824 /* MainTabBarViewController.m in Sources */,
@@ -1829,6 +1962,7 @@
 				27512FE41CAA054300BCADA1 /* NSObject+MJProperty.m in Sources */,
 				27512FE21CAA054300BCADA1 /* NSObject+MJCoding.m in Sources */,
 				27512FE51CAA054300BCADA1 /* NSString+MJExtension.m in Sources */,
+				2734768C1CB5EB3F00FAF042 /* TZAssetCell.m in Sources */,
 				E2FBA6151C82B91800F9F799 /* MartViewController.m in Sources */,
 				2731E7A31C996ADF00FB3323 /* UITableView+FDIndexPathHeightCache.m in Sources */,
 				E2BDB8211C7B644600274CE3 /* BrandListViewController.m in Sources */,

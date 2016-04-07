@@ -8,6 +8,7 @@
 
 #import "AddNewVoucherViewController.h"
 
+#define UploadMaxPictureNum 6
 @interface AddNewVoucherViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) NSMutableArray *typeArray;
 @property (nonatomic, assign) NSInteger selectIndex;
@@ -30,6 +31,11 @@
     }
     [_tableView setTableHeaderView:_headView];
     [_tableView setTableFooterView:_footView];
+}
+
+- (void)refreshScrollView
+{
+    
 }
 
 - (void)didReceiveMemoryWarning {
