@@ -137,7 +137,9 @@
             else {
                 type = @"";
             }
-            [self reportScanResult:[metadataObj stringValue] cardType:type];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self reportScanResult:[metadataObj stringValue] cardType:type];
+            });
         }
     }
 }
