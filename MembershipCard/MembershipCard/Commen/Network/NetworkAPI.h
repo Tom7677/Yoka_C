@@ -270,5 +270,5 @@ typedef enum {
  *  @param block      block description
  *  @param errorBlock errorBlock description
  */
-- (void)deleteVoucherWithVoucherId:(NSString *)voucherId WithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+- (void)deleteVoucherWithVoucherId:(NSString *)voucherId WithFinish:(void(^)(BOOL isSuccess, NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 @end

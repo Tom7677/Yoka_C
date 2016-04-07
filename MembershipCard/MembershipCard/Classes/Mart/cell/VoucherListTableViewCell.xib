@@ -120,6 +120,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="deleteBtn" destination="2cW-ez-IWp" id="EaT-Cm-UpU"/>
                 <outlet property="deleteLabel" destination="cYQ-N1-LY4" id="xRF-Yv-Jcd"/>
                 <outlet property="locationLabel" destination="Rf1-Ou-7Wo" id="pHk-Qd-R9b"/>
                 <outlet property="priceLabel" destination="sFi-Hk-zaI" id="Y83-QL-AVS"/>

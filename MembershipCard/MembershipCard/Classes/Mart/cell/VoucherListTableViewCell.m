@@ -24,5 +24,6 @@
 }
 
 - (IBAction)deleteAction:(id)sender {
+    [_delegate deleteVoucher:_vouchertModel];
 }
 @end

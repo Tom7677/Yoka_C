@@ -65,5 +65,11 @@
     return str == nil || [str isEqual:@""] || [str isEqual:[NSNull null]];
 }
 
-
+- (void)showAlertViewController:(NSString *)msg
+{
+    UIAlertController *alertController=[UIAlertController alertControllerWithTitle:@"提示" message:msg preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+    [alertController addAction:okAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
 @end

@@ -11,7 +11,7 @@
 #import "MJRefresh.h"
 #import "AddNewVoucherViewController.h"
 
-@interface SellCardViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface SellCardViewController ()<UITableViewDelegate,UITableViewDataSource,VoucherListTableViewCellDelegate>
 @property (nonatomic, assign) NSInteger page;
 @property (nonatomic, strong) NSMutableArray *dataArray;
 @end
@@ -119,10 +119,23 @@
     else {
         cell.typeLabel.backgroundColor = UIColorFromRGB(0xbbbbc4);
     }
+    cell.delegate = self;
+    cell.vouchertModel = model;
     cell.titleLabel.text = model.title;
     cell.locationLabel.text = [NSString stringWithFormat:@"%@ - %@",model.name,model.location];
     cell.priceLabel.text = [[model.price description] stringByAppendingString:@"元"];
     cell.titleLabel.text = model.create_date;
     return cell;
+}
+
+- (void)deleteVoucher:(VoucherListModel *)vouchertModel
+{
+    [[NetworkAPI shared]deleteVoucherWithVoucherId:vouchertModel.voucher_id WithFinish:^(BOOL isSuccess, NSString *msg) {
+        if (isSuccess) {
+            
+        }
+    } withErrorBlock:^(NSError *error) {
+        
+    }];
 }
 @end

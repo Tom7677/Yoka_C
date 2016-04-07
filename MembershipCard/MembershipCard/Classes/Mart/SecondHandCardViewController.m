@@ -13,11 +13,9 @@
 #import "MJRefresh.h"
 #import "AssignmentInfoViewController.h"
 #import "VoucherListTableViewCell.h"
-#import "AlbumPickerViewController.h"
-#import "TZImagePickerController.h"
 
 #define LINE_WIDTH  50
-@interface SecondHandCardViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,TZImagePickerControllerDelegate>
+@interface SecondHandCardViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 @property (nonatomic, strong) NSMutableArray *typeArray;
 @property (nonatomic, assign) CGFloat btnWidth;
 @property (nonatomic, strong) NSMutableArray *tableViewArray;
@@ -90,24 +88,9 @@
 
 - (void)releaseAction
 {
-//    SellCardViewController *vc = [[SellCardViewController alloc]init];
-//    [self.navigationController pushViewController:vc animated:YES];
-//    AssignmentInfoViewController *vc = [[AssignmentInfoViewController alloc]init];
-//    vc.hidesBottomBarWhenPushed = YES;
-//    [self.navigationController pushViewController:vc animated:YES];
-//    AlbumPickerViewController *vc = [[AlbumPickerViewController alloc]init];
-//    vc.isToAlbum = NO;
-//    vc.hidesBottomBarWhenPushed = YES;
-//    [self.navigationController pushViewController:vc animated:YES];
-    
-    TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc] initWithMaxImagesCount:9 delegate:self];
-    imagePickerVc.allowPickingOriginalPhoto = NO;
-    // You can get the photos by block, the same as by delegate.
-    // 你可以通过block或者代理，来得到用户选择的照片.
-    [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets) {
-        
-    }];
-    [self presentViewController:imagePickerVc animated:YES completion:nil];
+    SellCardViewController *vc = [[SellCardViewController alloc]init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void) createBtn
@@ -333,6 +316,8 @@
     cell.locationLabel.text = [NSString stringWithFormat:@"%@ - %@",model.name,model.location];
     cell.priceLabel.text = [[model.price description] stringByAppendingString:@"元"];
     cell.titleLabel.text = model.create_date;
+    cell.deleteLabel.hidden = YES;
+    cell.deleteBtn.hidden = YES;
     return cell;
 }
 

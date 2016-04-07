@@ -112,16 +112,8 @@
 		2731E7AB1C9970ED00FB3323 /* DiscoveryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2731E7A91C9970ED00FB3323 /* DiscoveryTableViewCell.xib */; };
 		273476381CB35D0D00FAF042 /* EditNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 273476361CB35D0D00FAF042 /* EditNameViewController.m */; };
 		273476391CB35D0D00FAF042 /* EditNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 273476371CB35D0D00FAF042 /* EditNameViewController.xib */; };
-		2734763D1CB39A2600FAF042 /* PicturePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2734763B1CB39A2600FAF042 /* PicturePickerViewController.m */; };
-		2734763E1CB39A2600FAF042 /* PicturePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2734763C1CB39A2600FAF042 /* PicturePickerViewController.xib */; };
-		273476421CB39AD400FAF042 /* PicturePickerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 273476401CB39AD400FAF042 /* PicturePickerCollectionViewCell.m */; };
-		273476431CB39AD400FAF042 /* PicturePickerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 273476411CB39AD400FAF042 /* PicturePickerCollectionViewCell.xib */; };
 		273476461CB3A08700FAF042 /* icon_selected_24x24@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 273476441CB3A08700FAF042 /* icon_selected_24x24@2x.png */; };
 		273476471CB3A08700FAF042 /* icon_selected_24x24@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 273476451CB3A08700FAF042 /* icon_selected_24x24@3x.png */; };
-		2734764B1CB3ABA500FAF042 /* AlbumPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 273476491CB3ABA500FAF042 /* AlbumPickerViewController.m */; };
-		2734764C1CB3ABA500FAF042 /* AlbumPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2734764A1CB3ABA500FAF042 /* AlbumPickerViewController.xib */; };
-		273476501CB3ACC300FAF042 /* AlbumPickerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2734764E1CB3ACC300FAF042 /* AlbumPickerTableViewCell.m */; };
-		273476511CB3ACC300FAF042 /* AlbumPickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2734764F1CB3ACC300FAF042 /* AlbumPickerTableViewCell.xib */; };
 		2734767C1CB5EB3F00FAF042 /* MMVideoPreviewPlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2734765A1CB5EB3F00FAF042 /* MMVideoPreviewPlay@2x.png */; };
 		2734767D1CB5EB3F00FAF042 /* MMVideoPreviewPlayHL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2734765B1CB5EB3F00FAF042 /* MMVideoPreviewPlayHL@2x.png */; };
 		2734767E1CB5EB3F00FAF042 /* navi_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2734765C1CB5EB3F00FAF042 /* navi_back@2x.png */; };
@@ -147,6 +139,13 @@
 		273476921CB5EB3F00FAF042 /* TZPhotoPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 273476771CB5EB3F00FAF042 /* TZPhotoPreviewController.m */; };
 		273476931CB5EB3F00FAF042 /* TZVideoPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 273476791CB5EB3F00FAF042 /* TZVideoPlayerController.m */; };
 		273476941CB5EB3F00FAF042 /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2734767B1CB5EB3F00FAF042 /* UIView+Layout.m */; };
+		273476961CB6326E00FAF042 /* AlbumAddBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 273476951CB6326E00FAF042 /* AlbumAddBtn@2x.png */; };
+		2734769D1CB646CE00FAF042 /* selicon_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 273476971CB646CE00FAF042 /* selicon_selected.png */; };
+		2734769E1CB646CE00FAF042 /* selicon_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 273476981CB646CE00FAF042 /* selicon_selected@2x.png */; };
+		2734769F1CB646CE00FAF042 /* selicon_selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 273476991CB646CE00FAF042 /* selicon_selected@3x.png */; };
+		273476A01CB646CE00FAF042 /* selicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2734769A1CB646CE00FAF042 /* selicon.png */; };
+		273476A11CB646CE00FAF042 /* selicon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2734769B1CB646CE00FAF042 /* selicon@2x.png */; };
+		273476A21CB646CE00FAF042 /* selicon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2734769C1CB646CE00FAF042 /* selicon@3x.png */; };
 		27512FDC1CAA054300BCADA1 /* MJExtensionConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 27512FC91CAA054300BCADA1 /* MJExtensionConst.m */; };
 		27512FDD1CAA054300BCADA1 /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 27512FCB1CAA054300BCADA1 /* MJFoundation.m */; };
 		27512FDE1CAA054300BCADA1 /* MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 27512FCD1CAA054300BCADA1 /* MJProperty.m */; };
@@ -401,20 +400,8 @@
 		273476351CB35D0D00FAF042 /* EditNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditNameViewController.h; sourceTree = "<group>"; };
 		273476361CB35D0D00FAF042 /* EditNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditNameViewController.m; sourceTree = "<group>"; };
 		273476371CB35D0D00FAF042 /* EditNameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditNameViewController.xib; sourceTree = "<group>"; };
-		2734763A1CB39A2600FAF042 /* PicturePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PicturePickerViewController.h; sourceTree = "<group>"; };
-		2734763B1CB39A2600FAF042 /* PicturePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PicturePickerViewController.m; sourceTree = "<group>"; };
-		2734763C1CB39A2600FAF042 /* PicturePickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PicturePickerViewController.xib; sourceTree = "<group>"; };
-		2734763F1CB39AD400FAF042 /* PicturePickerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PicturePickerCollectionViewCell.h; sourceTree = "<group>"; };
-		273476401CB39AD400FAF042 /* PicturePickerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PicturePickerCollectionViewCell.m; sourceTree = "<group>"; };
-		273476411CB39AD400FAF042 /* PicturePickerCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PicturePickerCollectionViewCell.xib; sourceTree = "<group>"; };
 		273476441CB3A08700FAF042 /* icon_selected_24x24@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_selected_24x24@2x.png"; sourceTree = "<group>"; };
 		273476451CB3A08700FAF042 /* icon_selected_24x24@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_selected_24x24@3x.png"; sourceTree = "<group>"; };
-		273476481CB3ABA500FAF042 /* AlbumPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumPickerViewController.h; sourceTree = "<group>"; };
-		273476491CB3ABA500FAF042 /* AlbumPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumPickerViewController.m; sourceTree = "<group>"; };
-		2734764A1CB3ABA500FAF042 /* AlbumPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlbumPickerViewController.xib; sourceTree = "<group>"; };
-		2734764D1CB3ACC300FAF042 /* AlbumPickerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumPickerTableViewCell.h; sourceTree = "<group>"; };
-		2734764E1CB3ACC300FAF042 /* AlbumPickerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumPickerTableViewCell.m; sourceTree = "<group>"; };
-		2734764F1CB3ACC300FAF042 /* AlbumPickerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlbumPickerTableViewCell.xib; sourceTree = "<group>"; };
 		2734765A1CB5EB3F00FAF042 /* MMVideoPreviewPlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MMVideoPreviewPlay@2x.png"; sourceTree = "<group>"; };
 		2734765B1CB5EB3F00FAF042 /* MMVideoPreviewPlayHL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MMVideoPreviewPlayHL@2x.png"; sourceTree = "<group>"; };
 		2734765C1CB5EB3F00FAF042 /* navi_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navi_back@2x.png"; sourceTree = "<group>"; };
@@ -449,6 +436,13 @@
 		273476791CB5EB3F00FAF042 /* TZVideoPlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZVideoPlayerController.m; sourceTree = "<group>"; };
 		2734767A1CB5EB3F00FAF042 /* UIView+Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Layout.h"; sourceTree = "<group>"; };
 		2734767B1CB5EB3F00FAF042 /* UIView+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Layout.m"; sourceTree = "<group>"; };
+		273476951CB6326E00FAF042 /* AlbumAddBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AlbumAddBtn@2x.png"; sourceTree = "<group>"; };
+		273476971CB646CE00FAF042 /* selicon_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selicon_selected.png; sourceTree = "<group>"; };
+		273476981CB646CE00FAF042 /* selicon_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "selicon_selected@2x.png"; sourceTree = "<group>"; };
+		273476991CB646CE00FAF042 /* selicon_selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "selicon_selected@3x.png"; sourceTree = "<group>"; };
+		2734769A1CB646CE00FAF042 /* selicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selicon.png; sourceTree = "<group>"; };
+		2734769B1CB646CE00FAF042 /* selicon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "selicon@2x.png"; sourceTree = "<group>"; };
+		2734769C1CB646CE00FAF042 /* selicon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "selicon@3x.png"; sourceTree = "<group>"; };
 		27512FC71CAA054300BCADA1 /* MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtension.h; sourceTree = "<group>"; };
 		27512FC81CAA054300BCADA1 /* MJExtensionConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtensionConst.h; sourceTree = "<group>"; };
 		27512FC91CAA054300BCADA1 /* MJExtensionConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJExtensionConst.m; sourceTree = "<group>"; };
@@ -704,6 +698,13 @@
 				1ACFB9CA1C8EB8680083FD07 /* more2@3x.png */,
 				273476441CB3A08700FAF042 /* icon_selected_24x24@2x.png */,
 				273476451CB3A08700FAF042 /* icon_selected_24x24@3x.png */,
+				273476951CB6326E00FAF042 /* AlbumAddBtn@2x.png */,
+				273476971CB646CE00FAF042 /* selicon_selected.png */,
+				273476981CB646CE00FAF042 /* selicon_selected@2x.png */,
+				273476991CB646CE00FAF042 /* selicon_selected@3x.png */,
+				2734769A1CB646CE00FAF042 /* selicon.png */,
+				2734769B1CB646CE00FAF042 /* selicon@2x.png */,
+				2734769C1CB646CE00FAF042 /* selicon@3x.png */,
 			);
 			path = More;
 			sourceTree = "<group>";
@@ -977,12 +978,6 @@
 				276BBD1B1CACC12700CA392E /* VoucherListTableViewCell.h */,
 				276BBD1C1CACC12700CA392E /* VoucherListTableViewCell.m */,
 				276BBD1D1CACC12700CA392E /* VoucherListTableViewCell.xib */,
-				2734763F1CB39AD400FAF042 /* PicturePickerCollectionViewCell.h */,
-				273476401CB39AD400FAF042 /* PicturePickerCollectionViewCell.m */,
-				273476411CB39AD400FAF042 /* PicturePickerCollectionViewCell.xib */,
-				2734764D1CB3ACC300FAF042 /* AlbumPickerTableViewCell.h */,
-				2734764E1CB3ACC300FAF042 /* AlbumPickerTableViewCell.m */,
-				2734764F1CB3ACC300FAF042 /* AlbumPickerTableViewCell.xib */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -1206,12 +1201,6 @@
 				276BBD201CACF5F500CA392E /* AddNewVoucherViewController.h */,
 				276BBD211CACF5F500CA392E /* AddNewVoucherViewController.m */,
 				276BBD221CACF5F500CA392E /* AddNewVoucherViewController.xib */,
-				2734763A1CB39A2600FAF042 /* PicturePickerViewController.h */,
-				2734763B1CB39A2600FAF042 /* PicturePickerViewController.m */,
-				2734763C1CB39A2600FAF042 /* PicturePickerViewController.xib */,
-				273476481CB3ABA500FAF042 /* AlbumPickerViewController.h */,
-				273476491CB3ABA500FAF042 /* AlbumPickerViewController.m */,
-				2734764A1CB3ABA500FAF042 /* AlbumPickerViewController.xib */,
 			);
 			path = Mart;
 			sourceTree = "<group>";
@@ -1673,9 +1662,11 @@
 				1A4F32341CACE612001E4AFA /* share_pyq@3x.png in Resources */,
 				E2BDB8181C7B63D200274CE3 /* QRViewController.xib in Resources */,
 				1A4F321C1CACE0BA001E4AFA /* like.png in Resources */,
+				273476961CB6326E00FAF042 /* AlbumAddBtn@2x.png in Resources */,
 				1AEDD3C21C8D2D4000E435AC /* icon_back.png in Resources */,
 				2734768A1CB5EB3F00FAF042 /* TZAssetCell.xib in Resources */,
 				1ACFB9AD1C8EACA20083FD07 /* tabbar_more_selected.png in Resources */,
+				2734769E1CB646CE00FAF042 /* selicon_selected@2x.png in Resources */,
 				2734767F1CB5EB3F00FAF042 /* photo_def_photoPickerVc@2x.png in Resources */,
 				2734767E1CB5EB3F00FAF042 /* navi_back@2x.png in Resources */,
 				1ACFB9CC1C8EB8680083FD07 /* more1@2x.png in Resources */,
@@ -1683,18 +1674,18 @@
 				1ACFB9AE1C8EACA20083FD07 /* tabbar_more_selected@2x.png in Resources */,
 				1ACFB9AB1C8EACA20083FD07 /* tabbar_discovery@2x.png in Resources */,
 				1ACFB9B41C8EACA20083FD07 /* tabbar_myCardBag_selected@2x.png in Resources */,
+				273476A21CB646CE00FAF042 /* selicon@3x.png in Resources */,
 				1A4F32211CACE0BA001E4AFA /* like_selected@3x.png in Resources */,
 				1ACFB9D01C8EB8680083FD07 /* more2@3x.png in Resources */,
 				2731E7581C98160400FB3323 /* BrandListTableViewCell.xib in Resources */,
 				1A4F32281CACE1BC001E4AFA /* share.png in Resources */,
 				E2004C001C85CD7D00CDA2E7 /* SellCardViewController.xib in Resources */,
 				E2BDB7BB1C7B53A900274CE3 /* MyCardBagTableViewCell.xib in Resources */,
+				273476A01CB646CE00FAF042 /* selicon.png in Resources */,
 				E2000D791C9E771F003DCA39 /* PossiableCardTableViewCell.xib in Resources */,
 				27D39A0F1C8ED83600A3F3C3 /* DiscoveryWithImageCell.xib in Resources */,
-				2734764C1CB3ABA500FAF042 /* AlbumPickerViewController.xib in Resources */,
 				1ACC38711C9FC4DB00C9E837 /* ser-02.png in Resources */,
 				273476881CB5EB3F00FAF042 /* TableViewArrow@2x.png in Resources */,
-				2734763E1CB39A2600FAF042 /* PicturePickerViewController.xib in Resources */,
 				E2FEE3D51C79FD070079B824 /* VIPViewController.xib in Resources */,
 				1A1470A01C8D7CC5003A0616 /* addCard-menu@2x.png in Resources */,
 				2734767D1CB5EB3F00FAF042 /* MMVideoPreviewPlayHL@2x.png in Resources */,
@@ -1729,6 +1720,7 @@
 				1ACC386F1C9FC4DB00C9E837 /* ser-01@2x.png in Resources */,
 				1AFED1B91C8F1D6E00415ABF /* wx.png in Resources */,
 				E2004C051C85CE5000CDA2E7 /* AssignmentInfoViewController.xib in Resources */,
+				273476A11CB646CE00FAF042 /* selicon@2x.png in Resources */,
 				273476891CB5EB3F00FAF042 /* TZAlbumCell.xib in Resources */,
 				1A4F32351CACE612001E4AFA /* share_wx.png in Resources */,
 				E2BDB81D1C7B641200274CE3 /* InputCardViewController.xib in Resources */,
@@ -1750,7 +1742,6 @@
 				1ACFB9B01C8EACA20083FD07 /* tabbar_more.png in Resources */,
 				1A4F32371CACE612001E4AFA /* share_wx@3x.png in Resources */,
 				1ACFB9CB1C8EB8680083FD07 /* more1.png in Resources */,
-				273476511CB3ACC300FAF042 /* AlbumPickerTableViewCell.xib in Resources */,
 				1AEDD3C31C8D2D4000E435AC /* icon_back@2x.png in Resources */,
 				1ACC387B1C9FC4DB00C9E837 /* ser-05@2x.png in Resources */,
 				273476471CB3A08700FAF042 /* icon_selected_24x24@3x.png in Resources */,
@@ -1760,6 +1751,7 @@
 				1AA63D111C9955A1000C0589 /* mjlogo_rectangle.jpg in Resources */,
 				1A4F321F1CACE0BA001E4AFA /* like_selected.png in Resources */,
 				273476801CB5EB3F00FAF042 /* photo_def_previewVc@2x.png in Resources */,
+				2734769F1CB646CE00FAF042 /* selicon_selected@3x.png in Resources */,
 				1A003ACD1C9ECCFB00FF12A4 /* ser01.png in Resources */,
 				1ACC38771C9FC4DB00C9E837 /* ser-04.png in Resources */,
 				E2FEE3CB1C79F5A70079B824 /* LoginViewController.xib in Resources */,
@@ -1770,6 +1762,7 @@
 				1A4F32321CACE612001E4AFA /* share_pyq.png in Resources */,
 				273476811CB5EB3F00FAF042 /* photo_number_icon@2x.png in Resources */,
 				E2004C141C85E3C200CDA2E7 /* VIPServiceTableViewController.xib in Resources */,
+				2734769D1CB646CE00FAF042 /* selicon_selected.png in Resources */,
 				1ACC38731C9FC4DB00C9E837 /* ser-02@3x.png in Resources */,
 				E24983A61C8C27BA005B77A8 /* icon_logo.png in Resources */,
 				1A14709D1C8D7CC5003A0616 /* addCard-code@2x.png in Resources */,
@@ -1788,7 +1781,6 @@
 				1ACC385B1C9FBC3500C9E837 /* guess.png in Resources */,
 				E2FBA6161C82B91800F9F799 /* MartViewController.xib in Resources */,
 				1A14709E1C8D7CC5003A0616 /* addCard-code@3x.png in Resources */,
-				273476431CB39AD400FAF042 /* PicturePickerCollectionViewCell.xib in Resources */,
 				273476861CB5EB3F00FAF042 /* preview_number_icon@2x.png in Resources */,
 				E2073CBA1C847FBC0028DD8C /* icon_horn_top@2x.png in Resources */,
 				1ACC38701C9FC4DB00C9E837 /* ser-01@3x.png in Resources */,
@@ -1878,7 +1870,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2BDB7B41C7B42E200274CE3 /* AddNewCardViewController.m in Sources */,
-				273476421CB39AD400FAF042 /* PicturePickerCollectionViewCell.m in Sources */,
 				27D39A531C92AC5D00A3F3C3 /* MJRefreshBackStateFooter.m in Sources */,
 				E2000D7D1C9E7C52003DCA39 /* PossiableCardViewController.m in Sources */,
 				E2004C131C85E3C200CDA2E7 /* VIPServiceTableViewController.m in Sources */,
@@ -1905,7 +1896,6 @@
 				27D39A521C92AC5D00A3F3C3 /* MJRefreshBackNormalFooter.m in Sources */,
 				276BBD231CACF5F500CA392E /* AddNewVoucherViewController.m in Sources */,
 				E2FEE3C51C79F58B0079B824 /* MyCardBagViewController.m in Sources */,
-				2734763D1CB39A2600FAF042 /* PicturePickerViewController.m in Sources */,
 				27512FDD1CAA054300BCADA1 /* MJFoundation.m in Sources */,
 				27D39A551C92AC5D00A3F3C3 /* MJRefreshNormalHeader.m in Sources */,
 				2731E7571C98160400FB3323 /* BrandListTableViewCell.m in Sources */,
@@ -1954,7 +1944,6 @@
 				E2BDB7C51C7B5F5100274CE3 /* VIPTableViewCell.m in Sources */,
 				E2FEE3CA1C79F5A70079B824 /* LoginViewController.m in Sources */,
 				1A7300051C86CD1B0054DB1D /* AboutViewController.m in Sources */,
-				2734764B1CB3ABA500FAF042 /* AlbumPickerViewController.m in Sources */,
 				27D39A131C8FB90A00A3F3C3 /* UILabel+caculateSize.m in Sources */,
 				2731E7A61C996ADF00FB3323 /* UITableView+FDTemplateLayoutCellDebug.m in Sources */,
 				2731E7A41C996ADF00FB3323 /* UITableView+FDKeyedHeightCache.m in Sources */,
@@ -1964,7 +1953,6 @@
 				E200FC5F1C7F4BE700644BB5 /* UIView+frame.m in Sources */,
 				E2FEBB151CA1A57A004F9042 /* MartWebViewController.m in Sources */,
 				E2FEE3CF1C79F5EA0079B824 /* SettingViewController.m in Sources */,
-				273476501CB3ACC300FAF042 /* AlbumPickerTableViewCell.m in Sources */,
 				27D39A541C92AC5D00A3F3C3 /* MJRefreshGifHeader.m in Sources */,
 				276BBCF61CAA8BB600CA392E /* WebViewController.m in Sources */,
 				E2BDB81C1C7B641200274CE3 /* InputCardViewController.m in Sources */,

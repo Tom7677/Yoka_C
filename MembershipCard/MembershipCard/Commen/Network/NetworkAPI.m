@@ -534,23 +534,36 @@
 
 - (void)addVoucherWithInfo:(NSDictionary *)dic WithFinish:(void(^)(BOOL isSuccess, NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock
 {
+    NSMutableArray *imageArray = [[NSMutableArray alloc]init];
+    for (int i = 0; i < [dic[@"images"] count]; i ++) {
+        NSData *data = UIImageJPEGRepresentation(dic[@"images"][i], 0.5);
+        [imageArray addObject:data];
+    }
     NSString *urlStr = [hostUrl stringByAppendingString:@"Voucher/add_voucher"];
-    NSDictionary *param = @{@"token":[self getAccessToken],@"title":dic[@"title"],@"price":dic[@"price"],@"type":dic[@"type"],@"content":dic[@"content"],@"cat_id":dic[@"cat_id"],@"city_id":dic[@"city_id"],@"location":dic[@"location"],@"contact":dic[@"contact"],@"mobile":dic[@"mobile"]};
+    NSDictionary *param = @{@"token":[self getAccessToken],@"title":dic[@"title"],@"price":dic[@"price"],@"type":dic[@"type"],@"content":dic[@"content"],@"cat_id":dic[@"cat_id"],@"contact":dic[@"contact"],@"mobile":dic[@"mobile"],@"images":imageArray};
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager POST:urlStr parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        for (int i = 0; i < [dic[@"images"] count]; i ++) {
-            
-        }
-    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager POST:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
     }];
 }
 
-- (void)deleteVoucherWithVoucherId:(NSString *)voucherId WithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock
+- (void)deleteVoucherWithVoucherId:(NSString *)voucherId WithFinish:(void(^)(BOOL isSuccess, NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock
 {
-    
+    NSString *urlStr = [hostUrl stringByAppendingString:@"Voucher/delete_voucher"];
+    NSDictionary *param = @{@"token":[self getAccessToken],@"voucher_id":voucherId};
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject[@"status"] integerValue] == 1) {
+            block(YES, responseObject[@"msg"]);
+        }
+        else {
+            block(NO, responseObject[@"msg"]);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        errorBlock (error);
+    }];
 }
 
 #pragma Action
