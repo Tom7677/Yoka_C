@@ -288,9 +288,4 @@
 - (IBAction)backBtnAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
-
-- (IBAction)explainBtnAction:(id)sender {
-}
-
-
 @end
