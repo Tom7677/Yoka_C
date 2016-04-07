@@ -34,7 +34,7 @@
     //webVeiw禁止左右滑动
     _webView.scrollView.contentSize = CGSizeMake(MainScreenWidth, MainScreenHeight);
     _webView.scrollView.bounces = YES;
-    _webView.scalesPageToFit = NO;
+    _webView.scalesPageToFit = YES;
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_urlStr]]];
 }
 

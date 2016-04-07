@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -22,8 +23,11 @@
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YxB-pg-aAO">
-                        <rect key="frame" x="63" y="44" width="257" height="0.0"/>
+                        <rect key="frame" x="63" y="43" width="257" height="1"/>
                         <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="hVz-Ft-FDf"/>
+                        </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tmt-tw-P8p">
                         <rect key="frame" x="65" y="12" width="247" height="21"/>
@@ -41,7 +45,6 @@
                     <constraint firstItem="mcL-d9-Mdy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="7" id="Z3c-wY-19f"/>
                     <constraint firstItem="YxB-pg-aAO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="55" id="huM-cy-qPg"/>
                     <constraint firstItem="tmt-tw-P8p" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="lCC-Jj-0c3"/>
-                    <constraint firstItem="YxB-pg-aAO" firstAttribute="top" secondItem="tmt-tw-P8p" secondAttribute="bottom" constant="11" id="opw-q5-54X"/>
                     <constraint firstItem="tmt-tw-P8p" firstAttribute="leading" secondItem="mcL-d9-Mdy" secondAttribute="trailing" constant="15" id="xGh-e4-ec2"/>
                 </constraints>
             </tableViewCellContentView>

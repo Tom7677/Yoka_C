@@ -11,6 +11,7 @@
 #import "NotificationTableViewCell.h"
 #import "MJRefresh.h"
 #import "UITableView+FDTemplateLayoutCell.h"
+#import "WebViewController.h"
 
 @interface NotificationViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UIButton *rightBtn;
@@ -80,10 +81,16 @@
     NoticeModel *model = _resultArray[indexPath.row];
     cell.contentLabel.text = model.content;
     cell.timeLabel.text = model.create_date;
-    cell.shopNameLabel.text = model.merchant_name;
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NoticeModel *model = _resultArray[indexPath.row];
+    if ([self isEmpty:model.jump_link]) {
+        WebViewController *vc = [[WebViewController alloc]initWithURLString:model.jump_link titleLabel:nil];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+}
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
 }

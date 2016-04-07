@@ -66,8 +66,8 @@
                                 <constraint firstAttribute="height" constant="1" id="BOn-N3-MoO"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="未命名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="42t-TK-GjF">
-                            <rect key="frame" x="109" y="31" width="110" height="18"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未命名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="42t-TK-GjF">
+                            <rect key="frame" x="109" y="31" width="45" height="18"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
@@ -86,8 +86,8 @@
                                 <action selector="avatarBtnAction:" destination="-1" eventType="touchUpInside" id="bd9-7P-Bu0"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oNG-IB-m4S">
-                            <rect key="frame" x="234" y="0.0" width="78" height="105"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oNG-IB-m4S">
+                            <rect key="frame" x="234" y="45" width="78" height="16"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="78" id="yPP-hE-e1h"/>
                             </constraints>

@@ -150,13 +150,13 @@
     if ([tableView isEqual:self.searchDisplayController.searchResultsTableView]){
         BrandListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentifier"];
         BrandCardListModel *model = [_resultArray objectAtIndex:indexPath.row];
-        [cell.logoImageView sd_setImageWithURL:[NSURL URLWithString:model.y_logo]];
+        [cell.logoImageView sd_setImageWithURL:[NSURL URLWithString:[imageUrl stringByAppendingString:model.y_logo]]];
         cell.nameLabel.text = model.name;
         return cell;
     }else{
         BrandListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentifier"];
         BrandCardListModel *model = [[self getNameArraybyIndex:indexPath.section] objectAtIndex:indexPath.row];
-        [cell.logoImageView sd_setImageWithURL:[NSURL URLWithString:model.y_logo]];
+        [cell.logoImageView sd_setImageWithURL:[NSURL URLWithString:[imageUrl stringByAppendingString:model.y_logo]]];
         cell.nameLabel.text = model.name;
         return cell;
     }

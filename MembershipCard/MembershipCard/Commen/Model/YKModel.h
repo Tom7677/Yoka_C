@@ -58,12 +58,9 @@
 
 @end
 
-/** 通知模型（系统通知仅有文本标题，没有image和url）*/
+/** 通知模型*/
 @interface NoticeModel : NSObject
 @property(nonatomic,strong) NSString *message_id;//通知ID
-@property(nonatomic,strong) NSString *title;//标题
-@property(nonatomic,strong) NSString *merchant_id;//参与商户的id
-@property(nonatomic,strong) NSString *merchant_name;//参与商户的名字
 @property(nonatomic,strong) NSString *create_date;//创建时间
 @property(nonatomic,strong) NSString *jump_link;//跳转链接
 @property(nonatomic,strong) NSString *content;//内容
