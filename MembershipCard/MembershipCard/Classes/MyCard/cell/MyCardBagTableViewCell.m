@@ -12,7 +12,7 @@
 @implementation MyCardBagTableViewCell
 
 - (void)awakeFromNib {
-    [_logoImageView circularBead:6];
+    [_logoImageView circularBead:12];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

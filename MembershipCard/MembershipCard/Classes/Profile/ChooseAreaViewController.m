@@ -30,7 +30,7 @@
         self.title = @"切换城市";
         UIButton *rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 28, 28)];
         [rightBtn setTitle:@"切换" forState:UIControlStateNormal];
-        [rightBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [rightBtn setTitleColor:UIColorFromRGB(0xFF526E) forState:UIControlStateNormal];
         rightBtn.titleLabel.font = [UIFont systemFontOfSize:14];
         [rightBtn addTarget:self action:@selector(changeAction) forControlEvents:UIControlEventTouchUpInside];
         UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
@@ -38,13 +38,13 @@
     }
     else {
         self.title = @"选择城市";
-        UIButton *leftBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 28, 28)];
-        [leftBtn setTitle:@"选定" forState:UIControlStateNormal];
-        [leftBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        leftBtn.titleLabel.font = [UIFont systemFontOfSize:14];
-        [leftBtn addTarget:self action:@selector(chooseAction) forControlEvents:UIControlEventTouchUpInside];
-        UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
-        [self.navigationItem setLeftBarButtonItem:leftItem];
+        UIButton *rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 28, 28)];
+        [rightBtn setTitle:@"选定" forState:UIControlStateNormal];
+        [rightBtn setTitleColor:UIColorFromRGB(0xFF526E) forState:UIControlStateNormal];
+        rightBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+        [rightBtn addTarget:self action:@selector(chooseAction) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
+        [self.navigationItem setRightBarButtonItem:rightItem];
     }
     [self getCityArray];
 }

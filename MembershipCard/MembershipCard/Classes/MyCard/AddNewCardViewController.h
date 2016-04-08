@@ -9,6 +9,8 @@
 #import "BaseViewController.h"
 
 @interface AddNewCardViewController : BaseViewController
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (strong, nonatomic) IBOutlet UIView *addNewCardView;
 
 - (IBAction)qrBtnAction:(id)sender;
 - (IBAction)inputBtnAction:(id)sender;

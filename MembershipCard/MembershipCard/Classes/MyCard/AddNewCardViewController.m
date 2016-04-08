@@ -9,6 +9,8 @@
 #import "AddNewCardViewController.h"
 #import "BrandListViewController.h"
 #import "PossiableCardViewController.h"
+#import "UIView+frame.h"
+
 
 @interface AddNewCardViewController ()
 
@@ -19,7 +21,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title= @"添加新卡";
-    // Do any additional setup after loading the view from its nib.
+    _scrollView.showsVerticalScrollIndicator = NO;
+    [_scrollView addSubview:_addNewCardView];
+    _addNewCardView.width = MainScreenWidth;
+    _scrollView.contentSize = CGSizeMake(MainScreenWidth, _addNewCardView.height);
+    
 }
 
 - (void)didReceiveMemoryWarning {

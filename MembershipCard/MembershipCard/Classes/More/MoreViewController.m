@@ -38,6 +38,7 @@
     [self.navigationItem setRightBarButtonItem:rightItem];
     _cityLabel.text = [[NSUserDefaults standardUserDefaults]objectForKey:@"MyCity"];
     _bgView.width = MainScreenWidth;
+    _scrollView.showsVerticalScrollIndicator = NO;
     _scrollView.contentSize = CGSizeMake(MainScreenWidth, _bgView.height);
     [_scrollView addSubview:_bgView];
     [_avatarBtn circularBoarderBead:_avatarBtn.width / 2 withBoarder:1 color:UIColorFromRGB(0xf0f0f0)];
