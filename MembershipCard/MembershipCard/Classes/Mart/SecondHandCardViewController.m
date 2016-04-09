@@ -315,7 +315,7 @@
     cell.titleLabel.text = model.title;
     cell.locationLabel.text = [NSString stringWithFormat:@"%@ - %@",model.name,model.location];
     cell.priceLabel.text = [[model.price description] stringByAppendingString:@"元"];
-    cell.titleLabel.text = model.create_date;
+    cell.timeLabel.text = model.create_date;
     cell.deleteLabel.hidden = YES;
     cell.deleteBtn.hidden = YES;
     return cell;

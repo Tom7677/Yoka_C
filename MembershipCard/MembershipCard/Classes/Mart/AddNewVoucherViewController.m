@@ -9,15 +9,16 @@
 #import "AddNewVoucherViewController.h"
 #import "UIView+frame.h"
 #import "TZImagePickerController.h"
-#import "ChooseAreaViewController.h"
+#import "ChooseCityViewController.h"
 
 #define UploadMaxPictureNum 6
-@interface AddNewVoucherViewController ()<UITableViewDelegate,UITableViewDataSource,TZImagePickerControllerDelegate>
+@interface AddNewVoucherViewController ()<UITableViewDelegate,UITableViewDataSource,TZImagePickerControllerDelegate,PassValueDelegate>
 @property (nonatomic, strong) NSMutableArray *typeArray;
 @property (nonatomic, assign) NSInteger selectIndex;
 @property (nonatomic, strong) NSMutableArray *selectedPicArray;
 @property (nonatomic, strong) UIButton *addBtn;
 @property (nonatomic, assign) NSInteger infoType;
+@property (nonatomic, copy) NSString *cityId;
 @end
 
 @implementation AddNewVoucherViewController
@@ -172,7 +173,9 @@
 }
 
 - (IBAction)chooseAreaAction:(id)sender {
-    
+    ChooseCityViewController *vc = [[ChooseCityViewController alloc]init];
+    vc.passDelegate = self;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)sendAction:(id)sender {
@@ -188,6 +191,14 @@
         [self showAlertViewController:@"请输入内容描述"];
         return;
     }
+    if ([self isEmpty:_cityId]) {
+        [self showAlertViewController:@"请选择城市"];
+        return;
+    }
+    if ([_areaTextField.text isEqualToString:@""]) {
+        [self showAlertViewController:@"请输入区域"];
+        return;
+    }
     if ([_nameTextField.text isEqualToString:@""]) {
         [self showAlertViewController:@"请输入联系人姓名"];
         return;
@@ -196,10 +207,19 @@
         [self showAlertViewController:@"请输入联系电话"];
         return;
     }
+    if (![self checkTelNumber:_phoneTextField.text]) {
+        [self showAlertViewController:@"请输入格式正确的联系电话"];
+        return;
+    }
     ArticleTypeModel *model = _typeArray[_selectIndex];
-    NSDictionary *dic = @{@"title":_titleTextField.text,@"price":_priceTextField.text,@"type":[NSNumber numberWithInteger:_infoType],@"content":_contentTextView.text,@"cat_id":model.cat_id,@"contact":_nameTextField.text,@"mobile":_phoneTextField.text,@"images":_selectedPicArray};
+    NSDictionary *dic = @{@"title":_titleTextField.text,@"price":_priceTextField.text,@"type":[NSNumber numberWithInteger:_infoType],@"content":_contentTextView.text,@"cat_id":model.cat_id,@"contact":_nameTextField.text,@"mobile":_phoneTextField.text,@"images":_selectedPicArray,@"city_id":_cityId,@"location":_areaTextField.text};
     [[NetworkAPI shared]addVoucherWithInfo:dic WithFinish:^(BOOL isSuccess, NSString *msg) {
-        
+        if (isSuccess) {
+            
+        }
+        else {
+            [self showAlertViewController:msg];
+        }
     } withErrorBlock:^(NSError *error) {
         
     }];
@@ -215,5 +235,11 @@
     _transferBtn.selected = NO;
     _buyBtn.selected = YES;
     _infoType = 2;
+}
+
+- (void)passCityId:(NSString *)cityId cityName:(NSString *)cityName
+{
+    _cityId = cityId;
+    [_chooseBtn setTitle:cityName forState:UIControlStateNormal];
 }
 @end

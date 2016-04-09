@@ -5,9 +5,9 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SellCardViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChooseCityViewController">
             <connections>
-                <outlet property="tableView" destination="mY4-M7-KDd" id="JR2-g1-lhK"/>
+                <outlet property="tableView" destination="Zya-jI-qTZ" id="TKZ-Vl-yvR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,19 +16,19 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mY4-M7-KDd">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zya-jI-qTZ">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="mY4-M7-KDd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="8Y2-qJ-iHh"/>
-                <constraint firstItem="mY4-M7-KDd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cM2-tl-NlZ"/>
-                <constraint firstAttribute="trailing" secondItem="mY4-M7-KDd" secondAttribute="trailing" id="dSr-oa-G0W"/>
-                <constraint firstAttribute="bottom" secondItem="mY4-M7-KDd" secondAttribute="bottom" id="hRE-UJ-FbA"/>
+                <constraint firstItem="Zya-jI-qTZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="4I7-bg-wTq"/>
+                <constraint firstAttribute="trailing" secondItem="Zya-jI-qTZ" secondAttribute="trailing" id="8Zn-Wd-gDa"/>
+                <constraint firstAttribute="bottom" secondItem="Zya-jI-qTZ" secondAttribute="bottom" id="dKn-Vi-Bag"/>
+                <constraint firstItem="Zya-jI-qTZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="kdN-t7-Okt"/>
             </constraints>
-            <point key="canvasLocation" x="405" y="251"/>
+            <point key="canvasLocation" x="233" y="219"/>
         </view>
     </objects>
 </document>

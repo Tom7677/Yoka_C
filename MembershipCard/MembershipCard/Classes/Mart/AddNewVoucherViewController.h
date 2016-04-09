@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
 @property (weak, nonatomic) IBOutlet UIButton *chooseBtn;
+@property (weak, nonatomic) IBOutlet UITextField *areaTextField;
 @property (assign, nonatomic) BOOL isNew;
 
 - (IBAction)chooseAreaAction:(id)sender;

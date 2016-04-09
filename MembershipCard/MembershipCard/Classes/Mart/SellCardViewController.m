@@ -41,8 +41,9 @@
     _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         [self loadMoreData];
     }];
-    [self loadMoreData];
+    [self loadNewData];
     _tableView.mj_footer.hidden = YES;
+    [_tableView setTableFooterView:[UIView new]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -124,7 +125,7 @@
     cell.titleLabel.text = model.title;
     cell.locationLabel.text = [NSString stringWithFormat:@"%@ - %@",model.name,model.location];
     cell.priceLabel.text = [[model.price description] stringByAppendingString:@"元"];
-    cell.titleLabel.text = model.create_date;
+    cell.timeLabel.text = model.create_date;
     return cell;
 }
 

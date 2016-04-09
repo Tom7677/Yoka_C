@@ -15,4 +15,5 @@
 @interface BaseViewController : UIViewController
 - (BOOL)isEmpty:(NSString *)str;
 - (void)showAlertViewController:(NSString *)msg;
+- (BOOL)checkTelNumber:(NSString *) telNumber;
 @end

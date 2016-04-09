@@ -540,7 +540,13 @@
         [imageArray addObject:data];
     }
     NSString *urlStr = [hostUrl stringByAppendingString:@"Voucher/add_voucher"];
-    NSDictionary *param = @{@"token":[self getAccessToken],@"title":dic[@"title"],@"price":dic[@"price"],@"type":dic[@"type"],@"content":dic[@"content"],@"cat_id":dic[@"cat_id"],@"contact":dic[@"contact"],@"mobile":dic[@"mobile"],@"images":imageArray};
+    NSDictionary *param = [NSDictionary dictionary];
+    if (imageArray.count > 0) {
+        param = @{@"token":[self getAccessToken],@"title":dic[@"title"],@"price":dic[@"price"],@"type":dic[@"type"],@"content":dic[@"content"],@"cat_id":dic[@"cat_id"],@"contact":dic[@"contact"],@"mobile":dic[@"mobile"],@"images":imageArray,@"location":dic[@"location"],@"city_id":dic[@"city_id"]};
+    }
+    else {
+        param = @{@"token":[self getAccessToken],@"title":dic[@"title"],@"price":dic[@"price"],@"type":dic[@"type"],@"content":dic[@"content"],@"cat_id":dic[@"cat_id"],@"contact":dic[@"contact"],@"mobile":dic[@"mobile"],@"location":dic[@"location"],@"city_id":dic[@"city_id"]};
+    }
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager POST:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         

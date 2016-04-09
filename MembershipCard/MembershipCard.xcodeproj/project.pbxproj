@@ -219,6 +219,8 @@
 		E24983A71C8C27BA005B77A8 /* icon_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E24983A51C8C27BA005B77A8 /* icon_logo@2x.png */; };
 		E2662CBB1C7CA1D100FE42F1 /* ShowDeteledCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2662CB91C7CA1D100FE42F1 /* ShowDeteledCardViewController.m */; };
 		E2662CBC1C7CA1D100FE42F1 /* ShowDeteledCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2662CBA1C7CA1D100FE42F1 /* ShowDeteledCardViewController.xib */; };
+		E297102E1CB7D2FC00303B06 /* ChooseCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E297102C1CB7D2FC00303B06 /* ChooseCityViewController.m */; };
+		E297102F1CB7D2FC00303B06 /* ChooseCityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E297102D1CB7D2FC00303B06 /* ChooseCityViewController.xib */; };
 		E2BDB7AF1C7B42BD00274CE3 /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BDB7AD1C7B42BD00274CE3 /* NotificationViewController.m */; };
 		E2BDB7B01C7B42BD00274CE3 /* NotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2BDB7AE1C7B42BD00274CE3 /* NotificationViewController.xib */; };
 		E2BDB7B41C7B42E200274CE3 /* AddNewCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BDB7B21C7B42E200274CE3 /* AddNewCardViewController.m */; };
@@ -573,6 +575,9 @@
 		E2662CB81C7CA1D100FE42F1 /* ShowDeteledCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowDeteledCardViewController.h; sourceTree = "<group>"; };
 		E2662CB91C7CA1D100FE42F1 /* ShowDeteledCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowDeteledCardViewController.m; sourceTree = "<group>"; };
 		E2662CBA1C7CA1D100FE42F1 /* ShowDeteledCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowDeteledCardViewController.xib; sourceTree = "<group>"; };
+		E297102B1CB7D2FC00303B06 /* ChooseCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseCityViewController.h; sourceTree = "<group>"; };
+		E297102C1CB7D2FC00303B06 /* ChooseCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseCityViewController.m; sourceTree = "<group>"; };
+		E297102D1CB7D2FC00303B06 /* ChooseCityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseCityViewController.xib; sourceTree = "<group>"; };
 		E2BDB7AC1C7B42BD00274CE3 /* NotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationViewController.h; sourceTree = "<group>"; };
 		E2BDB7AD1C7B42BD00274CE3 /* NotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationViewController.m; sourceTree = "<group>"; };
 		E2BDB7AE1C7B42BD00274CE3 /* NotificationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationViewController.xib; sourceTree = "<group>"; };
@@ -1201,6 +1206,9 @@
 				276BBD201CACF5F500CA392E /* AddNewVoucherViewController.h */,
 				276BBD211CACF5F500CA392E /* AddNewVoucherViewController.m */,
 				276BBD221CACF5F500CA392E /* AddNewVoucherViewController.xib */,
+				E297102B1CB7D2FC00303B06 /* ChooseCityViewController.h */,
+				E297102C1CB7D2FC00303B06 /* ChooseCityViewController.m */,
+				E297102D1CB7D2FC00303B06 /* ChooseCityViewController.xib */,
 			);
 			path = Mart;
 			sourceTree = "<group>";
@@ -1611,7 +1619,7 @@
 				TargetAttributes = {
 					E2FEE36D1C79E7860079B824 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = ZZ49Y24LYW;
+						DevelopmentTeam = CWPM78QMN6;
 					};
 					E2FEE3861C79E7860079B824 = {
 						CreatedOnToolsVersion = 7.2;
@@ -1672,6 +1680,7 @@
 				1ACFB9CC1C8EB8680083FD07 /* more1@2x.png in Resources */,
 				1ACFB9CF1C8EB8680083FD07 /* more2@2x.png in Resources */,
 				1ACFB9AE1C8EACA20083FD07 /* tabbar_more_selected@2x.png in Resources */,
+				E297102F1CB7D2FC00303B06 /* ChooseCityViewController.xib in Resources */,
 				1ACFB9AB1C8EACA20083FD07 /* tabbar_discovery@2x.png in Resources */,
 				1ACFB9B41C8EACA20083FD07 /* tabbar_myCardBag_selected@2x.png in Resources */,
 				273476A21CB646CE00FAF042 /* selicon@3x.png in Resources */,
@@ -1947,6 +1956,7 @@
 				27D39A131C8FB90A00A3F3C3 /* UILabel+caculateSize.m in Sources */,
 				2731E7A61C996ADF00FB3323 /* UITableView+FDTemplateLayoutCellDebug.m in Sources */,
 				2731E7A41C996ADF00FB3323 /* UITableView+FDKeyedHeightCache.m in Sources */,
+				E297102E1CB7D2FC00303B06 /* ChooseCityViewController.m in Sources */,
 				27512FDE1CAA054300BCADA1 /* MJProperty.m in Sources */,
 				E2FEE3B51C79F3260079B824 /* BaseViewController.m in Sources */,
 				E2FEE3731C79E7860079B824 /* main.m in Sources */,
