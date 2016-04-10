@@ -144,7 +144,7 @@
 - (void)addTableViewToScrollView:(UIScrollView *)scrollView count:(NSUInteger)pageCount
 {
     for (int i = 0; i < pageCount; i++) {
-        UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(MainScreenWidth * i, 0 , MainScreenWidth, MainScreenHeight - 40 - NavAndStatusBarHeight - TabbarHeight)];
+        UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(MainScreenWidth * i, 0 , MainScreenWidth, MainScreenHeight - 40 - NavAndStatusBarHeight )];
         tableView.delegate = self;
         tableView.dataSource = self;
         [tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];

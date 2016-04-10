@@ -43,10 +43,10 @@
     [_weixinBtn setImage:wxLogo forState:UIControlStateNormal];
     [_scrollView addSubview:_bgView];
     [_scrollView setContentSize:CGSizeMake(MainScreenWidth, _bgView.height)];
-//    if (![WXApi isWXAppInstalled]) {
-//        _weixinBtn.hidden = YES;
-//        _orLabel.hidden = YES;
-//    }
+    if (![WXApi isWXAppInstalled]) {
+        _weixinBtn.hidden = YES;
+        _orLabel.hidden = YES;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -69,11 +69,11 @@
         phoneNum = _phoneNumTextField.text;
     }
     if (phoneNum.length == 0) {
-        //@"请输入手机号码"
+        [self showAlertViewController:@"请输入手机号码"];
         return;
     }
     if (![self checkTelNumber:phoneNum]) {
-        //@"请输入格式正确的手机号码"
+        [self showAlertViewController:@"请输入格式正确的手机号码"];
         return;
     }
     if (!_getCodeBtn.enabled) {
@@ -84,7 +84,7 @@
                 _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
             }
             else {
-                
+                [self showAlertViewController:msg];
             }
         } withErrorBlock:^(NSError *error) {
             
@@ -98,44 +98,56 @@
     _count++;
     if (_count >= 60) {
         [_timer invalidate];
-        [_getCodeBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
-        _getCodeBtn.enabled = YES;
+        if (_wxLogin) {
+            [_wxGetCodeBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
+            _wxGetCodeBtn.enabled = YES;
+        }
+        else {
+            [_getCodeBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
+            _getCodeBtn.enabled = YES;
+        }
         return;
     }
-    [_getCodeBtn setTitle:[NSString stringWithFormat:@"%d秒",60 - _count] forState:UIControlStateNormal];
-    _getCodeBtn.enabled = NO;
+    if (_wxLogin) {
+        [_wxGetCodeBtn setTitle:[NSString stringWithFormat:@"%d秒",60 - _count] forState:UIControlStateNormal];
+        _wxGetCodeBtn.enabled = NO;
+    }
+    else {
+        [_getCodeBtn setTitle:[NSString stringWithFormat:@"%d秒",60 - _count] forState:UIControlStateNormal];
+        _getCodeBtn.enabled = NO;
+    }
 }
 
 - (IBAction)loginAction:(id)sender {
     if (_phoneNumTextField.text.length == 0) {
-        //@"请输入手机号码"
+        [self showAlertViewController:@"请输入手机号码"];
         return;
     }
     if (![self checkTelNumber:_phoneNumTextField.text]) {
-        //@"请输入格式正确的手机号码"
+        [self showAlertViewController:@"请输入格式正确的手机号码"];
         return;
     }
-    if (_getCodeBtn.enabled) {
+    if (_codeTextField.text.length == 0) {
+        [self showAlertViewController:@"请输入验证码"];
         return;
-    }else {
-        [[NetworkAPI shared]userLoginByMobile:_phoneNumTextField.text AndCode:_codeTextField.text WithFinish:^(BOOL isSuccess, NSString *msg) {
-            if (isSuccess) {
-                [self goHomeView];
-                [[NSUserDefaults standardUserDefaults]setObject:_phoneNumTextField.text forKey:@"phoneNum"];
-                [[UMengAnalyticsUtil shared]loginByMobile];
-            }
-            else {
-                
-            }
-        } withErrorBlock:^(NSError *error) {
-            if (error.code == NSURLErrorNotConnectedToInternet) {
-                
-            }
-            else {
-                
-            }
-        }];
     }
+    [[NetworkAPI shared]userLoginByMobile:_phoneNumTextField.text AndCode:_codeTextField.text WithFinish:^(BOOL isSuccess, NSString *msg) {
+        if (isSuccess) {
+            [self goHomeView];
+            [[NSUserDefaults standardUserDefaults]setObject:_phoneNumTextField.text forKey:@"phoneNum"];
+            [[UMengAnalyticsUtil shared]loginByMobile];
+        }
+        else {
+            [self showAlertViewController:msg];
+        }
+    } withErrorBlock:^(NSError *error) {
+        if (error.code == NSURLErrorNotConnectedToInternet) {
+            
+        }
+        else {
+            
+        }
+    }];
 }
 
 -(void)goHomeView {

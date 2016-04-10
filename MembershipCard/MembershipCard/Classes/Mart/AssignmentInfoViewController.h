@@ -24,8 +24,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *contactMobile;
 @property (weak, nonatomic) IBOutlet UIView *infoView;
 @property (weak, nonatomic) IBOutlet UIView *priceView;
-@property (weak, nonatomic) IBOutlet UIView *picView;
-@property (weak, nonatomic) IBOutlet UIView *phoneNumView;
+@property (strong, nonatomic) IBOutlet UIView *picView;
+@property (strong, nonatomic) IBOutlet UIView *phoneNumView;
+@property (weak, nonatomic) IBOutlet UIScrollView *picScrollView;
 
 - (IBAction)callAction:(id)sender;
 @end

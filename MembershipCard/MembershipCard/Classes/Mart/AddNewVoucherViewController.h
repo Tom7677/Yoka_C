@@ -25,7 +25,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
 @property (weak, nonatomic) IBOutlet UIButton *chooseBtn;
 @property (weak, nonatomic) IBOutlet UITextField *areaTextField;
-@property (assign, nonatomic) BOOL isNew;
+@property (weak, nonatomic) IBOutlet UIButton *confirmBtn;
+@property (copy, nonatomic) NSString *voucherId;
 
 - (IBAction)chooseAreaAction:(id)sender;
 - (IBAction)sendAction:(id)sender;

@@ -13,4 +13,7 @@
 @property(nonatomic,strong) NSString *urlStr;
 @property(nonatomic,strong) NSString *articleId;
 
+- (IBAction)shareToWXAction:(id)sender;
+- (IBAction)shareToCirelAction:(id)sender;
+
 @end

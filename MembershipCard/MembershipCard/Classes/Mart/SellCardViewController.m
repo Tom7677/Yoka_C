@@ -129,11 +129,21 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    VoucherListModel *model = _dataArray[indexPath.row];
+    AddNewVoucherViewController *vc = [[AddNewVoucherViewController alloc]init];
+    vc.voucherId = model.voucher_id;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 - (void)deleteVoucher:(VoucherListModel *)vouchertModel
 {
     [[NetworkAPI shared]deleteVoucherWithVoucherId:vouchertModel.voucher_id WithFinish:^(BOOL isSuccess, NSString *msg) {
         if (isSuccess) {
-            
+            [_dataArray removeObject:vouchertModel];
+            [_tableView reloadData];
         }
     } withErrorBlock:^(NSError *error) {
         

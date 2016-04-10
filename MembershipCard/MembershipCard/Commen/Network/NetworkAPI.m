@@ -541,17 +541,58 @@
     }
     NSString *urlStr = [hostUrl stringByAppendingString:@"Voucher/add_voucher"];
     NSDictionary *param = [NSDictionary dictionary];
-    if (imageArray.count > 0) {
-        param = @{@"token":[self getAccessToken],@"title":dic[@"title"],@"price":dic[@"price"],@"type":dic[@"type"],@"content":dic[@"content"],@"cat_id":dic[@"cat_id"],@"contact":dic[@"contact"],@"mobile":dic[@"mobile"],@"images":imageArray,@"location":dic[@"location"],@"city_id":dic[@"city_id"]};
-    }
-    else {
-        param = @{@"token":[self getAccessToken],@"title":dic[@"title"],@"price":dic[@"price"],@"type":dic[@"type"],@"content":dic[@"content"],@"cat_id":dic[@"cat_id"],@"contact":dic[@"contact"],@"mobile":dic[@"mobile"],@"location":dic[@"location"],@"city_id":dic[@"city_id"]};
-    }
+    param = @{@"token":[self getAccessToken],@"title":dic[@"title"],@"price":dic[@"price"],@"type":dic[@"type"],@"content":dic[@"content"],@"cat_id":dic[@"cat_id"],@"contact":dic[@"contact"],@"mobile":dic[@"mobile"],@"location":dic[@"location"],@"city_id":dic[@"city_id"]};
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager POST:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
+    [manager POST:urlStr parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        if (imageArray.count > 0) {
+            for (int i = 0; i < imageArray.count; i ++) {
+                NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+                formatter.dateFormat = @"yyyyMMddHHmmssSSS";
+                NSString *timeStr = [formatter stringFromDate:[NSDate date]];
+                NSString *fileName = [NSString stringWithFormat:@"%@.jpg", timeStr];
+                [formData appendPartWithFileData:imageArray[i] name:[NSString stringWithFormat:@"images_%d",i+1] fileName:fileName mimeType:@"image/jpeg"];
+            }
+        }
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject[@"status"] integerValue] == 1) {
+            block(YES, responseObject[@"msg"]);
+        }else{
+            block(NO, responseObject[@"msg"]);
+        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
+        errorBlock (error);
+    }];
+}
+
+- (void)editVoucherWithInfo:(NSDictionary *)dic WithFinish:(void(^)(BOOL isSuccess, NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock
+{
+    NSMutableArray *imageArray = [[NSMutableArray alloc]init];
+    for (int i = 0; i < [dic[@"images"] count]; i ++) {
+        NSData *data = UIImageJPEGRepresentation(dic[@"images"][i], 0.5);
+        [imageArray addObject:data];
+    }
+    NSString *urlStr = [hostUrl stringByAppendingString:@"Voucher/edit_voucher"];
+    NSDictionary *param = [NSDictionary dictionary];
+    param = @{@"token":[self getAccessToken],@"title":dic[@"title"],@"price":dic[@"price"],@"type":dic[@"type"],@"content":dic[@"content"],@"cat_id":dic[@"cat_id"],@"contact":dic[@"contact"],@"mobile":dic[@"mobile"],@"location":dic[@"location"],@"city_id":dic[@"city_id"]};
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:urlStr parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        if (imageArray.count > 0) {
+            for (int i = 0; i < imageArray.count; i ++) {
+                NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+                formatter.dateFormat = @"yyyyMMddHHmmssSSS";
+                NSString *timeStr = [formatter stringFromDate:[NSDate date]];
+                NSString *fileName = [NSString stringWithFormat:@"%@.jpg", timeStr];
+                [formData appendPartWithFileData:imageArray[i] name:[NSString stringWithFormat:@"images_%d",i+1] fileName:fileName mimeType:@"image/jpeg"];
+            }
+        }
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject[@"status"] integerValue] == 1) {
+            block(YES, responseObject[@"msg"]);
+        }else{
+            block(NO, responseObject[@"msg"]);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        errorBlock (error);
     }];
 }
 

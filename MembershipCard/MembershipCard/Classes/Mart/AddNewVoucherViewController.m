@@ -10,6 +10,7 @@
 #import "UIView+frame.h"
 #import "TZImagePickerController.h"
 #import "ChooseCityViewController.h"
+#import <UIImageView+WebCache.h>
 
 #define UploadMaxPictureNum 6
 @interface AddNewVoucherViewController ()<UITableViewDelegate,UITableViewDataSource,TZImagePickerControllerDelegate,PassValueDelegate>
@@ -19,6 +20,7 @@
 @property (nonatomic, strong) UIButton *addBtn;
 @property (nonatomic, assign) NSInteger infoType;
 @property (nonatomic, copy) NSString *cityId;
+@property (nonatomic, strong) VoucherDetailModel *voucherDetailModel;
 @end
 
 @implementation AddNewVoucherViewController
@@ -29,10 +31,29 @@
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _selectIndex = 0;
-    if (_isNew) {
-        self.title = @"新建转让信息";
-    }
     _selectedPicArray = [[NSMutableArray alloc]init];
+    _addBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, (MainScreenWidth - 50) / 4, (MainScreenWidth - 50) / 4)];
+    [_addBtn addTarget:self action:@selector(addPic) forControlEvents:UIControlEventTouchUpInside];
+    [_addBtn setBackgroundImage:[UIImage imageNamed:@"AlbumAddBtn"] forState:UIControlStateNormal];
+    [_tableView setTableHeaderView:_headView];
+    [_tableView setTableFooterView:_footView];
+    if (_voucherId == nil) {
+        self.title = @"新建转让信息";
+        [_confirmBtn setTitle:@"确认发布" forState:UIControlStateNormal];
+        _transferBtn.selected = YES;
+        _infoType = 1;
+        [self getVoucherType];
+        [self refreshScrollView];
+    }
+    else {
+        self.title = @"修改转让信息";
+        [_confirmBtn setTitle:@"确认修改" forState:UIControlStateNormal];
+        [self refreshView];
+    }
+}
+
+- (void)getVoucherType
+{
     if ([[NSUserDefaults standardUserDefaults]objectForKey:@"VoucherType"] != nil) {
         NSArray *resultArray = [[NSUserDefaults standardUserDefaults]objectForKey:@"VoucherType"];
         [self getTypeArray:resultArray];
@@ -40,41 +61,129 @@
     else {
         [self getVoucherCatList];
     }
-    _addBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, (MainScreenWidth - 50) / 4, (MainScreenWidth - 50) / 4)];
-    [_addBtn addTarget:self action:@selector(addPic) forControlEvents:UIControlEventTouchUpInside];
-    [_addBtn setBackgroundImage:[UIImage imageNamed:@"AlbumAddBtn"] forState:UIControlStateNormal];
-    [_tableView setTableHeaderView:_headView];
-    [_tableView setTableFooterView:_footView];
-    _transferBtn.selected = YES;
-    _infoType = 1;
-    [self refreshScrollView];
-    
+}
+
+- (void)refreshView
+{
+    [[NetworkAPI shared]getVoucherInfoByVoucherId:_voucherId WithFinish:^(VoucherDetailModel *model) {
+        _voucherDetailModel = model;
+        _titleTextField.text = model.title;
+        _priceTextField.text = model.price;
+        if ([model.type isEqualToString:@"转让"]) {
+            _transferBtn.selected = YES;
+            _buyBtn.selected = NO;
+            _infoType = 1;
+        }
+        else {
+            _transferBtn.selected = NO;
+            _buyBtn.selected = YES;
+            _infoType = 2;
+        }
+        _contentTextView.text = model.content;
+        [self getVoucherType];
+        [_chooseBtn setTitle:model.city_name forState:UIControlStateNormal];
+        _cityId = model.city_id;
+        _areaTextField.text = model.location;
+        _nameTextField.text = model.contact;
+        _phoneTextField.text = model.mobile;
+        [self refreshPicByImages:model.images];
+    } withErrorBlock:^(NSError *error) {
+        
+    }];
+}
+
+- (void)refreshPicByImages:(NSArray *)images
+{
+    [_scrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    CGFloat width = (MainScreenWidth - 50) / 4;
+    CGFloat originY = (90 * MainScreenWidth / 320 - width) / 2;
+    if (images.count < UploadMaxPictureNum) {
+        for (int i = 0; i < images.count; i ++) {
+            UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake((15 + width) * i + 15, originY, width, width)];
+            [imageView sd_setImageWithURL:[NSURL URLWithString:[imageUrl stringByAppendingString:images[i]]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                NSInteger length = imageUrl.length;
+                NSString *imageUrl = [[imageURL absoluteString] substringFromIndex:length - 1];
+                for (int j = 0; j < images.count; j ++) {
+                    if ([imageUrl isEqualToString:images[j]]) {
+                        [_selectedPicArray insertObject:images atIndex:j];
+                    }
+                }
+            }];
+            UIButton *deleteBtn = [[UIButton alloc]initWithFrame:CGRectMake(imageView.originX + width - 10, originY - 10, 20, 20)];
+            deleteBtn.tag = i + 1000;
+            deleteBtn.backgroundColor = [UIColor blackColor];
+            [deleteBtn addTarget:self action:@selector(deleteAction:) forControlEvents:UIControlEventTouchUpInside];
+            [_scrollView addSubview:imageView];
+            [_scrollView addSubview:deleteBtn];
+        }
+        _addBtn.originX = images.count * (width + 15) + 15;
+        _addBtn.originY = originY;
+        [_scrollView addSubview:_addBtn];
+        [_scrollView setContentSize:CGSizeMake(_addBtn.originX + _addBtn.width + 15, _scrollView.height)];
+    }
+    else {
+        for (int i = 0; i < images.count; i ++) {
+            UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake((15 + width )*i + 15, originY, width, width)];
+            [imageView sd_setImageWithURL:[NSURL URLWithString:[imageUrl stringByAppendingString:images[i]]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                NSInteger length = imageUrl.length;
+                NSString *imageUrl = [[imageURL absoluteString] substringFromIndex:length - 1];
+                for (int j = 0; j < images.count; j ++) {
+                    if ([imageUrl isEqualToString:images[j]]) {
+                        [_selectedPicArray insertObject:images atIndex:j];
+                    }
+                }
+            }];
+            UIButton *deleteBtn = [[UIButton alloc]initWithFrame:CGRectMake(imageView.originX + width - 10, originY - 10, 20, 20)];
+            deleteBtn.tag = i + 1000;
+            deleteBtn.backgroundColor = [UIColor blackColor];
+            [deleteBtn addTarget:self action:@selector(deleteAction:) forControlEvents:UIControlEventTouchUpInside];
+            [_scrollView addSubview:imageView];
+            [_scrollView addSubview:deleteBtn];
+        }
+        [_scrollView setContentSize:CGSizeMake(images.count * (width + 15) + 15, _scrollView.height)];
+    }
 }
 
 - (void)refreshScrollView
 {
-    [[_scrollView.subviews lastObject] removeFromSuperview];
-    CGFloat width = (MainScreenWidth - 50) / 4;
+    [_scrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    CGFloat width = (MainScreenWidth - 75) / 4;
     CGFloat originY = (90 * MainScreenWidth / 320 - width) / 2;
     if (_selectedPicArray.count < UploadMaxPictureNum) {
         for (int i = 0; i < _selectedPicArray.count; i ++) {
-            UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake((10 + width) * i + 10, originY, width, width)];
+            UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake((15 + width) * i + 15, originY, width, width)];
             imageView.image = _selectedPicArray[i];
+            UIButton *deleteBtn = [[UIButton alloc]initWithFrame:CGRectMake(imageView.originX + width - 10, originY - 10, 20, 20)];
+            deleteBtn.tag = i + 1000;
+            deleteBtn.backgroundColor = [UIColor blackColor];
+            [deleteBtn addTarget:self action:@selector(deleteAction:) forControlEvents:UIControlEventTouchUpInside];
             [_scrollView addSubview:imageView];
+            [_scrollView addSubview:deleteBtn];
         }
-        _addBtn.originX = _selectedPicArray.count * (width + 10) + 10;
+        _addBtn.originX = _selectedPicArray.count * (width + 15) + 15;
         _addBtn.originY   = originY;
         [_scrollView addSubview:_addBtn];
-        [_scrollView setContentSize:CGSizeMake(_addBtn.originX + _addBtn.width + 10, _scrollView.height)];
+        [_scrollView setContentSize:CGSizeMake(_addBtn.originX + _addBtn.width + 15, _scrollView.height)];
     }
     else {
         for (int i = 0; i < _selectedPicArray.count; i ++) {
-            UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake((10 + width )*i + 10, originY, width, width)];
+            UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake((15 + width )*i + 15, originY, width, width)];
             imageView.image = _selectedPicArray[i];
+            UIButton *deleteBtn = [[UIButton alloc]initWithFrame:CGRectMake(imageView.originX + width - 10, originY - 10, 20, 20)];
+            deleteBtn.tag = i + 1000;
+            deleteBtn.backgroundColor = [UIColor blackColor];
+            [deleteBtn addTarget:self action:@selector(deleteAction:) forControlEvents:UIControlEventTouchUpInside];
             [_scrollView addSubview:imageView];
+            [_scrollView addSubview:deleteBtn];
         }
-        [_scrollView setContentSize:CGSizeMake(_selectedPicArray.count * (width + 10) + 10, _scrollView.height)];
+        [_scrollView setContentSize:CGSizeMake(_selectedPicArray.count * (width + 15) + 15, _scrollView.height)];
     }
+}
+
+- (void)deleteAction:(UIButton *)btn
+{
+    [_selectedPicArray removeObjectAtIndex:btn.tag - 1000];
+    [self refreshScrollView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -114,6 +223,15 @@
         model = [ArticleTypeModel mj_objectWithKeyValues:dic];
         [_typeArray addObject:model];
     }
+    if (_voucherId != nil) {
+        for (int i = 0; i < _typeArray.count; i ++) {
+            ArticleTypeModel *model = _typeArray[i];
+            if ([model.cat_name isEqualToString:_voucherDetailModel.cat_name]) {
+                _selectIndex = i;
+            }
+        }
+    }
+    [_tableView reloadData];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -213,16 +331,30 @@
     }
     ArticleTypeModel *model = _typeArray[_selectIndex];
     NSDictionary *dic = @{@"title":_titleTextField.text,@"price":_priceTextField.text,@"type":[NSNumber numberWithInteger:_infoType],@"content":_contentTextView.text,@"cat_id":model.cat_id,@"contact":_nameTextField.text,@"mobile":_phoneTextField.text,@"images":_selectedPicArray,@"city_id":_cityId,@"location":_areaTextField.text};
-    [[NetworkAPI shared]addVoucherWithInfo:dic WithFinish:^(BOOL isSuccess, NSString *msg) {
-        if (isSuccess) {
+    if (_voucherId == nil) {
+        [[NetworkAPI shared]addVoucherWithInfo:dic WithFinish:^(BOOL isSuccess, NSString *msg) {
+            if (isSuccess) {
+                
+            }
+            else {
+                [self showAlertViewController:msg];
+            }
+        } withErrorBlock:^(NSError *error) {
             
-        }
-        else {
-            [self showAlertViewController:msg];
-        }
-    } withErrorBlock:^(NSError *error) {
-        
-    }];
+        }];
+    }
+    else {
+        [[NetworkAPI shared]editVoucherWithInfo:dic WithFinish:^(BOOL isSuccess, NSString *msg) {
+            if (isSuccess) {
+                
+            }
+            else {
+                [self showAlertViewController:msg];
+            }
+        } withErrorBlock:^(NSError *error) {
+            
+        }];
+    }
 }
 
 - (IBAction)transferAction:(id)sender {

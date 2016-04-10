@@ -21,6 +21,7 @@ static NSString *wxSecret = @"1c710fc0d57a86762c1de4fd3f3a700a";
 
 @property (strong, nonatomic) UIWindow *window;
 
-
+- (void)goMainView;
++ (AppDelegate*) appDelegate;
 @end
 

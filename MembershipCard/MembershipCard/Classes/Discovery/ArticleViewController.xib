@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ArticleViewController">
             <connections>
                 <outlet property="shareToCircelBtn" destination="v2n-vt-cbf" id="Rpz-LO-Zb9"/>
                 <outlet property="shareToWXBtn" destination="k5k-Mf-vDO" id="8aj-J2-Kc6"/>
-                <outlet property="shareView" destination="JEa-PE-1NG" id="zIa-TB-u1g"/>
+                <outlet property="shareView" destination="JEa-PE-1NG" id="U8S-cn-wzS"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -62,6 +62,9 @@
                                 <constraint firstAttribute="width" constant="60" id="miB-GS-ulP"/>
                             </constraints>
                             <state key="normal" image="share_wx.png"/>
+                            <connections>
+                                <action selector="shareToWXAction:" destination="-1" eventType="touchUpInside" id="y18-wM-Mtr"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -94,6 +97,9 @@
                                 <constraint firstAttribute="width" constant="60" id="mE4-Gn-mH4"/>
                             </constraints>
                             <state key="normal" image="share_pyq.png"/>
+                            <connections>
+                                <action selector="shareToCirelAction:" destination="-1" eventType="touchUpInside" id="2aa-1j-Wtr"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

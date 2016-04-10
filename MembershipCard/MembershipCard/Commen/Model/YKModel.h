@@ -122,11 +122,13 @@
 @property(nonatomic,strong) NSString *create_date;//创建时间
 @end
 
+/** 二手卡券信息模型 */
 @interface VoucherDetailModel : NSObject
 @property(nonatomic,copy) NSString *voucher_id;//卡券ID
 @property(nonatomic,copy) NSString *title;//标题
 @property(nonatomic,copy) NSString *type;//方式
 @property(nonatomic,copy) NSString *city_name;//城市
+@property(nonatomic,copy) NSString *city_id;//城市ID
 @property(nonatomic,copy) NSString *location;//地点
 @property(nonatomic,copy) NSString *price;//价格
 @property(nonatomic,copy) NSString *create_date;//创建时间

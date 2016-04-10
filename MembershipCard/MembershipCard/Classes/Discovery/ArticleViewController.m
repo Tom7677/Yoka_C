@@ -10,9 +10,13 @@
 #import "TSImageLeftButton.h"
 #import "NetworkAPI.h"
 #import "UIView+border.h"
+#import "WXApi.h"
+#import "WXApiObject.h"
 
 @interface ArticleViewController ()<UIWebViewDelegate,UIAlertViewDelegate>
-@property (weak, nonatomic) IBOutlet UIView *shareView;
+
+
+@property (strong, nonatomic) IBOutlet UIView *shareView;
 @property (weak, nonatomic) IBOutlet UIButton *shareToWXBtn;
 @property (weak, nonatomic) IBOutlet UIButton *shareToCircelBtn;
 @end
@@ -65,7 +69,35 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)shareToWXAction:(id)sender {
+    WXMediaMessage *message = [WXMediaMessage message];
+    message.title = @"title";
+    message.description = @"description";
+    [message setThumbImage:[UIImage imageNamed:@"icon_logo"]];
+    WXWebpageObject *webpageObject = [WXWebpageObject object];
+    webpageObject.webpageUrl = _urlStr;
+    message.mediaObject = webpageObject;
+    SendMessageToWXReq *req = [[SendMessageToWXReq alloc]init];
+    req.bText = NO;
+    req.message = message;
+    req.scene = WXSceneSession;
+    [WXApi sendReq:req];
+}
 
+- (IBAction)shareToCirelAction:(id)sender {
+    WXMediaMessage *message = [WXMediaMessage message];
+    message.title = @"title";
+    message.description = @"description";
+    [message setThumbImage:[UIImage imageNamed:@"icon_logo"]];
+    WXWebpageObject *webpageObject = [WXWebpageObject object];
+    webpageObject.webpageUrl = _urlStr;
+    message.mediaObject = webpageObject;
+    SendMessageToWXReq *req = [[SendMessageToWXReq alloc]init];
+    req.bText = NO;
+    req.message = message;
+    req.scene = WXSceneTimeline;
+    [WXApi sendReq:req];
+}
 
 #pragma mark - UIWebViewDelegate
 -(void)webViewDidStartLoad:(UIWebView *)webView {
@@ -77,6 +109,5 @@
 -(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }
-
 
 @end

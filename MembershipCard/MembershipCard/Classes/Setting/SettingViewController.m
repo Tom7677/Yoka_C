@@ -8,6 +8,8 @@
 
 #import "SettingViewController.h"
 #import "WebViewController.h"
+#import <SDImageCache.h>
+#import "AppDelegate.h"
 
 
 @interface SettingViewController ()
@@ -41,10 +43,39 @@
         [self.navigationController pushViewController:vc animated:YES];
     }
     else if (btn.tag == 3) {
-        
+        [[SDImageCache sharedImageCache]calculateSizeWithCompletionBlock:^(NSUInteger fileCount, NSUInteger totalSize) {
+            NSString *clearCacheName;
+            if (totalSize < 1024 * 1024) {
+                 clearCacheName = [NSString stringWithFormat:@"清理缓存(%.2fK)",(double)totalSize / 1024];
+            }
+            else {
+                clearCacheName = [NSString stringWithFormat:@"清理缓存(%.2fM)",(double)totalSize / (1024 * 1024)];
+            }
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"确认清除缓存？" message:clearCacheName preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+                
+            }];
+            UIAlertAction *otherAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                [[SDImageCache sharedImageCache]clearDisk];
+            }];
+            [alertController addAction:cancelAction];
+            [alertController addAction:otherAction];
+            [self presentViewController:alertController animated:YES completion:nil];
+        }];
     }
     else {
         //退出登录
+        [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"accessToken"];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"确认退出当前用户吗？" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+            
+        }];
+        UIAlertAction *otherAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            [[AppDelegate appDelegate] goMainView];
+        }];
+        [alertController addAction:cancelAction];
+        [alertController addAction:otherAction];
+        [self presentViewController:alertController animated:YES completion:nil];
     }
     
 }

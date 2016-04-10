@@ -11,6 +11,7 @@
                 <outlet property="areaTextField" destination="S19-wb-1ys" id="DBu-6O-4or"/>
                 <outlet property="buyBtn" destination="X72-V7-laz" id="Erz-v5-7t1"/>
                 <outlet property="chooseBtn" destination="sjR-FY-ESZ" id="MvH-sD-bpx"/>
+                <outlet property="confirmBtn" destination="ybK-RL-gBZ" id="HHs-R1-3iJ"/>
                 <outlet property="contentTextView" destination="YA0-uw-1wG" id="fir-qS-ASA"/>
                 <outlet property="footView" destination="QgL-RS-gTv" id="5jn-JL-iag"/>
                 <outlet property="headView" destination="A7g-vj-dLf" id="z7H-BG-M41"/>
