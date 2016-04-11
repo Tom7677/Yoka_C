@@ -35,9 +35,9 @@
     if (self.navigationController.viewControllers.count > 1)
     {
         UIViewController *viewController = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count - 1];
-        TSImageLeftButton *btn = [[TSImageLeftButton alloc]initWithFrame:CGRectMake(0, 0, 80, 44)];
+        TSImageLeftButton *btn = [[TSImageLeftButton alloc]initWithFrame:CGRectMake(0, 0, 80, 60)];
         btn.titleLabel.font = [UIFont systemFontOfSize:14];
-        [btn setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
+        [btn setImage:[UIImage imageNamed:@"backicon"] forState:UIControlStateNormal];
         [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(pop) forControlEvents:UIControlEventTouchUpInside];
         [btn setTitle:title forState:UIControlStateNormal];

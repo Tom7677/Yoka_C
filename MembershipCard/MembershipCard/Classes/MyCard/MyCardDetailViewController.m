@@ -89,7 +89,7 @@
         [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"ser-0%d", i + 1]] forState:UIControlStateNormal];
         [button setTitle:titleArray[i] forState:UIControlStateNormal];
         [button setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
-        button.titleLabel.font = [UIFont systemFontOfSize:16];
+        button.titleLabel.font = [UIFont systemFontOfSize:14];
         [button setTitleColor:[UIColor blackColor] forState:0];
         [button circularBoarderBead:8 withBoarder:1 color:UIColorFromRGB(0xf0f0f0)];
         [button addTarget:self action:@selector(serviceButtonClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -119,7 +119,7 @@
     if ([self isEmpty:urlStr]) {
         urlStr = EMPTYWEBURL;
     }
-    WebViewController *vc = [[WebViewController alloc]initWithURLString:urlStr titleLabel:sender.titleLabel.text];
+    WebViewController *vc = [[WebViewController alloc]initWithWebNavigationAndURLString:urlStr];
     [self.navigationController pushViewController:vc animated:YES];
 
 }

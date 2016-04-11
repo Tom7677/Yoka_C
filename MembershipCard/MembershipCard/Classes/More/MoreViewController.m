@@ -104,7 +104,7 @@
         [_avatarBtn setBackgroundImage:image forState:UIControlStateNormal];
         NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
         [[NetworkAPI shared]saveUserInfoByNickName:@"" avatar:imageData WithFinish:^(BOOL isSuccess, NSString *msg) {
-            
+            [self loadUserInfo];
         } withErrorBlock:^(NSError *error) {
             
         }];

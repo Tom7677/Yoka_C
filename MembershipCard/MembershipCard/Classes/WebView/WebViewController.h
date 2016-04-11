@@ -9,6 +9,9 @@
 #import "BaseViewController.h"
 
 @interface WebViewController : BaseViewController
+@property (nonatomic, strong) UIWebView *webView;
+- (instancetype)initWithURLString:(NSString *)urlStr titleLabel:(NSString *)title;
+- (instancetype)initWithWebNavigationAndURLString:(NSString *)urlStr;
+- (void)setupWebNavigation;
 
-- (instancetype)initWithURLString:(NSString *)aURL titleLabel:(NSString *)title;
 @end

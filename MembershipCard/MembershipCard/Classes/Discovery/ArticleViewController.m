@@ -29,19 +29,24 @@
     [_shareToCircelBtn circularBoarderBead:_shareToCircelBtn.frame.size.width/2 withBoarder:1 color:[UIColor lightGrayColor]];
 
     NSMutableArray *tempArray = [NSMutableArray array];
-    for (int i = 0; i < 2; i++) {
-        TSImageLeftButton *btn = [[TSImageLeftButton alloc]initWithFrame:CGRectMake(0, 0, 56, 30)];
+    for (int i = 0; i < 3; i++) {
+        TSImageLeftButton *btn = [[TSImageLeftButton alloc]initWithFrame:CGRectMake(0, 0, 60, 30)];
         [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         btn.titleLabel.font = [UIFont systemFontOfSize:14];
         if (i == 0) {
             [btn setTitle:@"分享" forState:UIControlStateNormal];
-            [btn setImage:[UIImage imageNamed:@"share"] forState:UIControlStateNormal];
+            [btn setImage:[UIImage imageNamed:@"web_share"] forState:UIControlStateNormal];
             [btn addTarget:self action:@selector(shareButtonClick) forControlEvents:UIControlEventTouchUpInside];
-        }else {
+        }else if (i == 2) {
             [btn setTitle:@"点赞" forState:UIControlStateNormal];
-            [btn setImage:[UIImage imageNamed:@"like"] forState:UIControlStateNormal];
-            [btn setImage:[UIImage imageNamed:@"like_selected"] forState:UIControlStateSelected];
+            [btn setImage:[UIImage imageNamed:@"web_like"] forState:UIControlStateNormal];
+            [btn setImage:[UIImage imageNamed:@"web_like_selected"] forState:UIControlStateSelected];
             [btn addTarget:self action:@selector(likeButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        }else {
+            UIBarButtonItem *fixedItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemFixedSpace target:nil action:nil];
+            fixedItem.width = 20;
+            [tempArray addObject:fixedItem];
+            continue;
         }
         UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:btn];
         [tempArray addObject:item];

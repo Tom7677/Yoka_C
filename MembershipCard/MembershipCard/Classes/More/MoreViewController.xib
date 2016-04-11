@@ -35,12 +35,12 @@
             </constraints>
             <point key="canvasLocation" x="247" y="200"/>
         </view>
-        <view contentMode="scaleToFill" id="mZU-C1-zON">
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="mZU-C1-zON">
             <rect key="frame" x="0.0" y="0.0" width="320" height="576"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zeS-rG-NVL">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="105"/>
+                    <rect key="frame" x="0.0" y="15" width="320" height="105"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bxM-tX-sc9">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="1"/>
@@ -122,7 +122,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JFv-Pw-f1Y">
-                    <rect key="frame" x="0.0" y="120" width="320" height="105"/>
+                    <rect key="frame" x="0.0" y="135" width="320" height="105"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8zB-5l-evd">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="1"/>
@@ -202,7 +202,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ug7-Je-5pK">
-                    <rect key="frame" x="0.0" y="240" width="320" height="92"/>
+                    <rect key="frame" x="0.0" y="255" width="320" height="92"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yv9-wP-vkv">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="46"/>
@@ -323,7 +323,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RVO-N8-OXb">
-                    <rect key="frame" x="0.0" y="347" width="320" height="46"/>
+                    <rect key="frame" x="0.0" y="362" width="320" height="46"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0fk-yK-Mlq">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="1"/>
@@ -383,7 +383,7 @@
                 <constraint firstItem="ug7-Je-5pK" firstAttribute="leading" secondItem="mZU-C1-zON" secondAttribute="leading" id="MCD-nS-bLn"/>
                 <constraint firstAttribute="trailing" secondItem="zeS-rG-NVL" secondAttribute="trailing" id="MOx-7f-57B"/>
                 <constraint firstAttribute="trailing" secondItem="RVO-N8-OXb" secondAttribute="trailing" id="b1H-Qs-QmF"/>
-                <constraint firstItem="zeS-rG-NVL" firstAttribute="top" secondItem="mZU-C1-zON" secondAttribute="top" id="hr0-QO-uSl"/>
+                <constraint firstItem="zeS-rG-NVL" firstAttribute="top" secondItem="mZU-C1-zON" secondAttribute="top" constant="15" id="hr0-QO-uSl"/>
                 <constraint firstItem="ug7-Je-5pK" firstAttribute="top" secondItem="JFv-Pw-f1Y" secondAttribute="bottom" constant="15" id="pJE-K2-iwn"/>
                 <constraint firstAttribute="trailing" secondItem="JFv-Pw-f1Y" secondAttribute="trailing" id="vOx-0x-G5E"/>
                 <constraint firstItem="RVO-N8-OXb" firstAttribute="top" secondItem="ug7-Je-5pK" secondAttribute="bottom" constant="15" id="vQf-Uc-2b6"/>

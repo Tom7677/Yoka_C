@@ -27,9 +27,10 @@
     CGRect imageFrame = imageView.frame;
     CGRect labelFrame = label.frame;
     imageFrame.origin.x = 0;
-    labelFrame.origin.x = imageFrame.origin.x + imageFrame.size.width;
+    labelFrame.origin.x = imageFrame.origin.x + imageFrame.size.width + 2;
     imageView.frame = imageFrame;
     label.frame = labelFrame;
+    self.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
 }
 
 @end

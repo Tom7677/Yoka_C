@@ -21,7 +21,7 @@ static NSString *homePageUrl = @"https://shop16479842.koudaitong.com/v2/showcase
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"卡券商场";
+    self.title = @"马夹商城";
     _webView.delegate = self;
     _webView.scalesPageToFit = YES;
     [self loadRequestFromString:homePageUrl];

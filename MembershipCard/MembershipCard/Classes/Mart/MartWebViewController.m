@@ -9,6 +9,7 @@
 #import "MartWebViewController.h"
 #import "YZSDK.h"
 #import "CacheUserInfo.h"
+#import "TSImageLeftButton.h"
 
 @interface MartWebViewController ()<UIWebViewDelegate>
 
@@ -19,6 +20,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _webView.delegate = self;
+    TSImageLeftButton *btn = [[TSImageLeftButton alloc]initWithFrame:CGRectMake(0, 0, 56, 30)];
+    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    btn.titleLabel.font = [UIFont systemFontOfSize:14];
+    [btn setTitle:@"分享" forState:UIControlStateNormal];
+    [btn setImage:[UIImage imageNamed:@"web_share"] forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(webShareAction) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:btn];
     [self loadRequestFromString:_commonWebViewUrl];
 }
 
@@ -43,6 +51,9 @@
         [_webView loadRequest:urlRequest];
     }
 }
+- (void)webShareAction {
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -56,7 +67,7 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-    self.navigationItem.title = [_webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+//    self.navigationItem.title = [_webView stringByEvaluatingJavaScriptFromString:@"document.title"];
     [_webView stringByEvaluatingJavaScriptFromString:[[YZSDK sharedInstance] jsBridgeWhenWebDidLoad]];
 }
 
