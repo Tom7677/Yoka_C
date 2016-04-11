@@ -298,6 +298,11 @@
     }];
 }
 
+- (void)getCooperatedMerchantListWithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock {
+    //NSString *urlStr = [hostUrl stringByAppendingString:@"Merchant/get_brand_list"];
+    
+}
+
 #pragma mark Discovery
 - (void)getTopNewsWithFinish:(void(^)(BOOL isSuccess, NSString *url))block withErrorBlock:(void(^)(NSError *error))errorBlock
 {

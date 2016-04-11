@@ -307,10 +307,10 @@
     VoucherListModel *model = dataArray[indexPath.row];
     cell.typeLabel.text = model.type;
     if ([model.type isEqualToString:@"转让"]) {
-        cell.typeLabel.backgroundColor = UIColorFromRGB(0xeeeeb5);
+        cell.typeLabel.backgroundColor = UIColorFromRGB(0xF4CE1D);
     }
     else {
-        cell.typeLabel.backgroundColor = UIColorFromRGB(0xbbbbc4);
+        cell.typeLabel.backgroundColor = UIColorFromRGB(0x8DC21F);
     }
     cell.titleLabel.text = model.title;
     cell.locationLabel.text = [NSString stringWithFormat:@"%@ - %@",model.name,model.location];

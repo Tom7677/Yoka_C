@@ -9,6 +9,7 @@
 #import "PossiableCardViewController.h"
 
 @interface PossiableCardViewController ()
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 

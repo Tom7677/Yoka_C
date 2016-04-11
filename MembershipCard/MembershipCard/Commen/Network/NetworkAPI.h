@@ -91,7 +91,7 @@ static NSInteger pageSize = 20;
 - (void)deleteCardByCardId:(NSString *)cardId WithFinish:(void(^)(BOOL isSuccess , NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 
 /*!
- *  @brief  获取品牌列表
+ *  @brief  获取非合作品牌列表
  *
  *  @param block      block description
  *  @param errorBlock errorBlock description
@@ -144,6 +144,13 @@ static NSInteger pageSize = 20;
  */
 - (void)addNewBrandCardByMerchantID:(NSString *)merchantId cardNum:(NSString *)cardNum WithFinish:(void(^)(BOOL isSuccess, NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 
+/*!
+ *  @brief  获取云所合作商户列表
+ *
+ *  @param block      block description
+ *  @param errorBlock errorBlock description
+ */
+- (void)getCooperatedMerchantListWithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 
 #pragma mark 发现
 /*!

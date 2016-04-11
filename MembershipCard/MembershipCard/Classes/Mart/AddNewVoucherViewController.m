@@ -265,8 +265,8 @@
     UIImageView *selectImageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 11, 12, 12)];
     [cell.contentView addSubview:selectImageView];
     ArticleTypeModel *model = _typeArray[indexPath.row];
-    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(28, 0, 200, 35)];
-    label.font = [UIFont systemFontOfSize:12];
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(32, 0, 200, 35)];
+    label.font = [UIFont systemFontOfSize:14];
     label.text = model.cat_name;
     [cell.contentView addSubview:label];
     UIView *line = [[UIView alloc]initWithFrame:CGRectMake(10, 34, MainScreenWidth - 10, 1)];

@@ -13,18 +13,18 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="92"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="91.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="91"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bZj-i5-qSY">
-                        <rect key="frame" x="12" y="9" width="108" height="72"/>
+                        <rect key="frame" x="12" y="9" width="103" height="72"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="72" id="wix-ri-acc"/>
-                            <constraint firstAttribute="width" secondItem="bZj-i5-qSY" secondAttribute="height" multiplier="3:2" id="yzS-ai-Bve"/>
+                            <constraint firstAttribute="width" secondItem="bZj-i5-qSY" secondAttribute="height" multiplier="10:7" id="yzS-ai-Bve"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="卡名Card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hgm-JE-f6T">
-                        <rect key="frame" x="132" y="36" width="63" height="18"/>
+                        <rect key="frame" x="127" y="36" width="63" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -49,7 +49,7 @@
                     <constraint firstItem="Hgm-JE-f6T" firstAttribute="leading" secondItem="bZj-i5-qSY" secondAttribute="trailing" constant="12" id="ASi-i2-g1Z"/>
                     <constraint firstItem="CQp-bb-SiF" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="BDa-Sv-EcS"/>
                     <constraint firstItem="CQp-bb-SiF" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="IIg-xz-Y2p"/>
-                    <constraint firstAttribute="bottom" secondItem="s2N-9m-0g7" secondAttribute="bottom" constant="1" id="TL8-XS-grR"/>
+                    <constraint firstAttribute="bottom" secondItem="s2N-9m-0g7" secondAttribute="bottom" id="TL8-XS-grR"/>
                     <constraint firstItem="s2N-9m-0g7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="Te7-Yv-oDe"/>
                     <constraint firstItem="bZj-i5-qSY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="UFl-PT-J06"/>
                     <constraint firstItem="Hgm-JE-f6T" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="YPm-jR-rws"/>
