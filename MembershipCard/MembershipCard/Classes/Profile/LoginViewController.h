@@ -22,5 +22,6 @@
 @property (strong, nonatomic) IBOutlet UIView *bgView;
 @property (strong, nonatomic) IBOutlet UIView *wxView;
 @property (weak, nonatomic) IBOutlet TPKeyboardAvoidingScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIButton *wxGetCodeBtn;
 
 @end

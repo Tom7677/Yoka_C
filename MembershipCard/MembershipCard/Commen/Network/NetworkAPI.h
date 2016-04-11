@@ -274,10 +274,11 @@ typedef enum {
  *  修改卡券
  *
  *  @param dic        卡券信息
+ *  @param voucher_id 卡券ID
  *  @param block      block description
  *  @param errorBlock errorBlock description
  */
-- (void)editVoucherWithInfo:(NSDictionary *)dic WithFinish:(void(^)(BOOL isSuccess, NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+- (void)editVoucherWithInfo:(NSDictionary *)dic voucher_id:(NSString *)voucher_id  WithFinish:(void(^)(BOOL isSuccess, NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 
 /*!
  *  @brief  删除卡券

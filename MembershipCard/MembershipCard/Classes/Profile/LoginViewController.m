@@ -21,7 +21,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *wxCodeTextField;
 @property (nonatomic, assign) int count;
 @property (nonatomic, strong) NSTimer *timer;
-@property (weak, nonatomic) IBOutlet UIButton *wxGetCodeBtn;
 @property (nonatomic, getter=isWXLogin) BOOL wxLogin;
 @property (weak, nonatomic) IBOutlet UIButton *cancelWXloginBtn;
 @end
@@ -76,20 +75,16 @@
         [self showAlertViewController:@"请输入格式正确的手机号码"];
         return;
     }
-    if (!_getCodeBtn.enabled) {
-        return;
-    }else {
-        [[NetworkAPI shared]getMobileCodeByMobile:phoneNum WithFinish:^(BOOL isSuccess, NSString *msg) {
-            if (isSuccess) {
-                _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
-            }
-            else {
-                [self showAlertViewController:msg];
-            }
-        } withErrorBlock:^(NSError *error) {
-            
-        }];
-    }
+    [[NetworkAPI shared]getMobileCodeByMobile:phoneNum WithFinish:^(BOOL isSuccess, NSString *msg) {
+        if (isSuccess) {
+            _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
+        }
+        else {
+            [self showAlertViewController:msg];
+        }
+    } withErrorBlock:^(NSError *error) {
+        
+    }];
 }
 
 

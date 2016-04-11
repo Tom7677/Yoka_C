@@ -19,7 +19,7 @@
                 <outlet property="view" destination="A1S-KD-0yG" id="WeP-IV-Nji"/>
                 <outlet property="weixinBtn" destination="wlJ-PX-Ya8" id="zAa-oW-KNk"/>
                 <outlet property="wxCodeTextField" destination="44q-LL-UPu" id="13e-gg-1Jl"/>
-                <outlet property="wxGetCodeBtn" destination="O97-wW-XXc" id="DZV-ve-VKa"/>
+                <outlet property="wxGetCodeBtn" destination="O97-wW-XXc" id="lCl-Gm-inn"/>
                 <outlet property="wxPhoneNumTextField" destination="e7f-QY-mae" id="gmN-tL-Eax"/>
                 <outlet property="wxView" destination="kWi-Z1-n6f" id="Sge-dC-fCz"/>
             </connections>

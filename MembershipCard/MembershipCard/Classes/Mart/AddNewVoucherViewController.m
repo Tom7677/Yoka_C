@@ -344,7 +344,7 @@
         }];
     }
     else {
-        [[NetworkAPI shared]editVoucherWithInfo:dic WithFinish:^(BOOL isSuccess, NSString *msg) {
+        [[NetworkAPI shared]editVoucherWithInfo:dic voucher_id:_voucherId WithFinish:^(BOOL isSuccess, NSString *msg) {
             if (isSuccess) {
                 
             }

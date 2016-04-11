@@ -90,39 +90,13 @@
 }
 //获取微信access_token
 - (void)getAccess_tokenWithCode:(NSString *)code {
-    
-    NSString *url = [NSString stringWithFormat:@"https://api.weixin.qq.com/sns/oauth2/access_token?appid=%@&secret=%@&code=%@&grant_type=authorization_code",wxID,wxSecret,code];
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSURL *zoneUrl = [NSURL URLWithString:url];
-        NSString *zoneStr = [NSString stringWithContentsOfURL:zoneUrl encoding:NSUTF8StringEncoding error:nil];
-        NSData *data = [zoneStr dataUsingEncoding:NSUTF8StringEncoding];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (data) {
-                NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-                NSString *token = [dic objectForKey:@"access_token"];
-                NSString *openid = [dic objectForKey:@"openid"];
-                [self getUserInoWithToken:token AndOpenid:openid];
-            }
-        });
-    });
-
-}
-//获取微信用户信息
-- (void)getUserInoWithToken:(NSString *)token AndOpenid:(NSString *)openid {
-    NSString *url =[NSString stringWithFormat:@"https://api.weixin.qq.com/sns/userinfo?access_token=%@&openid=%@",token,openid];
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSURL *zoneUrl = [NSURL URLWithString:url];
-        NSString *zoneStr = [NSString stringWithContentsOfURL:zoneUrl encoding:NSUTF8StringEncoding error:nil];
-        NSData *data = [zoneStr dataUsingEncoding:NSUTF8StringEncoding];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (data) {
-                NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-                
-            }
-        });
+    [[NetworkAPI shared]wechatLoginByWXCode:code WithFinish:^(BOOL isSuccess, NSString *msg) {
         
-    });
+    } withErrorBlock:^(NSError *error) {
+        
+    }];
 }
+
 
 -(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
     return [WXApi handleOpenURL:url delegate:self];
