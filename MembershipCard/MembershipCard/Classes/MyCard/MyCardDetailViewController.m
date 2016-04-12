@@ -20,8 +20,9 @@
 #import "MidImageLeftButton.h"
 #import "WebViewController.h"
 #import "ExplainViewController.h"
+#import "ClipImageViewController.h"
 
-@interface MyCardDetailViewController ()<UIGestureRecognizerDelegate>
+@interface MyCardDetailViewController ()<UIGestureRecognizerDelegate,ClipImageDelegate>
 @property (nonatomic, strong) NSNumber *fromValue;
 @property (nonatomic, strong) UIImageView *hornTopImageView;
 @property (nonatomic, strong) NSArray *dataArray;
@@ -269,8 +270,26 @@
  */
 - (IBAction)frontBtnAction:(id)sender {
     [takePhoto sharePicture:NO sendPicture:^(UIImage *image) {
-        [_frontPicBtn setBackgroundImage:image forState:UIControlStateNormal];
+        ClipImageViewController *vc = [[ClipImageViewController alloc]init];
+        vc.image = image;
+        vc.width = MainScreenWidth - 80;
+        vc.height = ((MainScreenWidth - 80) * 90)/ 135;
+        vc.isFront = YES;
+        vc.delegate = self;
+        [self.navigationController pushViewController:vc animated:YES];
     }];
+}
+
+- (void)ClipImageViewController:(ClipImageViewController *)clipImageViewController finishClipImage:(UIImage *)editImage isFront:(BOOL)isFront
+{
+    if (isFront) {
+        [_frontPicBtn setBackgroundImage:editImage forState:UIControlStateNormal];
+        [_frontPicBtn setTitle:@"" forState:UIControlStateNormal];
+    }
+    else {
+        [_backPicBtn setBackgroundImage:editImage forState:UIControlStateNormal];
+        [_backPicBtn setTitle:@"" forState:UIControlStateNormal];
+    }
 }
 
 /**
@@ -280,7 +299,13 @@
  */
 - (IBAction)backPicAction:(id)sender {
     [takePhoto sharePicture:NO sendPicture:^(UIImage *image) {
-        [_backPicBtn setBackgroundImage:image forState:UIControlStateNormal];
+        ClipImageViewController *vc = [[ClipImageViewController alloc]init];
+        vc.image = image;
+        vc.width = MainScreenWidth - 80;
+        vc.height = ((MainScreenWidth - 80) * 90)/ 135;
+        vc.isFront = NO;
+        vc.delegate = self;
+        [self.navigationController pushViewController:vc animated:YES];
     }];
 }
 

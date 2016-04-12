@@ -153,7 +153,14 @@
         [self.navigationController pushViewController:vc animated:YES];
     }else {
         [[NetworkAPI shared]addNewBrandCardByMerchantID:self.brandId cardNum:result WithFinish:^(BOOL isSuccess, NSString *msg) {
-            
+            if (isSuccess) {
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+            else {
+                [self showAlertViewController:msg];
+                _isFirstScan = YES;
+                [_captureSession startRunning];
+            }
         } withErrorBlock:^(NSError *error) {
             
         }];

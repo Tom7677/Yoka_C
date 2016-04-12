@@ -90,7 +90,7 @@
 {
     [[_scrollView.subviews lastObject] removeFromSuperview];
     CGFloat width = (MainScreenWidth - 50) / 4;
-    CGFloat originY = (90 * MainScreenWidth / 320 - width) / 2;
+    CGFloat originY = (90 - width) / 2;
     for (int i = 0; i < _model.images.count; i ++) {
         UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake((10 + width) * i + 10, originY, width, width)];
         [imageView sd_setImageWithURL:[NSURL URLWithString:[imageUrl stringByAppendingString:_model.images[i]]]];

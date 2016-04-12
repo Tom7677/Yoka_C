@@ -9,6 +9,7 @@
 #import "NetworkAPI.h"
 #import "YKModel.h"
 #import <AFHTTPRequestOperationManager.h>
+#import "UIImage+Resize.h"
 
 @implementation NetworkAPI
 
@@ -568,7 +569,9 @@
 {
     NSMutableArray *imageArray = [[NSMutableArray alloc]init];
     for (int i = 0; i < [dic[@"images"] count]; i ++) {
-        NSData *data = UIImageJPEGRepresentation(dic[@"images"][i], 0.5);
+        UIImage *image = dic[@"images"][i];
+        NSData *data = UIImageJPEGRepresentation([image imageWithMaxImagePix:500 compressionQuality:0.5], 1.0);
+        NSLog(@"length=%.2f",(double)data.length / 1024);
         [imageArray addObject:data];
     }
     NSString *urlStr = [hostUrl stringByAppendingString:@"Voucher/add_voucher"];
@@ -600,7 +603,8 @@
 {
     NSMutableArray *imageArray = [[NSMutableArray alloc]init];
     for (int i = 0; i < [dic[@"images"] count]; i ++) {
-        NSData *data = UIImageJPEGRepresentation(dic[@"images"][i], 0.5);
+        UIImage *image = dic[@"images"][i];
+        NSData *data = UIImageJPEGRepresentation([image imageWithMaxImagePix:500 compressionQuality:0.5], 1.0);
         [imageArray addObject:data];
     }
     NSString *urlStr = [hostUrl stringByAppendingString:@"Voucher/edit_voucher"];

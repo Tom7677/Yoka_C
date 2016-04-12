@@ -155,6 +155,8 @@
 		273476A01CB646CE00FAF042 /* selicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2734769A1CB646CE00FAF042 /* selicon.png */; };
 		273476A11CB646CE00FAF042 /* selicon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2734769B1CB646CE00FAF042 /* selicon@2x.png */; };
 		273476A21CB646CE00FAF042 /* selicon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2734769C1CB646CE00FAF042 /* selicon@3x.png */; };
+		273476AC1CBB7AFC00FAF042 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 273476AB1CBB7AFC00FAF042 /* UIImage+Resize.m */; };
+		273476AF1CBB9BF800FAF042 /* ClipImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 273476AE1CBB9BF800FAF042 /* ClipImageViewController.m */; };
 		27512FDC1CAA054300BCADA1 /* MJExtensionConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 27512FC91CAA054300BCADA1 /* MJExtensionConst.m */; };
 		27512FDD1CAA054300BCADA1 /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 27512FCB1CAA054300BCADA1 /* MJFoundation.m */; };
 		27512FDE1CAA054300BCADA1 /* MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 27512FCD1CAA054300BCADA1 /* MJProperty.m */; };
@@ -199,6 +201,12 @@
 		27D39A5E1C96967E00A3F3C3 /* ImageTopButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D39A5D1C96967E00A3F3C3 /* ImageTopButton.m */; };
 		27D39A621C96A1EF00A3F3C3 /* SecondHandCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D39A601C96A1EF00A3F3C3 /* SecondHandCardViewController.m */; };
 		27D39A631C96A1EF00A3F3C3 /* SecondHandCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27D39A611C96A1EF00A3F3C3 /* SecondHandCardViewController.xib */; };
+		27F4293C1CBCEDA100FDF94E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27F4293B1CBCEDA100FDF94E /* CFNetwork.framework */; };
+		27F4293E1CBCEDB200FDF94E /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27F4293D1CBCEDB200FDF94E /* CoreFoundation.framework */; };
+		27F429401CBCEDC000FDF94E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27F4293F1CBCEDC000FDF94E /* CoreGraphics.framework */; };
+		27F429421CBCEE8E00FDF94E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27F429411CBCEE8E00FDF94E /* Security.framework */; };
+		27F429441CBCEECF00FDF94E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27F429431CBCEECF00FDF94E /* UIKit.framework */; };
+		27F429461CBCF37000FDF94E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27F429451CBCF37000FDF94E /* Foundation.framework */; };
 		E2000D781C9E771F003DCA39 /* PossiableCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2000D761C9E771F003DCA39 /* PossiableCardTableViewCell.m */; };
 		E2000D791C9E771F003DCA39 /* PossiableCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2000D771C9E771F003DCA39 /* PossiableCardTableViewCell.xib */; };
 		E2000D7D1C9E7C52003DCA39 /* PossiableCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2000D7B1C9E7C52003DCA39 /* PossiableCardViewController.m */; };
@@ -320,7 +328,7 @@
 		1A4F32311CACE612001E4AFA /* share_wx@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_wx@3x.png"; sourceTree = "<group>"; };
 		1A4F323D1CACEF03001E4AFA /* ArticleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleViewController.h; sourceTree = "<group>"; };
 		1A4F323E1CACEF03001E4AFA /* ArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleViewController.m; sourceTree = "<group>"; };
-		1A4F323F1CACEF03001E4AFA /* ArticleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArticleViewController.xib; sourceTree = "<group>"; };
+		1A4F323F1CACEF03001E4AFA /* ArticleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ArticleViewController.xib; path = ../Discovery/ArticleViewController.xib; sourceTree = "<group>"; };
 		1A5695181C92ABF0001EA32F /* code01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = code01.png; sourceTree = "<group>"; };
 		1A5695191C92ABF0001EA32F /* code01@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "code01@2x.png"; sourceTree = "<group>"; };
 		1A56951A1C92ABF0001EA32F /* code01@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "code01@3x.png"; sourceTree = "<group>"; };
@@ -464,6 +472,10 @@
 		2734769A1CB646CE00FAF042 /* selicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selicon.png; sourceTree = "<group>"; };
 		2734769B1CB646CE00FAF042 /* selicon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "selicon@2x.png"; sourceTree = "<group>"; };
 		2734769C1CB646CE00FAF042 /* selicon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "selicon@3x.png"; sourceTree = "<group>"; };
+		273476AA1CBB7AFC00FAF042 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		273476AB1CBB7AFC00FAF042 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		273476AD1CBB9BF800FAF042 /* ClipImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClipImageViewController.h; sourceTree = "<group>"; };
+		273476AE1CBB9BF800FAF042 /* ClipImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClipImageViewController.m; sourceTree = "<group>"; };
 		27512FC71CAA054300BCADA1 /* MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtension.h; sourceTree = "<group>"; };
 		27512FC81CAA054300BCADA1 /* MJExtensionConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtensionConst.h; sourceTree = "<group>"; };
 		27512FC91CAA054300BCADA1 /* MJExtensionConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJExtensionConst.m; sourceTree = "<group>"; };
@@ -548,6 +560,12 @@
 		27D39A5F1C96A1EF00A3F3C3 /* SecondHandCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondHandCardViewController.h; sourceTree = "<group>"; };
 		27D39A601C96A1EF00A3F3C3 /* SecondHandCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondHandCardViewController.m; sourceTree = "<group>"; };
 		27D39A611C96A1EF00A3F3C3 /* SecondHandCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondHandCardViewController.xib; sourceTree = "<group>"; };
+		27F4293B1CBCEDA100FDF94E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		27F4293D1CBCEDB200FDF94E /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		27F4293F1CBCEDC000FDF94E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		27F429411CBCEE8E00FDF94E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		27F429431CBCEECF00FDF94E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		27F429451CBCF37000FDF94E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4A3F338817F8EBA02DCDB671 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E2000D751C9E771F003DCA39 /* PossiableCardTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PossiableCardTableViewCell.h; sourceTree = "<group>"; };
 		E2000D761C9E771F003DCA39 /* PossiableCardTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PossiableCardTableViewCell.m; sourceTree = "<group>"; };
@@ -685,6 +703,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27F429461CBCF37000FDF94E /* Foundation.framework in Frameworks */,
+				27F429441CBCEECF00FDF94E /* UIKit.framework in Frameworks */,
+				27F429421CBCEE8E00FDF94E /* Security.framework in Frameworks */,
+				27F429401CBCEDC000FDF94E /* CoreGraphics.framework in Frameworks */,
+				27F4293E1CBCEDB200FDF94E /* CoreFoundation.framework in Frameworks */,
+				27F4293C1CBCEDA100FDF94E /* CFNetwork.framework in Frameworks */,
 				E2FEBB0E1CA19A7F004F9042 /* YouzanIOSSDK.a in Frameworks */,
 				E20788EE1C7DF87500D59F63 /* CoreTelephony.framework in Frameworks */,
 				E20788EC1C7DF76A00D59F63 /* libc++.tbd in Frameworks */,
@@ -759,7 +783,6 @@
 				1A344BF21C882DCD009F3FFC /* DisoveryViewController.xib */,
 				1A4F323D1CACEF03001E4AFA /* ArticleViewController.h */,
 				1A4F323E1CACEF03001E4AFA /* ArticleViewController.m */,
-				1A4F323F1CACEF03001E4AFA /* ArticleViewController.xib */,
 			);
 			path = Discovery;
 			sourceTree = "<group>";
@@ -1002,6 +1025,7 @@
 		276BBCF31CAA8B8700CA392E /* WebView */ = {
 			isa = PBXGroup;
 			children = (
+				1A4F323F1CACEF03001E4AFA /* ArticleViewController.xib */,
 				276BBCF41CAA8BB600CA392E /* WebViewController.h */,
 				276BBCF51CAA8BB600CA392E /* WebViewController.m */,
 			);
@@ -1192,6 +1216,12 @@
 		E2662F911C7CA7CC00FE42F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				27F429451CBCF37000FDF94E /* Foundation.framework */,
+				27F429431CBCEECF00FDF94E /* UIKit.framework */,
+				27F429411CBCEE8E00FDF94E /* Security.framework */,
+				27F4293F1CBCEDC000FDF94E /* CoreGraphics.framework */,
+				27F4293D1CBCEDB200FDF94E /* CoreFoundation.framework */,
+				27F4293B1CBCEDA100FDF94E /* CFNetwork.framework */,
 				E20788ED1C7DF87500D59F63 /* CoreTelephony.framework */,
 				E20788EB1C7DF76A00D59F63 /* libc++.tbd */,
 				E20788E91C7DF75E00D59F63 /* libsqlite3.0.tbd */,
@@ -1437,6 +1467,8 @@
 				1A5695291C92B6A3001EA32F /* CommentsViewController.h */,
 				1A56952A1C92B6A3001EA32F /* CommentsViewController.m */,
 				1A56952B1C92B6A3001EA32F /* CommentsViewController.xib */,
+				273476AD1CBB9BF800FAF042 /* ClipImageViewController.h */,
+				273476AE1CBB9BF800FAF042 /* ClipImageViewController.m */,
 			);
 			path = MyCard;
 			sourceTree = "<group>";
@@ -1507,6 +1539,8 @@
 				E2FBA6051C82B57000F9F799 /* UIView+border.m */,
 				27D39A111C8FB90A00A3F3C3 /* UILabel+caculateSize.h */,
 				27D39A121C8FB90A00A3F3C3 /* UILabel+caculateSize.m */,
+				273476AA1CBB7AFC00FAF042 /* UIImage+Resize.h */,
+				273476AB1CBB7AFC00FAF042 /* UIImage+Resize.m */,
 				E200FC601C7F4BF000644BB5 /* takePhoto.h */,
 				E200FC611C7F4BF000644BB5 /* takePhoto.m */,
 				E249839E1C8BD6D3005B77A8 /* TSImageLeftButton.h */,
@@ -1974,6 +2008,8 @@
 				27D39A1B1C914B1F00A3F3C3 /* UMengAnalyticsUtil.m in Sources */,
 				E2FEBB111CA1A231004F9042 /* CacheUserInfo.m in Sources */,
 				27D39A581C92AC5D00A3F3C3 /* MJRefreshConst.m in Sources */,
+				273476AC1CBB7AFC00FAF042 /* UIImage+Resize.m in Sources */,
+				273476AF1CBB9BF800FAF042 /* ClipImageViewController.m in Sources */,
 				273476911CB5EB3F00FAF042 /* TZPhotoPreviewCell.m in Sources */,
 				1AF9C3E31C9E8EE200F6FBAE /* MyCardDetailViewController.m in Sources */,
 				27D39A591C92AC5D00A3F3C3 /* UIScrollView+MJExtension.m in Sources */,
