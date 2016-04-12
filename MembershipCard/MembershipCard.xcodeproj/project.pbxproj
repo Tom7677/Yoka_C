@@ -18,12 +18,12 @@
 		1A1470A21C8D7CC5003A0616 /* addCard-scan.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A1470991C8D7CC5003A0616 /* addCard-scan.png */; };
 		1A1470A31C8D7CC5003A0616 /* addCard-scan@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A14709A1C8D7CC5003A0616 /* addCard-scan@2x.png */; };
 		1A1470A41C8D7CC5003A0616 /* addCard-scan@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A14709B1C8D7CC5003A0616 /* addCard-scan@3x.png */; };
+		1A268A2D1CBCF44900D56CA8 /* ExplainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A268A2B1CBCF44900D56CA8 /* ExplainViewController.m */; };
+		1A268A2E1CBCF44900D56CA8 /* ExplainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A268A2C1CBCF44900D56CA8 /* ExplainViewController.xib */; };
 		1A344BF31C882DCD009F3FFC /* DisoveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A344BF11C882DCD009F3FFC /* DisoveryViewController.m */; };
 		1A344BF41C882DCD009F3FFC /* DisoveryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A344BF21C882DCD009F3FFC /* DisoveryViewController.xib */; };
 		1A344BFE1C884AA1009F3FFC /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A344BFC1C884AA1009F3FFC /* MoreViewController.m */; };
 		1A344BFF1C884AA1009F3FFC /* MoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A344BFD1C884AA1009F3FFC /* MoreViewController.xib */; };
-		1A4406C81CB658900013A4FC /* ExplainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4406C61CB658900013A4FC /* ExplainViewController.m */; };
-		1A4406C91CB658900013A4FC /* ExplainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A4406C71CB658900013A4FC /* ExplainViewController.xib */; };
 		1A4F32321CACE612001E4AFA /* share_pyq.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A4F322C1CACE612001E4AFA /* share_pyq.png */; };
 		1A4F32331CACE612001E4AFA /* share_pyq@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A4F322D1CACE612001E4AFA /* share_pyq@2x.png */; };
 		1A4F32341CACE612001E4AFA /* share_pyq@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A4F322E1CACE612001E4AFA /* share_pyq@3x.png */; };
@@ -303,15 +303,15 @@
 		1A1470991C8D7CC5003A0616 /* addCard-scan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addCard-scan.png"; sourceTree = "<group>"; };
 		1A14709A1C8D7CC5003A0616 /* addCard-scan@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addCard-scan@2x.png"; sourceTree = "<group>"; };
 		1A14709B1C8D7CC5003A0616 /* addCard-scan@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addCard-scan@3x.png"; sourceTree = "<group>"; };
+		1A268A2A1CBCF44900D56CA8 /* ExplainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExplainViewController.h; sourceTree = "<group>"; };
+		1A268A2B1CBCF44900D56CA8 /* ExplainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExplainViewController.m; sourceTree = "<group>"; };
+		1A268A2C1CBCF44900D56CA8 /* ExplainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExplainViewController.xib; sourceTree = "<group>"; };
 		1A344BF01C882DCD009F3FFC /* DisoveryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisoveryViewController.h; sourceTree = "<group>"; };
 		1A344BF11C882DCD009F3FFC /* DisoveryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisoveryViewController.m; sourceTree = "<group>"; };
 		1A344BF21C882DCD009F3FFC /* DisoveryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DisoveryViewController.xib; sourceTree = "<group>"; };
 		1A344BFB1C884AA1009F3FFC /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
 		1A344BFC1C884AA1009F3FFC /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
 		1A344BFD1C884AA1009F3FFC /* MoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreViewController.xib; sourceTree = "<group>"; };
-		1A4406C51CB658900013A4FC /* ExplainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExplainViewController.h; sourceTree = "<group>"; };
-		1A4406C61CB658900013A4FC /* ExplainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExplainViewController.m; sourceTree = "<group>"; };
-		1A4406C71CB658900013A4FC /* ExplainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExplainViewController.xib; sourceTree = "<group>"; };
 		1A4F322C1CACE612001E4AFA /* share_pyq.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share_pyq.png; sourceTree = "<group>"; };
 		1A4F322D1CACE612001E4AFA /* share_pyq@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_pyq@2x.png"; sourceTree = "<group>"; };
 		1A4F322E1CACE612001E4AFA /* share_pyq@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_pyq@3x.png"; sourceTree = "<group>"; };
@@ -1431,9 +1431,9 @@
 				1AF9C3E01C9E8EE200F6FBAE /* MyCardDetailViewController.h */,
 				1AF9C3E11C9E8EE200F6FBAE /* MyCardDetailViewController.m */,
 				1AF9C3E21C9E8EE200F6FBAE /* MyCardDetailViewController.xib */,
-				1A4406C51CB658900013A4FC /* ExplainViewController.h */,
-				1A4406C61CB658900013A4FC /* ExplainViewController.m */,
-				1A4406C71CB658900013A4FC /* ExplainViewController.xib */,
+				1A268A2A1CBCF44900D56CA8 /* ExplainViewController.h */,
+				1A268A2B1CBCF44900D56CA8 /* ExplainViewController.m */,
+				1A268A2C1CBCF44900D56CA8 /* ExplainViewController.xib */,
 				1A5695291C92B6A3001EA32F /* CommentsViewController.h */,
 				1A56952A1C92B6A3001EA32F /* CommentsViewController.m */,
 				1A56952B1C92B6A3001EA32F /* CommentsViewController.xib */,
@@ -1668,7 +1668,7 @@
 				TargetAttributes = {
 					E2FEE36D1C79E7860079B824 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = CWPM78QMN6;
+						DevelopmentTeam = ZZ49Y24LYW;
 					};
 					E2FEE3861C79E7860079B824 = {
 						CreatedOnToolsVersion = 7.2;
@@ -1707,7 +1707,6 @@
 			files = (
 				1A56951E1C92ABF0001EA32F /* code01.png in Resources */,
 				27D39A631C96A1EF00A3F3C3 /* SecondHandCardViewController.xib in Resources */,
-				1A4406C91CB658900013A4FC /* ExplainViewController.xib in Resources */,
 				1ACFB9CD1C8EB8680083FD07 /* more1@3x.png in Resources */,
 				1A14709F1C8D7CC5003A0616 /* addCard-menu.png in Resources */,
 				1ACFB9A81C8EACA20083FD07 /* tabbar_discovery_selected@2x.png in Resources */,
@@ -1795,6 +1794,7 @@
 				E2BDB8221C7B644600274CE3 /* BrandListViewController.xib in Resources */,
 				273476821CB5EB3F00FAF042 /* photo_original_def@2x.png in Resources */,
 				1ACFB9B81C8EACA20083FD07 /* tabbar_myCardBag@3x.png in Resources */,
+				1A268A2E1CBCF44900D56CA8 /* ExplainViewController.xib in Resources */,
 				27D39A181C8FCB5000A3F3C3 /* ChooseAreaViewController.xib in Resources */,
 				273476851CB5EB3F00FAF042 /* photo_sel_previewVc@2x.png in Resources */,
 				1A56951F1C92ABF0001EA32F /* code01@2x.png in Resources */,
@@ -1967,7 +1967,6 @@
 				27D39A551C92AC5D00A3F3C3 /* MJRefreshNormalHeader.m in Sources */,
 				2731E7571C98160400FB3323 /* BrandListTableViewCell.m in Sources */,
 				E2BDB7BF1C7B567B00274CE3 /* NotificationTableViewCell.m in Sources */,
-				1A4406C81CB658900013A4FC /* ExplainViewController.m in Sources */,
 				2734768F1CB5EB3F00FAF042 /* TZImagePickerController.m in Sources */,
 				2734768D1CB5EB3F00FAF042 /* TZAssetModel.m in Sources */,
 				27D39A4A1C92AC5D00A3F3C3 /* MJRefreshBackFooter.m in Sources */,
@@ -2003,6 +2002,7 @@
 				27D39A491C92AC5D00A3F3C3 /* MJRefreshAutoFooter.m in Sources */,
 				27D39A621C96A1EF00A3F3C3 /* SecondHandCardViewController.m in Sources */,
 				E2FEE3C11C79F4AC0079B824 /* GuideViewController.m in Sources */,
+				1A268A2D1CBCF44900D56CA8 /* ExplainViewController.m in Sources */,
 				27D39A171C8FCB5000A3F3C3 /* ChooseAreaViewController.m in Sources */,
 				1A344BFE1C884AA1009F3FFC /* MoreViewController.m in Sources */,
 				E2004C181C85E41400CDA2E7 /* YKMerchantsViewController.m in Sources */,
@@ -2183,7 +2183,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/MembershipCard/Resources/Libs/weixinSDK1.6.2",
 					"$(PROJECT_DIR)/MembershipCard/Resources/Libs/YouzanSDK",
-					"$(PROJECT_DIR)/MembershipCard/Resources/Libs/JPush-iOS-SDK-2.1.5/lib",
 					"$(PROJECT_DIR)/MembershipCard/Resources/Libs/JPush-SDK-2.1.5/lib",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.MembershipCard;
@@ -2207,7 +2206,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/MembershipCard/Resources/Libs/weixinSDK1.6.2",
 					"$(PROJECT_DIR)/MembershipCard/Resources/Libs/YouzanSDK",
-					"$(PROJECT_DIR)/MembershipCard/Resources/Libs/JPush-iOS-SDK-2.1.5/lib",
 					"$(PROJECT_DIR)/MembershipCard/Resources/Libs/JPush-SDK-2.1.5/lib",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.MembershipCard;

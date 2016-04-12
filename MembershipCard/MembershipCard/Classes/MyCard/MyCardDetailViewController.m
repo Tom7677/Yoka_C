@@ -144,6 +144,8 @@
     ZXBarcodeFormat type;
     if ([model.type isEqualToString:@"pdf417"]) {
         type = kBarcodeFormatPDF417;
+        CGRect frame = _qrCodeImageView.frame;
+        _qrCodeImageView.frame = CGRectMake((MainScreenWidth-300)/2, frame.origin.y, 300, frame.size.height);
     }else if ([model.type isEqualToString:@"EAN-13"]){
         type = kBarcodeFormatEan13;
     }else if ([model.type isEqualToString:@"EAN-8"]){
@@ -151,7 +153,7 @@
     }else {
         type = kBarcodeFormatCode128;
     }
-    ZXBitMatrix* result = [writer encode:model.card_no format: type width:180 height:40 error:&error];
+    ZXBitMatrix* result = [writer encode:model.card_no format: type width:270 height:80 error:&error];
     if (result) {
         CGImageRef image = [[ZXImage imageWithMatrix:result] cgimage ];
         _qrCodeImageView.image = [UIImage imageWithCGImage:image];
@@ -237,7 +239,9 @@
     animation.fillMode = kCAFillModeForwards ;
     return animation;
 }
-
+/**
+ *  无法扫描注释
+ */
 - (IBAction)explainBtnAction:(id)sender {
     ExplainViewController *vc = [[ExplainViewController alloc]init];
     [self.navigationController pushViewController:vc animated:YES];

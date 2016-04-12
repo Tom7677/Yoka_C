@@ -62,6 +62,16 @@ static NSInteger pageSize = 20;
  */
 - (void)getCityListWithFinish:(void(^)(BOOL isSuccess ,NSArray *cityArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 
+/*!
+ *  @brief  获取爆料链接
+ */
+- (void)getFeedbackURLWithFinish:(void(^)(BOOL isSuccess, NSString *urlStr))block withErrorBlock:(void(^)(NSError *error))errorBlock;
+
+/*!
+ *  @brief  获取马夹商城链接
+ */
+- (void)getMJShopURLWithFinish:(void(^)(BOOL isSuccess, NSString *urlStr))block withErrorBlock:(void(^)(NSError *error))errorBlock;
+
 #pragma mark 卡包
 /**
  *  获取卡包列表
@@ -153,13 +163,13 @@ static NSInteger pageSize = 20;
 - (void)getCooperatedMerchantListWithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 
 #pragma mark 发现
-/*!
- *  @brief  爆料链接
- *
- *  @param block      block description
- *  @param errorBlock errorBlock description
- */
-- (void)getTopNewsWithFinish:(void(^)(BOOL isSuccess, NSString *url))block withErrorBlock:(void(^)(NSError *error))errorBlock;
+///*!
+// *  @brief  爆料链接
+// *
+// *  @param block      block description
+// *  @param errorBlock errorBlock description
+// */
+//- (void)getTopNewsWithFinish:(void(^)(BOOL isSuccess, NSString *url))block withErrorBlock:(void(^)(NSError *error))errorBlock;
 
 /*!
  *  @brief  查询文章分类列表

@@ -15,6 +15,7 @@
 #import "ArticleViewController.h"
 #import "YKModel.h"
 #import <UIImageView+WebCache.h>
+#import "WebViewController.h"
 
 
 #define LINE_WIDTH  40
@@ -45,7 +46,7 @@
     [leftBtn setTitle:@"爆料" forState:UIControlStateNormal];
     [leftBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     leftBtn.titleLabel.font = [UIFont systemFontOfSize:14];
-    [leftBtn addTarget:self action:@selector(topNews) forControlEvents:UIControlEventTouchUpInside];
+    [leftBtn addTarget:self action:@selector(feedbackAction) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
     [self.navigationItem setRightBarButtonItem:leftItem];
     [self getType];
@@ -80,7 +81,18 @@
 /**
  *  爆料
  */
-- (void) topNews {
+- (void)feedbackAction {
+    [[NetworkAPI shared]getFeedbackURLWithFinish:^(BOOL isSuccess, NSString *urlStr) {
+        if (isSuccess) {
+            WebViewController *vc = [[WebViewController alloc]initWithURLString:urlStr titleLabel:@"爆料"];
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+        }else {
+            [self showAlertViewController:@"请检查您的网络"];
+        }
+    } withErrorBlock:^(NSError *error) {
+        [self showAlertViewController:@"请检查您的网络"];
+    }];
     [[UMengAnalyticsUtil shared]factBtn];
 }
 

@@ -86,7 +86,7 @@
                                 <action selector="avatarBtnAction:" destination="-1" eventType="touchUpInside" id="bd9-7P-Bu0"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oNG-IB-m4S">
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oNG-IB-m4S">
                             <rect key="frame" x="234" y="45" width="78" height="16"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="78" id="yPP-hE-e1h"/>

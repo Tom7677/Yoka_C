@@ -2,7 +2,7 @@
 //  ExplainViewController.m
 //  MembershipCard
 //
-//  Created by  on 16/4/7.
+//  Created by  on 16/4/12.
 //  Copyright © 2016年 tom.sun. All rights reserved.
 //
 
@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.title = @"无法扫描条码";
 }
 
 - (void)didReceiveMemoryWarning {

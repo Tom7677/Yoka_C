@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -12,9 +12,98 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MOn-37-Sx7">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yd0-ca-Szr">
+                            <rect key="frame" x="15" y="89" width="305" height="1"/>
+                            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="XqH-wc-QcC"/>
+                            </constraints>
+                        </view>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="code01.png" translatesAutoresizingMaskIntoConstraints="NO" id="RPO-H9-hrc">
+                            <rect key="frame" x="15" y="25" width="64" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="64" id="U7r-Sa-OGx"/>
+                                <constraint firstAttribute="height" constant="40" id="tg7-bt-FQv"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="现今常用的图像读码器能够轻松地从手机上读码，这个过程通常只耗时几秒。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8bt-bT-1nJ">
+                            <rect key="frame" x="93" y="31" width="207" height="29"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="90" id="Axq-tR-qRh"/>
+                        <constraint firstItem="8bt-bT-1nJ" firstAttribute="centerY" secondItem="MOn-37-Sx7" secondAttribute="centerY" id="CIe-zu-nUa"/>
+                        <constraint firstAttribute="trailing" secondItem="yd0-ca-Szr" secondAttribute="trailing" id="WVY-Zc-qnr"/>
+                        <constraint firstItem="yd0-ca-Szr" firstAttribute="leading" secondItem="MOn-37-Sx7" secondAttribute="leading" constant="15" id="ao7-J6-gbg"/>
+                        <constraint firstItem="RPO-H9-hrc" firstAttribute="centerY" secondItem="MOn-37-Sx7" secondAttribute="centerY" id="e0s-w6-iBV"/>
+                        <constraint firstAttribute="trailing" secondItem="8bt-bT-1nJ" secondAttribute="trailing" constant="20" id="ebh-fl-dUs"/>
+                        <constraint firstItem="RPO-H9-hrc" firstAttribute="leading" secondItem="MOn-37-Sx7" secondAttribute="leading" constant="15" id="frg-vX-TCm"/>
+                        <constraint firstItem="8bt-bT-1nJ" firstAttribute="leading" secondItem="RPO-H9-hrc" secondAttribute="trailing" constant="14" id="ks8-Oz-KWH"/>
+                        <constraint firstAttribute="bottom" secondItem="yd0-ca-Szr" secondAttribute="bottom" id="vsR-0J-3ph"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I6Z-vP-zf9">
+                    <rect key="frame" x="0.0" y="90" width="320" height="90"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pbP-pU-3xe">
+                            <rect key="frame" x="15" y="89" width="305" height="1"/>
+                            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="bFu-1Q-UaL"/>
+                            </constraints>
+                        </view>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="code02.png" translatesAutoresizingMaskIntoConstraints="NO" id="JGo-b5-ViI">
+                            <rect key="frame" x="15" y="25" width="64" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="64" id="mxZ-rg-274"/>
+                                <constraint firstAttribute="height" constant="40" id="uT3-th-3HV"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="然而部分商家尚未采用最新的读码器，而使用较为传统的扫描仪（比如：激光扫描仪），此类仪器较难从手机上读取条形码。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PRB-Ip-SYL">
+                            <rect key="frame" x="93" y="16" width="207" height="58"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="PRB-Ip-SYL" secondAttribute="trailing" constant="20" id="DR9-TK-r4A"/>
+                        <constraint firstItem="PRB-Ip-SYL" firstAttribute="centerY" secondItem="I6Z-vP-zf9" secondAttribute="centerY" id="PbL-2M-EbY"/>
+                        <constraint firstItem="pbP-pU-3xe" firstAttribute="leading" secondItem="I6Z-vP-zf9" secondAttribute="leading" constant="15" id="T0n-Qm-MCH"/>
+                        <constraint firstItem="JGo-b5-ViI" firstAttribute="leading" secondItem="I6Z-vP-zf9" secondAttribute="leading" constant="15" id="TXR-aV-C4U"/>
+                        <constraint firstAttribute="bottom" secondItem="pbP-pU-3xe" secondAttribute="bottom" id="UUk-9y-CQE"/>
+                        <constraint firstAttribute="trailing" secondItem="pbP-pU-3xe" secondAttribute="trailing" id="Ulf-ld-rtb"/>
+                        <constraint firstItem="PRB-Ip-SYL" firstAttribute="leading" secondItem="JGo-b5-ViI" secondAttribute="trailing" constant="14" id="Vz4-yu-YA5"/>
+                        <constraint firstItem="JGo-b5-ViI" firstAttribute="centerY" secondItem="I6Z-vP-zf9" secondAttribute="centerY" id="e3m-Uj-RgC"/>
+                        <constraint firstAttribute="height" constant="90" id="h5N-68-P6f"/>
+                    </constraints>
+                </view>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="I6Z-vP-zf9" firstAttribute="top" secondItem="MOn-37-Sx7" secondAttribute="bottom" id="Pgb-Qd-GG2"/>
+                <constraint firstAttribute="trailing" secondItem="MOn-37-Sx7" secondAttribute="trailing" id="UbL-Uw-ISO"/>
+                <constraint firstItem="MOn-37-Sx7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ec6-eu-FWa"/>
+                <constraint firstAttribute="trailing" secondItem="I6Z-vP-zf9" secondAttribute="trailing" id="ed0-8a-0l2"/>
+                <constraint firstItem="MOn-37-Sx7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="hti-Ak-wWl"/>
+                <constraint firstItem="I6Z-vP-zf9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="kBb-wQ-HtA"/>
+            </constraints>
+            <point key="canvasLocation" x="647" y="511"/>
         </view>
     </objects>
+    <resources>
+        <image name="code01.png" width="61" height="36"/>
+        <image name="code02.png" width="61" height="36"/>
+    </resources>
 </document>

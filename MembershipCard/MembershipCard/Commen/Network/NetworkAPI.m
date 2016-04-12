@@ -110,6 +110,34 @@
     }];
 }
 
+- (void)getFeedbackURLWithFinish:(void(^)(BOOL isSuccess, NSString *urlStr))block withErrorBlock:(void(^)(NSError *error))errorBlock{
+    NSString *urlStr = [hostUrl stringByAppendingString:@"Index/feedback"];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject[@"status"] integerValue] == 1) {
+            block(YES, responseObject[@"data"]);
+        }else {
+            block(NO,nil);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        errorBlock(error);
+    }];
+}
+
+- (void)getMJShopURLWithFinish:(void(^)(BOOL isSuccess, NSString *urlStr))block withErrorBlock:(void(^)(NSError *error))errorBlock {
+    NSString *urlStr = [hostUrl stringByAppendingString:@"Index/emall"];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject[@"status"] integerValue] == 1) {
+            block(YES, responseObject[@"data"]);
+        }else {
+            block(NO,nil);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        errorBlock(error);
+    }];
+}
+
 #pragma mark cardBag
 - (void)getMyCardBagListWithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock
 {
@@ -303,21 +331,21 @@
 }
 
 #pragma mark Discovery
-- (void)getTopNewsWithFinish:(void(^)(BOOL isSuccess, NSString *url))block withErrorBlock:(void(^)(NSError *error))errorBlock
-{
-    NSString *urlStr = [hostUrl stringByAppendingString:@"Article/get_cat_list"];
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if ([responseObject[@"status"] integerValue] == 1) {
-            block (YES, responseObject[@"data"]);
-        }
-        else {
-            block (NO,nil);
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        errorBlock(error);
-    }];
-}
+//- (void)getTopNewsWithFinish:(void(^)(BOOL isSuccess, NSString *url))block withErrorBlock:(void(^)(NSError *error))errorBlock
+//{
+//    NSString *urlStr = [hostUrl stringByAppendingString:@"Article/get_cat_list"];
+//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//    [manager GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        if ([responseObject[@"status"] integerValue] == 1) {
+//            block (YES, responseObject[@"data"]);
+//        }
+//        else {
+//            block (NO,nil);
+//        }
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        errorBlock(error);
+//    }];
+//}
 
 - (void)getArticleTypeWithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock
 {
