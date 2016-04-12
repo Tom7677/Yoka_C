@@ -102,10 +102,10 @@
             UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake((15 + width) * i + 15, originY, width, width)];
             [imageView sd_setImageWithURL:[NSURL URLWithString:[imageUrl stringByAppendingString:images[i]]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                 NSInteger length = imageUrl.length;
-                NSString *imageUrl = [[imageURL absoluteString] substringFromIndex:length - 1];
+                NSString *imageUrl = [[imageURL absoluteString] substringFromIndex:length];
                 for (int j = 0; j < images.count; j ++) {
                     if ([imageUrl isEqualToString:images[j]]) {
-                        [_selectedPicArray insertObject:images atIndex:j];
+                        [_selectedPicArray insertObject:image atIndex:j];
                     }
                 }
             }];

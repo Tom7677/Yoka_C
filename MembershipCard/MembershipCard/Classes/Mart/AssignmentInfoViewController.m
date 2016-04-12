@@ -49,10 +49,10 @@
     _titleLabel.text = model.title;
     _loactionLabel.text = [NSString stringWithFormat:@"%@ - %@",model.city_name,model.location];
     if ([model.type isEqualToString:@"转让"]) {
-        _typeLabel.backgroundColor = UIColorFromRGB(0xeeeeb5);
+        _typeLabel.backgroundColor = UIColorFromRGB(0xF4CE1D);
     }
     else {
-        _typeLabel.backgroundColor = UIColorFromRGB(0xbbbbc4);
+        _typeLabel.backgroundColor = UIColorFromRGB(0x8DC21F);
     }
     _typeLabel.text = model.type;
     _timeLabel.text = [@"发布时间：" stringByAppendingString:model.create_date];

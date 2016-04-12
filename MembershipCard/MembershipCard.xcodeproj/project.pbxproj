@@ -328,7 +328,7 @@
 		1A4F32311CACE612001E4AFA /* share_wx@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_wx@3x.png"; sourceTree = "<group>"; };
 		1A4F323D1CACEF03001E4AFA /* ArticleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleViewController.h; sourceTree = "<group>"; };
 		1A4F323E1CACEF03001E4AFA /* ArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleViewController.m; sourceTree = "<group>"; };
-		1A4F323F1CACEF03001E4AFA /* ArticleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ArticleViewController.xib; path = ../Discovery/ArticleViewController.xib; sourceTree = "<group>"; };
+		1A4F323F1CACEF03001E4AFA /* ArticleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArticleViewController.xib; sourceTree = "<group>"; };
 		1A5695181C92ABF0001EA32F /* code01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = code01.png; sourceTree = "<group>"; };
 		1A5695191C92ABF0001EA32F /* code01@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "code01@2x.png"; sourceTree = "<group>"; };
 		1A56951A1C92ABF0001EA32F /* code01@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "code01@3x.png"; sourceTree = "<group>"; };
@@ -783,6 +783,7 @@
 				1A344BF21C882DCD009F3FFC /* DisoveryViewController.xib */,
 				1A4F323D1CACEF03001E4AFA /* ArticleViewController.h */,
 				1A4F323E1CACEF03001E4AFA /* ArticleViewController.m */,
+				1A4F323F1CACEF03001E4AFA /* ArticleViewController.xib */,
 			);
 			path = Discovery;
 			sourceTree = "<group>";
@@ -1025,7 +1026,6 @@
 		276BBCF31CAA8B8700CA392E /* WebView */ = {
 			isa = PBXGroup;
 			children = (
-				1A4F323F1CACEF03001E4AFA /* ArticleViewController.xib */,
 				276BBCF41CAA8BB600CA392E /* WebViewController.h */,
 				276BBCF51CAA8BB600CA392E /* WebViewController.m */,
 			);
@@ -1702,7 +1702,7 @@
 				TargetAttributes = {
 					E2FEE36D1C79E7860079B824 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = ZZ49Y24LYW;
+						DevelopmentTeam = CWPM78QMN6;
 					};
 					E2FEE3861C79E7860079B824 = {
 						CreatedOnToolsVersion = 7.2;

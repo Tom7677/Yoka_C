@@ -24,7 +24,16 @@ static NSString *homePageUrl = @"https://shop16479842.koudaitong.com/v2/showcase
     self.title = @"马夹商城";
     _webView.delegate = self;
     _webView.scalesPageToFit = YES;
-    [self loadRequestFromString:homePageUrl];
+    [[NetworkAPI shared]getMJShopURLWithFinish:^(BOOL isSuccess, NSString *urlStr) {
+        if (isSuccess) {
+            [self loadRequestFromString:urlStr];
+        }
+        else {
+            [self loadRequestFromString:homePageUrl];
+        }
+    } withErrorBlock:^(NSError *error) {
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

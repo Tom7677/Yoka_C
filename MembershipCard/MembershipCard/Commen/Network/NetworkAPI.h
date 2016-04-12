@@ -162,14 +162,8 @@ static NSInteger pageSize = 20;
  */
 - (void)getCooperatedMerchantListWithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 
+
 #pragma mark 发现
-///*!
-// *  @brief  爆料链接
-// *
-// *  @param block      block description
-// *  @param errorBlock errorBlock description
-// */
-//- (void)getTopNewsWithFinish:(void(^)(BOOL isSuccess, NSString *url))block withErrorBlock:(void(^)(NSError *error))errorBlock;
 
 /*!
  *  @brief  查询文章分类列表

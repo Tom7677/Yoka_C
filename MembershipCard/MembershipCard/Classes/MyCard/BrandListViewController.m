@@ -60,6 +60,7 @@
         
     }];
 }
+
 - (void)addOtherbrand:(UIButton *)sender {
     if (self.isScan) {
         QRViewController *vc = [[QRViewController alloc]init];

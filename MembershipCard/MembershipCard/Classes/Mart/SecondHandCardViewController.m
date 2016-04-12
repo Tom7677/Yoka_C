@@ -304,6 +304,9 @@
         ArticleTypeModel *model = _typeArray[_index - 1];
         dataArray = _resultDic[model.cat_name];
     }
+    if (dataArray.count == 0) {
+        return cell;
+    }
     VoucherListModel *model = dataArray[indexPath.row];
     cell.typeLabel.text = model.type;
     if ([model.type isEqualToString:@"转让"]) {

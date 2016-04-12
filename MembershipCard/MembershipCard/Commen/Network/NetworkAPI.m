@@ -327,26 +327,28 @@
 }
 
 - (void)getCooperatedMerchantListWithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock {
-    //NSString *urlStr = [hostUrl stringByAppendingString:@"Merchant/get_brand_list"];
-    
+    NSString *urlStr = [hostUrl stringByAppendingString:@"Merchant/get_brand_list"];
+    NSDictionary *param = @{@"mobile":[[NSUserDefaults standardUserDefaults]objectForKey:@"phoneNum"]};
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject[@"status"] integerValue] == 1) {
+            NSMutableArray *dataArray = [[NSMutableArray alloc]init];
+            for (NSDictionary *dic in responseObject[@"data"]) {
+                BrandCardListModel *model = [[BrandCardListModel alloc]init];
+                model = [BrandCardListModel mj_objectWithKeyValues:dic];
+                [dataArray addObject:model];
+            }
+            block (dataArray);
+        }
+        else {
+            block (nil);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        errorBlock (error);
+    }];
 }
 
 #pragma mark Discovery
-//- (void)getTopNewsWithFinish:(void(^)(BOOL isSuccess, NSString *url))block withErrorBlock:(void(^)(NSError *error))errorBlock
-//{
-//    NSString *urlStr = [hostUrl stringByAppendingString:@"Article/get_cat_list"];
-//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-//    [manager GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        if ([responseObject[@"status"] integerValue] == 1) {
-//            block (YES, responseObject[@"data"]);
-//        }
-//        else {
-//            block (NO,nil);
-//        }
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        errorBlock(error);
-//    }];
-//}
 
 - (void)getArticleTypeWithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock
 {

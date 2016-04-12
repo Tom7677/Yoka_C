@@ -10,7 +10,8 @@
 
 @interface PossiableCardViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@property (nonatomic, strong) NSMutableArray *itemsArray;
+@property (nonatomic, strong) NSMutableArray *resultArray;
 @end
 
 @implementation PossiableCardViewController
@@ -24,5 +25,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 @end
