@@ -65,12 +65,12 @@
     }
     else {
         //退出登录
-        [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"accessToken"];
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"确认退出当前用户吗？" message:nil preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
             
         }];
         UIAlertAction *otherAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"phoneNum"];
             [[AppDelegate appDelegate] goMainView];
         }];
         [alertController addAction:cancelAction];

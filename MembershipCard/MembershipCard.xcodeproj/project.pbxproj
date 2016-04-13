@@ -221,7 +221,7 @@
 		E2004C191C85E41400CDA2E7 /* YKMerchantsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2004C171C85E41400CDA2E7 /* YKMerchantsViewController.xib */; };
 		E200FC5F1C7F4BE700644BB5 /* UIView+frame.m in Sources */ = {isa = PBXBuildFile; fileRef = E200FC5E1C7F4BE700644BB5 /* UIView+frame.m */; };
 		E200FC621C7F4BF000644BB5 /* takePhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = E200FC611C7F4BF000644BB5 /* takePhoto.m */; };
-		E20593F81CBBF90F00D9FCF5 /* jpush-ios-2.1.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E20593F61CBBF90F00D9FCF5 /* jpush-ios-2.1.5.a */; };
+		E20427C61CBE89500014FC67 /* jpush-ios-2.1.6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E20427C41CBE89500014FC67 /* jpush-ios-2.1.6.a */; };
 		E2073CBA1C847FBC0028DD8C /* icon_horn_top@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2073CB91C847FBC0028DD8C /* icon_horn_top@2x.png */; };
 		E2073CBD1C849CA30028DD8C /* NetworkAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E2073CBC1C849CA30028DD8C /* NetworkAPI.m */; };
 		E20788E31C7DF52800D59F63 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E20788DE1C7DF52800D59F63 /* libWeChatSDK.a */; };
@@ -589,8 +589,8 @@
 		E200FC5E1C7F4BE700644BB5 /* UIView+frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+frame.m"; sourceTree = "<group>"; };
 		E200FC601C7F4BF000644BB5 /* takePhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = takePhoto.h; sourceTree = "<group>"; };
 		E200FC611C7F4BF000644BB5 /* takePhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = takePhoto.m; sourceTree = "<group>"; };
-		E20593F61CBBF90F00D9FCF5 /* jpush-ios-2.1.5.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.5.a"; sourceTree = "<group>"; };
-		E20593F71CBBF90F00D9FCF5 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
+		E20427C41CBE89500014FC67 /* jpush-ios-2.1.6.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.6.a"; sourceTree = "<group>"; };
+		E20427C51CBE89500014FC67 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
 		E2073CB91C847FBC0028DD8C /* icon_horn_top@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_horn_top@2x.png"; sourceTree = "<group>"; };
 		E2073CBB1C849CA30028DD8C /* NetworkAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkAPI.h; sourceTree = "<group>"; };
 		E2073CBC1C849CA30028DD8C /* NetworkAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkAPI.m; sourceTree = "<group>"; };
@@ -706,6 +706,7 @@
 				27F429461CBCF37000FDF94E /* Foundation.framework in Frameworks */,
 				27F429441CBCEECF00FDF94E /* UIKit.framework in Frameworks */,
 				27F429421CBCEE8E00FDF94E /* Security.framework in Frameworks */,
+				E20427C61CBE89500014FC67 /* jpush-ios-2.1.6.a in Frameworks */,
 				27F429401CBCEDC000FDF94E /* CoreGraphics.framework in Frameworks */,
 				27F4293E1CBCEDB200FDF94E /* CoreFoundation.framework in Frameworks */,
 				27F4293C1CBCEDA100FDF94E /* CFNetwork.framework in Frameworks */,
@@ -715,7 +716,6 @@
 				E20788EA1C7DF75E00D59F63 /* libsqlite3.0.tbd in Frameworks */,
 				E20788E81C7DF75000D59F63 /* libz.tbd in Frameworks */,
 				E20788E61C7DF74000D59F63 /* SystemConfiguration.framework in Frameworks */,
-				E20593F81CBBF90F00D9FCF5 /* jpush-ios-2.1.5.a in Frameworks */,
 				E20788E31C7DF52800D59F63 /* libWeChatSDK.a in Frameworks */,
 				0FB72C477A5344F2A19CAE2B /* libPods.a in Frameworks */,
 			);
@@ -1144,21 +1144,21 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		E20427C31CBE89500014FC67 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				E20427C41CBE89500014FC67 /* jpush-ios-2.1.6.a */,
+				E20427C51CBE89500014FC67 /* JPUSHService.h */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
 		E20593F41CBBF90F00D9FCF5 /* JPush-SDK-2.1.5 */ = {
 			isa = PBXGroup;
 			children = (
-				E20593F51CBBF90F00D9FCF5 /* lib */,
+				E20427C31CBE89500014FC67 /* lib */,
 			);
 			path = "JPush-SDK-2.1.5";
-			sourceTree = "<group>";
-		};
-		E20593F51CBBF90F00D9FCF5 /* lib */ = {
-			isa = PBXGroup;
-			children = (
-				E20593F61CBBF90F00D9FCF5 /* jpush-ios-2.1.5.a */,
-				E20593F71CBBF90F00D9FCF5 /* JPUSHService.h */,
-			);
-			path = lib;
 			sourceTree = "<group>";
 		};
 		E2073CB41C847D590028DD8C /* Mycard */ = {
@@ -1702,7 +1702,6 @@
 				TargetAttributes = {
 					E2FEE36D1C79E7860079B824 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = ZZ49Y24LYW;
 					};
 					E2FEE3861C79E7860079B824 = {
 						CreatedOnToolsVersion = 7.2;
@@ -2221,7 +2220,7 @@
 					"$(PROJECT_DIR)/MembershipCard/Resources/Libs/YouzanSDK",
 					"$(PROJECT_DIR)/MembershipCard/Resources/Libs/JPush-SDK-2.1.5/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.MembershipCard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yunsuo.mj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -2244,7 +2243,7 @@
 					"$(PROJECT_DIR)/MembershipCard/Resources/Libs/YouzanSDK",
 					"$(PROJECT_DIR)/MembershipCard/Resources/Libs/JPush-SDK-2.1.5/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.MembershipCard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yunsuo.mj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
