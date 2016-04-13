@@ -104,6 +104,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     _isFirstScan = YES;
     [_captureSession startRunning];
 }

@@ -17,6 +17,11 @@ static NSString *appSecret = @"b66a32a76b01b09e11c3fa1de1fd691f";//这里设置�
 static NSString *wxID = @"wxdba2805b7841793e";
 static NSString *wxSecret = @"1c710fc0d57a86762c1de4fd3f3a700a";
 
+//JPush
+static NSString *appKey = @"6e34b6625bca4c6fe576ace2";
+static NSString *channel = @"App Store";
+static BOOL isProduction = FALSE;
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

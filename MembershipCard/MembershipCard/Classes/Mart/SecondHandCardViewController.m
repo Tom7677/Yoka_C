@@ -75,8 +75,7 @@
 - (void)getTypeArray:(NSArray *)resultArray
 {
     for (NSDictionary *dic in resultArray) {
-        ArticleTypeModel *model = [[ArticleTypeModel alloc]init];
-        model = [ArticleTypeModel mj_objectWithKeyValues:dic];
+        ArticleTypeModel *model = [ArticleTypeModel mj_objectWithKeyValues:dic];
         [_typeArray addObject:model];
     }
 }
