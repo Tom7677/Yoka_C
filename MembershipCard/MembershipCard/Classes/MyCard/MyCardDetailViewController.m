@@ -84,7 +84,7 @@
 {
     NSArray *titleArray = @[@"帐户卡值",@"公告咨询",@"门店官网",@"活动展示",@"品牌商城"];
     for (int i = 0; i < titleArray.count; i++) {
-        MidImageLeftButton *button = [[MidImageLeftButton alloc]initWithFrame: CGRectMake(15, (10 + 70) * i + 15, MainScreenWidth - 30, 70)];
+        MidImageLeftButton *button = [[MidImageLeftButton alloc]initWithFrame: CGRectMake(15, (10 + 60) * i + 10, MainScreenWidth - 30, 60)];
         button.backgroundColor = [UIColor colorWithWhite:0.96 alpha:1];
         button.tag = i;
         [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"ser-0%d", i + 1]] forState:UIControlStateNormal];
@@ -200,7 +200,7 @@
  */
 - (IBAction)cardInfoBtnAction:(id)sender {
     float centerX = 0;
-    [_hornTopImageView.layer addAnimation:[self moveTime:0.1 X:[NSNumber numberWithFloat:centerX]] forKey:nil];
+    [_hornTopImageView.layer addAnimation:[self moveTime:0.3 X:[NSNumber numberWithFloat:centerX]] forKey:nil];
     _cardInfoBtn.selected = YES;
     _serviceBtn.selected = NO;
     _codeScrollView.hidden = NO;
@@ -215,7 +215,7 @@
  */
 - (IBAction)serviceBtnAction:(id)sender {
     float centerX = (MainScreenWidth - 20) / 2;
-    [_hornTopImageView.layer addAnimation:[self moveTime:0.1 X:[NSNumber numberWithFloat:centerX]] forKey:nil];
+    [_hornTopImageView.layer addAnimation:[self moveTime:0.3 X:[NSNumber numberWithFloat:centerX]] forKey:nil];
     _cardInfoBtn.selected = NO;
     _serviceBtn.selected = YES;
     _codeScrollView.hidden = YES;
@@ -254,13 +254,14 @@
  *  @param sender description
  */
 - (IBAction)deleteBtnAction:(id)sender {
-    [[UMengAnalyticsUtil shared]deleteCardByMerchantsName:_model.name];
-    [[NetworkAPI shared]deleteCardByCardId:_model.card_id WithFinish:^(BOOL isSuccess, NSString *msg) {
-        [self.navigationController popToRootViewControllerAnimated:YES];
-    } withErrorBlock:^(NSError *error) {
-        
+    [self showConfirmAlertViewControllerWithTitle:@"确认删除" andAction:^{
+        [[UMengAnalyticsUtil shared]deleteCardByMerchantsName:_model.name];
+        [[NetworkAPI shared]deleteCardByCardId:_model.card_id WithFinish:^(BOOL isSuccess, NSString *msg) {
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        } withErrorBlock:^(NSError *error) {
+            
+        }];
     }];
-
 }
 
 /**

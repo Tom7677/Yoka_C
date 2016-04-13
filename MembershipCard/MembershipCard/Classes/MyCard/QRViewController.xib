@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QRViewController">
             <connections>
-                <outlet property="changeInputWayBtn" destination="KK3-rq-beY" id="bTW-bU-8Ke"/>
+                <outlet property="changeInputWayBtn" destination="DbK-9a-y1e" id="cC8-Ju-cOY"/>
+                <outlet property="commenBtn" destination="KK3-rq-beY" id="bzw-m2-NHq"/>
                 <outlet property="scanRectView" destination="vEZ-dm-3E8" id="NTJ-4O-Nhx"/>
                 <outlet property="topLabel" destination="QCq-7g-Cri" id="pBD-WG-VT2"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -44,18 +45,30 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KK3-rq-beY">
-                    <rect key="frame" x="33" y="446" width="254" height="30"/>
-                    <state key="normal" title="如果无法识别，请转至手工输入卡号">
+                    <rect key="frame" x="33" y="404" width="254" height="30"/>
+                    <state key="normal" title="无法识别请点击">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DbK-9a-y1e">
+                    <rect key="frame" x="90" y="454" width="140" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="140" id="2cj-xv-QLd"/>
+                        <constraint firstAttribute="height" constant="40" id="Aza-HC-pGC"/>
+                    </constraints>
+                    <state key="normal" title="手工输入卡号">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="changeInputWayAction:" destination="-1" eventType="touchUpInside" id="9xx-9W-8Pr"/>
+                        <action selector="changeInputWayAction:" destination="-1" eventType="touchUpInside" id="ph1-uy-Nmn"/>
                     </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="KK3-rq-beY" firstAttribute="top" secondItem="vEZ-dm-3E8" secondAttribute="bottom" constant="62" id="Q2B-U1-LkM"/>
+                <constraint firstItem="DbK-9a-y1e" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="9kX-2b-bCD"/>
+                <constraint firstItem="DbK-9a-y1e" firstAttribute="top" secondItem="KK3-rq-beY" secondAttribute="bottom" constant="20" id="G9n-39-S5f"/>
+                <constraint firstItem="KK3-rq-beY" firstAttribute="top" secondItem="vEZ-dm-3E8" secondAttribute="bottom" constant="20" id="Q2B-U1-LkM"/>
                 <constraint firstAttribute="trailing" secondItem="KK3-rq-beY" secondAttribute="trailing" constant="33" id="Uqy-MN-9zj"/>
                 <constraint firstItem="QCq-7g-Cri" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="eLo-DP-x1J"/>
                 <constraint firstItem="vEZ-dm-3E8" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="gzk-a9-TDT"/>

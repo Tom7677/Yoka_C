@@ -78,7 +78,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 45;
+    return 60;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -167,6 +167,7 @@
     BrandCardListModel *model = [[self getNameArraybyIndex:indexPath.section] objectAtIndex:indexPath.row];
     if (self.isScan) {
         QRViewController *vc = [[QRViewController alloc]init];
+        vc.brandName = model.name;
         vc.brandId = model.merchant_id;
         [self.navigationController pushViewController:vc animated:YES];
     }else {

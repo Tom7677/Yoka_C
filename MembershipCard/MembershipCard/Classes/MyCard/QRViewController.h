@@ -13,7 +13,10 @@
 @property (weak, nonatomic) IBOutlet UIView *scanRectView;
 @property (weak, nonatomic) IBOutlet UILabel *topLabel;
 @property (weak, nonatomic) IBOutlet UIButton *changeInputWayBtn;
+@property (weak, nonatomic) IBOutlet UIButton *commenBtn;
 @property (nonatomic, strong) NSString *brandId;
+@property(nonatomic,strong) NSString *brandName;
+
 
 - (IBAction)changeInputWayAction:(id)sender;
 @end

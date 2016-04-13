@@ -78,6 +78,17 @@
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
+- (void)showConfirmAlertViewControllerWithTitle:(NSString *)msg andAction:(void(^)())actionBlock
+{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:msg message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        actionBlock();
+    }];
+    [alertController addAction:okAction];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    [alertController addAction:cancelAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
 /*!
  *  @brief  检验手机号码格式是否正确
  *

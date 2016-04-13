@@ -10,6 +10,8 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import "InputCardViewController.h"
 #import <AVFoundation/AVFoundation.h>
+#import "UIView+border.h"
+
 
 @interface QRViewController ()<AVCaptureMetadataOutputObjectsDelegate>
 @property (nonatomic, strong) AVCaptureDevice *captureDevice;
@@ -73,12 +75,13 @@
     //9.将图层添加到预览view的图层上
     [self.view.layer addSublayer:_videoPreviewLayer];
     
-    CGFloat offsetY = (MainScreenHeight - NavAndStatusBarHeight - 160.0f) / 2;
-    CGFloat offsetX = (MainScreenWidth -160.0f) / 2;
+    static float x = 200.0f;
+    CGFloat offsetY = (MainScreenHeight - NavAndStatusBarHeight - x) / 2 - 40;
+    CGFloat offsetX = (MainScreenWidth - x) / 2 ;
     UIView *bgTopView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MainScreenWidth, offsetY)];
-    UIView *bgBottomView = [[UIView alloc] initWithFrame:CGRectMake(0, offsetY + 160.0f, MainScreenWidth, offsetY)];
-    UIView *bgLeftView = [[UIView alloc] initWithFrame:CGRectMake(0, offsetY, offsetX, 160.0f)];
-    UIView *bgRightView = [[UIView alloc] initWithFrame:CGRectMake(offsetX + 160.0f, offsetY, offsetX, 160.0f)];
+    UIView *bgBottomView = [[UIView alloc] initWithFrame:CGRectMake(0, offsetY + x, MainScreenWidth, offsetY + 80)];
+    UIView *bgLeftView = [[UIView alloc] initWithFrame:CGRectMake(0, offsetY, offsetX, x)];
+    UIView *bgRightView = [[UIView alloc] initWithFrame:CGRectMake(offsetX + x, offsetY, offsetX, x)];
     bgTopView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.4f];
     bgBottomView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.4f];
     bgLeftView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.4f];
@@ -89,6 +92,8 @@
     [self.view addSubview:bgRightView];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     [self.view bringSubviewToFront:_topLabel];
+    [self.view bringSubviewToFront:_commenBtn];
+    [_changeInputWayBtn circularBoarderBead:8 withBoarder:1 color:[UIColor whiteColor]];
     [self.view bringSubviewToFront:_changeInputWayBtn];
 }
 
@@ -193,6 +198,8 @@
 
 - (IBAction)changeInputWayAction:(id)sender {
     InputCardViewController *vc = [[InputCardViewController alloc]init];
+    vc.brandName = _brandName;
+    vc.brandId = _brandId;
     [self.navigationController pushViewController:vc animated:YES];
 }
 @end

@@ -86,7 +86,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NoticeModel *model = _resultArray[indexPath.row];
-    if ([self isEmpty:model.jump_link]) {
+    if (![self isEmpty:model.jump_link]) {
         WebViewController *vc = [[WebViewController alloc]initWithURLString:model.jump_link titleLabel:nil];
         [self.navigationController pushViewController:vc animated:YES];
     }

@@ -140,13 +140,15 @@
 
 - (void)deleteVoucher:(VoucherListModel *)vouchertModel
 {
-    [[NetworkAPI shared]deleteVoucherWithVoucherId:vouchertModel.voucher_id WithFinish:^(BOOL isSuccess, NSString *msg) {
-        if (isSuccess) {
-            [_dataArray removeObject:vouchertModel];
-            [_tableView reloadData];
-        }
-    } withErrorBlock:^(NSError *error) {
-        
+    [self showConfirmAlertViewControllerWithTitle:@"确认删除" andAction:^{
+        [[NetworkAPI shared]deleteVoucherWithVoucherId:vouchertModel.voucher_id WithFinish:^(BOOL isSuccess, NSString *msg) {
+            if (isSuccess) {
+                [_dataArray removeObject:vouchertModel];
+                [_tableView reloadData];
+            }
+        } withErrorBlock:^(NSError *error) {
+            
+        }];
     }];
 }
 @end

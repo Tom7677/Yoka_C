@@ -135,7 +135,7 @@
     _scrollBgView = [[UIView alloc] initWithFrame:CGRectMake((_btnWidth - LINE_WIDTH) / 2 + 20, _typeScrollView.height - 4, LINE_WIDTH, 10)];
     [_scrollBgView setBackgroundColor:UIColorFromRGB(0xffd500)];
     [_typeScrollView addSubview:_scrollBgView];
-    UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, _typeScrollView.size.height + _typeScrollView.originY - 1, [UIScreen mainScreen].bounds.size.width, 0.5)];
+    UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, _typeScrollView.size.height + _typeScrollView.originY - 0.5, [UIScreen mainScreen].bounds.size.width, 0.5)];
     lineView.backgroundColor = [UIColor lightGrayColor];
     [_typeScrollView addSubview:lineView];
     _typeScrollView.backgroundColor = [UIColor whiteColor];
