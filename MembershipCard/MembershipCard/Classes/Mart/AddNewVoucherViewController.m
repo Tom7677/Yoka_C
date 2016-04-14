@@ -72,12 +72,12 @@
         if ([model.type isEqualToString:@"转让"]) {
             _transferBtn.selected = YES;
             _buyBtn.selected = NO;
-            _infoType = 1;
+            _infoType = 2;
         }
         else {
             _transferBtn.selected = NO;
             _buyBtn.selected = YES;
-            _infoType = 2;
+            _infoType = 1;
         }
         _contentTextView.text = model.content;
         [self getVoucherType];
@@ -362,13 +362,13 @@
 - (IBAction)transferAction:(id)sender {
     _transferBtn.selected = YES;
     _buyBtn.selected = NO;
-    _infoType = 1;
+    _infoType = 2;
 }
 
 - (IBAction)buyAction:(id)sender {
     _transferBtn.selected = NO;
     _buyBtn.selected = YES;
-    _infoType = 2;
+    _infoType = 1;
 }
 
 - (void)passCityId:(NSString *)cityId cityName:(NSString *)cityName

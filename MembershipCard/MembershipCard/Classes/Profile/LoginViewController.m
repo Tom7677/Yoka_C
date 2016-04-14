@@ -30,7 +30,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _wxLogin = NO;
-    _wxGetCodeBtn = _getCodeBtn;
     _cancelWXloginBtn.layer.borderWidth = 1;
     _cancelWXloginBtn.layer.borderColor = [[UIColor groupTableViewBackgroundColor] CGColor];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ChangeNameNotification) name:@"ChangeNameNotification" object:nil];

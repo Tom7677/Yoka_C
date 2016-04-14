@@ -77,11 +77,16 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NotificationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentifier"];
+    [self configureCell:cell atIndexPath:indexPath];
+    return cell;
+}
+
+- (void)configureCell:(NotificationTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    cell.fd_enforceFrameLayout = YES; // Enable to use "-sizeThatFits:"
     cell.fd_enforceFrameLayout = YES;
     NoticeModel *model = _resultArray[indexPath.row];
     cell.contentLabel.text = model.content;
     cell.timeLabel.text = model.create_date;
-    return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -98,7 +103,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return [tableView fd_heightForCellWithIdentifier:@"cellIdentifier" configuration:^(NotificationTableViewCell *cell) {
-        
+        [self configureCell:cell atIndexPath:indexPath];
     }];
 }
 

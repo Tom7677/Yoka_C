@@ -58,10 +58,7 @@
         }
     } withErrorBlock:^(NSError *error) {
         if (error.code == NSURLErrorNotConnectedToInternet) {
-            
-        }
-        else {
-            
+            [self showAlertViewController:@"您无法连接到网络，请确认网络连接。"];
         }
     }];
 }
@@ -117,8 +114,20 @@
     }else {
         [self dismissViewControllerAnimated:YES completion:nil];
     }
-    [[NSUserDefaults standardUserDefaults]setObject:self.currentCity forKey:@"MyCity"];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeNameNotification" object:self userInfo:nil];
+    if (_currentSection == 0) {
+        if (_currentCity == nil) {
+            [self showAlertViewController:@"请选择城市"];
+        }
+        else {
+            [[NSUserDefaults standardUserDefaults]setObject:_currentCity forKey:@"MyCity"];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeNameNotification" object:self userInfo:nil];
+        }
+    }
+    else {
+        CityListModel *myCity = _areaArray[_currentRow];
+        [[NSUserDefaults standardUserDefaults]setObject:myCity.name forKey:@"MyCity"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeNameNotification" object:self userInfo:nil];
+    }
 }
 
 /*!
@@ -230,8 +239,6 @@
 {
     _currentSection = indexPath.section;
     _currentRow = indexPath.row;
-    CityListModel *myCity = _areaArray[_currentRow];
-    self.currentCity = myCity.name;
     [_tableView reloadData];
 }
 
