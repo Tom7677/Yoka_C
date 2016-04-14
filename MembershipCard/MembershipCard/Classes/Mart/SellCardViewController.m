@@ -46,9 +46,12 @@
     _tableView.mj_footer.hidden = YES;
     [_tableView setTableFooterView:[UIView new]];
 }
+
+
 -(void)releaseReload {
-    
+    [self loadNewData];
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

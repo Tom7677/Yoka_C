@@ -139,8 +139,24 @@
 - (void)save
 {
     UIImage *image = [self imageFromSelfView];
-    [_delegate ClipImageViewController:self finishClipImage:[image croppedImage:_circularFrame] isFront:_isFront];
-    [self.navigationController popViewControllerAnimated:YES];
+    NSData *fdata;
+    NSData *bdata;
+    if (_isFront) {
+        fdata = UIImageJPEGRepresentation([image croppedImage:_circularFrame],0.5);
+        bdata = nil;
+    }
+    else {
+        bdata = UIImageJPEGRepresentation([image croppedImage:_circularFrame],0.5);
+        fdata = nil;
+    }
+    [[NetworkAPI shared]saveCardInfoByCardId:_cardId remark:nil f_image:fdata b_image:bdata WithFinish:^(BOOL isSuccess, NSString *msg) {
+        if (isSuccess) {
+            [_delegate ClipImageViewController:self finishClipImage:[image croppedImage:_circularFrame] isFront:_isFront];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    } withErrorBlock:^(NSError *error) {
+        
+    }];
 }
 
 /**

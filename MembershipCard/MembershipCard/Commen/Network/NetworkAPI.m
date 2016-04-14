@@ -239,7 +239,7 @@
     }];
 }
 
-- (void)saveCardInfoByCardId:(NSString *)cardId remark:(NSString *)remark f_image:(NSData *)f_image b_image:(NSData *)b_image WithFinish:(void(^)(UsedDetailModel *model))block withErrorBlock:(void(^)(NSError *error)) errorBlock {
+- (void)saveCardInfoByCardId:(NSString *)cardId remark:(NSString *)remark f_image:(NSData *)f_image b_image:(NSData *)b_image WithFinish:(void(^)(BOOL isSuccess , NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock {
     NSString *urlStr = [hostUrl stringByAppendingString:@"Card/set_card_info"];
     NSMutableDictionary *param = [[NSMutableDictionary alloc]init];
     [param setObject:cardId forKey:@"card_id"];
@@ -249,9 +249,21 @@
     }
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager POST:urlStr parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        
+        if (f_image != nil) {
+            NSString *fileName = [cardId stringByAppendingString:@"f.jpg"];
+            [formData appendPartWithFileData:f_image name:@"f_image" fileName:fileName mimeType:@"image/jpeg"];
+        }
+        if (b_image != nil) {
+            NSString *fileName = [cardId stringByAppendingString:@"b.jpg"];
+            [formData appendPartWithFileData:b_image name:@"b_image" fileName:fileName mimeType:@"image/jpeg"];
+        }
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
+        if ([responseObject[@"status"] integerValue] == 1) {
+            block (YES, responseObject[@"msg"]);
+        }
+        else {
+            block (NO, responseObject[@"msg"]);
+        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
     }];
@@ -606,7 +618,6 @@
     for (int i = 0; i < [dic[@"images"] count]; i ++) {
         UIImage *image = dic[@"images"][i];
         NSData *data = UIImageJPEGRepresentation([image imageWithMaxImagePix:500 compressionQuality:0.5], 1.0);
-        NSLog(@"length=%.2f",(double)data.length / 1024);
         [imageArray addObject:data];
     }
     NSString *urlStr = [hostUrl stringByAppendingString:@"Voucher/add_voucher"];

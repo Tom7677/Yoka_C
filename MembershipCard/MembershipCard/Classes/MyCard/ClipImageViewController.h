@@ -18,6 +18,7 @@
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) UIView *overView;
 @property (nonatomic, assign) BOOL isFront;
+@property (nonatomic, copy) NSString *cardId;
 @end
 
 @protocol ClipImageDelegate <NSObject>

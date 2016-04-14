@@ -12,6 +12,7 @@
 @implementation DiscoveryWithImageCell
 
 - (void)awakeFromNib {
+    self.contentView.bounds = [UIScreen mainScreen].bounds;
     _moreLabel.textColor = UIColorFromRGB(0xFF526E);
     _moreLabel.layer.borderWidth = 1;
     _moreLabel.layer.borderColor = [UIColorFromRGB(0xFF526E) CGColor];
@@ -31,7 +32,7 @@
     totalHeight += [self.contentLabel sizeThatFits:size].height;
     totalHeight += [self.detailsLabel sizeThatFits:size].height;
     totalHeight += [self.moreLabel sizeThatFits:size].height;
-    totalHeight += 40; // margins
+    totalHeight += 52; // margins
     return CGSizeMake(size.width, totalHeight);
 }
 @end

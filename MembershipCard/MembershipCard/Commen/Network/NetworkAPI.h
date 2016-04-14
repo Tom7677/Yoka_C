@@ -105,6 +105,18 @@ static NSInteger pageSize = 20;
  */
 - (void)deleteCardByCardId:(NSString *)cardId WithFinish:(void(^)(BOOL isSuccess , NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 
+/**
+ *  编辑卡片
+ *
+ *  @param cardId     卡片id
+ *  @param remark     备注
+ *  @param f_image    正面照
+ *  @param b_image    背面照
+ *  @param block      block description
+ *  @param errorBlock errorBlock description
+ */
+- (void)saveCardInfoByCardId:(NSString *)cardId remark:(NSString *)remark f_image:(NSData *)f_image b_image:(NSData *)b_image WithFinish:(void(^)(BOOL isSuccess , NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+
 /*!
  *  @brief  获取非合作品牌列表
  *

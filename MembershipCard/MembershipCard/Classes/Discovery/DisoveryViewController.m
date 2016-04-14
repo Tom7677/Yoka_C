@@ -156,6 +156,7 @@
         tableView.tag = i;
         [tableView registerNib:[UINib nibWithNibName:@"DiscoveryTableViewCell" bundle:nil] forCellReuseIdentifier:@"myIdentify"];
         [tableView registerNib:[UINib nibWithNibName:@"DiscoveryWithImageCell" bundle:nil] forCellReuseIdentifier:@"cellIdentify"];
+        tableView.fd_debugLogEnabled = YES;
         [_tableViewArray addObject:tableView];
         //通知主线程刷新
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -301,7 +302,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
     NSArray *dataArray;
     if (_index == 0) {
         dataArray = _resultDic[@"推荐"];
@@ -321,14 +321,26 @@
     }else {
         _hasimage = YES;
         DiscoveryWithImageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentify"];
-        cell.fd_enforceFrameLayout = YES;
-        cell.titleLabel.text = model.title;
-        cell.contentLabel.text = model.preview;
-        cell.detailsLabel.text = [NSString stringWithFormat:@"阅读：%@   点赞：%@   分享：%@", model.read_num, model.like_num, model.share_num];
-        [cell.coverImageView sd_setImageWithURL:[NSURL URLWithString:[imageUrl stringByAppendingString:model.image]]];
+        [self configureCell:cell atIndexPath:indexPath];
         return cell;
     }
-    
+}
+
+- (void)configureCell:(DiscoveryWithImageCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    NSArray *dataArray;
+    if (_index == 0) {
+        dataArray = _resultDic[@"推荐"];
+    }
+    else {
+        ArticleTypeModel *model = _typeArray[_index - 1];
+        dataArray = _resultDic[model.cat_name];
+    }
+    ArticleModel *model = dataArray[indexPath.row];
+    cell.fd_enforceFrameLayout = YES;
+    cell.titleLabel.text = model.title;
+    cell.contentLabel.text = model.preview;
+    cell.detailsLabel.text = [NSString stringWithFormat:@"阅读：%@   点赞：%@   分享：%@", model.read_num, model.like_num, model.share_num];
+    [cell.coverImageView sd_setImageWithURL:[NSURL URLWithString:[imageUrl stringByAppendingString:model.image]]];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -352,13 +364,31 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (_hasimage) {
-        return [tableView fd_heightForCellWithIdentifier:@"cellIdentify" configuration:^(DiscoveryWithImageCell *cell) {
-        }];
-    }else {
-        return [tableView fd_heightForCellWithIdentifier:@"myIdentify" configuration:^(DiscoveryTableViewCell *cell) {
-        }];
+    NSArray *dataArray;
+    if (_index == 0) {
+        dataArray = _resultDic[@"推荐"];
     }
+    else {
+        ArticleTypeModel *model = _typeArray[_index - 1];
+        dataArray = _resultDic[model.cat_name];
+    }
+    ArticleModel *model = dataArray[indexPath.row];
+    if ([self isEmpty:model.image]) {
+            return [tableView fd_heightForCellWithIdentifier:@"myIdentify" configuration:^(DiscoveryTableViewCell *cell) {
+            }];
+    }else {
+            return [tableView fd_heightForCellWithIdentifier:@"cellIdentify" configuration:^(DiscoveryWithImageCell *cell) {
+                [self configureCell:cell atIndexPath:indexPath];
+            }];
+    }
+//    if (_hasimage) {
+//        return [tableView fd_heightForCellWithIdentifier:@"cellIdentify" configuration:^(DiscoveryWithImageCell *cell) {
+//            [self configureCell:cell atIndexPath:indexPath];
+//        }];
+//    }else {
+//        return [tableView fd_heightForCellWithIdentifier:@"myIdentify" configuration:^(DiscoveryTableViewCell *cell) {
+//        }];
+//    }
 }
 
 #pragma mark - UIScrollViewDelegate

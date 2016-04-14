@@ -9,6 +9,7 @@
 #import "MyCardDetailViewController.h"
 #import "UIView+frame.h"
 #import <UIImageView+WebCache.h>
+#import <UIButton+WebCache.h>
 #import "ZXingObjC.h"
 #import "UINavigationController+FDFullscreenPopGesture.h"
 #import "UIView+border.h"
@@ -23,7 +24,7 @@
 #import "ClipImageViewController.h"
 #import "BrandListViewController.h"
 
-@interface MyCardDetailViewController ()<UIGestureRecognizerDelegate,ClipImageDelegate>
+@interface MyCardDetailViewController ()<UIGestureRecognizerDelegate,ClipImageDelegate,CommentsViewControllerDelegate>
 @property (nonatomic, strong) NSNumber *fromValue;
 @property (nonatomic, strong) UIImageView *hornTopImageView;
 @property (nonatomic, strong) NSArray *dataArray;
@@ -78,8 +79,20 @@
         if (![model.merchant_id isEqualToString:@"0"]) {
             [self layoutServiceView];
         }
+        if (![self isEmpty:model.remark]) {
+            _markNotesLabel.hidden = YES;
+            _markTextView.text = model.remark;
+        }
+        if (![self isEmpty:model.f_image]) {
+            [_frontPicBtn setTitle:@"" forState:UIControlStateNormal];
+            [_frontPicBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:[imageUrl stringByAppendingString:model.f_image]] forState:UIControlStateNormal];
+        }
+        if (![self isEmpty:model.b_image]) {
+            [_backPicBtn setTitle:@"" forState:UIControlStateNormal];
+            [_backPicBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:[imageUrl stringByAppendingString:model.b_image]] forState:UIControlStateNormal];
+        }
     } withErrorBlock:^(NSError *error) {
-        [self showAlertViewController:@""];
+        [self showAlertViewController:@"您无法连接到网络，请确认网络连接。"];
     }];
 }
 
@@ -133,10 +146,17 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)tapCommentsView:(UITapGestureRecognizer *)gr {
+- (void)passRemark:(NSString *)remark
+{
     _markNotesLabel.hidden = YES;
+    _markTextView.text = remark;
+}
+
+- (void)tapCommentsView:(UITapGestureRecognizer *)gr {
     CommentsViewController *commentsVC = [CommentsViewController new];
-    [self showViewController:commentsVC sender:self];
+    commentsVC.delegate = self;
+    commentsVC.cardId = _model.card_id;
+    [self.navigationController pushViewController:commentsVC animated:YES];
 }
 
 #pragma mark Action
@@ -292,6 +312,7 @@
         vc.height = ((MainScreenWidth - 80) * 90)/ 135;
         vc.isFront = YES;
         vc.delegate = self;
+        vc.cardId = _model.card_id;
         [self.navigationController pushViewController:vc animated:YES];
     }];
 }
@@ -321,6 +342,7 @@
         vc.height = ((MainScreenWidth - 80) * 90)/ 135;
         vc.isFront = NO;
         vc.delegate = self;
+        vc.cardId = _model.card_id;
         [self.navigationController pushViewController:vc animated:YES];
     }];
 }

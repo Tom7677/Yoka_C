@@ -8,7 +8,12 @@
 
 #import "BaseViewController.h"
 
+@protocol CommentsViewControllerDelegate;
 @interface CommentsViewController : BaseViewController
+@property (nonatomic, copy) NSString *cardId;
+@property (nonatomic, strong) id<CommentsViewControllerDelegate> delegate;
+@end
 
-
+@protocol CommentsViewControllerDelegate <NSObject>
+-(void)passRemark:(NSString *)remark;
 @end
