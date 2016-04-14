@@ -134,15 +134,22 @@
 - (IBAction)btnAction:(id)sender {
     UIButton *btn = sender;
     if (btn.tag == 1) {
-        //分享到微信
+        //推荐APP分享到微信
+        [[NetworkAPI shared]getAPPRecommendURLWithFinish:^(BOOL isSuccess, NSString *urlStr) {
+            if (isSuccess) {
+                
+            }
+        } withErrorBlock:^(NSError *error) {
+            
+        }];
         [[UMengAnalyticsUtil shared]shareApp];
     }
-    else if (btn.tag == 2) {
-        //已删除会员卡
-        ShowDeteledCardViewController  *vc = [[ShowDeteledCardViewController alloc]init];
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];
-    }
+//    else if (btn.tag == 2) {
+//        //已删除会员卡
+//        ShowDeteledCardViewController  *vc = [[ShowDeteledCardViewController alloc]init];
+//        vc.hidesBottomBarWhenPushed = YES;
+//        [self.navigationController pushViewController:vc animated:YES];
+//    }
     else if (btn.tag == 3) {
         //给好评
         NSString *str = [NSString stringWithFormat:@"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=1085934881" ];

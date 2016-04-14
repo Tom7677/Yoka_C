@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -17,13 +17,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zX9-Bo-pgK">
-                        <rect key="frame" x="10" y="14" width="300" height="120"/>
+                        <rect key="frame" x="10" y="14" width="300" height="133"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="zX9-Bo-pgK" secondAttribute="height" multiplier="25:10" id="fzH-ff-zgH"/>
+                            <constraint firstAttribute="width" secondItem="zX9-Bo-pgK" secondAttribute="height" multiplier="9:4" id="fzH-ff-zgH"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="来自意大利的纯种红牛" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJX-zH-wuv">
-                        <rect key="frame" x="10" y="143" width="300" height="30"/>
+                        <rect key="frame" x="10" y="156" width="300" height="30"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="uBJ-I2-ZD1"/>
                         </constraints>
@@ -32,16 +32,16 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="阅读：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5bH-gq-FMt">
-                        <rect key="frame" x="10" y="175" width="294" height="16"/>
+                        <rect key="frame" x="10" y="188" width="294" height="16"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="16" id="QfL-5U-uBH"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w5V-06-d46">
-                        <rect key="frame" x="10" y="199" width="300" height="69"/>
+                        <rect key="frame" x="10" y="212" width="300" height="56"/>
                         <attributedString key="attributedText">
                             <fragment content="选取澳大利亚知名品牌">
                                 <attributes>

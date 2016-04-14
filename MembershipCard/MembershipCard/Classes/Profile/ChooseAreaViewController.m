@@ -117,8 +117,7 @@
     }else {
         [self dismissViewControllerAnimated:YES completion:nil];
     }
-    CityListModel *myCity = _areaArray[_currentRow];
-    [[NSUserDefaults standardUserDefaults]setObject:myCity.name forKey:@"MyCity"];
+    [[NSUserDefaults standardUserDefaults]setObject:self.currentCity forKey:@"MyCity"];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeNameNotification" object:self userInfo:nil];
 }
 
@@ -231,6 +230,8 @@
 {
     _currentSection = indexPath.section;
     _currentRow = indexPath.row;
+    CityListModel *myCity = _areaArray[_currentRow];
+    self.currentCity = myCity.name;
     [_tableView reloadData];
 }
 

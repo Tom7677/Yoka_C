@@ -321,10 +321,10 @@
         [self showAlertViewController:@"请输入联系人姓名"];
         return;
     }
-    if ([_phoneTextField.text isEqualToString:@""]) {
-        [self showAlertViewController:@"请输入联系电话"];
-        return;
-    }
+//    if ([_phoneTextField.text isEqualToString:@""]) {
+//        [self showAlertViewController:@"请输入联系电话"];
+//        return;
+//    }
     if (![self checkTelNumber:_phoneTextField.text]) {
         [self showAlertViewController:@"请输入格式正确的联系电话"];
         return;
@@ -334,7 +334,8 @@
     if (_voucherId == nil) {
         [[NetworkAPI shared]addVoucherWithInfo:dic WithFinish:^(BOOL isSuccess, NSString *msg) {
             if (isSuccess) {
-                
+                [self.navigationController popViewControllerAnimated:YES];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadReleaseNotification" object:self userInfo:nil];
             }
             else {
                 [self showAlertViewController:msg];
@@ -346,7 +347,8 @@
     else {
         [[NetworkAPI shared]editVoucherWithInfo:dic voucher_id:_voucherId WithFinish:^(BOOL isSuccess, NSString *msg) {
             if (isSuccess) {
-                
+                [self.navigationController popViewControllerAnimated:YES];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadReleaseNotification" object:self userInfo:nil];
             }
             else {
                 [self showAlertViewController:msg];

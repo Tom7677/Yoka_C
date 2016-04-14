@@ -26,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UIView *serviceView;
 @property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
 @property (weak, nonatomic) IBOutlet UILabel *markNotesLabel;
+@property (weak, nonatomic) IBOutlet UIButton *bindBrandBtn;
 @property (strong, nonatomic) MyCardModel *model;
 
 - (IBAction)cardInfoBtnAction:(id)sender;
@@ -35,5 +36,6 @@
 - (IBAction)backPicAction:(id)sender;
 - (IBAction)backBtnAction:(id)sender;
 - (IBAction)explainBtnAction:(id)sender;
+- (IBAction)bindBrandAction:(id)sender;
 
 @end

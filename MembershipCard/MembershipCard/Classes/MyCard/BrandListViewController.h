@@ -14,4 +14,5 @@
 @property (strong, nonatomic) IBOutlet UISearchDisplayController *searchDisplayController;
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (nonatomic, getter=isScan) BOOL scan;
+@property (nonatomic, strong) NSString *cardIdFromBind;
 @end

@@ -9,6 +9,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyCardDetailViewController">
             <connections>
                 <outlet property="backPicBtn" destination="g0E-ni-yTV" id="BTD-0I-siS"/>
+                <outlet property="bindBrandBtn" destination="rzb-Wf-dZl" id="DKr-Y6-ihJ"/>
                 <outlet property="cardInfoBtn" destination="gsk-2L-Dc2" id="bWR-9c-cUr"/>
                 <outlet property="cardTitle" destination="2s2-pd-4SA" id="nIp-WO-dlx"/>
                 <outlet property="codeLabel" destination="aMs-8W-MwE" id="WmG-EB-R3d"/>
@@ -267,7 +268,26 @@
         <view contentMode="scaleToFill" id="QQH-JB-D8d" userLabel="Service View">
             <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rzb-Wf-dZl">
+                    <rect key="frame" x="103" y="82" width="115" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="115" id="btb-If-ImZ"/>
+                        <constraint firstAttribute="height" constant="30" id="e0W-2m-IYm"/>
+                    </constraints>
+                    <state key="normal" title="绑定品牌商户">
+                        <color key="titleColor" red="1" green="0.32156862749999998" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="bindBrandAction:" destination="-1" eventType="touchUpInside" id="k93-1m-4Jo"/>
+                    </connections>
+                </button>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="rzb-Wf-dZl" firstAttribute="centerX" secondItem="QQH-JB-D8d" secondAttribute="centerX" id="2rj-dl-BpL"/>
+                <constraint firstItem="rzb-Wf-dZl" firstAttribute="top" secondItem="QQH-JB-D8d" secondAttribute="top" constant="82" id="IMF-HS-grC"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-24" y="103"/>

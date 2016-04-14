@@ -21,6 +21,7 @@
 #import "WebViewController.h"
 #import "ExplainViewController.h"
 #import "ClipImageViewController.h"
+#import "BrandListViewController.h"
 
 @interface MyCardDetailViewController ()<UIGestureRecognizerDelegate,ClipImageDelegate>
 @property (nonatomic, strong) NSNumber *fromValue;
@@ -66,8 +67,7 @@
     }
     [_logoImageView circular];
     [self getCradInfo];
-    [self layoutServiceView];
-//    [self getAnnouncementList];
+    [_bindBrandBtn circularBoarderBead:5 withBoarder:1 color:UIColorFromRGB(0xFF526E)];
 }
 
 - (void)getCradInfo
@@ -75,8 +75,11 @@
     [[NetworkAPI shared]getMyCardInfoByCardId:_model.card_id WithFinish:^(CardInfoModel *model) {
         _cardInfo = model.merchant_info;
         [self showViewByModel:model];
+        if (![model.merchant_id isEqualToString:@"0"]) {
+            [self layoutServiceView];
+        }
     } withErrorBlock:^(NSError *error) {
-        
+        [self showAlertViewController:@""];
     }];
 }
 
@@ -247,6 +250,14 @@
     ExplainViewController *vc = [[ExplainViewController alloc]init];
     [self.navigationController pushViewController:vc animated:YES];
 }
+/**
+ *  绑定品牌商户
+ */
+- (IBAction)bindBrandAction:(id)sender {
+    BrandListViewController *vc = [[BrandListViewController alloc]init];
+    vc.cardIdFromBind = _model.card_id;
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 /**
  *  删除卡片
@@ -257,7 +268,11 @@
     [self showConfirmAlertViewControllerWithTitle:@"确认删除" andAction:^{
         [[UMengAnalyticsUtil shared]deleteCardByMerchantsName:_model.name];
         [[NetworkAPI shared]deleteCardByCardId:_model.card_id WithFinish:^(BOOL isSuccess, NSString *msg) {
-            [self.navigationController popToRootViewControllerAnimated:YES];
+            if (isSuccess) {
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            }else {
+                [self showAlertViewController:msg];
+            }
         } withErrorBlock:^(NSError *error) {
             
         }];

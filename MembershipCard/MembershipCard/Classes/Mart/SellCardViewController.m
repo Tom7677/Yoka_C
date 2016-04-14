@@ -20,7 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"正在出售的卡";
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(releaseReload) name:@"ReloadReleaseNotification" object:nil];
+    self.title = @"已发布卡";
     _dataArray  = [[NSMutableArray alloc]init];
     
     UIButton *rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 60, 28)];
@@ -45,7 +46,9 @@
     _tableView.mj_footer.hidden = YES;
     [_tableView setTableFooterView:[UIView new]];
 }
-
+-(void)releaseReload {
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

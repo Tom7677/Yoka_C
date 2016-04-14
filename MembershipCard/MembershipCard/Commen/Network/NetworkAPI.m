@@ -139,6 +139,23 @@
     }];
 }
 
+- (void)getAPPRecommendURLWithFinish:(void(^)(BOOL isSuccess, NSString *urlStr))block withErrorBlock:(void(^)(NSError *error))errorBlock
+{
+    NSString *urlStr = [hostUrl stringByAppendingString:@"Index/suggestion_app"];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject[@"status"] integerValue] == 1) {
+            block(YES, responseObject[@"data"]);
+        }else {
+            block(NO,nil);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        errorBlock(error);
+    }];
+
+}
+
+
 #pragma mark cardBag
 - (void)getMyCardBagListWithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock
 {
@@ -345,6 +362,22 @@
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         errorBlock (error);
+    }];
+}
+
+- (void)bindBrandCardWithCardId:(NSString *)cardId AndMerchantId:(NSString *)merchantId WithFinish:(void(^)(BOOL isSuccess, NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock
+{
+    NSString *urlStr = [hostUrl stringByAppendingString:@"Card/bind_brand_card"];
+    NSDictionary *param = @{@"token":[self getAccessToken],@"card_id":cardId,@"merchant_id":merchantId};
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject[@"status"] integerValue] == 1) {
+            block(YES, responseObject[@"msg"]);
+        }else {
+            block(NO, responseObject[@"msg"]);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        errorBlock(error);
     }];
 }
 

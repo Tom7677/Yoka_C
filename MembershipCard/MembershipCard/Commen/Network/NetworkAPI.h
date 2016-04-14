@@ -72,6 +72,11 @@ static NSInteger pageSize = 20;
  */
 - (void)getMJShopURLWithFinish:(void(^)(BOOL isSuccess, NSString *urlStr))block withErrorBlock:(void(^)(NSError *error))errorBlock;
 
+/*!
+ *  @brief  获取推荐APP链接
+ */
+- (void)getAPPRecommendURLWithFinish:(void(^)(BOOL isSuccess, NSString *urlStr))block withErrorBlock:(void(^)(NSError *error))errorBlock;
+
 #pragma mark 卡包
 /**
  *  获取卡包列表
@@ -162,6 +167,15 @@ static NSInteger pageSize = 20;
  */
 - (void)getCooperatedMerchantListWithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 
+/*!
+ *  @brief  非品牌卡片绑定品牌
+ *
+ *  @param cardId     卡片ID
+ *  @param merchantId 品牌ID
+ *  @param block      block description
+ *  @param errorBlock errorBlock description
+ */
+- (void)bindBrandCardWithCardId:(NSString *)cardId AndMerchantId:(NSString *)merchantId WithFinish:(void(^)(BOOL isSuccess, NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 
 #pragma mark 发现
 
