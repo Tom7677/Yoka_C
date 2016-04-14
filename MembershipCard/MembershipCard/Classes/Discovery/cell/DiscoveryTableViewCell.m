@@ -20,7 +20,6 @@
     // Configure the view for the selected state
 }
 
-
 - (CGSize)sizeThatFits:(CGSize)size {
     CGFloat totalHeight = 0;
     totalHeight += [self.titleLabel sizeThatFits:size].height;
