@@ -20,6 +20,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _webView.delegate = self;
+    _webView.scrollView.showsVerticalScrollIndicator = NO;
+    _webView.frame = CGRectMake(0, 0, MainScreenWidth, MainScreenHeight - NavAndStatusBarHeight);
     TSImageLeftButton *btn = [[TSImageLeftButton alloc]initWithFrame:CGRectMake(0, 0, 56, 30)];
     [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     btn.titleLabel.font = [UIFont systemFontOfSize:14];

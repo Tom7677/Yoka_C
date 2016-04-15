@@ -29,11 +29,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    self.title = _titleString;
-    _webView = [[UIWebView alloc]initWithFrame:CGRectMake(0, 0, MainScreenWidth, MainScreenHeight)];
+    _webView = [[UIWebView alloc]initWithFrame:CGRectMake(0, 0, MainScreenWidth, MainScreenHeight - NavAndStatusBarHeight)];
     [self.view addSubview:_webView];
     _webView.delegate = self;
     //webVeiw禁止左右滑动
-    _webView.scrollView.contentSize = CGSizeMake(MainScreenWidth, MainScreenHeight);
+    _webView.scrollView.showsVerticalScrollIndicator = NO;
     _webView.scrollView.bounces = YES;
     _webView.scalesPageToFit = YES;
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_urlStr]]];
