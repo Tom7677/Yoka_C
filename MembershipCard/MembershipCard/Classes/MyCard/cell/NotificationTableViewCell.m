@@ -19,12 +19,4 @@
 
     // Configure the view for the selected state
 }
-
-- (CGSize)sizeThatFits:(CGSize)size {
-    CGFloat totalHeight = 0;
-    totalHeight += [self.contentLabel sizeThatFits:size].height;
-    totalHeight += [self.timeLabel sizeThatFits:size].height;
-    totalHeight += 31; // margins
-    return CGSizeMake(size.width, totalHeight);
-}
 @end

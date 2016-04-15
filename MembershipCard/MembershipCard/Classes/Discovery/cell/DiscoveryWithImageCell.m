@@ -23,16 +23,4 @@
 
     // Configure the view for the selected state
 }
-
-- (CGSize)sizeThatFits:(CGSize)size
-{
-    CGFloat totalHeight = 0;
-    totalHeight += [self.coverImageView sizeThatFits:size].height;
-    totalHeight += [self.titleLabel sizeThatFits:size].height;
-    totalHeight += [self.contentLabel sizeThatFits:size].height;
-    totalHeight += [self.detailsLabel sizeThatFits:size].height;
-    totalHeight += [self.moreLabel sizeThatFits:size].height;
-    totalHeight += 52; // margins
-    return CGSizeMake(size.width, totalHeight);
-}
 @end

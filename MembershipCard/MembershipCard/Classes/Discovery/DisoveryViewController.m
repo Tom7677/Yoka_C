@@ -11,7 +11,7 @@
 #import "MJRefresh.h"
 #import "DiscoveryTableViewCell.h"
 #import "DiscoveryWithImageCell.h"
-#import "UITableView+FDTemplateLayoutCell.h"
+#import "UILabel+caculateSize.h"
 #import "ArticleViewController.h"
 #import "YKModel.h"
 #import <UIImageView+WebCache.h>
@@ -156,7 +156,6 @@
         tableView.tag = i;
         [tableView registerNib:[UINib nibWithNibName:@"DiscoveryTableViewCell" bundle:nil] forCellReuseIdentifier:@"myIdentify"];
         [tableView registerNib:[UINib nibWithNibName:@"DiscoveryWithImageCell" bundle:nil] forCellReuseIdentifier:@"cellIdentify"];
-        tableView.fd_debugLogEnabled = YES;
         [_tableViewArray addObject:tableView];
         //通知主线程刷新
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -312,35 +311,18 @@
     }
     ArticleModel *model = dataArray[indexPath.row];
     if ([self isEmpty:model.image]) {
-        _hasimage = NO;
         DiscoveryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myIdentify"];
-        cell.fd_enforceFrameLayout = YES;
         cell.titleLabel.text = model.title;
         cell.detailsLabel.text = [NSString stringWithFormat:@"阅读：%@   点赞：%@   分享：%@",  model.read_num, model.like_num, model.share_num];
         return cell;
     }else {
-        _hasimage = YES;
         DiscoveryWithImageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentify"];
-        [self configureCell:cell atIndexPath:indexPath];
+        cell.titleLabel.text = model.title;
+        cell.contentLabel.text = model.preview;
+        cell.detailsLabel.text = [NSString stringWithFormat:@"阅读：%@   点赞：%@   分享：%@", model.read_num, model.like_num, model.share_num];
+        [cell.coverImageView sd_setImageWithURL:[NSURL URLWithString:[imageUrl stringByAppendingString:model.image]]];
         return cell;
     }
-}
-
-- (void)configureCell:(DiscoveryWithImageCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    NSArray *dataArray;
-    if (_index == 0) {
-        dataArray = _resultDic[@"推荐"];
-    }
-    else {
-        ArticleTypeModel *model = _typeArray[_index - 1];
-        dataArray = _resultDic[model.cat_name];
-    }
-    ArticleModel *model = dataArray[indexPath.row];
-    cell.fd_enforceFrameLayout = YES;
-    cell.titleLabel.text = model.title;
-    cell.contentLabel.text = model.preview;
-    cell.detailsLabel.text = [NSString stringWithFormat:@"阅读：%@   点赞：%@   分享：%@", model.read_num, model.like_num, model.share_num];
-    [cell.coverImageView sd_setImageWithURL:[NSURL URLWithString:[imageUrl stringByAppendingString:model.image]]];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -374,21 +356,27 @@
     }
     ArticleModel *model = dataArray[indexPath.row];
     if ([self isEmpty:model.image]) {
-            return [tableView fd_heightForCellWithIdentifier:@"myIdentify" configuration:^(DiscoveryTableViewCell *cell) {
-            }];
+        DiscoveryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myIdentify"];
+        cell.titleLabel.text = model.title;
+        return [cell.titleLabel getTextHeight] + cell.detailsLabel.height + 31;
     }else {
-            return [tableView fd_heightForCellWithIdentifier:@"cellIdentify" configuration:^(DiscoveryWithImageCell *cell) {
-                [self configureCell:cell atIndexPath:indexPath];
-            }];
+        DiscoveryWithImageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentify"];
+        cell.titleLabel.text = model.title;
+        cell.contentLabel.text = model.preview;
+        //15是coverImageView距离cell顶部距离
+        CGFloat height = 15;
+        //133是屏幕宽为320情况下coverImageView高 300是宽
+        height = height + 133 * (MainScreenWidth - 20) / 300;
+        //8是titleLabel与coverImageView间距
+        height = height + [cell.titleLabel getTextHeight] + 8;
+        //2是detailsLabel与titleLabel间距 16是detailsLabel高
+        height = height + 2 + 16;
+        //8是contentLabel与detailsLabel间距
+        height = height + 8 + [cell.contentLabel getTextHeight];
+        //8是阅读更多label与contentLabel间距 30是其高度，13是线的高度及阅读更多label与线间距的和
+        height = height + 8 + 30 + 13;
+        return height;
     }
-//    if (_hasimage) {
-//        return [tableView fd_heightForCellWithIdentifier:@"cellIdentify" configuration:^(DiscoveryWithImageCell *cell) {
-//            [self configureCell:cell atIndexPath:indexPath];
-//        }];
-//    }else {
-//        return [tableView fd_heightForCellWithIdentifier:@"myIdentify" configuration:^(DiscoveryTableViewCell *cell) {
-//        }];
-//    }
 }
 
 #pragma mark - UIScrollViewDelegate

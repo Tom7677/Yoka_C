@@ -7,11 +7,13 @@
 //
 
 #import "PossiableCardTableViewCell.h"
+#import "UIView+border.h"
 
 @implementation PossiableCardTableViewCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    [_addCardBtn circularBead:4];
+    [_cardImageView circularBead:10];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -21,5 +23,6 @@
 }
 
 - (IBAction)addCardAction:(id)sender {
+    [_delegate possiableCardTableViewCell:self cardId:_cardId];
 }
 @end

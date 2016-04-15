@@ -7,10 +7,10 @@
 //
 
 #import "PossiableCardViewController.h"
+#import "PossiableCardTableViewCell.h"
 
-@interface PossiableCardViewController ()
+@interface PossiableCardViewController ()<UITableViewDelegate,UITableViewDataSource,PossiableCardTableViewCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) NSMutableArray *itemsArray;
 @property (nonatomic, strong) NSMutableArray *resultArray;
 @end
 
@@ -19,6 +19,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"猜你有这些卡";
+    _resultArray = [[NSMutableArray alloc]init];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    [_tableView registerNib:[UINib nibWithNibName:@"PossiableCardTableViewCell" bundle:nil] forCellReuseIdentifier:@"cellIdentifier"];
+    [self loadNewData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -26,5 +31,38 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)loadNewData
+{
+    [[NetworkAPI shared]getCooperatedMerchantListWithFinish:^(NSArray *dataArray) {
+        [_resultArray removeAllObjects];
+        [_resultArray addObjectsFromArray:dataArray];
+        [_tableView reloadData];
+    } withErrorBlock:^(NSError *error) {
+        if (error.code == NSURLErrorNotConnectedToInternet) {
+            [self showAlertViewController:@"您无法连接到网络，请确认网络连接。"];
+        }
+    }];
+}
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return _resultArray.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 92;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    PossiableCardTableViewCell *cell = [_tableView dequeueReusableCellWithIdentifier:@"cellIdentifier"];
+    cell.delegate = self;
+    return cell;
+}
+
+- (void)possiableCardTableViewCell:(PossiableCardTableViewCell *)cell cardId:(NSString *)cardId
+{
+    
+}
 @end

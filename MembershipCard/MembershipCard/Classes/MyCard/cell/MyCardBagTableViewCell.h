@@ -11,6 +11,5 @@
 @interface MyCardBagTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
 @property (weak, nonatomic) IBOutlet UILabel *shopNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *cardTypeLabel;
 
 @end

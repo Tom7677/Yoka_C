@@ -70,7 +70,9 @@
         [_tableView reloadData];
         [_tableView.mj_header endRefreshing];
     } withErrorBlock:^(NSError *error) {
-        NSLog(@"load失败,%@",error.userInfo);
+        if (error.code == NSURLErrorNotConnectedToInternet) {
+            [self showAlertViewController:@"您无法连接到网络，请确认网络连接。"];
+        }
     }];
 }
 
@@ -112,7 +114,6 @@
         [cell.logoImageView sd_setImageWithURL:[NSURL URLWithString:[imageUrl stringByAppendingString:model.f_logo]]];
     }
     cell.shopNameLabel.text = model.name;
-    cell.cardTypeLabel.hidden = YES;
     return cell;
 }
 
