@@ -8,6 +8,7 @@
 
 #import "PossiableCardViewController.h"
 #import "PossiableCardTableViewCell.h"
+#import <UIImageView+WebCache.h>
 
 @interface PossiableCardViewController ()<UITableViewDelegate,UITableViewDataSource,PossiableCardTableViewCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -58,11 +59,39 @@
 {
     PossiableCardTableViewCell *cell = [_tableView dequeueReusableCellWithIdentifier:@"cellIdentifier"];
     cell.delegate = self;
+    BrandCardListModel *model = _resultArray[indexPath.row];
+    cell.nameLabel.text =model.name;
+    [cell.cardImageView sd_setImageWithURL:[NSURL URLWithString:[imageUrl stringByAppendingString:model.f_logo]]];
+    if (model.has_card) {
+        cell.addCardBtn.enabled = NO;
+        [cell.addCardBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [cell.addCardBtn setTitle:@"已在卡包" forState:UIControlStateNormal];
+        [cell.addCardBtn setBackgroundColor:UIColorFromRGB(0xEFEFEF)];
+    }
+    else {
+        cell.addCardBtn.enabled = YES;
+        [cell.addCardBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [cell.addCardBtn setTitle:@"加入卡包" forState:UIControlStateNormal];
+        [cell.addCardBtn setBackgroundColor:UIColorFromRGB(0x279E20)];
+    }
     return cell;
 }
 
-- (void)possiableCardTableViewCell:(PossiableCardTableViewCell *)cell cardId:(NSString *)cardId
+- (void)possiableCardTableViewCell:(PossiableCardTableViewCell *)cell merchantId:(NSString *)merchantId
 {
-    
+    [[NetworkAPI shared]addCardYunsuoWithMerchantId:merchantId WithFinish:^(BOOL isSuccess, NSString *msg) {
+        if (isSuccess) {
+            cell.addCardBtn.enabled = NO;
+            [cell.addCardBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            [cell.addCardBtn setTitle:@"已在卡包" forState:UIControlStateNormal];
+            [cell.addCardBtn setBackgroundColor:UIColorFromRGB(0xEFEFEF)];
+            [_tableView reloadData];
+        }
+        else {
+            [self showAlertViewController:msg];
+        }
+    } withErrorBlock:^(NSError *error) {
+        
+    }];
 }
 @end

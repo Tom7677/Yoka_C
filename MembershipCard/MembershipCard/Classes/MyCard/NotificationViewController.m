@@ -99,6 +99,7 @@
     NotificationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentifier"];
     NoticeModel *model = _resultArray[indexPath.row];
     cell.contentLabel.text = model.content;
+    cell.contentLabel.width = MainScreenWidth - 20;
     return [cell.contentLabel getTextHeight] + cell.timeLabel.height + 31;
 }
 

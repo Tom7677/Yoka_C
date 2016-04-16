@@ -17,10 +17,12 @@
 #import "SecondHandCardViewController.h"
 #import "EditNameViewController.h"
 #import <UIButton+WebCache.h>
+#import "WXApi.h"
+#import "WXApiObject.h"
 
 @interface MoreViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *cityLabel;
-
+@property (copy, nonatomic) NSString *shareUrl;
 @end
 
 @implementation MoreViewController
@@ -42,19 +44,11 @@
     _scrollView.contentSize = CGSizeMake(MainScreenWidth, _bgView.height);
     [_scrollView addSubview:_bgView];
     [_avatarBtn circularBoarderBead:_avatarBtn.width / 2 withBoarder:1 color:UIColorFromRGB(0xf0f0f0)];
-//    NSString *nickName = [[NSUserDefaults standardUserDefaults]objectForKey:@"nickName"];
-//    NSString *phoneNum = [[NSUserDefaults standardUserDefaults]objectForKey:@"phoneNum"];
-//    NSString *avator = [[NSUserDefaults standardUserDefaults]objectForKey:@"avator"];
-//    if (avator) {
-//        [_avatarBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:avator] forState:UIControlStateNormal];
-//        [_avatarBtn setTitle:@"" forState:UIControlStateNormal];
-//    }
-//    if (nickName) {
-//        _nickNameLabel.text = nickName;
-//    }
-//    if (phoneNum) {
-//        _phoneNumLabel.text = phoneNum;
-//    }
+    [[NetworkAPI shared]getAPPRecommendURLWithFinish:^(BOOL isSuccess, NSString *urlStr) {
+        _shareUrl = urlStr;
+    } withErrorBlock:^(NSError *error) {
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -72,7 +66,12 @@
 {
     [[NetworkAPI shared]getUserInfoWithFinish:^(UserInfoModel *model) {
         if (![self isEmpty:model.avatar]) {
-            [_avatarBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:[imageUrl stringByAppendingString:model.avatar]] forState:UIControlStateNormal];
+            if ([model.avatar hasPrefix:@"http"]) {
+                [_avatarBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:model.avatar] forState:UIControlStateNormal];
+            }
+            else {
+                [_avatarBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:[imageUrl stringByAppendingString:model.avatar]] forState:UIControlStateNormal];
+            }
             [_avatarBtn setTitle:@"" forState:UIControlStateNormal];
         }
         _nickNameLabel.text = model.nick_name;
@@ -84,7 +83,6 @@
 - (void)ChangeNameNotification
 {
     _cityLabel.text = [[NSUserDefaults standardUserDefaults]objectForKey:@"MyCity"];
-
 }
 
 /**
@@ -135,14 +133,12 @@
     UIButton *btn = sender;
     if (btn.tag == 1) {
         //推荐APP分享到微信
-        [[NetworkAPI shared]getAPPRecommendURLWithFinish:^(BOOL isSuccess, NSString *urlStr) {
-            if (isSuccess) {
-                
-            }
-        } withErrorBlock:^(NSError *error) {
-            
-        }];
         [[UMengAnalyticsUtil shared]shareApp];
+        if (![self isEmpty:_shareUrl]) {
+            _shareView.originY = MainScreenHeight - _shareView.height;
+            _shareView.width = MainScreenWidth;
+            [[UIApplication sharedApplication].keyWindow addSubview:_shareView];
+        }
     }
 //    else if (btn.tag == 2) {
 //        //已删除会员卡
@@ -164,5 +160,30 @@
         vc.fromSetting = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }
+}
+
+- (IBAction)wxShareAction:(id)sender {
+    if (![self isEmpty:_shareUrl]) {
+        UIButton *btn = sender;
+        [_shareView removeFromSuperview];
+        WXMediaMessage *message = [WXMediaMessage message];
+        message.title = @"title";
+        message.description = @"description";
+        [message setThumbImage:[UIImage imageNamed:@"icon_logo"]];
+        WXWebpageObject *webpageObject = [WXWebpageObject object];
+        webpageObject.webpageUrl = _shareUrl;
+        message.mediaObject = webpageObject;
+        SendMessageToWXReq *req = [[SendMessageToWXReq alloc]init];
+        req.bText = NO;
+        req.message = message;
+        if (btn.tag == 0) {
+            req.scene = WXSceneSession;
+        }
+        if (btn.tag == 1) {
+            req.scene = WXSceneTimeline;
+        }
+        [WXApi sendReq:req];
+    }
+    
 }
 @end

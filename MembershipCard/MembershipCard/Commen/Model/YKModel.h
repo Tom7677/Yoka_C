@@ -82,6 +82,7 @@
 @property(nonatomic,strong) NSString *f_logo;//方logo
 @property(nonatomic,strong) NSString *y_logo;//圆logo
 @property(nonatomic,strong) NSString *name_index;
+@property(nonatomic,assign) BOOL has_card;//添加到卡包
 @end
 
 /** 文章分类模型 */

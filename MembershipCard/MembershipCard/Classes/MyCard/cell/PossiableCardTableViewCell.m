@@ -23,6 +23,6 @@
 }
 
 - (IBAction)addCardAction:(id)sender {
-    [_delegate possiableCardTableViewCell:self cardId:_cardId];
+    [_delegate possiableCardTableViewCell:self merchantId:_merchantId];
 }
 @end

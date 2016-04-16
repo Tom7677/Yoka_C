@@ -63,9 +63,11 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager POST:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject[@"status"] integerValue] == 1) {
-            [[NSUserDefaults standardUserDefaults]setObject:responseObject[@"data"][@"token"] forKey:@"accessToken"];
-            [[NSUserDefaults standardUserDefaults]setObject:responseObject[@"data"][@"nick_name"] forKey:@"nickName"];
-            [[NSUserDefaults standardUserDefaults]setObject:responseObject[@"data"][@"avatar"] forKey:@"avator"];
+            [[NSUserDefaults standardUserDefaults]setObject:responseObject[@"data"]
+             [@"token"] forKey:@"accessToken"];
+            if (![responseObject[@"data"][@"mobile"] isEqualToString:@""]) {
+                [[NSUserDefaults standardUserDefaults]setObject:responseObject[@"data"][@"mobile"] forKey:@"phoneNum"];
+            }
             block(YES, responseObject[@"msg"]);
         }else {
             block(NO, responseObject[@"msg"]);
@@ -377,6 +379,22 @@
     }];
 }
 
+- (void)addCardYunsuoWithMerchantId:(NSString *)merchantId WithFinish:(void(^)(BOOL isSuccess, NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock
+{
+    NSString *urlStr = [hostUrl stringByAppendingString:@"User/add_card_yunsuo"];
+    NSDictionary *param = @{@"token":[self getAccessToken],@"merchant_id":merchantId};
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject[@"status"] integerValue] == 1) {
+            block(YES, responseObject[@"msg"]);
+        }else {
+            block(NO, responseObject[@"msg"]);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        errorBlock(error);
+    }];
+}
+
 - (void)bindBrandCardWithCardId:(NSString *)cardId AndMerchantId:(NSString *)merchantId WithFinish:(void(^)(BOOL isSuccess, NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock
 {
     NSString *urlStr = [hostUrl stringByAppendingString:@"Card/bind_brand_card"];
@@ -548,12 +566,19 @@
 - (void)getVoucherListByCatId:(NSString *)catId page:(NSInteger)page WithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock
 {
     NSString *urlStr = [hostUrl stringByAppendingString:@"Voucher/get_voucher_list"];
-    NSDictionary *param = [[NSDictionary alloc]init];
+    NSMutableDictionary *param = [[NSMutableDictionary alloc]init];
+    NSString *cityId = [[NSUserDefaults standardUserDefaults]objectForKey:@"cityId"];
+    if (cityId != nil && ![cityId isEqualToString:@""]) {
+        [param setObject:cityId forKey:@"city_id"];
+    }
     if ([catId isEqualToString:@""]) {
-        param = @{@"page":[NSNumber numberWithInteger:page],@"limit":[NSNumber numberWithInteger:pageSize]};
+        [param setObject:[NSNumber numberWithInteger:page] forKey:@"page"];
+        [param setObject:[NSNumber numberWithInteger:pageSize] forKey:@"limit"];
     }
     else {
-        param = @{@"cat_id":catId,@"page":[NSNumber numberWithInteger:page],@"limit":[NSNumber numberWithInteger:pageSize]};
+        [param setObject:[NSNumber numberWithInteger:page] forKey:@"page"];
+        [param setObject:[NSNumber numberWithInteger:pageSize] forKey:@"limit"];
+        [param setObject:catId forKey:@"cat_id"];
     }
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {

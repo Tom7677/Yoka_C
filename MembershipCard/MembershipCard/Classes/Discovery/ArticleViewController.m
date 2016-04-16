@@ -75,9 +75,10 @@
 }
 
 - (IBAction)shareToWXAction:(id)sender {
+    _shareView.hidden = YES;
     WXMediaMessage *message = [WXMediaMessage message];
-    message.title = @"title";
-    message.description = @"description";
+    message.title = _articleTitle;
+    message.description = _articleContent;
     [message setThumbImage:[UIImage imageNamed:@"icon_logo"]];
     WXWebpageObject *webpageObject = [WXWebpageObject object];
     webpageObject.webpageUrl = _urlStr;
@@ -90,6 +91,7 @@
 }
 
 - (IBAction)shareToCirelAction:(id)sender {
+    _shareView.hidden = YES;
     WXMediaMessage *message = [WXMediaMessage message];
     message.title = @"title";
     message.description = @"description";

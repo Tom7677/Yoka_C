@@ -109,11 +109,6 @@
  */
 - (void)chooseAction
 {
-    if (_fromSetting) {
-        [self.navigationController popViewControllerAnimated:YES];
-    }else {
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }
     if (_currentSection == 0) {
         if (_currentCity == nil) {
             [self showAlertViewController:@"请选择城市"];
@@ -121,12 +116,29 @@
         else {
             [[NSUserDefaults standardUserDefaults]setObject:_currentCity forKey:@"MyCity"];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeNameNotification" object:self userInfo:nil];
+            for (int i = 0; i < _areaArray.count; i ++) {
+                CityListModel *model = _areaArray[i];
+                if ([model.name isEqualToString:_currentCity]) {
+                    [[NSUserDefaults standardUserDefaults]setObject:model.city_id forKey:@"cityId"];
+                }
+            }
+            if (_fromSetting) {
+                [self.navigationController popViewControllerAnimated:YES];
+            }else {
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }
         }
     }
     else {
         CityListModel *myCity = _areaArray[_currentRow];
         [[NSUserDefaults standardUserDefaults]setObject:myCity.name forKey:@"MyCity"];
+        [[NSUserDefaults standardUserDefaults]setObject:myCity.city_id forKey:@"cityId"];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeNameNotification" object:self userInfo:nil];
+        if (_fromSetting) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }else {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
     }
 }
 

@@ -12,6 +12,8 @@
 @interface ArticleViewController : BaseViewController
 @property(nonatomic,strong) NSString *urlStr;
 @property(nonatomic,strong) NSString *articleId;
+@property(nonatomic,strong) NSString *articleTitle;
+@property(nonatomic,strong) NSString *articleContent;
 
 - (IBAction)shareToWXAction:(id)sender;
 - (IBAction)shareToCirelAction:(id)sender;

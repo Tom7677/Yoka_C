@@ -179,6 +179,15 @@ static NSInteger pageSize = 20;
  */
 - (void)getCooperatedMerchantListWithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 
+/**
+ *  用户添加猜你有卡
+ *
+ *  @param merchantId 商户ID
+ *  @param block      block description
+ *  @param errorBlock errorBlock description
+ */
+- (void)addCardYunsuoWithMerchantId:(NSString *)merchantId WithFinish:(void(^)(BOOL isSuccess, NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+
 /*!
  *  @brief  非品牌卡片绑定品牌
  *

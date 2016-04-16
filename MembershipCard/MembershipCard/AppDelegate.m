@@ -116,7 +116,10 @@
 //获取微信access_token
 - (void)getAccess_tokenWithCode:(NSString *)code {
     [[NetworkAPI shared]wechatLoginByWXCode:code WithFinish:^(BOOL isSuccess, NSString *msg) {
-        
+        NSString *accessToken = [[NSUserDefaults standardUserDefaults]objectForKey:@"phoneNum"];
+        if (nil != accessToken && ![@"" isEqualToString:accessToken]) {
+            [self showHomeVC];
+        }
     } withErrorBlock:^(NSError *error) {
         
     }];

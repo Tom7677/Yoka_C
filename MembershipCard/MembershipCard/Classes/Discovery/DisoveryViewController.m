@@ -338,6 +338,8 @@
     ArticleModel *model = dataArray[indexPath.row];
     ArticleViewController *vc = [[ArticleViewController alloc]init];
     vc.urlStr = model.jump_link;
+    vc.articleTitle = model.title;
+    vc.articleContent = model.content;
     vc.articleId = model.article_id;
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
@@ -358,11 +360,14 @@
     if ([self isEmpty:model.image]) {
         DiscoveryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myIdentify"];
         cell.titleLabel.text = model.title;
+        cell.titleLabel.width = MainScreenWidth - 32;
         return [cell.titleLabel getTextHeight] + cell.detailsLabel.height + 31;
     }else {
         DiscoveryWithImageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentify"];
         cell.titleLabel.text = model.title;
+        cell.titleLabel.width = MainScreenWidth - 20;
         cell.contentLabel.text = model.preview;
+        cell.contentLabel.width = MainScreenWidth - 20;
         //15是coverImageView距离cell顶部距离
         CGFloat height = 15;
         //133是屏幕宽为320情况下coverImageView高 300是宽
