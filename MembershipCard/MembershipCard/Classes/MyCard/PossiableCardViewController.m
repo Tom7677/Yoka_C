@@ -60,6 +60,7 @@
     PossiableCardTableViewCell *cell = [_tableView dequeueReusableCellWithIdentifier:@"cellIdentifier"];
     cell.delegate = self;
     BrandCardListModel *model = _resultArray[indexPath.row];
+    cell.merchantId = model.merchant_id;
     cell.nameLabel.text =model.name;
     [cell.cardImageView sd_setImageWithURL:[NSURL URLWithString:[imageUrl stringByAppendingString:model.f_logo]]];
     if (model.has_card) {
