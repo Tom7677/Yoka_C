@@ -320,7 +320,10 @@
         cell.titleLabel.text = model.title;
         cell.contentLabel.text = model.preview;
         cell.detailsLabel.text = [NSString stringWithFormat:@"阅读：%@   点赞：%@   分享：%@", model.read_num, model.like_num, model.share_num];
-        [cell.coverImageView sd_setImageWithURL:[NSURL URLWithString:[imageUrl stringByAppendingString:model.image]]];
+        //[cell.coverImageView sd_setImageWithURL:[NSURL URLWithString:[imageUrl stringByAppendingString:model.image]]];
+        [cell.coverImageView sd_setImageWithURL:[NSURL URLWithString:[imageUrl stringByAppendingString:model.image]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            _coverImage = image;
+        }];
         return cell;
     }
 }
@@ -339,8 +342,9 @@
     ArticleViewController *vc = [[ArticleViewController alloc]init];
     vc.urlStr = model.jump_link;
     vc.articleTitle = model.title;
-    vc.articleContent = model.content;
+    vc.articleContent = model.preview;
     vc.articleId = model.article_id;
+    vc.coverImage = _coverImage;
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
     [[NetworkAPI shared]updateArticleDataByType:hasread AndArticleId:model.article_id];

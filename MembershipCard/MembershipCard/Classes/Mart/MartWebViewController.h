@@ -11,4 +11,7 @@
 @interface MartWebViewController : BaseViewController
 @property (copy, nonatomic) NSString *commonWebViewUrl;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UIView *shareView;
+
+- (IBAction)wxAction:(id)sender;
 @end

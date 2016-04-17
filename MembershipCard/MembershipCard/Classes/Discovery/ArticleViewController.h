@@ -14,6 +14,7 @@
 @property(nonatomic,strong) NSString *articleId;
 @property(nonatomic,strong) NSString *articleTitle;
 @property(nonatomic,strong) NSString *articleContent;
+@property(nonatomic,strong) UIImage *coverImage;
 
 - (IBAction)shareToWXAction:(id)sender;
 - (IBAction)shareToCirelAction:(id)sender;

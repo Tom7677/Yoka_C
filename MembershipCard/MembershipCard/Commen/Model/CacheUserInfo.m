@@ -15,7 +15,6 @@
     static dispatch_once_t once;
     dispatch_once(&once,^{
         shareManage = [[self alloc] init];
-        [shareManage defaultValue];
     });
     return shareManage;
 }

@@ -16,6 +16,11 @@
 #import "NetworkAPI.h"
 #import <AFHTTPRequestOperationManager.h>
 #import "JPUSHService.h"
+#import <UIImageView+WebCache.h>
+#import "CacheUserInfo.h"
+#import "YZSDK.h"
+#import "YZUserModel.h"
+#import "UIView+border.h"
 
 
 @interface AppDelegate ()<WXApiDelegate>
@@ -32,18 +37,18 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     [self.window setBackgroundColor:[UIColor whiteColor]];
-    if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"]) {
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLaunch"];
-        GuideViewController *guideVC = [[GuideViewController alloc]init];
-        self.window.rootViewController = guideVC;
-        [guideVC setEnterMainVC:^{
-            [self goMainView];
-            
-        }];
-    }
-    else {
+//    if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"]) {
+//        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLaunch"];
+//        GuideViewController *guideVC = [[GuideViewController alloc]init];
+//        self.window.rootViewController = guideVC;
+//        [guideVC setEnterMainVC:^{
+//            [self goMainView];
+//            
+//        }];
+//    }
+//    else {
         [self goMainView];
-    }
+//    }
     //向微信注册
     [WXApi registerApp:wxID];
     //友盟统计配置
@@ -52,7 +57,7 @@
     NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     [MobClick setAppVersion:version];
     //使用集成测试模式
-    [MobClick setLogEnabled:YES];
+    //[MobClick setLogEnabled:YES];
     //有赞86    [YZSDK setOpenDebugLog:YES];
     [YZSDK userAgentInit:userAgent version:@""];
     [YZSDK setOpenInterfaceAppID:appID appSecret:appSecret];
@@ -66,7 +71,66 @@
     [self registerJPush];
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     [self.window makeKeyAndVisible];
+    [self loadAd];
     return YES;
+}
+
+- (void)loadAd
+{
+    NSString *adImageUrl = [[NSUserDefaults standardUserDefaults]objectForKey:@"adImageUrl"];
+    if (adImageUrl != nil && ![adImageUrl isEqualToString:@""]) {
+        _countTime = 5;
+        _lunchView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, MainScreenWidth, MainScreenHeight)];
+        _lunchView.backgroundColor = [UIColor whiteColor];
+        [self.window addSubview:_lunchView];
+        UIImageView *imageV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, MainScreenWidth, MainScreenHeight)];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapLink)];
+        imageV.userInteractionEnabled = YES;
+        [imageV addGestureRecognizer:tap];
+        [imageV sd_setImageWithURL:[NSURL URLWithString:[imageUrl stringByAppendingString:adImageUrl]]];
+        [_lunchView addSubview:imageV];
+        
+        UIView *blackView = [[UIView alloc]initWithFrame:CGRectMake(MainScreenWidth - 100 - 25, 25, 100, 35)];
+        blackView.backgroundColor = [UIColor blackColor];
+        blackView.alpha = 0.4;
+        [blackView circularBead:16];
+        [_lunchView addSubview:blackView];
+        _countLabel = [[UILabel alloc]initWithFrame:blackView.frame];
+        _countLabel.textColor = [UIColor whiteColor];
+        _countLabel.font = [UIFont systemFontOfSize:14];
+        _countLabel.text = [NSString stringWithFormat:@"%ld 立即跳过",(long)_countTime];
+        _countLabel.textAlignment = NSTextAlignmentCenter;
+        [_lunchView addSubview:_countLabel];
+        [self.window bringSubviewToFront:_lunchView];
+        _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
+        [NSThread sleepForTimeInterval:5];
+    }
+    [[NetworkAPI shared]getAdURLWithFinish:^(BOOL isSuccess, NSString *urlStr, NSString *linkStr) {
+        if (isSuccess) {
+            [[NSUserDefaults standardUserDefaults]setObject:urlStr forKey:@"adImageUrl"];
+            [[NSUserDefaults standardUserDefaults]setObject:urlStr forKey:@"adLinkUrl"];
+        }
+    } withErrorBlock:^(NSError *error) {
+        
+    }];
+}
+
+- (void)updateTime
+{
+    _countTime--;
+    _countLabel.text = [NSString stringWithFormat:@"%ld 立即跳过",(long)_countTime];
+    if (_countTime == 0) {
+        [_timer invalidate];
+        [_lunchView removeFromSuperview];
+    }
+}
+
+- (void)tapLink
+{
+    NSString *linkUrl = [[NSUserDefaults standardUserDefaults]objectForKey:@"adLinkUrl"];
+    if (linkUrl != nil && ![linkUrl isEqualToString:@""]) {
+        
+    }
 }
 
 - (void)registerJPush
@@ -97,6 +161,19 @@
         }];
     }
     else {
+        CacheUserInfo *cacheModel = [CacheUserInfo sharedManage];
+        cacheModel.userId = [[NSUserDefaults standardUserDefaults]objectForKey:@"accessToken"];
+        cacheModel.telephone = @"13621954245";
+        if(!cacheModel.isValid) {
+            YZUserModel *userModel = [CacheUserInfo getYZUserModelFromCacheUserModel:cacheModel];
+            [YZSDK registerYZUser:userModel callBack:^(NSString *message, BOOL isError) {
+                if(isError) {
+                    cacheModel.isValid = NO;
+                }
+            }];
+        } else {
+            cacheModel.isValid = YES;
+        }
         [self showHomeVC];
     }
 }

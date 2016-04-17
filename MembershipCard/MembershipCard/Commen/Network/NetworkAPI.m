@@ -157,6 +157,19 @@
 
 }
 
+- (void)getAdURLWithFinish:(void(^)(BOOL isSuccess, NSString *urlStr, NSString  *linkStr))block withErrorBlock:(void(^)(NSError *error))errorBlock {
+    NSString *urlStr = [hostUrl stringByAppendingString:@"Index/start_page"];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject[@"status"] integerValue] == 1) {
+            block(YES, responseObject[@"data"][@"image"],responseObject[@"data"][@"link"]);
+        }else {
+            block(NO,nil,nil);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        errorBlock(error);
+    }];
+}
 
 #pragma mark cardBag
 - (void)getMyCardBagListWithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock
@@ -359,7 +372,7 @@
 
 - (void)getCooperatedMerchantListWithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock {
     NSString *urlStr = [hostUrl stringByAppendingString:@"Merchant/get_brand_list"];
-    NSDictionary *param = @{@"mobile":[[NSUserDefaults standardUserDefaults]objectForKey:@"phoneNum"]};
+    NSDictionary *param = @{@"token":[self getAccessToken]};
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject[@"status"] integerValue] == 1) {

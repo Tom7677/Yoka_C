@@ -10,9 +10,13 @@
 #import "YZSDK.h"
 #import "CacheUserInfo.h"
 #import "TSImageLeftButton.h"
+#import "UIView+frame.h"
+#import "WXApi.h"
+#import "WXApiObject.h"
 
 @interface MartWebViewController ()<UIWebViewDelegate>
-
+@property (nonatomic, copy) NSString *martTitle;
+@property (nonatomic, copy) NSString *martUrl;
 @end
 
 @implementation MartWebViewController
@@ -22,6 +26,7 @@
     _webView.delegate = self;
     _webView.scrollView.showsVerticalScrollIndicator = NO;
     _webView.frame = CGRectMake(0, 0, MainScreenWidth, MainScreenHeight - NavAndStatusBarHeight);
+    _shareView.hidden = YES;
     TSImageLeftButton *btn = [[TSImageLeftButton alloc]initWithFrame:CGRectMake(0, 0, 56, 30)];
     [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     btn.titleLabel.font = [UIFont systemFontOfSize:14];
@@ -54,7 +59,8 @@
     }
 }
 - (void)webShareAction {
-    
+    NSString *jsonString = [[YZSDK sharedInstance] jsBridgeWhenShareBtnClick];
+    [_webView stringByEvaluatingJavaScriptFromString:jsonString];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -69,7 +75,7 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-//    self.navigationItem.title = [_webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+    self.title = [_webView stringByEvaluatingJavaScriptFromString:@"document.title"];
     [_webView stringByEvaluatingJavaScriptFromString:[[YZSDK sharedInstance] jsBridgeWhenWebDidLoad]];
 }
 
@@ -79,7 +85,6 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     NSURL *url = [request URL];
-    
     if(![[url absoluteString] hasPrefix:@"http"]){//非http
         NSString *jsBridageString = [[YZSDK sharedInstance] parseYOUZANScheme:url];
         if(jsBridageString) {
@@ -92,12 +97,10 @@
                     return YES;
                 }
             } else if([jsBridageString isEqualToString:SHARE_DATA]) {//【分享请看这里】
-                
+                _shareView.hidden = NO;
                 NSDictionary * shareDic = [[YZSDK sharedInstance] shareDataInfo:url];
-                NSString *message = [NSString stringWithFormat:@"title:%@ \\n 链接: %@ " , shareDic[SHARE_TITLE],shareDic[SHARE_LINK]];
-                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"数据已经获取到了,赶紧来分享吧" message:message delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil];
-                [alertView show];
-                
+                _martUrl = shareDic[SHARE_LINK];
+                _martTitle = shareDic[SHARE_TITLE];
             } else if([jsBridageString isEqualToString:WEB_READY]) {
                 
                 self.navigationItem.rightBarButtonItem.enabled = YES;
@@ -131,5 +134,20 @@
         //_shareButton.hidden = YES;//进入新的链接后，记得隐藏分享按钮，等到下个页面完全打开(获取webready后显示)
     }
     return YES;
+}
+- (IBAction)wxAction:(id)sender {
+    _shareView.hidden = YES;
+    WXMediaMessage *message = [WXMediaMessage message];
+    message.title = _martTitle;
+    message.description = @"";
+    [message setThumbImage:[UIImage imageNamed:@"icon_logo"]];
+    WXWebpageObject *webpageObject = [WXWebpageObject object];
+    webpageObject.webpageUrl = _martUrl;
+    message.mediaObject = webpageObject;
+    SendMessageToWXReq *req = [[SendMessageToWXReq alloc]init];
+    req.bText = NO;
+    req.message = message;
+    req.scene = WXSceneSession;
+    [WXApi sendReq:req];
 }
 @end

@@ -77,6 +77,15 @@ static NSInteger pageSize = 20;
  */
 - (void)getAPPRecommendURLWithFinish:(void(^)(BOOL isSuccess, NSString *urlStr))block withErrorBlock:(void(^)(NSError *error))errorBlock;
 
+
+/**
+ *  启动页广告图
+ *
+ *  @param block      block description
+ *  @param errorBlock errorBlock description
+ */
+- (void)getAdURLWithFinish:(void(^)(BOOL isSuccess, NSString *urlStr, NSString  *linkStr))block withErrorBlock:(void(^)(NSError *error))errorBlock;
+
 #pragma mark 卡包
 /**
  *  获取卡包列表
