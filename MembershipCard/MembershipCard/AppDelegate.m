@@ -103,7 +103,6 @@
         [_lunchView addSubview:_countLabel];
         [self.window bringSubviewToFront:_lunchView];
         _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
-        [NSThread sleepForTimeInterval:5];
     }
     [[NetworkAPI shared]getAdURLWithFinish:^(BOOL isSuccess, NSString *urlStr, NSString *linkStr) {
         if (isSuccess) {
@@ -185,9 +184,11 @@
 }
 #pragma mark WX
 - (void)onResp:(BaseResp *)resp {
-    SendAuthResp *aresp = (SendAuthResp *)resp;
-    if (aresp.errCode == 0) {
-        [self getAccess_tokenWithCode:aresp.code];
+    if ([[resp class] isEqual:[SendAuthResp class]]) {
+        SendAuthResp *aresp = (SendAuthResp *)resp;
+        if (aresp.errCode == 0) {
+            [self getAccess_tokenWithCode:aresp.code];
+        }
     }
 }
 //获取微信access_token

@@ -25,7 +25,6 @@
     _areaArray = [[NSMutableArray alloc]init];
     _tableView.delegate = self;
     _tableView.dataSource = self;
-    [self locate];
     if (_fromSetting) {
         self.title = @"切换城市";
         UIButton *rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 28, 28)];
@@ -47,6 +46,12 @@
         [self.navigationItem setRightBarButtonItem:rightItem];
     }
     [self getCityArray];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self locate];
 }
 
 - (void)getCityArray
@@ -71,8 +76,13 @@
         [self.locationManager startUpdatingLocation];
         [_locationManager requestAlwaysAuthorization];
     } else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"无法进行定位" message:@"请检查您的设备是否开启定位功能" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-        [alert show];
+        [self showConfirmAlertViewControllerWithTitle:@"请检查您的设备是否开启定位功能" andAction:^{
+            NSURL *url = [NSURL URLWithString:@"prefs:root=LOCATION_SERVICES"];
+            if ([[UIApplication sharedApplication] canOpenURL:url])
+            {
+                [[UIApplication sharedApplication] openURL:url];
+            }
+        }];
     }
 }
 
@@ -263,6 +273,22 @@
     else
     {
         return UITableViewCellAccessoryNone;
+    }
+}
+
+#pragma mark CLLocationManagerDelegate
+- (void)locationManager:(CLLocationManager *)manager
+       didFailWithError:(NSError *)error
+{
+    [manager stopUpdatingLocation];
+    if (error.code == kCLErrorDenied) {
+        [self showConfirmAlertViewControllerWithTitle:@"请检查您的设备是否开启定位功能" andAction:^{
+            NSURL *url = [NSURL URLWithString:@"prefs:root=LOCATION_SERVICES"];
+            if ([[UIApplication sharedApplication] canOpenURL:url])
+            {
+                [[UIApplication sharedApplication] openURL:url];
+            }
+        }];
     }
 }
 @end

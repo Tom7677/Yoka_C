@@ -17,7 +17,6 @@
 #import <UIImageView+WebCache.h>
 #import "WebViewController.h"
 
-
 #define LINE_WIDTH  40
 @interface DisoveryViewController ()<UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) NSMutableArray *typeArray;
@@ -30,6 +29,7 @@
 @property (nonatomic, assign) NSInteger index;
 @property (nonatomic, strong) NSMutableDictionary *resultDic;
 @property (nonatomic, assign) BOOL hasimage;
+@property (nonatomic, strong) NSMutableDictionary *imgDic;
 @end
 
 @implementation DisoveryViewController
@@ -41,6 +41,7 @@
     self.title = @"发现";
     _tableViewArray = [[NSMutableArray alloc]init];
     _currentTableView = [[UITableView alloc]init];
+    _imgDic = [[NSMutableDictionary alloc]init];
     _cityName = [[NSUserDefaults standardUserDefaults]objectForKey:@"MyCity"];
     UIButton *leftBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 28, 28)];
     [leftBtn setTitle:@"爆料" forState:UIControlStateNormal];
@@ -320,9 +321,8 @@
         cell.titleLabel.text = model.title;
         cell.contentLabel.text = model.preview;
         cell.detailsLabel.text = [NSString stringWithFormat:@"阅读：%@   点赞：%@   分享：%@", model.read_num, model.like_num, model.share_num];
-        //[cell.coverImageView sd_setImageWithURL:[NSURL URLWithString:[imageUrl stringByAppendingString:model.image]]];
         [cell.coverImageView sd_setImageWithURL:[NSURL URLWithString:[imageUrl stringByAppendingString:model.image]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-            _coverImage = image;
+            [_imgDic setObject:image forKey:[imageURL description]];
         }];
         return cell;
     }
@@ -344,7 +344,7 @@
     vc.articleTitle = model.title;
     vc.articleContent = model.preview;
     vc.articleId = model.article_id;
-    vc.coverImage = _coverImage;
+    vc.coverImage = [_imgDic objectForKey:[imageUrl stringByAppendingString:model.image]];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
     [[NetworkAPI shared]updateArticleDataByType:hasread AndArticleId:model.article_id];

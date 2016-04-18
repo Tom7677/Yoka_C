@@ -14,9 +14,6 @@
 #import "ChooseAreaViewController.h"
 #import <MobClick.h>
 #import "NetworkAPI.h"
-#import "CacheUserInfo.h"
-#import "YZSDK.h"
-#import "YZUserModel.h"
 
 #define INTERVAL_KEYBOARD 20
 @interface LoginViewController ()
@@ -133,18 +130,6 @@
             [self goHomeView];
             [[NSUserDefaults standardUserDefaults]setObject:_phoneNumTextField.text forKey:@"phoneNum"];
             [[UMengAnalyticsUtil shared]loginByMobile];
-            CacheUserInfo *cacheModel = [CacheUserInfo sharedManage];
-            cacheModel.userId = [[NSUserDefaults standardUserDefaults]objectForKey:@"accessToken"];
-            if(!cacheModel.isValid) {
-                YZUserModel *userModel = [CacheUserInfo getYZUserModelFromCacheUserModel:cacheModel];
-                [YZSDK registerYZUser:userModel callBack:^(NSString *message, BOOL isError) {
-                    if(isError) {
-                        cacheModel.isValid = NO;
-                    }
-                }];
-            } else {
-                cacheModel.isValid = YES;
-            }
         }
         else {
             [self showAlertViewController:msg];

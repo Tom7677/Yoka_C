@@ -10,6 +10,9 @@
 #import "YKModel.h"
 #import <AFHTTPRequestOperationManager.h>
 #import "UIImage+Resize.h"
+#import "CacheUserInfo.h"
+#import "YZSDK.h"
+#import "YZUserModel.h"
 
 @implementation NetworkAPI
 
@@ -47,6 +50,25 @@
     [manager GET:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject[@"status"] integerValue] == 1) {
             [[NSUserDefaults standardUserDefaults]setObject:responseObject[@"data"][@"token"] forKey:@"accessToken"];
+            CacheUserInfo *cacheModel = [CacheUserInfo sharedManage];
+            cacheModel.bid = responseObject[@"data"][@"token"];
+            cacheModel.gender = @"1";
+            cacheModel.name = responseObject[@"data"][@"nick_name"];
+            cacheModel.telephone = responseObject[@"data"][@"mobile"];
+            cacheModel.avatar = responseObject[@"data"][@"avatar"];
+            if(!cacheModel.isValid) {
+                YZUserModel *userModel = [CacheUserInfo getYZUserModelFromCacheUserModel:cacheModel];
+                [YZSDK registerYZUser:userModel callBack:^(NSString *message, BOOL isError) {
+                    if(isError) {
+                        cacheModel.isValid = NO;
+                    }
+                    else {
+                        cacheModel.isValid = YES;
+                    }
+                }];
+            } else {
+                cacheModel.isValid = YES;
+            }
             block(YES,responseObject[@"msg"]);
         }else {
             block(NO,responseObject[@"msg"]);

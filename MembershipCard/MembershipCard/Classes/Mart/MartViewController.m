@@ -91,24 +91,16 @@ static NSString *homePageUrl = @"https://shop16479842.koudaitong.com/v2/showcase
     else if(![[url absoluteString] hasPrefix:@"http"]){//非http
         NSString *jsBridageString = [[YZSDK sharedInstance] parseYOUZANScheme:url];
         if(jsBridageString) {
-            if([jsBridageString isEqualToString:CHECK_LOGIN]) {//首页面不涉及到登录  具体实现看commonVC
-                
+            if([jsBridageString isEqualToString:CHECK_LOGIN]) {
+                //首页面不涉及到登录
             }
-            else if([jsBridageString isEqualToString:SHARE_DATA]) {
-                
-                NSDictionary * shareDic = [[YZSDK sharedInstance] shareDataInfo:url];
-                NSString *message = [NSString stringWithFormat:@"title:%@ \\n 链接: %@ " , shareDic[SHARE_TITLE],shareDic[SHARE_LINK]];
-                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"数据已经获取到了,赶紧来分享吧" message:message delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil];
-                [alertView show];
-            }
-            else if([jsBridageString isEqualToString:WEB_READY]) {
-                
-            }
-            else if([jsBridageString isEqualToString:WX_PAY]) { //首页面不涉及到微信支付  具体实现看commonVC
+            else if([jsBridageString isEqualToString:WX_PAY]) {
+                //首页面不涉及到微信支付
             }
         }
     }
-    else if ([[url absoluteString] hasSuffix:@"common/prefetching"]) {//加载静态资源 暂时先屏蔽
+    else if ([[url absoluteString] hasSuffix:@"common/prefetching"]) {
+        //加载静态资源 暂时先屏蔽
         return YES;
     }
     else {

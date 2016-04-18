@@ -12,5 +12,4 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *typeScrollView;
 @property (weak, nonatomic) IBOutlet UIScrollView *contentScrollView;
 @property (strong, nonatomic) UIView *scrollBgView;
-@property (strong, nonatomic) UIImage *coverImage;
 @end

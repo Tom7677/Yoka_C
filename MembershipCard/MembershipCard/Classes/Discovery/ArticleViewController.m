@@ -79,7 +79,12 @@
     WXMediaMessage *message = [WXMediaMessage message];
     message.title = _articleTitle;
     message.description = _articleContent;
-    [message setThumbImage:_coverImage];
+    if (_coverImage == nil) {
+        [message setThumbImage:[UIImage imageNamed:@"icon_logo"]];
+    }
+    else {
+        [message setThumbImage:_coverImage];
+    }
     WXWebpageObject *webpageObject = [WXWebpageObject object];
     webpageObject.webpageUrl = _urlStr;
     message.mediaObject = webpageObject;
@@ -95,7 +100,12 @@
     WXMediaMessage *message = [WXMediaMessage message];
     message.title = _articleTitle;
     message.description = _articleContent;
-    [message setThumbImage:[UIImage imageNamed:@"icon_logo"]];
+    if (_coverImage == nil) {
+        [message setThumbImage:[UIImage imageNamed:@"icon_logo"]];
+    }
+    else {
+        [message setThumbImage:_coverImage];
+    }
     WXWebpageObject *webpageObject = [WXWebpageObject object];
     webpageObject.webpageUrl = _urlStr;
     message.mediaObject = webpageObject;
