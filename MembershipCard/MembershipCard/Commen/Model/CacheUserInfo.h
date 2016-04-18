@@ -25,10 +25,6 @@
 
 + (instancetype)sharedManage;
 
-/**
- *  模式值设置
- */
-- (void) defaultValue ;//测试数据
 
 /**
  *  数据模型转换

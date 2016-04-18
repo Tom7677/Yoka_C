@@ -75,7 +75,7 @@
 {
     [self showHub];
     [[NetworkAPI shared]getMyCardInfoByCardId:_model.card_id WithFinish:^(CardInfoModel *model) {
-        [self showHub];
+        [self hideHub];
         _cardInfo = model.merchant_info;
         [self showViewByModel:model];
         if (![model.merchant_id isEqualToString:@"0"]) {
@@ -94,7 +94,7 @@
             [_backPicBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:[imageUrl stringByAppendingString:model.b_image]] forState:UIControlStateNormal];
         }
     } withErrorBlock:^(NSError *error) {
-        [self showHub];
+        [self hideHub];
         [self showAlertViewController:@"您无法连接到网络，请确认网络连接。"];
     }];
 }

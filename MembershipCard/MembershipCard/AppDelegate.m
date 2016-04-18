@@ -161,19 +161,6 @@
         }];
     }
     else {
-        CacheUserInfo *cacheModel = [CacheUserInfo sharedManage];
-        cacheModel.userId = [[NSUserDefaults standardUserDefaults]objectForKey:@"accessToken"];
-        cacheModel.telephone = @"13621954245";
-        if(!cacheModel.isValid) {
-            YZUserModel *userModel = [CacheUserInfo getYZUserModelFromCacheUserModel:cacheModel];
-            [YZSDK registerYZUser:userModel callBack:^(NSString *message, BOOL isError) {
-                if(isError) {
-                    cacheModel.isValid = NO;
-                }
-            }];
-        } else {
-            cacheModel.isValid = YES;
-        }
         [self showHomeVC];
     }
 }
@@ -192,6 +179,7 @@
         }
     }
 }
+
 //获取微信access_token
 - (void)getAccess_tokenWithCode:(NSString *)code {
     [[NetworkAPI shared]wechatLoginByWXCode:code WithFinish:^(BOOL isSuccess, NSString *msg) {

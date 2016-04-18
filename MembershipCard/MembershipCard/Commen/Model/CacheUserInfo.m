@@ -27,18 +27,6 @@
     return self;
 }
 
-#pragma mark - default value
-- (void) defaultValue {
-    
-    [self setProperty:@"gender" Value:@"1"];
-    [self setProperty:@"bid" Value:@"111111err"];
-    [self setProperty:@"name" Value:@"yid111111a"];
-    [self setProperty:@"telephone" Value:@"13605809612"];
-    [self setProperty:@"avatar" Value:@""];
-    [self setProperty:@"isLogined" Value:@"YES"];
-    _isValid = NO;
-}
-
 #pragma mark - 数据转化
 + (YZUserModel *) getYZUserModelFromCacheUserModel:(CacheUserInfo *)cacheModel {
     

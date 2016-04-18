@@ -91,7 +91,7 @@
         NSString *jsBridageString = [[YZSDK sharedInstance] parseYOUZANScheme:url];
         if(jsBridageString) {
             CacheUserInfo *cacheModel = [CacheUserInfo sharedManage];
-            if([jsBridageString isEqualToString:CHECK_LOGIN] && !cacheModel.isValid) {
+            if([jsBridageString isEqualToString:CHECK_LOGIN] && cacheModel.isValid) {
                 if(cacheModel.isLogined) {
                     //【如果是您是先登录，在打开我们商城，走这种方式】
                     YZUserModel *userModel = [CacheUserInfo getYZUserModelFromCacheUserModel:cacheModel];

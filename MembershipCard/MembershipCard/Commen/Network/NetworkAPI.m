@@ -89,6 +89,27 @@
              [@"token"] forKey:@"accessToken"];
             if (![responseObject[@"data"][@"mobile"] isEqualToString:@""]) {
                 [[NSUserDefaults standardUserDefaults]setObject:responseObject[@"data"][@"mobile"] forKey:@"phoneNum"];
+                CacheUserInfo *cacheModel = [CacheUserInfo sharedManage];
+                cacheModel.bid = responseObject[@"data"][@"token"];
+                cacheModel.gender = @"1";
+                cacheModel.name = responseObject[@"data"][@"nick_name"];
+                cacheModel.telephone = responseObject[@"data"][@"mobile"];
+                cacheModel.avatar = responseObject[@"data"][@"avatar"];
+                cacheModel.isValid = NO;
+                cacheModel.isLogined = YES;
+                if(!cacheModel.isValid) {
+                    YZUserModel *userModel = [CacheUserInfo getYZUserModelFromCacheUserModel:cacheModel];
+                    [YZSDK registerYZUser:userModel callBack:^(NSString *message, BOOL isError) {
+                        if(isError) {
+                            cacheModel.isValid = NO;
+                        }
+                        else {
+                            cacheModel.isValid = YES;
+                        }
+                    }];
+                } else {
+                    cacheModel.isValid = YES;
+                }
             }
             block(YES, responseObject[@"msg"]);
         }else {
@@ -105,6 +126,27 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager POST:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject[@"status"] integerValue] == 1) {
+            [[NSUserDefaults standardUserDefaults]setObject:responseObject[@"data"]
+             [@"token"] forKey:@"accessToken"];
+            CacheUserInfo *cacheModel = [CacheUserInfo sharedManage];
+            cacheModel.bid = responseObject[@"data"][@"token"];
+            cacheModel.gender = @"1";
+            cacheModel.name = responseObject[@"data"][@"nick_name"];
+            cacheModel.telephone = responseObject[@"data"][@"mobile"];
+            cacheModel.avatar = responseObject[@"data"][@"avatar"];
+            if(!cacheModel.isValid) {
+                YZUserModel *userModel = [CacheUserInfo getYZUserModelFromCacheUserModel:cacheModel];
+                [YZSDK registerYZUser:userModel callBack:^(NSString *message, BOOL isError) {
+                    if(isError) {
+                        cacheModel.isValid = NO;
+                    }
+                    else {
+                        cacheModel.isValid = YES;
+                    }
+                }];
+            } else {
+                cacheModel.isValid = YES;
+            }
             block(YES, responseObject[@"msg"]);
         }else {
             block(NO, responseObject[@"msg"]);
