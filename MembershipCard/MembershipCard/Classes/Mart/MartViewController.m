@@ -66,15 +66,18 @@ static NSString *homePageUrl = @"https://shop16479842.koudaitong.com/v2/showcase
 
 #pragma mark - webview delegate
 - (void)webViewDidStartLoad:(UIWebView *)webView {
+    [self showHub];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
+    [self hideHub];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     [_webView stringByEvaluatingJavaScriptFromString:[[YZSDK sharedInstance] jsBridgeWhenWebDidLoad]];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    [self hideHub];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 

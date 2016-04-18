@@ -158,7 +158,9 @@
         vc.type = type;
         [self.navigationController pushViewController:vc animated:YES];
     }else {
+        [self showHub];
         [[NetworkAPI shared]addNewBrandCardByMerchantID:self.brandId cardNum:result WithFinish:^(BOOL isSuccess, NSString *msg) {
+            [self hideHub];
             if (isSuccess) {
                 [self.navigationController popViewControllerAnimated:YES];
             }
@@ -168,7 +170,7 @@
                 [_captureSession startRunning];
             }
         } withErrorBlock:^(NSError *error) {
-            
+            [self hideHub];
         }];
     }
 }

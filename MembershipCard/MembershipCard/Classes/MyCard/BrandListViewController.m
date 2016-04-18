@@ -54,13 +54,15 @@
 
 - (void)loadData
 {
+    [self showHub];
     [[NetworkAPI shared]getMerchantListWithFinish:^(NSArray *dataArray) {
+        [self hideHub];
         [self.itemsArray addObjectsFromArray:dataArray];
         [self getDic:self.itemsArray];
         _initialArray = [[_dataDic allKeys] sortedArrayUsingSelector:@selector(compare:)];
         [_tableView reloadData];
     } withErrorBlock:^(NSError *error) {
-        
+        [self hideHub];
     }];
 }
 
@@ -169,7 +171,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     BrandCardListModel *model = [[self getNameArraybyIndex:indexPath.section] objectAtIndex:indexPath.row];
     if (self.cardIdFromBind) {
+        [self showHub];
         [[NetworkAPI shared]bindBrandCardWithCardId:self.cardIdFromBind AndMerchantId:model.merchant_id WithFinish:^(BOOL isSuccess, NSString *msg) {
+            [self hideHub];
             if (isSuccess) {
                 [self.navigationController popToRootViewControllerAnimated:YES];
             }else {

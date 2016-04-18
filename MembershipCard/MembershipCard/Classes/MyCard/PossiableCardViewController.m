@@ -34,11 +34,14 @@
 
 - (void)loadNewData
 {
+    [self showHub];
     [[NetworkAPI shared]getCooperatedMerchantListWithFinish:^(NSArray *dataArray) {
+        [self hideHub];
         [_resultArray removeAllObjects];
         [_resultArray addObjectsFromArray:dataArray];
         [_tableView reloadData];
     } withErrorBlock:^(NSError *error) {
+        [self hideHub];
         if (error.code == NSURLErrorNotConnectedToInternet) {
             [self showAlertViewController:@"您无法连接到网络，请确认网络连接。"];
         }
@@ -80,7 +83,9 @@
 
 - (void)possiableCardTableViewCell:(PossiableCardTableViewCell *)cell merchantId:(NSString *)merchantId
 {
+    [self showHub];
     [[NetworkAPI shared]addCardYunsuoWithMerchantId:merchantId WithFinish:^(BOOL isSuccess, NSString *msg) {
+        [self hideHub];
         if (isSuccess) {
             cell.addCardBtn.enabled = NO;
             [cell.addCardBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -92,7 +97,7 @@
             [self showAlertViewController:msg];
         }
     } withErrorBlock:^(NSError *error) {
-        
+        [self hideHub];
     }];
 }
 @end

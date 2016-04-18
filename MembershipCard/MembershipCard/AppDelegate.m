@@ -103,6 +103,7 @@
         [_lunchView addSubview:_countLabel];
         [self.window bringSubviewToFront:_lunchView];
         _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
+        [NSThread sleepForTimeInterval:2.0];
     }
     [[NetworkAPI shared]getAdURLWithFinish:^(BOOL isSuccess, NSString *urlStr, NSString *linkStr) {
         if (isSuccess) {

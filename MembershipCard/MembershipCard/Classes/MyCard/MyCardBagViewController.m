@@ -46,6 +46,7 @@
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _cardArray = [[NSMutableArray alloc]init];
+    [self showHub];
     _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self loadNewData];
     }];
@@ -65,11 +66,13 @@
 - (void)loadNewData
 {
     [[NetworkAPI shared]getMyCardBagListWithFinish:^(NSArray *dataArray) {
+        [self hideHub];
         [_cardArray removeAllObjects];
         [_cardArray addObjectsFromArray:dataArray];
         [_tableView reloadData];
         [_tableView.mj_header endRefreshing];
     } withErrorBlock:^(NSError *error) {
+        [self hideHub];
         if (error.code == NSURLErrorNotConnectedToInternet) {
             [self showAlertViewController:@"您无法连接到网络，请确认网络连接。"];
         }

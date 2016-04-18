@@ -35,13 +35,15 @@
 }
 
 -(void)saveBtnAction {
+    [self showHub];
     [[NetworkAPI shared]saveCardInfoByCardId:_cardId remark:_commentsTextView.text f_image:nil b_image:nil WithFinish:^(BOOL isSuccess, NSString *msg) {
+        [self hideHub];
         if (isSuccess) {
             [_delegate passRemark:_commentsTextView.text];
             [self.navigationController popViewControllerAnimated:YES];
         }
     } withErrorBlock:^(NSError *error) {
-        
+        [self hideHub];
     }];
 }
 

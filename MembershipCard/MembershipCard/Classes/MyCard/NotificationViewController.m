@@ -46,14 +46,19 @@
 
 - (void)loadNewData
 {
+    [self showHub];
     [[NetworkAPI shared]getNoticeListWithFinish:^(NSArray *dataArray) {
+        [self hideHub];
         if (dataArray != nil) {
             [_resultArray removeAllObjects];
             [_resultArray addObjectsFromArray:dataArray];
             [_tableView reloadData];
         }
     } withErrorBlock:^(NSError *error) {
-        
+        [self hideHub];
+        if (error.code == NSURLErrorNotConnectedToInternet) {
+            [self showAlertViewController:@"您无法连接到网络，请确认网络连接。"];
+        }
     }];
 }
 

@@ -8,6 +8,7 @@
 
 #import "BaseViewController.h"
 #import "TSImageLeftButton.h"
+#import <MBProgressHUD.h>
 
 @interface BaseViewController ()<UIGestureRecognizerDelegate>
 
@@ -118,5 +119,17 @@
     {
         return NO;
     }
+}
+
+- (void)showHub
+{
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+}
+
+- (void)hideHub
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    });
 }
 @end

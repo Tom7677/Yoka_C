@@ -149,13 +149,18 @@
         bdata = UIImageJPEGRepresentation([image croppedImage:_circularFrame],0.5);
         fdata = nil;
     }
+    [self showHub];
     [[NetworkAPI shared]saveCardInfoByCardId:_cardId remark:nil f_image:fdata b_image:bdata WithFinish:^(BOOL isSuccess, NSString *msg) {
+        [self hideHub];
         if (isSuccess) {
             [_delegate ClipImageViewController:self finishClipImage:[image croppedImage:_circularFrame] isFront:_isFront];
             [self.navigationController popViewControllerAnimated:YES];
         }
+        else {
+            [self showAlertViewController:msg];
+        }
     } withErrorBlock:^(NSError *error) {
-        
+        [self hideHub];
     }];
 }
 

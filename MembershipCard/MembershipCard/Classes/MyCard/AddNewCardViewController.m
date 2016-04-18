@@ -25,7 +25,6 @@
     [_scrollView addSubview:_addNewCardView];
     _addNewCardView.width = MainScreenWidth;
     _scrollView.contentSize = CGSizeMake(MainScreenWidth, _addNewCardView.height);
-    
 }
 
 - (void)didReceiveMemoryWarning {

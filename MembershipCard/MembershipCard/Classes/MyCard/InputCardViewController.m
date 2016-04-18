@@ -53,16 +53,31 @@
 
 - (void)saveBtnAction
 {
+    [self showHub];
     if (_brandId) {
         [[NetworkAPI shared] addNewBrandCardByMerchantID:_brandId cardNum:_cardNumText.text WithFinish:^(BOOL isSuccess, NSString *msg) {
-            [self.navigationController popToRootViewControllerAnimated:YES];
+            [self hideHub];
+            if (isSuccess) {
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+            else {
+                [self showAlertViewController:msg];
+            }
         } withErrorBlock:^(NSError *error) {
-            
+            [self hideHub];
         }];
     }else {
+        [self showHub];
         [[NetworkAPI shared] addNewNonBrandCardByMerchantName:_nameText.text cardNum:_cardNumText.text WithFinish:^(BOOL isSuccess, NSString *msg) {
-            [self.navigationController popToRootViewControllerAnimated:YES];
+            [self hideHub];
+            if (isSuccess) {
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+            else {
+                [self showAlertViewController:msg];
+            }
         } withErrorBlock:^(NSError *error) {
+            [self hideHub];
         }];
     }
     if (!_cardNum) {
