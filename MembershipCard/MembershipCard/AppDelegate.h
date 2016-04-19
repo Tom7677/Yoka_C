@@ -25,10 +25,6 @@ static BOOL isProduction = FALSE;
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) UIView *lunchView;
-@property (strong, nonatomic) NSTimer *timer;
-@property (assign, nonatomic) NSInteger countTime;
-@property (strong, nonatomic) UILabel *countLabel;
 
 - (void)goMainView;
 + (AppDelegate*) appDelegate;

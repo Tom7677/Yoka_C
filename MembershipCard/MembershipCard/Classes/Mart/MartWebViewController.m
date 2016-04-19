@@ -17,6 +17,8 @@
 @interface MartWebViewController ()<UIWebViewDelegate>
 @property (nonatomic, copy) NSString *martTitle;
 @property (nonatomic, copy) NSString *martUrl;
+@property (nonatomic, copy) NSString *desc;
+@property (nonatomic, strong) UIImage *image;
 @property (nonatomic, strong) TSImageLeftButton *shareBtn;
 @end
 
@@ -105,6 +107,8 @@
                 NSDictionary * shareDic = [[YZSDK sharedInstance] shareDataInfo:url];
                 _martUrl = shareDic[SHARE_LINK];
                 _martTitle = shareDic[SHARE_TITLE];
+                _desc = shareDic[SHARE_DESC];
+                _image = [self getImageFromURL:shareDic[SHARE_IMAGE_URL]];
             } else if([jsBridageString isEqualToString:WEB_READY]) {
                 self.navigationItem.rightBarButtonItem.enabled = YES;
                 _shareBtn.hidden = NO;
@@ -135,13 +139,19 @@
     }
     return YES;
 }
+
 - (IBAction)wxAction:(id)sender {
     _shareView.hidden = YES;
     UIButton *btn = sender;
     WXMediaMessage *message = [WXMediaMessage message];
     message.title = _martTitle;
-    message.description = @"";
-    [message setThumbImage:[UIImage imageNamed:@"icon_logo"]];
+    message.description = _desc;
+    if (_image != nil) {
+        [message setThumbImage:_image];
+    }
+    else {
+        [message setThumbImage:[UIImage imageNamed:@"icon_logo"]];
+    }
     WXWebpageObject *webpageObject = [WXWebpageObject object];
     webpageObject.webpageUrl = _martUrl;
     message.mediaObject = webpageObject;
@@ -155,5 +165,12 @@
         req.scene = WXSceneTimeline;
     }
     [WXApi sendReq:req];
+}
+
+- (UIImage *) getImageFromURL:(NSString *)fileURL {
+    UIImage *result;
+    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:fileURL]];
+    result = [UIImage imageWithData:data];
+    return result;
 }
 @end

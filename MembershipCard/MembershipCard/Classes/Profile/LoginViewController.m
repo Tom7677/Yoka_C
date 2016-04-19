@@ -45,6 +45,7 @@
         _weixinBtn.hidden = YES;
         _orLabel.hidden = YES;
     }
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(goHomeView) name:@"bandMobileNotification" object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -190,5 +191,9 @@
     req.state = @"123" ;
     //第三方向微信终端发送一个SendAuthReq消息结构
     [WXApi sendReq:req];
+}
+
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 @end

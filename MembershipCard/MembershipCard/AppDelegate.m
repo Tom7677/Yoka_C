@@ -16,13 +16,9 @@
 #import "NetworkAPI.h"
 #import <AFHTTPRequestOperationManager.h>
 #import "JPUSHService.h"
-#import <UIImageView+WebCache.h>
 #import "CacheUserInfo.h"
 #import "YZSDK.h"
 #import "YZUserModel.h"
-#import "UIView+border.h"
-#import "WebViewController.h"
-
 
 @interface AppDelegate ()<WXApiDelegate>
 
@@ -72,76 +68,7 @@
     [self registerJPush];
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     [self.window makeKeyAndVisible];
-    [self loadAd];
     return YES;
-}
-
-- (void)loadAd
-{
-    NSString *adImageUrl = [[NSUserDefaults standardUserDefaults]objectForKey:@"adImageUrl"];
-    if (adImageUrl != nil /*&& ![adImageUrl isEqualToString:@""]*/) {
-        _countTime = 5;
-        _lunchView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, MainScreenWidth, MainScreenHeight)];
-        _lunchView.backgroundColor = [UIColor whiteColor];
-        [self.window addSubview:_lunchView];
-        UIImageView *imageV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, MainScreenWidth, MainScreenHeight)];
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapLink)];
-        imageV.userInteractionEnabled = YES;
-        imageV.contentMode = UIViewContentModeScaleAspectFill;
-        [imageV addGestureRecognizer:tap];
-        [imageV sd_setImageWithURL:[NSURL URLWithString:[imageUrl stringByAppendingString:adImageUrl]]];
-        [_lunchView addSubview:imageV];
-        
-        UIView *blackView = [[UIView alloc]initWithFrame:CGRectMake(MainScreenWidth - 100 - 25, 25, 100, 35)];
-        blackView.backgroundColor = [UIColor blackColor];
-        blackView.alpha = 0.4;
-        [blackView circularBead:16];
-        [_lunchView addSubview:blackView];
-        _countLabel = [[UILabel alloc]initWithFrame:blackView.frame];
-        _countLabel.textColor = [UIColor whiteColor];
-        _countLabel.font = [UIFont systemFontOfSize:14];
-        _countLabel.text = [NSString stringWithFormat:@"%ld 立即跳过",(long)_countTime];
-        _countLabel.textAlignment = NSTextAlignmentCenter;
-        UITapGestureRecognizer *tapCancel = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapAdCancel)];
-        _countLabel.userInteractionEnabled = YES;
-        [_countLabel addGestureRecognizer:tapCancel];
-        [_lunchView addSubview:_countLabel];
-        [self.window bringSubviewToFront:_lunchView];
-        _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
-        [NSThread sleepForTimeInterval:2.0];
-    }
-    [[NetworkAPI shared]getAdURLWithFinish:^(BOOL isSuccess, NSString *urlStr, NSString *linkStr) {
-        if (isSuccess) {
-            [[NSUserDefaults standardUserDefaults]setObject:urlStr forKey:@"adImageUrl"];
-            [[NSUserDefaults standardUserDefaults]setObject:linkStr forKey:@"adLinkUrl"];
-        }
-    } withErrorBlock:^(NSError *error) {
-        
-    }];
-}
-
-- (void)updateTime
-{
-    _countTime--;
-    _countLabel.text = [NSString stringWithFormat:@"%ld 立即跳过",(long)_countTime];
-    if (_countTime == 0) {
-        [self tapAdCancel];
-    }
-}
-                                          
-- (void)tapAdCancel
-{
-    [_timer invalidate];
-    [_lunchView removeFromSuperview];
-}
-
-- (void)tapLink
-{
-    [self tapAdCancel];
-    NSString *linkUrl = [[NSUserDefaults standardUserDefaults]objectForKey:@"adLinkUrl"];
-    if (linkUrl != nil && ![linkUrl isEqualToString:@""]) {
-        
-    }
 }
 
 - (void)registerJPush
@@ -181,6 +108,7 @@
     MainTabBarViewController *tabbarVC = [[MainTabBarViewController alloc]init];
     self.window.rootViewController = tabbarVC;
 }
+
 #pragma mark WX
 - (void)onResp:(BaseResp *)resp {
     if ([[resp class] isEqual:[SendAuthResp class]]) {
@@ -194,9 +122,9 @@
 //获取微信access_token
 - (void)getAccess_tokenWithCode:(NSString *)code {
     [[NetworkAPI shared]wechatLoginByWXCode:code WithFinish:^(BOOL isSuccess, NSString *msg) {
-        NSString *accessToken = [[NSUserDefaults standardUserDefaults]objectForKey:@"phoneNum"];
-        if (nil != accessToken && ![@"" isEqualToString:accessToken]) {
-            [self showHomeVC];
+        NSString *phoneNum = [[NSUserDefaults standardUserDefaults]objectForKey:@"phoneNum"];
+        if (nil != phoneNum && ![@"" isEqualToString:phoneNum]) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"bandMobileNotification" object:self userInfo:nil];
         }
     } withErrorBlock:^(NSError *error) {
         
