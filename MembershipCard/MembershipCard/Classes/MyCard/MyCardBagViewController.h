@@ -7,8 +7,9 @@
 //
 
 #import "BaseViewController.h"
+#import "RTDragCellTableView.h"
 
-@interface MyCardBagViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource>
+@interface MyCardBagViewController : BaseViewController<RTDragCellTableViewDataSource,RTDragCellTableViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) RTDragCellTableView *tableView;
 @end

@@ -48,6 +48,10 @@
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
     [self.navigationItem setRightBarButtonItem:rightItem];
     
+    _tableView = [[RTDragCellTableView alloc]init];
+    _tableView.frame = CGRectMake(0, 0, MainScreenWidth, MainScreenHeight);
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.view addSubview:_tableView];
     [_tableView registerNib:[UINib nibWithNibName:@"MyCardBagTableViewCell" bundle:nil] forCellReuseIdentifier:@"cellIdentifier"];
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -202,5 +206,13 @@
     vc.hidesBottomBarWhenPushed = YES;
     vc.model = model;
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (NSArray *)originalArrayDataForTableView:(RTDragCellTableView *)tableView{
+    return _cardArray;
+}
+
+- (void)tableView:(RTDragCellTableView *)tableView newArrayDataForDataSource:(NSArray *)newArray{
+    _cardArray = newArray;
 }
 @end

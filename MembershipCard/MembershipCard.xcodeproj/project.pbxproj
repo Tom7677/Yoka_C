@@ -217,6 +217,7 @@
 		E2004C191C85E41400CDA2E7 /* YKMerchantsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2004C171C85E41400CDA2E7 /* YKMerchantsViewController.xib */; };
 		E200FC5F1C7F4BE700644BB5 /* UIView+frame.m in Sources */ = {isa = PBXBuildFile; fileRef = E200FC5E1C7F4BE700644BB5 /* UIView+frame.m */; };
 		E200FC621C7F4BF000644BB5 /* takePhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = E200FC611C7F4BF000644BB5 /* takePhoto.m */; };
+		E2031BE21CC68FBC009DC6EE /* RTDragCellTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2031BE11CC68FBC009DC6EE /* RTDragCellTableView.m */; };
 		E20427C61CBE89500014FC67 /* jpush-ios-2.1.6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E20427C41CBE89500014FC67 /* jpush-ios-2.1.6.a */; };
 		E2073CBA1C847FBC0028DD8C /* icon_horn_top@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2073CB91C847FBC0028DD8C /* icon_horn_top@2x.png */; };
 		E2073CBD1C849CA30028DD8C /* NetworkAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E2073CBC1C849CA30028DD8C /* NetworkAPI.m */; };
@@ -577,6 +578,8 @@
 		E200FC5E1C7F4BE700644BB5 /* UIView+frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+frame.m"; sourceTree = "<group>"; };
 		E200FC601C7F4BF000644BB5 /* takePhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = takePhoto.h; sourceTree = "<group>"; };
 		E200FC611C7F4BF000644BB5 /* takePhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = takePhoto.m; sourceTree = "<group>"; };
+		E2031BE01CC68FBC009DC6EE /* RTDragCellTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTDragCellTableView.h; sourceTree = "<group>"; };
+		E2031BE11CC68FBC009DC6EE /* RTDragCellTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTDragCellTableView.m; sourceTree = "<group>"; };
 		E20427C41CBE89500014FC67 /* jpush-ios-2.1.6.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.6.a"; sourceTree = "<group>"; };
 		E20427C51CBE89500014FC67 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
 		E2073CB91C847FBC0028DD8C /* icon_horn_top@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_horn_top@2x.png"; sourceTree = "<group>"; };
@@ -1591,6 +1594,8 @@
 		E2FEE3B21C79F2620079B824 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E2031BE01CC68FBC009DC6EE /* RTDragCellTableView.h */,
+				E2031BE11CC68FBC009DC6EE /* RTDragCellTableView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1985,6 +1990,7 @@
 				1AF9C3E31C9E8EE200F6FBAE /* MyCardDetailViewController.m in Sources */,
 				27D39A591C92AC5D00A3F3C3 /* UIScrollView+MJExtension.m in Sources */,
 				27D39A4C1C92AC5D00A3F3C3 /* MJRefreshFooter.m in Sources */,
+				E2031BE21CC68FBC009DC6EE /* RTDragCellTableView.m in Sources */,
 				E24983A01C8BD6D3005B77A8 /* TSImageLeftButton.m in Sources */,
 				E2662CBB1C7CA1D100FE42F1 /* ShowDeteledCardViewController.m in Sources */,
 				E2FBA60F1C82B70000F9F799 /* YKModel.m in Sources */,
