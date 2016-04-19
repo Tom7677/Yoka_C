@@ -163,10 +163,11 @@
 
 - (void)tapLink
 {
-    [self tapAdCancel];
     NSString *linkUrl = [[NSUserDefaults standardUserDefaults]objectForKey:@"adLinkUrl"];
     if (linkUrl != nil && ![linkUrl isEqualToString:@""]) {
-        
+        WebViewController *webVC = [[WebViewController alloc]initWithWebNavigationAndURLString:linkUrl];
+        [self.navigationController pushViewController:webVC animated:YES];
+        [self tapAdCancel];
     }
 }
 
