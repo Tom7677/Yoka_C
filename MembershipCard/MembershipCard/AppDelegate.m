@@ -21,6 +21,7 @@
 #import "YZSDK.h"
 #import "YZUserModel.h"
 #import "UIView+border.h"
+#import "WebViewController.h"
 
 
 @interface AppDelegate ()<WXApiDelegate>
@@ -78,7 +79,7 @@
 - (void)loadAd
 {
     NSString *adImageUrl = [[NSUserDefaults standardUserDefaults]objectForKey:@"adImageUrl"];
-    if (adImageUrl != nil && ![adImageUrl isEqualToString:@""]) {
+    if (adImageUrl != nil /*&& ![adImageUrl isEqualToString:@""]*/) {
         _countTime = 5;
         _lunchView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, MainScreenWidth, MainScreenHeight)];
         _lunchView.backgroundColor = [UIColor whiteColor];
@@ -86,6 +87,7 @@
         UIImageView *imageV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, MainScreenWidth, MainScreenHeight)];
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapLink)];
         imageV.userInteractionEnabled = YES;
+        imageV.contentMode = UIViewContentModeScaleAspectFill;
         [imageV addGestureRecognizer:tap];
         [imageV sd_setImageWithURL:[NSURL URLWithString:[imageUrl stringByAppendingString:adImageUrl]]];
         [_lunchView addSubview:imageV];
@@ -100,6 +102,9 @@
         _countLabel.font = [UIFont systemFontOfSize:14];
         _countLabel.text = [NSString stringWithFormat:@"%ld 立即跳过",(long)_countTime];
         _countLabel.textAlignment = NSTextAlignmentCenter;
+        UITapGestureRecognizer *tapCancel = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapAdCancel)];
+        _countLabel.userInteractionEnabled = YES;
+        [_countLabel addGestureRecognizer:tapCancel];
         [_lunchView addSubview:_countLabel];
         [self.window bringSubviewToFront:_lunchView];
         _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
@@ -108,7 +113,7 @@
     [[NetworkAPI shared]getAdURLWithFinish:^(BOOL isSuccess, NSString *urlStr, NSString *linkStr) {
         if (isSuccess) {
             [[NSUserDefaults standardUserDefaults]setObject:urlStr forKey:@"adImageUrl"];
-            [[NSUserDefaults standardUserDefaults]setObject:urlStr forKey:@"adLinkUrl"];
+            [[NSUserDefaults standardUserDefaults]setObject:linkStr forKey:@"adLinkUrl"];
         }
     } withErrorBlock:^(NSError *error) {
         
@@ -120,13 +125,19 @@
     _countTime--;
     _countLabel.text = [NSString stringWithFormat:@"%ld 立即跳过",(long)_countTime];
     if (_countTime == 0) {
-        [_timer invalidate];
-        [_lunchView removeFromSuperview];
+        [self tapAdCancel];
     }
+}
+                                          
+- (void)tapAdCancel
+{
+    [_timer invalidate];
+    [_lunchView removeFromSuperview];
 }
 
 - (void)tapLink
 {
+    [self tapAdCancel];
     NSString *linkUrl = [[NSUserDefaults standardUserDefaults]objectForKey:@"adLinkUrl"];
     if (linkUrl != nil && ![linkUrl isEqualToString:@""]) {
         

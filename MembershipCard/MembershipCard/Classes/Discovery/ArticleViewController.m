@@ -52,7 +52,7 @@
         [tempArray addObject:item];
     }
     self.navigationItem.rightBarButtonItems = [tempArray copy];
-    UIWebView *webView = [[UIWebView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, MainScreenWidth, MainScreenHeight - NavAndStatusBarHeight)];
     [self.view addSubview:webView];
     webView.delegate = self;
     [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.urlStr]]];
