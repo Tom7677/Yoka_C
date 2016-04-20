@@ -51,7 +51,7 @@
     [self.navigationItem setRightBarButtonItem:rightItem];
     
     _tableView = [[RTDragCellTableView alloc]init];
-    _tableView.frame = CGRectMake(0, 0, MainScreenWidth, MainScreenHeight);
+    _tableView.frame = CGRectMake(0, 0, MainScreenWidth, MainScreenHeight - NavAndStatusBarHeight - TabbarHeight);
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_tableView];
     [_tableView registerNib:[UINib nibWithNibName:@"MyCardBagTableViewCell" bundle:nil] forCellReuseIdentifier:@"cellIdentifier"];

@@ -91,7 +91,6 @@
             [cell.addCardBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
             [cell.addCardBtn setTitle:@"已在卡包" forState:UIControlStateNormal];
             [cell.addCardBtn setBackgroundColor:UIColorFromRGB(0xEFEFEF)];
-            [_tableView reloadData];
         }
         else {
             [self showAlertViewController:msg];

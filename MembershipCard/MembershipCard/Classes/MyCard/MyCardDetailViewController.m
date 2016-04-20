@@ -29,6 +29,8 @@
 @property (nonatomic, strong) UIImageView *hornTopImageView;
 @property (nonatomic, strong) NSArray *dataArray;
 @property (nonatomic, strong) NSDictionary *cardInfo;
+@property (nonatomic, assign) CGFloat value;
+@property (nonatomic, strong) UIView *bgView;
 @end
 
 @implementation MyCardDetailViewController
@@ -69,6 +71,37 @@
     [_logoImageView circular];
     [self getCradInfo];
     [_bindBrandBtn circularBoarderBead:5 withBoarder:1 color:UIColorFromRGB(0xFF526E)];
+    _value = [UIScreen mainScreen].brightness;
+    [[UIScreen mainScreen] setBrightness:1];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(showQRImage)];
+    _qrCodeImageView.userInteractionEnabled = YES;
+    [_qrCodeImageView addGestureRecognizer:tap];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [[UIScreen mainScreen] setBrightness:_value];
+}
+
+- (void)showQRImage
+{
+    _bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, MainScreenWidth, MainScreenHeight)];
+    _bgView.backgroundColor = [UIColor whiteColor];
+    UIImageView *imageView  = [[UIImageView alloc]initWithFrame:CGRectMake(0, 150,MainScreenWidth , MainScreenWidth * 86 / 220)];
+    imageView.originY = (MainScreenHeight - imageView.height) / 2;
+    imageView.image = _qrCodeImageView.image;
+    [_bgView addSubview:imageView];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hideQRImage)];
+    _bgView.userInteractionEnabled = YES;
+    [_bgView addGestureRecognizer:tap];
+    [[UIApplication sharedApplication].keyWindow addSubview:_bgView];
+}
+
+- (void)hideQRImage
+{
+    [_bgView removeFromSuperview];
 }
 
 - (void)getCradInfo
