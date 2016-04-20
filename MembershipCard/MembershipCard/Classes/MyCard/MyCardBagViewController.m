@@ -23,6 +23,7 @@
 @property (strong, nonatomic) NSTimer *timer;
 @property (assign, nonatomic) NSInteger countTime;
 @property (strong, nonatomic) UILabel *countLabel;
+@property (strong, nonatomic) NSMutableArray *cardIdArray;
 @end
 
 @implementation MyCardBagViewController
@@ -30,6 +31,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"卡包";
+    _cardIdArray = [[NSMutableArray alloc]init];
     UIButton *leftBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 28, 28)];
     [leftBtn setTitle:@"通知" forState:UIControlStateNormal];
     [leftBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -77,6 +79,10 @@
 {
     [[NetworkAPI shared]getMyCardBagListWithFinish:^(NSArray *dataArray) {
         [self hideHub];
+//        NSMutableArray *card
+//        for (int i = 0; i < dataArray.count; i ++) {
+//            
+//        }
         [_cardArray removeAllObjects];
         [_cardArray addObjectsFromArray:dataArray];
         [_tableView reloadData];
@@ -213,6 +219,13 @@
 }
 
 - (void)tableView:(RTDragCellTableView *)tableView newArrayDataForDataSource:(NSArray *)newArray{
-    _cardArray = newArray;
+    [_cardArray removeAllObjects];
+    [_cardArray addObjectsFromArray:newArray];
+    for (int i = 0 ; i < _cardArray.count; i ++) {
+        [_cardIdArray removeAllObjects];
+        MyCardModel *model = _cardArray[i];
+        [_cardIdArray addObject:model.card_id];
+        [[NSUserDefaults standardUserDefaults]setObject:[_cardIdArray copy] forKey:@"cardId"];
+    }
 }
 @end
