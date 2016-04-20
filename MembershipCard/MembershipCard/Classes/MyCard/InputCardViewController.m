@@ -58,7 +58,7 @@
         [[NetworkAPI shared] addNewBrandCardByMerchantID:_brandId cardNum:_cardNumText.text WithFinish:^(BOOL isSuccess, NSString *msg) {
             [self hideHub];
             if (isSuccess) {
-                [self.navigationController popViewControllerAnimated:YES];
+                [self.navigationController popToRootViewControllerAnimated:YES];
             }
             else {
                 [self showAlertViewController:msg];
@@ -71,7 +71,7 @@
         [[NetworkAPI shared] addNewNonBrandCardByMerchantName:_nameText.text cardNum:_cardNumText.text WithFinish:^(BOOL isSuccess, NSString *msg) {
             [self hideHub];
             if (isSuccess) {
-                [self.navigationController popViewControllerAnimated:YES];
+                [self.navigationController popToRootViewControllerAnimated:YES];
             }
             else {
                 [self showAlertViewController:msg];

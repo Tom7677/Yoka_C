@@ -165,6 +165,7 @@
 #pragma mark Action
 - (void)showViewByModel:(CardInfoModel *)model
 {
+
     //卡号生成条形码
     NSError *error = nil;
     ZXMultiFormatWriter *writer = [ZXMultiFormatWriter writer];
@@ -180,13 +181,19 @@
     }else {
         type = kBarcodeFormatCode128;
     }
-    ZXBitMatrix* result = [writer encode:model.card_no format: type width:270 height:80 error:&error];
+    ZXBitMatrix* result;
+    if ([self isEmpty:model.card_no]) {
+        NSString *phoneStr = [[NSUserDefaults standardUserDefaults]objectForKey:@"phoneNum"];
+        _codeLabel.text = phoneStr;
+        result = [writer encode:phoneStr format: type width:270 height:80 error:&error];
+    }else {
+        _codeLabel.text = [self countNumAndChangeformat:model.card_no];
+        result = [writer encode:model.card_no format: type width:270 height:80 error:&error];
+    }
     if (result) {
         CGImageRef image = [[ZXImage imageWithMatrix:result] cgimage ];
         _qrCodeImageView.image = [UIImage imageWithCGImage:image];
     }
-    _codeLabel.text = [self countNumAndChangeformat:model.card_no];
-    
 }
 
 /**

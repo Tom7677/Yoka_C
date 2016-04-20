@@ -266,7 +266,7 @@
             <point key="canvasLocation" x="794" y="29"/>
         </view>
         <view contentMode="scaleToFill" id="QQH-JB-D8d" userLabel="Service View">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="514"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rzb-Wf-dZl">
@@ -290,7 +290,7 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-24" y="103"/>
+            <point key="canvasLocation" x="-24" y="130"/>
         </view>
     </objects>
     <resources>
