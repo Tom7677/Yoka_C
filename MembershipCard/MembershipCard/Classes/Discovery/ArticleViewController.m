@@ -12,6 +12,8 @@
 #import "UIView+border.h"
 #import "WXApi.h"
 #import "WXApiObject.h"
+#import "YZSDK.h"
+#import "CacheUserInfo.h"
 
 @interface ArticleViewController ()<UIWebViewDelegate,UIAlertViewDelegate>
 
@@ -122,9 +124,24 @@
 }
 -(void)webViewDidFinishLoad:(UIWebView *)webView {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    [webView stringByEvaluatingJavaScriptFromString:[[YZSDK sharedInstance] jsBridgeWhenWebDidLoad]];
 }
 -(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }
 
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    NSURL *url = [request URL];
+    if ([[url absoluteString] hasPrefix:@"http://detail.koudaitong.com"]) {
+        CacheUserInfo *cacheModel = [CacheUserInfo sharedManage];
+        if(cacheModel.isLogined) {
+            //【如果是您是先登录，在打开我们商城，走这种方式】
+            YZUserModel *userModel = [CacheUserInfo getYZUserModelFromCacheUserModel:cacheModel];
+            NSString *string = [[YZSDK sharedInstance] webUserInfoLogin:userModel];
+            [webView stringByEvaluatingJavaScriptFromString:string];
+            return YES;
+        }
+    }
+    return YES;
+}
 @end

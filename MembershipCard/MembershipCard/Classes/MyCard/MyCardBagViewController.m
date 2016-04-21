@@ -79,12 +79,17 @@
 {
     [[NetworkAPI shared]getMyCardBagListWithFinish:^(NSArray *dataArray) {
         [self hideHub];
-//        NSMutableArray *card
-//        for (int i = 0; i < dataArray.count; i ++) {
-//            
-//        }
         [_cardArray removeAllObjects];
         [_cardArray addObjectsFromArray:dataArray];
+        NSArray *cardIdArray = [[NSUserDefaults standardUserDefaults]objectForKey:@"cardId"];
+        for (int i = 0 ; i < cardIdArray.count; i ++) {
+            for (int j = 0; j < _cardArray.count; j ++) {
+                MyCardModel *model = _cardArray[j];
+                if ([model.card_id isEqualToString:cardIdArray[i]]) {
+                    [_cardArray exchangeObjectAtIndex:j withObjectAtIndex:i];
+                }
+            }
+        }
         [_tableView reloadData];
         [_tableView.mj_header endRefreshing];
     } withErrorBlock:^(NSError *error) {
@@ -221,11 +226,12 @@
 - (void)tableView:(RTDragCellTableView *)tableView newArrayDataForDataSource:(NSArray *)newArray{
     [_cardArray removeAllObjects];
     [_cardArray addObjectsFromArray:newArray];
+    [_cardIdArray removeAllObjects];
     for (int i = 0 ; i < _cardArray.count; i ++) {
-        [_cardIdArray removeAllObjects];
         MyCardModel *model = _cardArray[i];
         [_cardIdArray addObject:model.card_id];
-        [[NSUserDefaults standardUserDefaults]setObject:[_cardIdArray copy] forKey:@"cardId"];
     }
+    [_tableView reloadData];
+    [[NSUserDefaults standardUserDefaults]setObject:[_cardIdArray copy] forKey:@"cardId"];
 }
 @end
