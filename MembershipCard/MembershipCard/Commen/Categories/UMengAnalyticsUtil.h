@@ -17,6 +17,7 @@
 - (void)clearNotice;
 - (void)qrCard;
 - (void)manuallyInputCard;
+- (void)addElectronicCard;
 - (void)listChooseCard;
 - (void)saveCardByMerchantsName:(NSString *)name type:(NSString *)type;
 - (void)deleteCardByMerchantsName:(NSString *)name;

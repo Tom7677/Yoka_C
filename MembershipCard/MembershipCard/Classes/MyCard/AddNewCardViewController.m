@@ -51,5 +51,12 @@
     PossiableCardViewController *vc = [[PossiableCardViewController alloc]init];
     [self.navigationController pushViewController:vc animated:YES];
 }
+- (IBAction)addElectronicCard:(id)sender {
+    [[UMengAnalyticsUtil shared]addElectronicCard];
+    BrandListViewController *vc = [[BrandListViewController alloc]init];
+    vc.electronicCard = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+
+}
 
 @end

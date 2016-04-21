@@ -10,7 +10,6 @@
 
 @interface CommentsViewController ()
 @property (weak, nonatomic) IBOutlet UITextView *commentsTextView;
-
 @end
 
 @implementation CommentsViewController
@@ -18,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"修改备注";
+    self.commentsTextView.text = _commentsStr;
     [self.commentsTextView becomeFirstResponder];
     UIButton *rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 60, 28)];
     rightBtn.titleLabel.font = [UIFont systemFontOfSize:14];
@@ -36,7 +36,11 @@
 
 -(void)saveBtnAction {
     [self showHub];
-    [[NetworkAPI shared]saveCardInfoByCardId:_cardId remark:_commentsTextView.text f_image:nil b_image:nil WithFinish:^(BOOL isSuccess, NSString *msg) {
+    NSString *newComments = _commentsTextView.text;
+    if (newComments.length == 0) {
+        newComments = @" ";
+    }
+    [[NetworkAPI shared]saveCardInfoByCardId:_cardId remark:newComments f_image:nil b_image:nil WithFinish:^(BOOL isSuccess, NSString *msg) {
         [self hideHub];
         if (isSuccess) {
             [_delegate passRemark:_commentsTextView.text];

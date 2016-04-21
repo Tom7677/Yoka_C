@@ -12,7 +12,7 @@
 @implementation PossiableCardTableViewCell
 
 - (void)awakeFromNib {
-    [_addCardBtn circularBead:4];
+    [_addCardBtn circularBoarderBead:6 withBoarder:1 color:[UIColor lightGrayColor]];
     [_cardImageView circularBead:10];
 }
 

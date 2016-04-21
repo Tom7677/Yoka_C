@@ -26,6 +26,8 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     if (_cardIdFromBind) {
         self.title = @"绑定品牌商户";
+    }else if (_electronicCard) {
+        self.title = @"添加无卡号会员卡";
     }else {
         self.title = @"添加新卡";
         UIButton *rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 60, 28)];
@@ -34,8 +36,8 @@
         rightBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
         [rightBtn setTitleColor:UIColorFromRGB(0xE33572) forState:UIControlStateNormal];
         [rightBtn addTarget:self action:@selector(addOtherbrand:) forControlEvents:UIControlEventTouchUpInside];
-        UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
-        [self.navigationItem setRightBarButtonItem:rightItem];
+        _rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
+        [self.navigationItem setRightBarButtonItem:_rightItem];
     }
     [_tableView setTableHeaderView:_searchBar];
     _itemsArray = [[NSMutableArray alloc]init];
@@ -169,8 +171,23 @@
     return nil;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self showHub];
     BrandCardListModel *model = [[self getNameArraybyIndex:indexPath.section] objectAtIndex:indexPath.row];
-    if (self.cardIdFromBind) {
+    if (_electronicCard) {
+        NSString *phoneNumStr = [[NSUserDefaults standardUserDefaults] objectForKey:@"phoneNum"];
+        [[NetworkAPI shared]addNewBrandCardByMerchantID:model.merchant_id cardNum: phoneNumStr WithFinish:^(BOOL isSuccess, NSString *msg) {
+            [self hideHub];
+            if (isSuccess) {
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            }else {
+                [self showAlertViewController:msg];
+            }
+        } withErrorBlock:^(NSError *error) {
+            [self hideHub];
+        }];
+        return;
+    }
+    if (_cardIdFromBind) {
         [self showHub];
         [[NetworkAPI shared]bindBrandCardWithCardId:self.cardIdFromBind AndMerchantId:model.merchant_id WithFinish:^(BOOL isSuccess, NSString *msg) {
             [self hideHub];
@@ -182,18 +199,18 @@
         } withErrorBlock:^(NSError *error) {
             [self showAlertViewController:@"无法连接网络"];
         }];
+        return;
+    }
+     if (self.isScan) {
+        QRViewController *vc = [[QRViewController alloc]init];
+        vc.brandName = model.name;
+        vc.brandId = model.merchant_id;
+        [self.navigationController pushViewController:vc animated:YES];
     }else {
-        if (self.isScan) {
-            QRViewController *vc = [[QRViewController alloc]init];
-            vc.brandName = model.name;
-            vc.brandId = model.merchant_id;
-            [self.navigationController pushViewController:vc animated:YES];
-        }else {
-            InputCardViewController *vc = [[InputCardViewController alloc]init];
-            vc.brandName = model.name;
-            vc.brandId = model.merchant_id;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
+        InputCardViewController *vc = [[InputCardViewController alloc]init];
+        vc.brandName = model.name;
+        vc.brandId = model.merchant_id;
+        [self.navigationController pushViewController:vc animated:YES];
     }
     [[UMengAnalyticsUtil shared]saveCardByMerchantsName:model.name type:@"品牌选择"];
 }

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -16,14 +17,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rxH-68-LBw">
-                        <rect key="frame" x="12" y="12" width="92" height="66"/>
+                        <rect key="frame" x="12" y="10" width="103" height="72"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="92" id="8yV-35-U40"/>
-                            <constraint firstAttribute="height" constant="66" id="BDb-h6-sgO"/>
+                            <constraint firstAttribute="height" constant="72" id="BDb-h6-sgO"/>
+                            <constraint firstAttribute="width" secondItem="rxH-68-LBw" secondAttribute="height" multiplier="10:7" id="KGE-2R-Us2"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lry-yH-oPL">
-                        <rect key="frame" x="116" y="34" width="120" height="21"/>
+                        <rect key="frame" x="127" y="35" width="97" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="FhI-MB-lrB"/>
                         </constraints>
@@ -32,10 +33,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="61O-sp-3o4">
-                        <rect key="frame" x="251" y="30" width="61" height="30"/>
+                        <rect key="frame" x="239" y="29" width="68" height="32"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="61" id="Pr7-BD-uMq"/>
-                            <constraint firstAttribute="height" constant="30" id="RP6-7x-14T"/>
+                            <constraint firstAttribute="width" constant="68" id="Pr7-BD-uMq"/>
+                            <constraint firstAttribute="height" constant="32" id="RP6-7x-14T"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <state key="normal" title="加入卡包"/>
@@ -55,11 +56,11 @@
                     <constraint firstAttribute="bottomMargin" secondItem="gS3-zn-8tN" secondAttribute="bottom" constant="-8.5" id="Hw5-6H-fkq"/>
                     <constraint firstItem="61O-sp-3o4" firstAttribute="leading" secondItem="Lry-yH-oPL" secondAttribute="trailing" constant="15" id="JmV-4z-ejF"/>
                     <constraint firstItem="gS3-zn-8tN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="4" id="KH6-f8-Zgp"/>
-                    <constraint firstItem="61O-sp-3o4" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Xds-Tx-Gv0"/>
-                    <constraint firstItem="61O-sp-3o4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="22" id="dpO-bU-Svy"/>
-                    <constraint firstItem="rxH-68-LBw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="4" id="i2e-n6-eO3"/>
+                    <constraint firstItem="Lry-yH-oPL" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Unm-Ry-Ipy"/>
+                    <constraint firstItem="61O-sp-3o4" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="-5" id="Xds-Tx-Gv0"/>
+                    <constraint firstItem="rxH-68-LBw" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="bvo-Db-4kX"/>
+                    <constraint firstItem="61O-sp-3o4" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="cvF-CA-F6Y"/>
                     <constraint firstAttribute="trailingMargin" secondItem="gS3-zn-8tN" secondAttribute="trailing" constant="-8" id="oip-Rk-cXr"/>
-                    <constraint firstItem="Lry-yH-oPL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="26" id="qfm-xe-UaU"/>
                     <constraint firstItem="Lry-yH-oPL" firstAttribute="leading" secondItem="rxH-68-LBw" secondAttribute="trailing" constant="12" id="wTc-if-TIC"/>
                     <constraint firstItem="rxH-68-LBw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="4" id="ynm-rw-ZIF"/>
                 </constraints>

@@ -65,14 +65,13 @@
     /** 备注文字框添加点击动作打开修改视图 */
     UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapCommentsView:)];
     [_markTextView addGestureRecognizer:tapGR];
-    if (_markTextView.text.length != 0) {
-        _markNotesLabel.hidden = YES;
-    }
+//    if (_markTextView.text.length != 0) {
+//        _markNotesLabel.hidden = YES;
+//    }
     [_logoImageView circular];
     [self getCradInfo];
     [_bindBrandBtn circularBoarderBead:5 withBoarder:1 color:UIColorFromRGB(0xFF526E)];
     _value = [UIScreen mainScreen].brightness;
-    [[UIScreen mainScreen] setBrightness:1];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(showQRImage)];
     _qrCodeImageView.userInteractionEnabled = YES;
@@ -82,7 +81,6 @@
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
-    [[UIScreen mainScreen] setBrightness:_value];
 }
 
 - (void)showQRImage
@@ -97,10 +95,13 @@
     _bgView.userInteractionEnabled = YES;
     [_bgView addGestureRecognizer:tap];
     [[UIApplication sharedApplication].keyWindow addSubview:_bgView];
+    [[UIScreen mainScreen] setBrightness:1];
+
 }
 
 - (void)hideQRImage
 {
+    [[UIScreen mainScreen] setBrightness:_value];
     [_bgView removeFromSuperview];
 }
 
@@ -117,6 +118,8 @@
         if (![self isEmpty:model.remark]) {
             _markNotesLabel.hidden = YES;
             _markTextView.text = model.remark;
+        }else {
+            _markNotesLabel.hidden = NO;
         }
         if (![self isEmpty:model.f_image]) {
             [_frontPicBtn setTitle:@"" forState:UIControlStateNormal];
@@ -184,13 +187,19 @@
 
 - (void)passRemark:(NSString *)remark
 {
-    _markNotesLabel.hidden = YES;
-    _markTextView.text = remark;
+    if (![self isEmpty:remark]) {
+        _markNotesLabel.hidden = YES;
+        _markTextView.text = remark;
+    }else {
+        _markNotesLabel.hidden = NO;
+        _markTextView.text = @"";
+    }
 }
 
 - (void)tapCommentsView:(UITapGestureRecognizer *)gr {
     CommentsViewController *commentsVC = [CommentsViewController new];
     commentsVC.delegate = self;
+    commentsVC.commentsStr = _markTextView.text;
     commentsVC.cardId = _model.card_id;
     [self.navigationController pushViewController:commentsVC animated:YES];
 }
@@ -217,7 +226,7 @@
     ZXBitMatrix* result;
     if ([self isEmpty:model.card_no]) {
         NSString *phoneStr = [[NSUserDefaults standardUserDefaults]objectForKey:@"phoneNum"];
-        _codeLabel.text = phoneStr;
+        _codeLabel.text = [self countNumAndChangeformat:phoneStr];
         result = [writer encode:phoneStr format: type width:270 height:80 error:&error];
     }else {
         _codeLabel.text = [self countNumAndChangeformat:model.card_no];
@@ -230,7 +239,7 @@
 }
 
 /**
- *  给卡号中每3位间加空格
+ *  给卡号中每4位间加空格
  *
  *  @param num 卡号
  *
@@ -247,9 +256,9 @@
     }
     NSMutableString *string = [NSMutableString stringWithString:num];
     NSMutableString *newstring = [NSMutableString string];
-    while (count > 3) {
-        count -= 3;
-        NSRange rang = NSMakeRange(string.length - 3, 3);
+    while (count > 4) {
+        count -= 4;
+        NSRange rang = NSMakeRange(string.length - 4, 4);
         NSString *str = [string substringWithRange:rang];
         [newstring insertString:str atIndex:0];
         [newstring insertString:@" " atIndex:0];

@@ -76,6 +76,13 @@
 }
 
 /*!
+ *  @brief  添加无卡好会员卡片
+ */
+- (void)addElectronicCard
+{
+    [MobClick event:@"AddElectronicCard"];
+}
+/*!
  *  @brief  列表选择卡片
  */
 - (void)listChooseCard

@@ -376,8 +376,8 @@
         CGFloat height = 12;
         //133是屏幕宽为320情况下coverImageView高 300是宽
         height = height + 133 * (MainScreenWidth - 20) / 300;
-        //14是titleLabel与coverImageView间距
-        height = height + [cell.titleLabel getTextHeight] + 14;
+        //18是titleLabel与coverImageView间距
+        height = height + [cell.titleLabel getTextHeight] + 18;
         //2是detailsLabel与titleLabel间距 16是detailsLabel高
         height = height + 2 + 16;
         //8是contentLabel与detailsLabel间距

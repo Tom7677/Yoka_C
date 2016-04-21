@@ -15,4 +15,8 @@
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (nonatomic, getter=isScan) BOOL scan;
 @property (nonatomic, strong) NSString *cardIdFromBind;
+@property (nonatomic, getter=isElectronicCard) BOOL electronicCard;
+@property(nonatomic,strong) UIBarButtonItem *rightItem;
+
+
 @end

@@ -162,7 +162,7 @@
         [[NetworkAPI shared]addNewBrandCardByMerchantID:self.brandId cardNum:result WithFinish:^(BOOL isSuccess, NSString *msg) {
             [self hideHub];
             if (isSuccess) {
-                [self.navigationController popViewControllerAnimated:YES];
+                [self.navigationController popToRootViewControllerAnimated:YES];
             }
             else {
                 [self showAlertViewController:msg];

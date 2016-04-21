@@ -11,6 +11,8 @@
 @protocol CommentsViewControllerDelegate;
 @interface CommentsViewController : BaseViewController
 @property (nonatomic, copy) NSString *cardId;
+@property(nonatomic,strong) NSString *commentsStr;
+
 @property (nonatomic, strong) id<CommentsViewControllerDelegate> delegate;
 @end
 
