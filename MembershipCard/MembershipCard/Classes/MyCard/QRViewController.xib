@@ -46,7 +46,7 @@
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KK3-rq-beY">
                     <rect key="frame" x="33" y="404" width="254" height="30"/>
-                    <state key="normal" title="无法识别请点击">
+                    <state key="normal" title="没有条码或无法识别 请手工输入">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>

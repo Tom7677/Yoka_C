@@ -111,7 +111,7 @@
         [imageV sd_setImageWithURL:[NSURL URLWithString:[imageUrl stringByAppendingString:adImageUrl]]];
         [_lunchView addSubview:imageV];
         
-        UIView *blackView = [[UIView alloc]initWithFrame:CGRectMake(MainScreenWidth - 100 - 25, 25, 100, 35)];
+        UIView *blackView = [[UIView alloc]initWithFrame:CGRectMake(MainScreenWidth - 100 - 12, 25, 100, 35)];
         blackView.backgroundColor = [UIColor blackColor];
         blackView.alpha = 0.4;
         [blackView circularBead:16];

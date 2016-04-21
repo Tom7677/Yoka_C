@@ -105,7 +105,7 @@
         [btn setFrame:CGRectMake(20 + _btnWidth * i, 0, _btnWidth, _typeScrollView.height)];
         NSMutableArray *dataArray = [[NSMutableArray alloc]init];
         if (i == 0) {
-            [btn setTitle:@"全部" forState:UIControlStateNormal];
+            [btn setTitle:@"全部卡" forState:UIControlStateNormal];
             [_resultDic setObject:dataArray forKey:@"全部"];
         }
         else {
