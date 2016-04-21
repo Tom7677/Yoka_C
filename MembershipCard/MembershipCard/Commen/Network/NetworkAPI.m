@@ -56,6 +56,8 @@
             cacheModel.name = responseObject[@"data"][@"nick_name"];
             cacheModel.telephone = responseObject[@"data"][@"mobile"];
             cacheModel.avatar = responseObject[@"data"][@"avatar"];
+            cacheModel.isLogined = YES;
+            cacheModel.isValid = NO;
             if(!cacheModel.isValid) {
                 YZUserModel *userModel = [CacheUserInfo getYZUserModelFromCacheUserModel:cacheModel];
                 [YZSDK registerYZUser:userModel callBack:^(NSString *message, BOOL isError) {

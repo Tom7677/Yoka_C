@@ -135,7 +135,6 @@
     if ([[url absoluteString] hasPrefix:@"http://detail.koudaitong.com"]) {
         CacheUserInfo *cacheModel = [CacheUserInfo sharedManage];
         if(cacheModel.isLogined) {
-            //【如果是您是先登录，在打开我们商城，走这种方式】
             YZUserModel *userModel = [CacheUserInfo getYZUserModelFromCacheUserModel:cacheModel];
             NSString *string = [[YZSDK sharedInstance] webUserInfoLogin:userModel];
             [webView stringByEvaluatingJavaScriptFromString:string];
