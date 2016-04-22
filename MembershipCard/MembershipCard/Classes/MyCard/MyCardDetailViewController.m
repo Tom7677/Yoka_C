@@ -31,6 +31,7 @@
 @property (nonatomic, strong) NSDictionary *cardInfo;
 @property (nonatomic, assign) CGFloat value;
 @property (nonatomic, strong) UIView *bgView;
+//@property (nonatomic, strong) NSString *serviceUrl;
 @end
 
 @implementation MyCardDetailViewController
@@ -65,9 +66,7 @@
     /** 备注文字框添加点击动作打开修改视图 */
     UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapCommentsView:)];
     [_markTextView addGestureRecognizer:tapGR];
-//    if (_markTextView.text.length != 0) {
-//        _markNotesLabel.hidden = YES;
-//    }
+
     [_logoImageView circular];
     [self getCradInfo];
     [_bindBrandBtn circularBoarderBead:5 withBoarder:1 color:UIColorFromRGB(0xFF526E)];
@@ -113,6 +112,7 @@
         _cardInfo = model.merchant_info;
         [self showViewByModel:model];
         if (![model.merchant_id isEqualToString:@"0"]) {
+            _bindBrandBtn.hidden = YES;
             [self layoutServiceView];
         }
         if (![self isEmpty:model.remark]) {
@@ -138,8 +138,9 @@
 - (void)layoutServiceView
 {
     NSArray *titleArray = @[@"帐户卡值",@"公告咨询",@"门店官网",@"活动展示",@"品牌商城"];
+    int j = 0;
     for (int i = 0; i < titleArray.count; i++) {
-        MidImageLeftButton *button = [[MidImageLeftButton alloc]initWithFrame: CGRectMake(15, (10 + 60) * i + 10, MainScreenWidth - 30, 60)];
+        MidImageLeftButton *button = [[MidImageLeftButton alloc]initWithFrame: CGRectMake(15, (10 + 60) * j + 20, MainScreenWidth - 30, 60)];
         button.backgroundColor = [UIColor colorWithWhite:0.96 alpha:1];
         button.tag = i;
         [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"ser-0%d", i + 1]] forState:UIControlStateNormal];
@@ -149,7 +150,19 @@
         [button setTitleColor:[UIColor blackColor] forState:0];
         [button circularBoarderBead:8 withBoarder:1 color:UIColorFromRGB(0xf0f0f0)];
         [button addTarget:self action:@selector(serviceButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-        [_serviceView addSubview:button];
+        NSArray *linkArr = [_cardInfo allValues];
+        if (![self isEmpty:linkArr[i]]) {
+            [_serviceView addSubview:button];
+            j++;
+        }
+    }
+    if (j == 0) {
+        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake((MainScreenWidth - 200) / 2, 50, 200, 30)];
+        label.textAlignment = NSTextAlignmentCenter;
+        label.font = [UIFont systemFontOfSize:14];
+        label.textColor = [UIColor lightGrayColor];
+        label.text = @"该商户暂未开通服务功能";
+        [_serviceView addSubview:label];
     }
 }
 
@@ -171,9 +184,6 @@
         default:
             urlStr = _cardInfo[@"estore"];
             break;
-    }
-    if ([self isEmpty:urlStr]) {
-        urlStr = EMPTYWEBURL;
     }
     WebViewController *vc = [[WebViewController alloc]initWithWebNavigationAndURLString:urlStr];
     [self.navigationController pushViewController:vc animated:YES];

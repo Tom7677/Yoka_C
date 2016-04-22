@@ -140,12 +140,6 @@
             [[UIApplication sharedApplication].keyWindow addSubview:_shareView];
         }
     }
-//    else if (btn.tag == 2) {
-//        //已删除会员卡
-//        ShowDeteledCardViewController  *vc = [[ShowDeteledCardViewController alloc]init];
-//        vc.hidesBottomBarWhenPushed = YES;
-//        [self.navigationController pushViewController:vc animated:YES];
-//    }
     else if (btn.tag == 3) {
         //给好评
         NSString *str = [NSString stringWithFormat:@"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=1085934881" ];
@@ -167,8 +161,8 @@
         UIButton *btn = sender;
         [_shareView removeFromSuperview];
         WXMediaMessage *message = [WXMediaMessage message];
-        message.title = @"title";
-        message.description = @"description";
+        message.title = @"马夹：全新会员体验方式";
+        message.description = @"在这里你可以将星巴克、宜家、全家等各种会员卡片放入卡包，更有小马哥带你品鉴周边优质生活圈。";
         [message setThumbImage:[UIImage imageNamed:@"icon_logo"]];
         WXWebpageObject *webpageObject = [WXWebpageObject object];
         webpageObject.webpageUrl = _shareUrl;
