@@ -44,6 +44,15 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    if (_url) {
+        WebViewController *web = [[WebViewController alloc]initWithURLString:_url titleLabel:nil];
+        _url = nil;
+        [self.navigationController pushViewController:web animated:YES];
+    }
+}
+
 - (void)loadNewData
 {
     [self showHub];

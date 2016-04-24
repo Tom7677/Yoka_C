@@ -7,6 +7,7 @@
 //
 
 #import "UIImage+Resize.h"
+#import <ImageIO/ImageIO.h>
 
 @implementation UIImage (Resize)
 - (UIImage*)imageWithProportion:(CGSize)ProportionSize percent:(CGFloat)percent
@@ -81,5 +82,25 @@
     UIImage *croppedImage = [UIImage imageWithCGImage:imageRef scale:self.scale orientation:UIImageOrientationUp];
     CGImageRelease(imageRef);
     return croppedImage;
+}
+
++ (UIImage *)thumbnailImageMaxPixelSize:(CGFloat)size forImageData:(NSData *)imageData
+{
+    CGImageSourceRef imageSource = CGImageSourceCreateWithData((__bridge CFDataRef)imageData, NULL);
+    
+    NSDictionary *thumbnailOptions = [NSDictionary dictionaryWithObjectsAndKeys:(id)kCFBooleanTrue,
+                                      kCGImageSourceCreateThumbnailWithTransform,
+                                      kCFBooleanTrue, kCGImageSourceCreateThumbnailFromImageAlways,
+                                      [NSNumber numberWithFloat:size], kCGImageSourceThumbnailMaxPixelSize,
+                                      nil];
+    CGImageRef theImage = CGImageSourceCreateThumbnailAtIndex(imageSource, 0, (__bridge CFDictionaryRef)thumbnailOptions);
+    CFRelease(imageSource);
+    
+    if (theImage != NULL) {
+        UIImage *uiImage = [[UIImage alloc]initWithCGImage:theImage];
+        CFRelease(theImage);
+        return uiImage;
+    }
+    return nil;
 }
 @end

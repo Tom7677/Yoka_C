@@ -19,9 +19,11 @@
 #import "CacheUserInfo.h"
 #import "YZSDK.h"
 #import "YZUserModel.h"
+#import "NotificationViewController.h"
+#import "WebViewController.h"
 
 @interface AppDelegate ()<WXApiDelegate>
-
+@property(nonatomic, copy) NSString *url;
 @end
 
 @implementation AppDelegate
@@ -171,10 +173,29 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 - (void)application:(UIApplication *)application
 didReceiveRemoteNotification:(NSDictionary *)userInfo {
     [JPUSHService handleRemoteNotification:userInfo];
+    [self handleRemoteNotification:userInfo withApplication:application];
+}
+
+- (void) handleRemoteNotification:(NSDictionary *)userInfo withApplication:(UIApplication *)application
+{
+    if (application.applicationState != UIApplicationStateActive) {
+        NSString *phoneNum = [[NSUserDefaults standardUserDefaults]objectForKey:@"phoneNum"];
+        if (nil != phoneNum && ![@"" isEqualToString:phoneNum]) {
+            if (userInfo != nil) {
+                NotificationViewController *vc = [[NotificationViewController alloc]init];
+                MainTabBarViewController *tabbar = (MainTabBarViewController *)self.window.rootViewController;
+                vc.hidesBottomBarWhenPushed = YES;
+                vc.url = userInfo[@"jump_link"];
+                tabbar.selectedIndex = 0;
+                [tabbar.selectedViewController pushViewController:vc animated:YES];
+            }
+        }
+    }
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     [JPUSHService handleRemoteNotification:userInfo];
     completionHandler(UIBackgroundFetchResultNewData);
+    [self handleRemoteNotification:userInfo withApplication:application];
 }
 @end

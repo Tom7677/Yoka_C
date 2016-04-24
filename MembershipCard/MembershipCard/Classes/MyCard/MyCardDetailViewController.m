@@ -217,7 +217,6 @@
 #pragma mark Action
 - (void)showViewByModel:(CardInfoModel *)model
 {
-
     //卡号生成条形码
     NSError *error = nil;
     ZXMultiFormatWriter *writer = [ZXMultiFormatWriter writer];

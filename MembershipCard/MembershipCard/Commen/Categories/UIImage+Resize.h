@@ -13,4 +13,5 @@
 - (UIImage*)imageWithProportion:(CGSize)ProportionSize percent:(CGFloat)percent;
 - (UIImage*)imageWithMaxImagePix:(CGFloat)maxImagePix compressionQuality:(CGFloat)compressionQuality;
 - (UIImage *)croppedImage:(CGRect)bounds;
++ (UIImage *)thumbnailImageMaxPixelSize:(CGFloat)size forImageData:(NSData *)imageData;
 @end

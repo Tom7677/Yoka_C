@@ -14,6 +14,7 @@
 #import "WXApiObject.h"
 #import "YZSDK.h"
 #import "CacheUserInfo.h"
+#import "UIImage+Resize.h"
 
 @interface ArticleViewController ()<UIWebViewDelegate,UIAlertViewDelegate>
 
@@ -85,7 +86,8 @@
         [message setThumbImage:[UIImage imageNamed:@"icon_logo"]];
     }
     else {
-        [message setThumbImage:_coverImage];
+        NSData *data = UIImageJPEGRepresentation(_coverImage, 1);
+        [message setThumbImage:[UIImage thumbnailImageMaxPixelSize:100 forImageData:data]];
     }
     WXWebpageObject *webpageObject = [WXWebpageObject object];
     webpageObject.webpageUrl = _urlStr;
@@ -132,13 +134,16 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     NSURL *url = [request URL];
-    if ([[url absoluteString] hasPrefix:@"http://detail.koudaitong.com"]) {
+    NSString *jsBridageString = [[YZSDK sharedInstance] parseYOUZANScheme:url];
+    if(jsBridageString) {
         CacheUserInfo *cacheModel = [CacheUserInfo sharedManage];
-        if(cacheModel.isLogined) {
-            YZUserModel *userModel = [CacheUserInfo getYZUserModelFromCacheUserModel:cacheModel];
-            NSString *string = [[YZSDK sharedInstance] webUserInfoLogin:userModel];
-            [webView stringByEvaluatingJavaScriptFromString:string];
-            return YES;
+        if([jsBridageString isEqualToString:CHECK_LOGIN] && !cacheModel.isValid) {
+            if(cacheModel.isLogined) {
+                YZUserModel *userModel = [CacheUserInfo getYZUserModelFromCacheUserModel:cacheModel];
+                NSString *string = [[YZSDK sharedInstance] webUserInfoLogin:userModel];
+                [webView stringByEvaluatingJavaScriptFromString:string];
+                return YES;
+            }
         }
     }
     return YES;
