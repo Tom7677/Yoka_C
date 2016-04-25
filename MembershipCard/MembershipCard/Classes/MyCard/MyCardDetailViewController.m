@@ -233,7 +233,12 @@
         type = kBarcodeFormatEan13;
     }else if ([model.type isEqualToString:@"EAN-8"]){
         type = kBarcodeFormatEan8;
-    }else {
+    }else if ([model.type isEqualToString:@"code93"]){
+        type = kBarcodeFormatCode93;
+    }else if ([model.type isEqualToString:@"code39"]){
+        type = kBarcodeFormatCode39;
+    }
+    else {
         type = kBarcodeFormatCode128;
     }
     ZXBitMatrix* result;

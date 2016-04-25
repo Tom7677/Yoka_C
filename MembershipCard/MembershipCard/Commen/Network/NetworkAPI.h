@@ -167,7 +167,7 @@ static NSInteger pageSize = 20;
  *  @param block      block description
  *  @param errorBlock errorBlock description
  */
-- (void)addNewNonBrandCardByMerchantName:(NSString *)name cardNum:(NSString *)cardNum WithFinish:(void(^)(BOOL isSuccess, NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+- (void)addNewNonBrandCardByMerchantName:(NSString *)name cardNum:(NSString *)cardNum type:(NSString *)type WithFinish:(void(^)(BOOL isSuccess, NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 
 /*!
  *  @brief  会员添加品牌卡片

@@ -407,10 +407,10 @@
     }];
 }
 
-- (void)addNewNonBrandCardByMerchantName:(NSString *)name cardNum:(NSString *)cardNum WithFinish:(void(^)(BOOL isSuccess, NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock
+- (void)addNewNonBrandCardByMerchantName:(NSString *)name cardNum:(NSString *)cardNum type:(NSString *)type WithFinish:(void(^)(BOOL isSuccess, NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock
 {
     NSString *urlStr = [hostUrl stringByAppendingString:@"User/add_card_nonbrand"];
-    NSDictionary *param = @{@"merchant_name":name,@"card_no":cardNum,@"token":[self getAccessToken]};
+    NSDictionary *param = @{@"merchant_name":name,@"card_no":cardNum,@"token":[self getAccessToken],@"card_type":type};
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
    [manager POST:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject[@"status"] integerValue] == 1) {

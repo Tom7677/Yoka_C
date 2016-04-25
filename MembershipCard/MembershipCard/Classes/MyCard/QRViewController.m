@@ -130,22 +130,22 @@
             _isFirstScan = NO;
             NSString *type;
             if ([[metadataObj type] isEqualToString:AVMetadataObjectTypePDF417Code]) {
-                type = @"";
+                type = @"pdf417";
             }
             else if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeCode128Code]) {
-                type = @"";
+                type = @"code128";
             }
             else if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeEAN8Code]) {
-                type = @"";
+                type = @"EAN-8";
             }
             else if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeEAN13Code]) {
-                type = @"";
+                type = @"EAN-13";
             }
             else if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeCode93Code]) {
-                type = @"";
+                type = @"code93";
             }
             else if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeCode39Code]) {
-                type = @"";
+                type = @"code39";
             }
             else {
                 type = @"";

@@ -68,7 +68,7 @@
         }];
     }else {
         [self showHub];
-        [[NetworkAPI shared] addNewNonBrandCardByMerchantName:_nameText.text cardNum:_cardNumText.text WithFinish:^(BOOL isSuccess, NSString *msg) {
+        [[NetworkAPI shared] addNewNonBrandCardByMerchantName:_nameText.text cardNum:_cardNumText.text type:_type WithFinish:^(BOOL isSuccess, NSString *msg) {
             [self hideHub];
             if (isSuccess) {
                 [self.navigationController popToRootViewControllerAnimated:YES];

@@ -46,7 +46,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    if (_url) {
+    if (![self isEmpty:_url]) {
         WebViewController *web = [[WebViewController alloc]initWithURLString:_url titleLabel:nil];
         _url = nil;
         [self.navigationController pushViewController:web animated:YES];
