@@ -62,8 +62,11 @@
     }
 }
 - (void)webShareAction {
-    NSString *jsonString = [[YZSDK sharedInstance] jsBridgeWhenShareBtnClick];
-    [_webView stringByEvaluatingJavaScriptFromString:jsonString];
+    _shareView.hidden = !_shareView.hidden;
+    if (!_shareView.hidden) {
+        NSString *jsonString = [[YZSDK sharedInstance] jsBridgeWhenShareBtnClick];
+        [_webView stringByEvaluatingJavaScriptFromString:jsonString];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

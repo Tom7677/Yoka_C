@@ -106,6 +106,7 @@
 		1ACFB9CE1C8EB8680083FD07 /* more2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFB9C81C8EB8680083FD07 /* more2.png */; };
 		1ACFB9CF1C8EB8680083FD07 /* more2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFB9C91C8EB8680083FD07 /* more2@2x.png */; };
 		1ACFB9D01C8EB8680083FD07 /* more2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFB9CA1C8EB8680083FD07 /* more2@3x.png */; };
+		1AF6F2801CCDC258000DF151 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AF6F27F1CCDC258000DF151 /* WebViewController.xib */; };
 		1AF9C3E31C9E8EE200F6FBAE /* MyCardDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AF9C3E11C9E8EE200F6FBAE /* MyCardDetailViewController.m */; };
 		1AF9C3E41C9E8EE200F6FBAE /* MyCardDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AF9C3E21C9E8EE200F6FBAE /* MyCardDetailViewController.xib */; };
 		1AFED1B91C8F1D6E00415ABF /* wx.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFED1B61C8F1D6E00415ABF /* wx.png */; };
@@ -404,6 +405,7 @@
 		1ACFB9C81C8EB8680083FD07 /* more2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more2.png; sourceTree = "<group>"; };
 		1ACFB9C91C8EB8680083FD07 /* more2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "more2@2x.png"; sourceTree = "<group>"; };
 		1ACFB9CA1C8EB8680083FD07 /* more2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "more2@3x.png"; sourceTree = "<group>"; };
+		1AF6F27F1CCDC258000DF151 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
 		1AF9C3E01C9E8EE200F6FBAE /* MyCardDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCardDetailViewController.h; sourceTree = "<group>"; };
 		1AF9C3E11C9E8EE200F6FBAE /* MyCardDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCardDetailViewController.m; sourceTree = "<group>"; };
 		1AF9C3E21C9E8EE200F6FBAE /* MyCardDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCardDetailViewController.xib; sourceTree = "<group>"; };
@@ -1008,6 +1010,7 @@
 			children = (
 				276BBCF41CAA8BB600CA392E /* WebViewController.h */,
 				276BBCF51CAA8BB600CA392E /* WebViewController.m */,
+				1AF6F27F1CCDC258000DF151 /* WebViewController.xib */,
 			);
 			path = WebView;
 			sourceTree = "<group>";
@@ -1823,6 +1826,7 @@
 				1ACFB9B81C8EACA20083FD07 /* tabbar_myCardBag@3x.png in Resources */,
 				1A268A2E1CBCF44900D56CA8 /* ExplainViewController.xib in Resources */,
 				27D39A181C8FCB5000A3F3C3 /* ChooseAreaViewController.xib in Resources */,
+				1AF6F2801CCDC258000DF151 /* WebViewController.xib in Resources */,
 				273476851CB5EB3F00FAF042 /* photo_sel_previewVc@2x.png in Resources */,
 				1A56951F1C92ABF0001EA32F /* code01@2x.png in Resources */,
 				273476871CB5EB3F00FAF042 /* preview_original_def@2x.png in Resources */,

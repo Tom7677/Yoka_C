@@ -64,7 +64,7 @@
     _shareView.hidden = YES;
 }
 - (void)shareButtonClick {
-    _shareView.hidden = NO;
+    _shareView.hidden = !_shareView.hidden;
 }
 
 - (void)likeButtonClick:(UIButton *)sender {

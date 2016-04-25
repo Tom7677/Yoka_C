@@ -7,11 +7,14 @@
 //
 
 #import "WebViewController.h"
+#import "WXApi.h"
+#import "WXApiObject.h"
 
 @interface WebViewController ()<UIWebViewDelegate>
 //@property (nonatomic, strong) UIWebView *webView;
 //@property (nonatomic, copy) NSString *titleString;
 @property (nonatomic, copy) NSString *urlStr;
+@property (strong, nonatomic) IBOutlet UIView *shareView;
 @end
 
 @implementation WebViewController
@@ -28,9 +31,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.title = _titleString;
+    _shareView.hidden = YES;
     _webView = [[UIWebView alloc]initWithFrame:CGRectMake(0, 0, MainScreenWidth, MainScreenHeight - NavAndStatusBarHeight)];
-    [self.view addSubview:_webView];
+    [self.view insertSubview:_webView belowSubview:_shareView];
     _webView.delegate = self;
     //webVeiw禁止左右滑动
     _webView.scrollView.showsVerticalScrollIndicator = NO;
@@ -76,8 +79,40 @@
     [_webView reload];
 }
 
-- (void)webShare {
-    
+- (void)webShare {  
+    _shareView.hidden = !_shareView.hidden;
+}
+
+- (IBAction)shareToWXAction:(id)sender {
+    _shareView.hidden = YES;
+    WXMediaMessage *message = [WXMediaMessage message];
+    message.title = @"来自马夹的分享";
+    message.description = [_webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+
+    WXWebpageObject *webpageObject = [WXWebpageObject object];
+    webpageObject.webpageUrl = _urlStr;
+    message.mediaObject = webpageObject;
+    SendMessageToWXReq *req = [[SendMessageToWXReq alloc]init];
+    req.bText = NO;
+    req.message = message;
+    req.scene = WXSceneSession;
+    [WXApi sendReq:req];
+}
+
+- (IBAction)shartToCircleAction:(id)sender {
+    _shareView.hidden = YES;
+    WXMediaMessage *message = [WXMediaMessage message];
+    message.title =  @"来自马夹的分享";
+    message.description = [_webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+    [_webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+    WXWebpageObject *webpageObject = [WXWebpageObject object];
+    webpageObject.webpageUrl = _urlStr;
+    message.mediaObject = webpageObject;
+    SendMessageToWXReq *req = [[SendMessageToWXReq alloc]init];
+    req.bText = NO;
+    req.message = message;
+    req.scene = WXSceneTimeline;
+    [WXApi sendReq:req];
 }
 
 - (void)didReceiveMemoryWarning {

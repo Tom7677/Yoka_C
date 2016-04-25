@@ -150,8 +150,8 @@
         [button setTitleColor:[UIColor blackColor] forState:0];
         [button circularBoarderBead:8 withBoarder:1 color:UIColorFromRGB(0xf0f0f0)];
         [button addTarget:self action:@selector(serviceButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-        NSArray *linkArr = [_cardInfo allValues];
-        if (![self isEmpty:linkArr[i]]) {
+        NSString *urlStr = [self getServiceUrlLink:button];
+        if (![self isEmpty:urlStr]) {
             [_serviceView addSubview:button];
             j++;
         }
@@ -167,8 +167,14 @@
 }
 
 - (void)serviceButtonClick:(MidImageLeftButton *)sender {
+    NSString *urlStr = [self getServiceUrlLink:sender];
+    WebViewController *vc = [[WebViewController alloc]initWithWebNavigationAndURLString:urlStr];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (NSString *)getServiceUrlLink:(MidImageLeftButton *)btn {
     NSString *urlStr;
-    switch (sender.tag) {
+    switch (btn.tag) {
         case 0:
             urlStr = _cardInfo[@"account_value"];
             break;
@@ -185,9 +191,7 @@
             urlStr = _cardInfo[@"estore"];
             break;
     }
-    WebViewController *vc = [[WebViewController alloc]initWithWebNavigationAndURLString:urlStr];
-    [self.navigationController pushViewController:vc animated:YES];
-
+    return urlStr;
 }
 
 - (void)didReceiveMemoryWarning {
