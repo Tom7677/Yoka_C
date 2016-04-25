@@ -8,7 +8,13 @@
 
 #import "UIImage+Resize.h"
 #import <ImageIO/ImageIO.h>
+#import "Macro.h"
+#import "UIView+frame.h"
 
+@interface UIImage ()
+//@property(nonatomic,strong) UIView *bgView;
+
+@end
 @implementation UIImage (Resize)
 - (UIImage*)imageWithProportion:(CGSize)ProportionSize percent:(CGFloat)percent
 {
@@ -102,5 +108,41 @@
         return uiImage;
     }
     return nil;
+}
+
++ (void)fullDisplayImage:(UIImageView *)imageView
+{
+    imageView.userInteractionEnabled = YES;
+    imageView.tag = 2000;
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(showImage:)];
+    [imageView addGestureRecognizer:tapGesture];
+  
+}
+
++ (void)showImage:(UITapGestureRecognizer *)tap
+{
+    if (tap.view.tag == 2000) {
+        UIImageView *originImageView = (UIImageView *)tap.view;
+        UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, MainScreenWidth, MainScreenHeight)];
+        bgView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.9];
+        UIImageView *imageView  = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0,MainScreenWidth , MainScreenHeight)];
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        imageView.image = originImageView.image;
+        [bgView addSubview:imageView];
+        bgView.tag = 1000;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hideImage:)];
+        bgView.userInteractionEnabled = YES;
+        [bgView addGestureRecognizer:tap];
+        [[UIApplication sharedApplication].keyWindow addSubview:bgView];
+    }
+    
+}
+
++ (void)hideImage:(UITapGestureRecognizer *)tap
+{
+    if (tap.view.tag == 1000) {
+        UIView *view = (UIView *)tap.view;
+        [view removeFromSuperview];
+    }
 }
 @end

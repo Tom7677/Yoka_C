@@ -11,6 +11,7 @@
 #import "TZImagePickerController.h"
 #import "ChooseCityViewController.h"
 #import <UIImageView+WebCache.h>
+#import "UIImage+Resize.h"
 
 #define UploadMaxPictureNum 6
 @interface AddNewVoucherViewController ()<UITableViewDelegate,UITableViewDataSource,TZImagePickerControllerDelegate,PassValueDelegate>
@@ -101,6 +102,7 @@
         for (int i = 0; i < images.count; i ++) {
             UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake((15 + width) * i + 15, originY, width, width)];
             [imageView sd_setImageWithURL:[NSURL URLWithString:[imageUrl stringByAppendingString:images[i]]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                [UIImage fullDisplayImage:imageView];
                 NSInteger length = imageUrl.length;
                 NSString *imageUrl = [[imageURL absoluteString] substringFromIndex:length];
                 for (int j = 0; j < images.count; j ++) {
@@ -111,7 +113,7 @@
             }];
             UIButton *deleteBtn = [[UIButton alloc]initWithFrame:CGRectMake(imageView.originX + width - 10, originY - 10, 20, 20)];
             deleteBtn.tag = i + 1000;
-            deleteBtn.backgroundColor = [UIColor blackColor];
+            [deleteBtn setImage:[UIImage imageNamed:@"delete"] forState:UIControlStateNormal];
             [deleteBtn addTarget:self action:@selector(deleteAction:) forControlEvents:UIControlEventTouchUpInside];
             [_scrollView addSubview:imageView];
             [_scrollView addSubview:deleteBtn];
@@ -135,7 +137,7 @@
             }];
             UIButton *deleteBtn = [[UIButton alloc]initWithFrame:CGRectMake(imageView.originX + width - 10, originY - 10, 20, 20)];
             deleteBtn.tag = i + 1000;
-            deleteBtn.backgroundColor = [UIColor blackColor];
+            [deleteBtn setImage:[UIImage imageNamed:@"delete"] forState:UIControlStateNormal];
             [deleteBtn addTarget:self action:@selector(deleteAction:) forControlEvents:UIControlEventTouchUpInside];
             [_scrollView addSubview:imageView];
             [_scrollView addSubview:deleteBtn];
@@ -153,9 +155,10 @@
         for (int i = 0; i < _selectedPicArray.count; i ++) {
             UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake((15 + width) * i + 15, originY, width, width)];
             imageView.image = _selectedPicArray[i];
+            [UIImage fullDisplayImage:imageView];
             UIButton *deleteBtn = [[UIButton alloc]initWithFrame:CGRectMake(imageView.originX + width - 10, originY - 10, 20, 20)];
             deleteBtn.tag = i + 1000;
-            deleteBtn.backgroundColor = [UIColor blackColor];
+            [deleteBtn setImage:[UIImage imageNamed:@"delete"] forState:UIControlStateNormal];
             [deleteBtn addTarget:self action:@selector(deleteAction:) forControlEvents:UIControlEventTouchUpInside];
             [_scrollView addSubview:imageView];
             [_scrollView addSubview:deleteBtn];
@@ -169,9 +172,10 @@
         for (int i = 0; i < _selectedPicArray.count; i ++) {
             UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake((15 + width )*i + 15, originY, width, width)];
             imageView.image = _selectedPicArray[i];
+            [UIImage fullDisplayImage:imageView];
             UIButton *deleteBtn = [[UIButton alloc]initWithFrame:CGRectMake(imageView.originX + width - 10, originY - 10, 20, 20)];
             deleteBtn.tag = i + 1000;
-            deleteBtn.backgroundColor = [UIColor blackColor];
+            [deleteBtn setImage:[UIImage imageNamed:@"delete"] forState:UIControlStateNormal];
             [deleteBtn addTarget:self action:@selector(deleteAction:) forControlEvents:UIControlEventTouchUpInside];
             [_scrollView addSubview:imageView];
             [_scrollView addSubview:deleteBtn];

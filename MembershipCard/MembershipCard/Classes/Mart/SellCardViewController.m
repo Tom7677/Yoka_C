@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(releaseReload) name:@"ReloadReleaseNotification" object:nil];
-    self.title = @"已发布卡";
+    self.title = @"我的发布";
     _dataArray  = [[NSMutableArray alloc]init];
     
     UIButton *rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 60, 28)];

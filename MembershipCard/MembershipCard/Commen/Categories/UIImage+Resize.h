@@ -14,4 +14,5 @@
 - (UIImage*)imageWithMaxImagePix:(CGFloat)maxImagePix compressionQuality:(CGFloat)compressionQuality;
 - (UIImage *)croppedImage:(CGRect)bounds;
 + (UIImage *)thumbnailImageMaxPixelSize:(CGFloat)size forImageData:(NSData *)imageData;
++ (void)fullDisplayImage:(UIImageView *)imageView;
 @end

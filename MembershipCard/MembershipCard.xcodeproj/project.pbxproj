@@ -107,6 +107,9 @@
 		1ACFB9CF1C8EB8680083FD07 /* more2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFB9C91C8EB8680083FD07 /* more2@2x.png */; };
 		1ACFB9D01C8EB8680083FD07 /* more2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFB9CA1C8EB8680083FD07 /* more2@3x.png */; };
 		1AF6F2801CCDC258000DF151 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AF6F27F1CCDC258000DF151 /* WebViewController.xib */; };
+		1AF6F2901CCDF698000DF151 /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AF6F28D1CCDF698000DF151 /* delete.png */; };
+		1AF6F2911CCDF698000DF151 /* delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AF6F28E1CCDF698000DF151 /* delete@2x.png */; };
+		1AF6F2921CCDF698000DF151 /* delete@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AF6F28F1CCDF698000DF151 /* delete@3x.png */; };
 		1AF9C3E31C9E8EE200F6FBAE /* MyCardDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AF9C3E11C9E8EE200F6FBAE /* MyCardDetailViewController.m */; };
 		1AF9C3E41C9E8EE200F6FBAE /* MyCardDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AF9C3E21C9E8EE200F6FBAE /* MyCardDetailViewController.xib */; };
 		1AFED1B91C8F1D6E00415ABF /* wx.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFED1B61C8F1D6E00415ABF /* wx.png */; };
@@ -406,6 +409,9 @@
 		1ACFB9C91C8EB8680083FD07 /* more2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "more2@2x.png"; sourceTree = "<group>"; };
 		1ACFB9CA1C8EB8680083FD07 /* more2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "more2@3x.png"; sourceTree = "<group>"; };
 		1AF6F27F1CCDC258000DF151 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
+		1AF6F28D1CCDF698000DF151 /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
+		1AF6F28E1CCDF698000DF151 /* delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "delete@2x.png"; sourceTree = "<group>"; };
+		1AF6F28F1CCDF698000DF151 /* delete@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "delete@3x.png"; sourceTree = "<group>"; };
 		1AF9C3E01C9E8EE200F6FBAE /* MyCardDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCardDetailViewController.h; sourceTree = "<group>"; };
 		1AF9C3E11C9E8EE200F6FBAE /* MyCardDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCardDetailViewController.m; sourceTree = "<group>"; };
 		1AF9C3E21C9E8EE200F6FBAE /* MyCardDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCardDetailViewController.xib; sourceTree = "<group>"; };
@@ -753,6 +759,9 @@
 				2734769A1CB646CE00FAF042 /* selicon.png */,
 				2734769B1CB646CE00FAF042 /* selicon@2x.png */,
 				2734769C1CB646CE00FAF042 /* selicon@3x.png */,
+				1AF6F28D1CCDF698000DF151 /* delete.png */,
+				1AF6F28E1CCDF698000DF151 /* delete@2x.png */,
+				1AF6F28F1CCDF698000DF151 /* delete@3x.png */,
 			);
 			path = More;
 			sourceTree = "<group>";
@@ -1794,6 +1803,7 @@
 				1A1470A21C8D7CC5003A0616 /* addCard-scan.png in Resources */,
 				2734767C1CB5EB3F00FAF042 /* MMVideoPreviewPlay@2x.png in Resources */,
 				1ACFB9B71C8EACA20083FD07 /* tabbar_myCardBag@2x.png in Resources */,
+				1AF6F2911CCDF698000DF151 /* delete@2x.png in Resources */,
 				273476831CB5EB3F00FAF042 /* photo_original_sel@2x.png in Resources */,
 				E2BDB7B51C7B42E200274CE3 /* AddNewCardViewController.xib in Resources */,
 				1A5E77931CBB9FAD00C495EF /* web_like_selected@2x.png in Resources */,
@@ -1804,6 +1814,7 @@
 				1A5E77671CBB87C600C495EF /* web_share@3x.png in Resources */,
 				1AA63D121C9955A1000C0589 /* mjlogo_round.jpg in Resources */,
 				E202A9A21CCA5D24003E1960 /* launch@2x.png in Resources */,
+				1AF6F2901CCDF698000DF151 /* delete.png in Resources */,
 				E2BDB7C01C7B567B00274CE3 /* NotificationTableViewCell.xib in Resources */,
 				E2004C191C85E41400CDA2E7 /* YKMerchantsViewController.xib in Resources */,
 				1ACC386F1C9FC4DB00C9E837 /* ser-01@2x.png in Resources */,
@@ -1852,6 +1863,7 @@
 				1A5E77621CBB87C600C495EF /* web_refresh.png in Resources */,
 				1ACFB9AA1C8EACA20083FD07 /* tabbar_discovery.png in Resources */,
 				1A5E77921CBB9FAD00C495EF /* web_like_selected.png in Resources */,
+				1AF6F2921CCDF698000DF151 /* delete@3x.png in Resources */,
 				1A1470A31C8D7CC5003A0616 /* addCard-scan@2x.png in Resources */,
 				1ACFB9AF1C8EACA20083FD07 /* tabbar_more_selected@3x.png in Resources */,
 				1A4F32321CACE612001E4AFA /* share_pyq.png in Resources */,

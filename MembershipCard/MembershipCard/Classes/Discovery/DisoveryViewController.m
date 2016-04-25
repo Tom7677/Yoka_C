@@ -382,8 +382,8 @@
         height = height + 2 + 16;
         //8是contentLabel与detailsLabel间距
         height = height + 8 + [cell.contentLabel getTextHeight];
-        //8是阅读更多label与contentLabel间距 30是其高度，18是线的高度及阅读更多label与线间距的和
-        height = height + 8 + 30 + 18;
+        //8是阅读更多label与contentLabel间距 30是其高度，12是线的高度及阅读更多label与线间距的和
+        height = height + 8 + 30 + 12;
         return height;
     }
 }

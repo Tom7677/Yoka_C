@@ -27,7 +27,7 @@
                             <rect key="frame" x="0.0" y="418" width="320" height="150"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4bB-qJ-p30" userLabel="line">
-                                    <rect key="frame" x="15" y="30" width="297" height="1"/>
+                                    <rect key="frame" x="15" y="30" width="290" height="1"/>
                                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="YG9-7l-0Dr"/>
@@ -120,7 +120,7 @@
                                 <constraint firstItem="4bB-qJ-p30" firstAttribute="leading" secondItem="cQ0-0G-YoR" secondAttribute="leading" constant="15" id="0kE-xO-ycq"/>
                                 <constraint firstItem="Ilh-JS-sqR" firstAttribute="centerX" secondItem="cQ0-0G-YoR" secondAttribute="centerX" id="4Wf-bh-6QW"/>
                                 <constraint firstAttribute="trailing" secondItem="eVh-Pq-gEE" secondAttribute="trailing" constant="50" id="Ev8-62-S3n"/>
-                                <constraint firstAttribute="trailing" secondItem="4bB-qJ-p30" secondAttribute="trailing" constant="8" id="LPg-XY-Wvk"/>
+                                <constraint firstAttribute="trailing" secondItem="4bB-qJ-p30" secondAttribute="trailing" constant="15" id="LPg-XY-Wvk"/>
                                 <constraint firstItem="4bB-qJ-p30" firstAttribute="top" secondItem="cQ0-0G-YoR" secondAttribute="top" constant="30" id="Oqg-oy-phK"/>
                                 <constraint firstAttribute="height" constant="150" id="Rrc-An-sb9"/>
                                 <constraint firstItem="jA4-Ko-J8L" firstAttribute="top" secondItem="Ilh-JS-sqR" secondAttribute="bottom" constant="12" id="aPx-GH-ik7"/>

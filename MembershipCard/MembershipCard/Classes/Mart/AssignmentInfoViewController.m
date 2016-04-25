@@ -11,6 +11,7 @@
 #import "UILabel+caculateSize.h"
 #import <UIImageView+WebCache.h>
 #import "UIView+border.h"
+#import "UIImage+Resize.h"
 
 @interface AssignmentInfoViewController ()
 @property (nonatomic, copy) NSString *phoneNum;
@@ -90,11 +91,12 @@
 {
     [[_scrollView.subviews lastObject] removeFromSuperview];
     CGFloat width = (MainScreenWidth - 50) / 4;
-    CGFloat originY = (90 - width) / 2;
+    CGFloat originY = (100 - width) / 2;
     for (int i = 0; i < _model.images.count; i ++) {
         UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake((10 + width) * i + 10, originY, width, width)];
         [imageView sd_setImageWithURL:[NSURL URLWithString:[imageUrl stringByAppendingString:_model.images[i]]]];
         [_picScrollView addSubview:imageView];
+        [UIImage fullDisplayImage:imageView];
     }
     [_picScrollView setContentSize:CGSizeMake(_model.images.count * (width + 10) + 10, _picScrollView.height)];
 }
@@ -105,8 +107,8 @@
 }
 
 - (IBAction)callAction:(id)sender {
-    UIWebView *callWebView = [[UIWebView alloc]init];
-    [callWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_phoneNum]]];
-    [self.view addSubview:callWebView];
+    [self showConfirmAlertViewControllerWithTitle:@"确认拨打电话" andAction:^{
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",_model.mobile]]];
+    }];
 }
 @end

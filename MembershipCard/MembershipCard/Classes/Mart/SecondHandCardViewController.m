@@ -39,7 +39,7 @@
     
     UIButton *rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 60, 28)];
     rightBtn.titleLabel.font = [UIFont systemFontOfSize:14];
-    [rightBtn setTitle:@"发布" forState:UIControlStateNormal];
+    [rightBtn setTitle:@"我的发布" forState:UIControlStateNormal];
     rightBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
     [rightBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [rightBtn addTarget:self action:@selector(releaseAction) forControlEvents:UIControlEventTouchUpInside];

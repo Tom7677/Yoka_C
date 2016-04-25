@@ -20,17 +20,14 @@
 
 
 @property (strong, nonatomic) IBOutlet UIView *shareView;
-@property (weak, nonatomic) IBOutlet UIButton *shareToWXBtn;
-@property (weak, nonatomic) IBOutlet UIButton *shareToCircelBtn;
+
 @end
 
 @implementation ArticleViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [_shareToWXBtn circularBoarderBead:_shareToWXBtn.frame.size.width/2 withBoarder:1 color:[UIColor lightGrayColor]];
-    [_shareToCircelBtn circularBoarderBead:_shareToCircelBtn.frame.size.width/2 withBoarder:1 color:[UIColor lightGrayColor]];
-
+    _shareView.hidden = YES;
     NSMutableArray *tempArray = [NSMutableArray array];
     for (int i = 0; i < 3; i++) {
         TSImageLeftButton *btn = [[TSImageLeftButton alloc]initWithFrame:CGRectMake(0, 0, 60, 30)];

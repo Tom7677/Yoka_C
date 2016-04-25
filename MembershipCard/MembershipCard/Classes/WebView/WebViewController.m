@@ -11,8 +11,6 @@
 #import "WXApiObject.h"
 
 @interface WebViewController ()<UIWebViewDelegate>
-//@property (nonatomic, strong) UIWebView *webView;
-//@property (nonatomic, copy) NSString *titleString;
 @property (nonatomic, copy) NSString *urlStr;
 @property (strong, nonatomic) IBOutlet UIView *shareView;
 @end
