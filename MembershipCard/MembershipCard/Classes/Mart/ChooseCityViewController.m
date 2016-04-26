@@ -26,16 +26,16 @@
 
 - (void)getCityArray
 {
+    [self showHub];
     [[NetworkAPI shared]getCityListWithFinish:^(BOOL isSuccess, NSArray *cityArray) {
+        [self hideHub];
         if (isSuccess) {
             [_cityArray addObjectsFromArray:cityArray];
             [_tableView reloadData];
         }
     } withErrorBlock:^(NSError *error) {
+        [self hideHub];
         if (error.code == NSURLErrorNotConnectedToInternet) {
-            
-        }
-        else {
             
         }
     }];

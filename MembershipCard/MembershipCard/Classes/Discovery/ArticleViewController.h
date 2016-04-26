@@ -15,5 +15,6 @@
 @property(nonatomic,strong) NSString *articleTitle;
 @property(nonatomic,strong) NSString *articleContent;
 @property(nonatomic,strong) UIImage *coverImage;
+@property(nonatomic,strong) UIWebView *webView;
 
 @end

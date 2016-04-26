@@ -159,6 +159,7 @@
             }
             tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
                 [self refreshData];
+                [self hideHub];
             }];
             tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
                 [self loadMoreData];
@@ -170,10 +171,12 @@
 
 - (void)refreshData
 {
+    [self showHub];
     __weak SecondHandCardViewController *weakSelf = self;
     _page = 1;
     if (_index == 0) {
         [[NetworkAPI shared]getVoucherListByCatId:@"" page:_page WithFinish:^(NSArray *dataArray) {
+            [self hideHub];
             if (dataArray != nil) {
                 [_resultDic setObject:dataArray forKey:@"全部"];
                 [weakSelf.currentTableView reloadData];
@@ -186,7 +189,7 @@
             }
             [weakSelf.currentTableView.mj_header endRefreshing];
         } withErrorBlock:^(NSError *error) {
-            
+            [self hideHub];
         }];
     }
     else {
@@ -204,7 +207,7 @@
             }
             [weakSelf.currentTableView.mj_header endRefreshing];
         } withErrorBlock:^(NSError *error) {
-            
+            [self hideHub];
         }];
     }
 }

@@ -78,16 +78,19 @@
 - (void)webViewDidStartLoad:(UIWebView *)webView {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     self.navigationItem.title = @"载入中...";
+    [self showHub];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     self.navigationItem.title = [_webView stringByEvaluatingJavaScriptFromString:@"document.title"];
     [_webView stringByEvaluatingJavaScriptFromString:[[YZSDK sharedInstance] jsBridgeWhenWebDidLoad]];
+    [self hideHub];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    [self hideHub];
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {

@@ -66,7 +66,9 @@
 
 - (void)refreshView
 {
+    [self showHub];
     [[NetworkAPI shared]getVoucherInfoByVoucherId:_voucherId WithFinish:^(VoucherDetailModel *model) {
+        [self hideHub];
         _voucherDetailModel = model;
         _titleTextField.text = model.title;
         _priceTextField.text = model.price;
@@ -89,7 +91,7 @@
         _phoneTextField.text = model.mobile;
         [self refreshPicByImages:model.images];
     } withErrorBlock:^(NSError *error) {
-        
+        [self hideHub];
     }];
 }
 
@@ -335,8 +337,10 @@
     }
     ArticleTypeModel *model = _typeArray[_selectIndex];
     NSDictionary *dic = @{@"title":_titleTextField.text,@"price":_priceTextField.text,@"type":[NSNumber numberWithInteger:_infoType],@"content":_contentTextView.text,@"cat_id":model.cat_id,@"contact":_nameTextField.text,@"mobile":_phoneTextField.text,@"images":_selectedPicArray,@"city_id":_cityId,@"location":_areaTextField.text};
+    [self showHub];
     if (_voucherId == nil) {
         [[NetworkAPI shared]addVoucherWithInfo:dic WithFinish:^(BOOL isSuccess, NSString *msg) {
+            [self hideHub];
             if (isSuccess) {
                 [self.navigationController popViewControllerAnimated:YES];
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadReleaseNotification" object:self userInfo:nil];
@@ -345,11 +349,12 @@
                 [self showAlertViewController:msg];
             }
         } withErrorBlock:^(NSError *error) {
-            
+            [self hideHub];
         }];
     }
     else {
         [[NetworkAPI shared]editVoucherWithInfo:dic voucher_id:_voucherId WithFinish:^(BOOL isSuccess, NSString *msg) {
+            [self hideHub];
             if (isSuccess) {
                 [self.navigationController popViewControllerAnimated:YES];
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadReleaseNotification" object:self userInfo:nil];
@@ -358,7 +363,7 @@
                 [self showAlertViewController:msg];
             }
         } withErrorBlock:^(NSError *error) {
-            
+            [self hideHub];
         }];
     }
 }

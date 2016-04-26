@@ -35,13 +35,15 @@
 
 - (void)loadData
 {
+    [self showHub];
     [[NetworkAPI shared]getVoucherInfoByVoucherId:_voucher_id WithFinish:^(VoucherDetailModel *model) {
+        [self hideHub];
         if (model != nil) {
             _model = model;
             [self refreshViewByModel:model];
         }
     } withErrorBlock:^(NSError *error) {
-        
+        [self hideHub];
     }];
 }
 

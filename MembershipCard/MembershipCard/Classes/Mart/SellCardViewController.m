@@ -42,6 +42,7 @@
     _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         [self loadMoreData];
     }];
+    [self showHub];
     [self loadNewData];
     _tableView.mj_footer.hidden = YES;
     [_tableView setTableFooterView:[UIView new]];
@@ -61,6 +62,7 @@
 {
     _page = 1;
     [[NetworkAPI shared]getVoucherReleasedListByPage:_page WithFinish:^(NSArray *dataArray) {
+        [self hideHub];
         if (dataArray != nil) {
             [_dataArray removeAllObjects];
             [_dataArray addObjectsFromArray:dataArray];
@@ -74,7 +76,7 @@
         }
         [_tableView.mj_header endRefreshing];
     } withErrorBlock:^(NSError *error) {
-        
+        [self hideHub];
     }];
 }
 

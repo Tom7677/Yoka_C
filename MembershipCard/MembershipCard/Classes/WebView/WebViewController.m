@@ -115,6 +115,21 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    
+}
+
+#pragma mark - webview delegate
+- (void)webViewDidStartLoad:(UIWebView *)webView {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    [self showHub];
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    [self hideHub];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    [self hideHub];
 }
 @end

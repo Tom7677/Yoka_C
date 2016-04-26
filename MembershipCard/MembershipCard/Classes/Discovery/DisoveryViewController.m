@@ -83,7 +83,9 @@
  *  爆料
  */
 - (void)feedbackAction {
+    [self showHub];
     [[NetworkAPI shared]getFeedbackURLWithFinish:^(BOOL isSuccess, NSString *urlStr) {
+        [self hideHub];
         if (isSuccess) {
             WebViewController *vc = [[WebViewController alloc]initWithURLString:urlStr titleLabel:@"爆料"];
             vc.hidesBottomBarWhenPushed = YES;
@@ -92,6 +94,7 @@
             [self showAlertViewController:@"请检查您的网络"];
         }
     } withErrorBlock:^(NSError *error) {
+        [self hideHub];
         [self showAlertViewController:@"请检查您的网络"];
     }];
     [[UMengAnalyticsUtil shared]factBtn];
@@ -180,8 +183,10 @@
 {
     __weak DisoveryViewController *weakSelf = self;
     _page = 1;
+    [self showHub];
     if (_index == 0) {
         [[NetworkAPI shared]getTopArticleListByCity:_cityName page:_page WithFinish:^(NSArray *dataArray) {
+            [self hideHub];
             if (dataArray != nil) {
                 [_resultDic setObject:dataArray forKey:@"推荐"];
                 [weakSelf.currentTableView reloadData];
@@ -194,12 +199,13 @@
             }
             [weakSelf.currentTableView.mj_header endRefreshing];
         } withErrorBlock:^(NSError *error) {
-            
+            [self hideHub];
         }];
     }
     else {
         ArticleTypeModel *model = _typeArray[_index - 1];
         [[NetworkAPI shared]getArticleListByCatId:model.cat_id cityName:_cityName page:_page WithFinish:^(NSArray *dataArray) {
+            [self hideHub];
             if (dataArray != nil) {
                 [_resultDic setObject:dataArray forKey:model.cat_name];
                 [weakSelf.currentTableView reloadData];
@@ -212,7 +218,7 @@
             }
             [weakSelf.currentTableView.mj_header endRefreshing];
         } withErrorBlock:^(NSError *error) {
-            
+            [self hideHub];
         }];
     }
 }

@@ -18,7 +18,6 @@
 
 @interface ArticleViewController ()<UIWebViewDelegate,UIAlertViewDelegate>
 
-
 @property (strong, nonatomic) IBOutlet UIView *shareView;
 
 @end
@@ -52,10 +51,10 @@
         [tempArray addObject:item];
     }
     self.navigationItem.rightBarButtonItems = [tempArray copy];
-    UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, MainScreenWidth, MainScreenHeight - NavAndStatusBarHeight)];
-    [self.view addSubview:webView];
-    webView.delegate = self;
-    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.urlStr]]];
+    _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, MainScreenWidth, MainScreenHeight - NavAndStatusBarHeight)];
+    [self.view addSubview:_webView];
+    _webView.delegate = self;
+    [self loadRequestFromString:self.urlStr];
     _shareView.frame = CGRectMake(0, MainScreenHeight - 150 - NavAndStatusBarHeight, MainScreenWidth, 150);
     [self.view addSubview:_shareView];
     _shareView.hidden = YES;
@@ -72,6 +71,35 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)loadRequestFromString:(NSString*)urlString {
+    if ([urlString hasPrefix:@"http://detail.koudaitong.com/show/goods"]) {
+        CacheUserInfo *cacheModel = [CacheUserInfo sharedManage];
+        if(!cacheModel.isValid) {
+            YZUserModel *userModel = [CacheUserInfo getYZUserModelFromCacheUserModel:cacheModel];
+            [YZSDK registerYZUser:userModel callBack:^(NSString *message, BOOL isError) {
+                if(isError) {
+                    cacheModel.isValid = NO;
+                } else {
+                    cacheModel.isValid = YES;
+                    NSURL *url = [NSURL URLWithString:urlString];
+                    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+                    [_webView loadRequest:urlRequest];
+                }
+            }];
+        } else {
+            cacheModel.isValid = YES;
+            NSURL *url = [NSURL URLWithString:urlString];
+            NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+            [_webView loadRequest:urlRequest];
+        }
+    }
+    else {
+        NSURL *url = [NSURL URLWithString:urlString];
+        NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+        [_webView loadRequest:urlRequest];
+    }
 }
 
 - (IBAction)shareToWXAction:(id)sender {
@@ -119,13 +147,16 @@
 
 #pragma mark - UIWebViewDelegate
 -(void)webViewDidStartLoad:(UIWebView *)webView {
+    [self showHub];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 }
 -(void)webViewDidFinishLoad:(UIWebView *)webView {
+    [self hideHub];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     [webView stringByEvaluatingJavaScriptFromString:[[YZSDK sharedInstance] jsBridgeWhenWebDidLoad]];
 }
 -(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    [self hideHub];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }
 
@@ -134,7 +165,7 @@
     NSString *jsBridageString = [[YZSDK sharedInstance] parseYOUZANScheme:url];
     if(jsBridageString) {
         CacheUserInfo *cacheModel = [CacheUserInfo sharedManage];
-        if([jsBridageString isEqualToString:CHECK_LOGIN] && !cacheModel.isValid) {
+        if([jsBridageString isEqualToString:CHECK_LOGIN] && cacheModel.isValid) {
             if(cacheModel.isLogined) {
                 YZUserModel *userModel = [CacheUserInfo getYZUserModelFromCacheUserModel:cacheModel];
                 NSString *string = [[YZSDK sharedInstance] webUserInfoLogin:userModel];
