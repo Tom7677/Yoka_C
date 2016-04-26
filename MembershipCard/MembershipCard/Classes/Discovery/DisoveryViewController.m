@@ -326,6 +326,7 @@
         DiscoveryWithImageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentify"];
         cell.titleLabel.text = model.title;
         cell.contentLabel.text = model.preview;
+        [cell.contentLabel setTextLineSpacing:8 paragraphSpacing:16];
         cell.detailsLabel.text = [NSString stringWithFormat:@"阅读：%@   点赞：%@   分享：%@", model.read_num, model.like_num, model.share_num];
         [cell.coverImageView sd_setImageWithURL:[NSURL URLWithString:[imageUrl stringByAppendingString:model.image]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             [_imgDic setObject:image forKey:[imageURL description]];
@@ -387,7 +388,7 @@
         //2是detailsLabel与titleLabel间距 16是detailsLabel高
         height = height + 2 + 16;
         //8是contentLabel与detailsLabel间距
-        height = height + 8 + [cell.contentLabel getTextHeight];
+        height = height + 8 + [cell.contentLabel getTextHeightWithLineSpacing:8 paragraphSpacing:16];
         //8是阅读更多label与contentLabel间距 30是其高度，12是线的高度及阅读更多label与线间距的和
         height = height + 8 + 30 + 12;
         return height;
