@@ -27,7 +27,7 @@
     if (_cardIdFromBind) {
         self.title = @"绑定品牌商户";
     }else if (_electronicCard) {
-        self.title = @"添加无卡号会员卡";
+        self.title = @"添加电子卡";
     }else {
         self.title = @"添加新卡";
         UIButton *rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 60, 28)];
@@ -171,9 +171,9 @@
     return nil;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self showHub];
     BrandCardListModel *model = [[self getNameArraybyIndex:indexPath.section] objectAtIndex:indexPath.row];
     if (_electronicCard) {
+        [self showHub];
         NSString *phoneNumStr = [[NSUserDefaults standardUserDefaults] objectForKey:@"phoneNum"];
         [[NetworkAPI shared]addNewBrandCardByMerchantID:model.merchant_id cardNum: phoneNumStr WithFinish:^(BOOL isSuccess, NSString *msg) {
             [self hideHub];
@@ -197,6 +197,7 @@
                 [self showAlertViewController:msg];
             }
         } withErrorBlock:^(NSError *error) {
+            [self hideHub];
             [self showAlertViewController:@"无法连接网络"];
         }];
         return;

@@ -11,10 +11,6 @@
 #import "Macro.h"
 #import "UIView+frame.h"
 
-@interface UIImage ()
-//@property(nonatomic,strong) UIView *bgView;
-
-@end
 @implementation UIImage (Resize)
 - (UIImage*)imageWithProportion:(CGSize)ProportionSize percent:(CGFloat)percent
 {
@@ -124,7 +120,7 @@
     if (tap.view.tag == 2000) {
         UIImageView *originImageView = (UIImageView *)tap.view;
         UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, MainScreenWidth, MainScreenHeight)];
-        bgView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.9];
+        bgView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.8];
         UIImageView *imageView  = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0,MainScreenWidth , MainScreenHeight)];
         imageView.contentMode = UIViewContentModeScaleAspectFit;
         imageView.image = originImageView.image;

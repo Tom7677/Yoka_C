@@ -68,6 +68,9 @@
         }];
     }else {
         [self showHub];
+        if (!_cardNum) {
+            _type = @"";
+        }
         [[NetworkAPI shared] addNewNonBrandCardByMerchantName:_nameText.text cardNum:_cardNumText.text type:_type WithFinish:^(BOOL isSuccess, NSString *msg) {
             [self hideHub];
             if (isSuccess) {

@@ -24,6 +24,9 @@
 		1A344BF41C882DCD009F3FFC /* DisoveryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A344BF21C882DCD009F3FFC /* DisoveryViewController.xib */; };
 		1A344BFE1C884AA1009F3FFC /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A344BFC1C884AA1009F3FFC /* MoreViewController.m */; };
 		1A344BFF1C884AA1009F3FFC /* MoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A344BFD1C884AA1009F3FFC /* MoreViewController.xib */; };
+		1A382ED21CCF10FD0027EFCD /* addCard03.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A382ECF1CCF10FD0027EFCD /* addCard03.png */; };
+		1A382ED31CCF10FD0027EFCD /* addCard03@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A382ED01CCF10FD0027EFCD /* addCard03@2x.png */; };
+		1A382ED41CCF10FD0027EFCD /* addCard03@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A382ED11CCF10FD0027EFCD /* addCard03@3x.png */; };
 		1A4F32321CACE612001E4AFA /* share_pyq.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A4F322C1CACE612001E4AFA /* share_pyq.png */; };
 		1A4F32331CACE612001E4AFA /* share_pyq@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A4F322D1CACE612001E4AFA /* share_pyq@2x.png */; };
 		1A4F32341CACE612001E4AFA /* share_pyq@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A4F322E1CACE612001E4AFA /* share_pyq@3x.png */; };
@@ -323,6 +326,9 @@
 		1A344BFB1C884AA1009F3FFC /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
 		1A344BFC1C884AA1009F3FFC /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
 		1A344BFD1C884AA1009F3FFC /* MoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreViewController.xib; sourceTree = "<group>"; };
+		1A382ECF1CCF10FD0027EFCD /* addCard03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addCard03.png; sourceTree = "<group>"; };
+		1A382ED01CCF10FD0027EFCD /* addCard03@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addCard03@2x.png"; sourceTree = "<group>"; };
+		1A382ED11CCF10FD0027EFCD /* addCard03@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addCard03@3x.png"; sourceTree = "<group>"; };
 		1A4F322C1CACE612001E4AFA /* share_pyq.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share_pyq.png; sourceTree = "<group>"; };
 		1A4F322D1CACE612001E4AFA /* share_pyq@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_pyq@2x.png"; sourceTree = "<group>"; };
 		1A4F322E1CACE612001E4AFA /* share_pyq@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_pyq@3x.png"; sourceTree = "<group>"; };
@@ -923,6 +929,9 @@
 				1ACC38581C9FBC3500C9E837 /* guess.png */,
 				1ACC38591C9FBC3500C9E837 /* guess@2x.png */,
 				1ACC385A1C9FBC3500C9E837 /* guess@3x.png */,
+				1A382ECF1CCF10FD0027EFCD /* addCard03.png */,
+				1A382ED01CCF10FD0027EFCD /* addCard03@2x.png */,
+				1A382ED11CCF10FD0027EFCD /* addCard03@3x.png */,
 			);
 			path = AddCard;
 			sourceTree = "<group>";
@@ -1850,6 +1859,7 @@
 				1A344BFF1C884AA1009F3FFC /* MoreViewController.xib in Resources */,
 				276BBD1F1CACC12700CA392E /* VoucherListTableViewCell.xib in Resources */,
 				1ACC387A1C9FC4DB00C9E837 /* ser-05.png in Resources */,
+				1A382ED31CCF10FD0027EFCD /* addCard03@2x.png in Resources */,
 				1A5E77601CBB87C600C495EF /* web_close@2x.png in Resources */,
 				1A5E77661CBB87C600C495EF /* web_share@2x.png in Resources */,
 				1AA63D111C9955A1000C0589 /* mjlogo_rectangle.jpg in Resources */,
@@ -1868,6 +1878,7 @@
 				1ACFB9AF1C8EACA20083FD07 /* tabbar_more_selected@3x.png in Resources */,
 				1A4F32321CACE612001E4AFA /* share_pyq.png in Resources */,
 				273476811CB5EB3F00FAF042 /* photo_number_icon@2x.png in Resources */,
+				1A382ED21CCF10FD0027EFCD /* addCard03.png in Resources */,
 				E2004C141C85E3C200CDA2E7 /* VIPServiceTableViewController.xib in Resources */,
 				2734769D1CB646CE00FAF042 /* selicon_selected.png in Resources */,
 				1ACC38731C9FC4DB00C9E837 /* ser-02@3x.png in Resources */,
@@ -1880,6 +1891,7 @@
 				1A14709C1C8D7CC5003A0616 /* addCard-code.png in Resources */,
 				1ACC38781C9FC4DB00C9E837 /* ser-04@2x.png in Resources */,
 				E20788E41C7DF52800D59F63 /* read_me.txt in Resources */,
+				1A382ED41CCF10FD0027EFCD /* addCard03@3x.png in Resources */,
 				1A5E775F1CBB87C600C495EF /* web_close.png in Resources */,
 				1A1470A11C8D7CC5003A0616 /* addCard-menu@3x.png in Resources */,
 				E2FEE3C61C79F58B0079B824 /* MyCardBagViewController.xib in Resources */,
@@ -2216,7 +2228,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = launch;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Xiao Li (G968F2XEZ4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Xiao Li (G968F2XEZ4)";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MembershipCard/Info.plist;
@@ -2240,7 +2252,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = launch;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Yunsuo Information Technology (Shanghai) Co., Ltd. (CWPM78QMN6)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Yunsuo Information Technology (Shanghai) Co., Ltd. (CWPM78QMN6)";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MembershipCard/Info.plist;

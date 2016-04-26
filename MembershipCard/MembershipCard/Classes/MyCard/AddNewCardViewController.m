@@ -23,7 +23,7 @@
     self.title= @"添加新卡";
     _scrollView.showsVerticalScrollIndicator = NO;
     [_scrollView addSubview:_addNewCardView];
-    _addNewCardView.width = MainScreenWidth;
+//    _addNewCardView.width = MainScreenWidth;
     _scrollView.contentSize = CGSizeMake(MainScreenWidth, _addNewCardView.height);
 }
 

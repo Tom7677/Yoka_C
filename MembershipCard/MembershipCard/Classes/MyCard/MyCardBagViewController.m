@@ -103,7 +103,7 @@
 - (void)loadAd
 {
     NSString *adImageUrl = [[NSUserDefaults standardUserDefaults]objectForKey:@"adImageUrl"];
-    if (adImageUrl != nil /*&& ![adImageUrl isEqualToString:@""]*/) {
+    if (![self isEmpty:adImageUrl]) {
         _countTime = 5;
         _lunchView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, MainScreenWidth, MainScreenHeight)];
         _lunchView.backgroundColor = [UIColor whiteColor];
