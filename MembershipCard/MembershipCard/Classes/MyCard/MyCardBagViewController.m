@@ -24,6 +24,7 @@
 @property (assign, nonatomic) NSInteger countTime;
 @property (strong, nonatomic) UILabel *countLabel;
 @property (strong, nonatomic) NSMutableArray *cardIdArray;
+@property (strong, nonatomic) UILabel *noCardLabel;
 @end
 
 @implementation MyCardBagViewController
@@ -81,6 +82,16 @@
         [self hideHub];
         [_cardArray removeAllObjects];
         [_cardArray addObjectsFromArray:dataArray];
+        if (dataArray.count < 1) {
+            _noCardLabel = [[UILabel alloc]initWithFrame:CGRectMake((MainScreenWidth - 200) / 2, 100, 200, 30)];
+            _noCardLabel.textAlignment = NSTextAlignmentCenter;
+            _noCardLabel.font = [UIFont systemFontOfSize:14];
+            _noCardLabel.textColor = [UIColor lightGrayColor];
+            _noCardLabel.text = @"赶快添加你的第一张会员卡吧！";
+            [self.view insertSubview:_noCardLabel aboveSubview:_tableView];
+        }else {
+            [_noCardLabel removeFromSuperview];
+        }
         NSArray *cardIdArray = [[NSUserDefaults standardUserDefaults]objectForKey:@"cardId"];
         for (int i = 0 ; i < cardIdArray.count; i ++) {
             for (int j = 0; j < _cardArray.count; j ++) {
@@ -92,6 +103,7 @@
         }
         [_tableView reloadData];
         [_tableView.mj_header endRefreshing];
+        
     } withErrorBlock:^(NSError *error) {
         [self hideHub];
         if (error.code == NSURLErrorNotConnectedToInternet) {
@@ -99,7 +111,6 @@
         }
     }];
 }
-
 - (void)loadAd
 {
     NSString *adImageUrl = [[NSUserDefaults standardUserDefaults]objectForKey:@"adImageUrl"];

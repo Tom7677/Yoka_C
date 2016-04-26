@@ -62,7 +62,7 @@
         UIBezierPath *linePath = [UIBezierPath bezierPath];
         [path appendPath:[UIBezierPath bezierPathWithRect:_overView.frame]];
         CGPoint center = self.view.center;
-        _circularFrame = CGRectMake(center.x - _width / 2, center.y - _height / 2, _width, _height);
+        _circularFrame = CGRectMake(center.x - _width / 2, center.y - _height / 2 - 20, _width, _height);
         [path appendPath:[UIBezierPath bezierPathWithRoundedRect:_circularFrame cornerRadius:6].bezierPathByReversingPath];
         [linePath appendPath:[UIBezierPath bezierPathWithRoundedRect:_circularFrame cornerRadius:6]];
         CAShapeLayer *maskLayer = [CAShapeLayer layer];

@@ -11,7 +11,10 @@
 @implementation DiscoveryTableViewCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(13, self.frame.size.height - 1, [UIScreen mainScreen].bounds.size.width - 26, 0.5)];
+    lineView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
+    lineView.backgroundColor = [UIColor lightGrayColor];
+    [self addSubview:lineView];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

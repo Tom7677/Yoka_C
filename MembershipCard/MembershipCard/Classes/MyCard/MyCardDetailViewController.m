@@ -378,8 +378,8 @@
     [takePhoto sharePicture:NO sendPicture:^(UIImage *image) {
         ClipImageViewController *vc = [[ClipImageViewController alloc]init];
         vc.image = image;
-        vc.width = MainScreenWidth - 80;
-        vc.height = ((MainScreenWidth - 80) * 90)/ 135;
+        vc.width = MainScreenWidth - 40;
+        vc.height = ((MainScreenWidth - 40) * 55)/ 90;
         vc.isFront = YES;
         vc.delegate = self;
         vc.cardId = _model.card_id;
@@ -408,8 +408,8 @@
     [takePhoto sharePicture:NO sendPicture:^(UIImage *image) {
         ClipImageViewController *vc = [[ClipImageViewController alloc]init];
         vc.image = image;
-        vc.width = MainScreenWidth - 80;
-        vc.height = ((MainScreenWidth - 80) * 90)/ 135;
+        vc.width = MainScreenWidth - 40;
+        vc.height = ((MainScreenWidth - 40) * 55)/ 90;
         vc.isFront = NO;
         vc.delegate = self;
         vc.cardId = _model.card_id;

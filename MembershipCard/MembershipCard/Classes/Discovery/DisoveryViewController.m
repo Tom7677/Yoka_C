@@ -326,7 +326,7 @@
         DiscoveryWithImageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentify"];
         cell.titleLabel.text = model.title;
         cell.contentLabel.text = model.preview;
-        [cell.contentLabel setTextLineSpacing:8 paragraphSpacing:16];
+        [cell.contentLabel setTextLineSpacing:4 paragraphSpacing:0];
         cell.detailsLabel.text = [NSString stringWithFormat:@"阅读：%@   点赞：%@   分享：%@", model.read_num, model.like_num, model.share_num];
         [cell.coverImageView sd_setImageWithURL:[NSURL URLWithString:[imageUrl stringByAppendingString:model.image]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             [_imgDic setObject:image forKey:[imageURL description]];
@@ -379,18 +379,18 @@
         cell.titleLabel.width = MainScreenWidth - 20;
         cell.contentLabel.text = model.preview;
         cell.contentLabel.width = MainScreenWidth - 20;
-        //12是coverImageView距离cell顶部距离
-        CGFloat height = 12;
-        //133是屏幕宽为320情况下coverImageView高 300是宽
-        height = height + 133 * (MainScreenWidth - 20) / 300;
-        //18是titleLabel与coverImageView间距
-        height = height + [cell.titleLabel getTextHeight] + 18;
+        //14是coverImageView距离cell顶部距离
+        CGFloat height = 14;
+        //150是屏幕宽为320情况下coverImageView高 300是宽
+        height = height + 150 * (MainScreenWidth - 20) / 300;
+        //14是titleLabel与coverImageView间距
+        height = height + [cell.titleLabel getTextHeight] + 14;
         //2是detailsLabel与titleLabel间距 16是detailsLabel高
         height = height + 2 + 16;
         //8是contentLabel与detailsLabel间距
-        height = height + 8 + [cell.contentLabel getTextHeightWithLineSpacing:8 paragraphSpacing:16];
-        //8是阅读更多label与contentLabel间距 30是其高度，12是线的高度及阅读更多label与线间距的和
-        height = height + 8 + 30 + 12;
+        height = height + 8 + [cell.contentLabel getTextHeightWithLineSpacing:4 paragraphSpacing:0];
+        //12是阅读更多label与contentLabel间距 30是其高度，12是线的高度及阅读更多label与线间距的和
+        height = height + 12 + 30 + 12;
         return height;
     }
 }

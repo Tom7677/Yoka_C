@@ -181,6 +181,14 @@
                 [_resultDic setObject:dataArray forKey:@"全部"];
                 [weakSelf.currentTableView reloadData];
             }
+            else {
+                UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake((MainScreenWidth - 200) / 2, 100, 200, 30)];
+                label.textAlignment = NSTextAlignmentCenter;
+                label.font = [UIFont systemFontOfSize:14];
+                label.textColor = [UIColor lightGrayColor];
+                label.text = @"暂无卡券信息";
+                [weakSelf.currentTableView addSubview:label];
+            }
             if (dataArray.count >= pageSize) {
                 weakSelf.currentTableView.mj_footer.hidden = NO;
             }
@@ -195,9 +203,19 @@
     else {
         ArticleTypeModel *model = _typeArray[_index - 1];
         [[NetworkAPI shared]getVoucherListByCatId:model.cat_id page:_page WithFinish:^(NSArray *dataArray) {
+            [self hideHub];
             if (dataArray != nil) {
                 [_resultDic setObject:dataArray forKey:model.cat_name];
                 [weakSelf.currentTableView reloadData];
+            }
+            else {
+                UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake((MainScreenWidth - 200) / 2, 100, 200, 30)];
+                label.textAlignment = NSTextAlignmentCenter;
+                label.font = [UIFont systemFontOfSize:14];
+                label.textColor = [UIColor lightGrayColor];
+                label.text = @"此分类暂无卡券信息";
+                [weakSelf.currentTableView addSubview:label];
+
             }
             if (dataArray.count >= pageSize) {
                 weakSelf.currentTableView.mj_footer.hidden = NO;
@@ -345,7 +363,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 76;
+    return 82;
 }
 
 #pragma mark - UIScrollViewDelegate

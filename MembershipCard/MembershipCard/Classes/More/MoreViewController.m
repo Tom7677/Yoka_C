@@ -23,12 +23,17 @@
 @interface MoreViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *cityLabel;
 @property (copy, nonatomic) NSString *shareUrl;
+@property (weak, nonatomic) IBOutlet UIView *bgBlackView;
 @end
 
 @implementation MoreViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hideImage)];
+    _bgBlackView.userInteractionEnabled = YES;
+    [_bgBlackView addGestureRecognizer:tap];
+    
     self.title = @"更多";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ChangeNameNotification) name:@"ChangeNameNotification" object:nil];
     UIButton *rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 30, 30)];
@@ -49,6 +54,10 @@
     } withErrorBlock:^(NSError *error) {
         
     }];
+}
+
+- (void)hideImage {
+    [_shareView removeFromSuperview];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -135,8 +144,7 @@
         //推荐APP分享到微信
         [[UMengAnalyticsUtil shared]shareApp];
         if (![self isEmpty:_shareUrl]) {
-            _shareView.originY = MainScreenHeight - _shareView.height;
-            _shareView.width = MainScreenWidth;
+            _shareView.frame = [UIScreen mainScreen].bounds;
             [[UIApplication sharedApplication].keyWindow addSubview:_shareView];
         }
     }

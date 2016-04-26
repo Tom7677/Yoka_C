@@ -73,15 +73,18 @@
 
 - (void)clearBtnAction
 {
-    [[UMengAnalyticsUtil shared]clearNotice];
-    [[NetworkAPI shared] clearNoticeWithFinish:^(NSString *msg, BOOL isSuccess) {
-        if (isSuccess) {
-            [_resultArray removeAllObjects];
-            [_tableView reloadData];
-        }
-    } withErrorBlock:^(NSError *error) {
-        
+    [self showConfirmAlertViewControllerWithTitle:@"是否清空" andAction:^{
+        [[UMengAnalyticsUtil shared]clearNotice];
+        [[NetworkAPI shared] clearNoticeWithFinish:^(NSString *msg, BOOL isSuccess) {
+            if (isSuccess) {
+                [_resultArray removeAllObjects];
+                [_tableView reloadData];
+            }
+        } withErrorBlock:^(NSError *error) {
+            
+        }];
     }];
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -119,14 +122,16 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NoticeModel *model = _resultArray[indexPath.row];
-        [[NetworkAPI shared]deleteNoticeWithMessageId:model.message_id WithFinish:^(NSString *msg, BOOL isSuccess) {
-            if (isSuccess) {
-                [_resultArray removeObjectAtIndex:indexPath.row];
-                [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
-            }
-        } withErrorBlock:^(NSError *error) {
-            
+        [self showConfirmAlertViewControllerWithTitle:@"是否删除" andAction:^{
+            NoticeModel *model = _resultArray[indexPath.row];
+            [[NetworkAPI shared]deleteNoticeWithMessageId:model.message_id WithFinish:^(NSString *msg, BOOL isSuccess) {
+                if (isSuccess) {
+                    [_resultArray removeObjectAtIndex:indexPath.row];
+                    [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
+                }
+            } withErrorBlock:^(NSError *error) {
+                
+            }];
         }];
     }
 }
