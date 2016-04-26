@@ -16,6 +16,13 @@
     _moreLabel.textColor = UIColorFromRGB(0xFF526E);
     _moreLabel.layer.borderWidth = 1;
     _moreLabel.layer.borderColor = [UIColorFromRGB(0xFF526E) CGColor];
+    //调节contentLabel行间距
+    NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc]initWithString:_contentLabel.text];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init];
+    [paragraphStyle setLineSpacing:15];
+    [attributedStr addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, _contentLabel.text.length)];
+    _contentLabel.attributedText = attributedStr;
+    [_contentLabel sizeToFit];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
