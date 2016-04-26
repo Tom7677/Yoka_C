@@ -9,6 +9,8 @@
 #import "WebViewController.h"
 #import "WXApi.h"
 #import "WXApiObject.h"
+#import "YZSDK.h"
+#import "CacheUserInfo.h"
 
 @interface WebViewController ()<UIWebViewDelegate>
 @property (nonatomic, copy) NSString *urlStr;
@@ -38,6 +40,35 @@
     _webView.scrollView.bounces = YES;
     _webView.scalesPageToFit = YES;
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_urlStr]]];
+}
+
+- (void)loadRequestFromString:(NSString*)urlString {
+    if ([urlString hasPrefix:@"http://detail.koudaitong.com/show/goods"]) {
+        CacheUserInfo *cacheModel = [CacheUserInfo sharedManage];
+        if(!cacheModel.isValid) {
+            YZUserModel *userModel = [CacheUserInfo getYZUserModelFromCacheUserModel:cacheModel];
+            [YZSDK registerYZUser:userModel callBack:^(NSString *message, BOOL isError) {
+                if(isError) {
+                    cacheModel.isValid = NO;
+                } else {
+                    cacheModel.isValid = YES;
+                    NSURL *url = [NSURL URLWithString:urlString];
+                    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+                    [_webView loadRequest:urlRequest];
+                }
+            }];
+        } else {
+            cacheModel.isValid = YES;
+            NSURL *url = [NSURL URLWithString:urlString];
+            NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+            [_webView loadRequest:urlRequest];
+        }
+    }
+    else {
+        NSURL *url = [NSURL URLWithString:urlString];
+        NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+        [_webView loadRequest:urlRequest];
+    }
 }
 
 - (instancetype)initWithWebNavigationAndURLString:(NSString *)urlStr {
@@ -131,5 +162,22 @@
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     [self hideHub];
+}
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    NSURL *url = [request URL];
+    NSString *jsBridageString = [[YZSDK sharedInstance] parseYOUZANScheme:url];
+    if(jsBridageString) {
+        CacheUserInfo *cacheModel = [CacheUserInfo sharedManage];
+        if([jsBridageString isEqualToString:CHECK_LOGIN] && cacheModel.isValid) {
+            if(cacheModel.isLogined) {
+                YZUserModel *userModel = [CacheUserInfo getYZUserModelFromCacheUserModel:cacheModel];
+                NSString *string = [[YZSDK sharedInstance] webUserInfoLogin:userModel];
+                [webView stringByEvaluatingJavaScriptFromString:string];
+                return YES;
+            }
+        }
+    }
+    return YES;
 }
 @end
