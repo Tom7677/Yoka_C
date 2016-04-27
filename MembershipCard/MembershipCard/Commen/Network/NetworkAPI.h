@@ -213,7 +213,7 @@ static NSInteger pageSize = 20;
  *
  *  @param merchantId 品牌ID
  */
-- (NSString *)getQuickLoginYSAccountLinkUrlWithMerchantId:(NSString *)merchantId;
+- (void)getQuickLoginYSAccountLinkUrlWithMerchantId:(NSString *)merchantId WithFinish:(void(^)(BOOL isSuccess, NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 
 #pragma mark 发现
 

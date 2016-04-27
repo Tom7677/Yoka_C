@@ -170,12 +170,23 @@
 - (void)serviceButtonClick:(MidImageLeftButton *)sender {
     NSString *urlStr = [self getServiceUrlLink:sender];
     if (sender.tag == 1 && [urlStr rangeOfString:imageUrl].location != NSNotFound) {
-        urlStr = [[NetworkAPI shared]getQuickLoginYSAccountLinkUrlWithMerchantId:_merchantId];
+        [self showHub];
+        [[NetworkAPI shared]getQuickLoginYSAccountLinkUrlWithMerchantId:_merchantId WithFinish:^(BOOL isSuccess, NSString *msg) {
+            [self hideHub];
+            if (isSuccess) {
+                WebViewController *vc = [[WebViewController alloc]initWithWebNavigationAndURLString:msg];
+                [self.navigationController pushViewController:vc animated:YES];
+            }else {
+                [self showAlertViewController:msg];
+            }
+        } withErrorBlock:^(NSError *error) {
+            [self hideHub];
+            [self showAlertViewController:@"您无法连接到网络，请确认网络连接。"];
+        }];
+    }else {
+        WebViewController *vc = [[WebViewController alloc]initWithWebNavigationAndURLString:urlStr];
+        [self.navigationController pushViewController:vc animated:YES];
     }
-    NSLog(@"%@", urlStr);
-    WebViewController *vc = [[WebViewController alloc]initWithWebNavigationAndURLString:urlStr];
-    [self.navigationController pushViewController:vc animated:YES];
-    
 }
 
 - (NSString *)getServiceUrlLink:(MidImageLeftButton *)btn {

@@ -492,9 +492,22 @@
     }];
 }
 
-- (NSString *)getQuickLoginYSAccountLinkUrlWithMerchantId:(NSString *)merchantId{
-    NSString *urlStr = [NSString stringWithFormat:@"%@/YunSuoClient/User/quick_login?token=%@&merchant_id=%@", imageUrl, [self getAccessToken], merchantId];
-    return urlStr;
+- (void)getQuickLoginYSAccountLinkUrlWithMerchantId:(NSString *)merchantId WithFinish:(void(^)(BOOL isSuccess, NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock{
+    NSString *urlStr = [imageUrl stringByAppendingString:@"/YunSuoClient/User/quick_login"];
+    NSDictionary *param = @{@"token":[self getAccessToken],@"merchant_id":merchantId};
+    NSLog(@"%@",urlStr);
+    NSLog(@"%@", param);
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:urlStr parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject[@"status"] integerValue] == 1) {
+            block(YES, urlStr);
+        }else {
+            block(NO, responseObject[@"msg"]);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        errorBlock(error);
+    }];
+
 }
 
 #pragma mark Discovery
