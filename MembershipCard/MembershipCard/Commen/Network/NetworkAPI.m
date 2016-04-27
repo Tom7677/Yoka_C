@@ -492,6 +492,11 @@
     }];
 }
 
+- (NSString *)getQuickLoginYSAccountLinkUrlWithMerchantId:(NSString *)merchantId{
+    NSString *urlStr = [NSString stringWithFormat:@"%@/YunSuoClient/User/quick_login?token=%@&merchant_id=%@", imageUrl, [self getAccessToken], merchantId];
+    return urlStr;
+}
+
 #pragma mark Discovery
 
 - (void)getArticleTypeWithFinish:(void(^)(NSArray *dataArray))block withErrorBlock:(void(^)(NSError *error)) errorBlock

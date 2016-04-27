@@ -31,7 +31,7 @@
 @property (nonatomic, strong) NSDictionary *cardInfo;
 @property (nonatomic, assign) CGFloat value;
 @property (nonatomic, strong) UIView *bgView;
-//@property (nonatomic, strong) NSString *serviceUrl;
+@property (nonatomic, strong) NSString *merchantId;
 @end
 
 @implementation MyCardDetailViewController
@@ -110,6 +110,7 @@
     [[NetworkAPI shared]getMyCardInfoByCardId:_model.card_id WithFinish:^(CardInfoModel *model) {
         [self hideHub];
         _cardInfo = model.merchant_info;
+        _merchantId = model.merchant_id;
         [self showViewByModel:model];
         if (![model.merchant_id isEqualToString:@"0"]) {
             _bindBrandBtn.hidden = YES;
@@ -142,7 +143,7 @@
     for (int i = 0; i < titleArray.count; i++) {
         MidImageLeftButton *button = [[MidImageLeftButton alloc]initWithFrame: CGRectMake(15, (10 + 60) * j + 20, MainScreenWidth - 30, 60)];
         button.backgroundColor = [UIColor colorWithWhite:0.96 alpha:1];
-        button.tag = i;
+        button.tag = i + 1;
         [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"ser-0%d", i + 1]] forState:UIControlStateNormal];
         [button setTitle:titleArray[i] forState:UIControlStateNormal];
         [button setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
@@ -168,27 +169,34 @@
 
 - (void)serviceButtonClick:(MidImageLeftButton *)sender {
     NSString *urlStr = [self getServiceUrlLink:sender];
+    if (sender.tag == 1 && [urlStr rangeOfString:imageUrl].location != NSNotFound) {
+        urlStr = [[NetworkAPI shared]getQuickLoginYSAccountLinkUrlWithMerchantId:_merchantId];
+    }
+    NSLog(@"%@", urlStr);
     WebViewController *vc = [[WebViewController alloc]initWithWebNavigationAndURLString:urlStr];
     [self.navigationController pushViewController:vc animated:YES];
+    
 }
 
 - (NSString *)getServiceUrlLink:(MidImageLeftButton *)btn {
     NSString *urlStr;
     switch (btn.tag) {
-        case 0:
+        case 1:
             urlStr = _cardInfo[@"account_value"];
             break;
-        case 1:
+        case 2:
             urlStr = _cardInfo[@"announcement"];
             break;
-        case 2:
+        case 3:
             urlStr = _cardInfo[@"website"];
             break;
-        case 3:
+        case 4:
             urlStr = _cardInfo[@"activities"];
             break;
-        default:
+        case 5:
             urlStr = _cardInfo[@"estore"];
+            break;
+        default:
             break;
     }
     return urlStr;
@@ -356,15 +364,17 @@
  */
 - (IBAction)deleteBtnAction:(id)sender {
     [self showConfirmAlertViewControllerWithTitle:@"确认删除" andAction:^{
+        [self showHub];
         [[UMengAnalyticsUtil shared]deleteCardByMerchantsName:_model.name];
         [[NetworkAPI shared]deleteCardByCardId:_model.card_id WithFinish:^(BOOL isSuccess, NSString *msg) {
+             [self hideHub];
             if (isSuccess) {
                 [self.navigationController popToRootViewControllerAnimated:YES];
             }else {
                 [self showAlertViewController:msg];
             }
         } withErrorBlock:^(NSError *error) {
-            
+            [self hideHub];
         }];
     }];
 }

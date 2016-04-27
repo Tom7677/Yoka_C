@@ -13,6 +13,7 @@
 static NSString* hostUrl = @"http://www.51mumaren.com:8080/index.php/Client/";
 static NSString* imageUrl = @"http://www.51mumaren.com:8080";
 static NSInteger pageSize = 20;
+
 @interface NetworkAPI : NSObject
 + (NetworkAPI *)shared;
 
@@ -206,6 +207,13 @@ static NSInteger pageSize = 20;
  *  @param errorBlock errorBlock description
  */
 - (void)bindBrandCardWithCardId:(NSString *)cardId AndMerchantId:(NSString *)merchantId WithFinish:(void(^)(BOOL isSuccess, NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+
+/*!
+ *  @brief  获取快速登录云所商户C端查询卡值链接地址
+ *
+ *  @param merchantId 品牌ID
+ */
+- (NSString *)getQuickLoginYSAccountLinkUrlWithMerchantId:(NSString *)merchantId;
 
 #pragma mark 发现
 
