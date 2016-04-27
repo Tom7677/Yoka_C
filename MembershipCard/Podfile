@@ -5,3 +5,4 @@ pod 'ZXingObjC', '~> 3.0'
 pod 'TPKeyboardAvoiding', '~> 1.2.6'
 pod 'UMengAnalytics'
 pod 'MBProgressHUD', '~> 0.9.1’
+pod 'YYCache'

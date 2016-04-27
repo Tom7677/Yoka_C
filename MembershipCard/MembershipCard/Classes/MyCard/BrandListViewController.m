@@ -11,6 +11,7 @@
 #import "BrandListTableViewCell.h"
 #import "QRViewController.h"
 #import "InputCardViewController.h"
+#import "ModelCache.h"
 
 @interface BrandListViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) NSMutableArray *itemsArray;
@@ -52,6 +53,12 @@
     [self.searchDisplayController.searchResultsTableView registerNib:[UINib nibWithNibName:@"BrandListTableViewCell" bundle:nil] forCellReuseIdentifier:@"cellIdentifier"];
     self.searchDisplayController.searchResultsTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self loadData];
+    if ([[ModelCache shared] containsObjectForKey:@"brandList"]) {
+        [_itemsArray addObjectsFromArray:(NSArray *)[[ModelCache shared] readValueByKey:@"brandList"]];
+        [self getDic:self.itemsArray];
+        _initialArray = [[_dataDic allKeys] sortedArrayUsingSelector:@selector(compare:)];
+        [_tableView reloadData];
+    }
 }
 
 - (void)loadData
@@ -59,7 +66,9 @@
     [self showHub];
     [[NetworkAPI shared]getMerchantListWithFinish:^(NSArray *dataArray) {
         [self hideHub];
+        [self.itemsArray removeAllObjects];
         [self.itemsArray addObjectsFromArray:dataArray];
+        [[ModelCache shared] saveValue:dataArray forKey:@"brandList"];
         [self getDic:self.itemsArray];
         _initialArray = [[_dataDic allKeys] sortedArrayUsingSelector:@selector(compare:)];
         [_tableView reloadData];

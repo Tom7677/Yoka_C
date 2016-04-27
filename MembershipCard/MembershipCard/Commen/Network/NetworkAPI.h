@@ -208,12 +208,23 @@ static NSInteger pageSize = 20;
  */
 - (void)bindBrandCardWithCardId:(NSString *)cardId AndMerchantId:(NSString *)merchantId WithFinish:(void(^)(BOOL isSuccess, NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
 
-/*!
- *  @brief  获取快速登录云所商户C端查询卡值链接地址
+/**
+ *  获取快速登录云所商户C端查询卡值链接地址
  *
  *  @param merchantId 品牌ID
+ *
+ *  @return 链接地址
  */
-- (void)getQuickLoginYSAccountLinkUrlWithMerchantId:(NSString *)merchantId WithFinish:(void(^)(BOOL isSuccess, NSString *msg))block withErrorBlock:(void(^)(NSError *error)) errorBlock;
+- (NSString *)getQuickLoginYSAccountLinkUrlWithMerchantId:(NSString *)merchantId;
+
+/**
+ *  获取快速登录查看公告
+ *
+ *  @param merchantId 品牌ID
+ *
+ *  @return 链接地址
+ */
+- (NSString *)getQuickLoginYSNoticeLinkUrlWithMerchantId:(NSString *)merchantId;
 
 #pragma mark 发现
 

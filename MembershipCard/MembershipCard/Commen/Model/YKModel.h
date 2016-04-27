@@ -76,7 +76,7 @@
 @end
 
 /** 品牌列表模型 */
-@interface BrandCardListModel : NSObject
+@interface BrandCardListModel : NSObject <NSCoding>
 @property(nonatomic,strong) NSString *merchant_id; //商户ID
 @property(nonatomic,strong) NSString *name;//商户名称
 @property(nonatomic,strong) NSString *f_logo;//方logo

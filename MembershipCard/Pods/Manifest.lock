@@ -26,6 +26,7 @@ PODS:
   - SDWebImage/Core (3.7.2)
   - TPKeyboardAvoiding (1.2.6)
   - UMengAnalytics (3.5.8)
+  - YYCache (0.9.5)
   - ZXingObjC (3.1.0):
     - ZXingObjC/All (= 3.1.0)
   - ZXingObjC/All (3.1.0)
@@ -36,6 +37,7 @@ DEPENDENCIES:
   - SDWebImage (~> 3.7)
   - TPKeyboardAvoiding (~> 1.2.6)
   - UMengAnalytics
+  - YYCache
   - ZXingObjC (~> 3.0)
 
 SPEC CHECKSUMS:
@@ -44,6 +46,7 @@ SPEC CHECKSUMS:
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
   TPKeyboardAvoiding: ee4dd35e3bb7bb64bfbda47e7cc9ba872ff10f77
   UMengAnalytics: 020551718ba37da017bd85ac4c38ffba2774f3ce
+  YYCache: 3ddcc49c387655f077c4e1b3708ed5ed71c79be2
   ZXingObjC: bf15b3814f7a105b6d99f47da2333c93a063650a
 
 COCOAPODS: 0.39.0

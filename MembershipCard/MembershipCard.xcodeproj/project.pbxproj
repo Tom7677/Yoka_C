@@ -237,6 +237,7 @@
 		E20788EA1C7DF75E00D59F63 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E20788E91C7DF75E00D59F63 /* libsqlite3.0.tbd */; };
 		E20788EC1C7DF76A00D59F63 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E20788EB1C7DF76A00D59F63 /* libc++.tbd */; };
 		E20788EE1C7DF87500D59F63 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E20788ED1C7DF87500D59F63 /* CoreTelephony.framework */; };
+		E20850F41CD110F1005D5D96 /* ModelCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E20850F31CD110F1005D5D96 /* ModelCache.m */; };
 		E249839A1C8BD0E9005B77A8 /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = E24983991C8BD0E9005B77A8 /* UINavigationController+FDFullscreenPopGesture.m */; };
 		E24983A01C8BD6D3005B77A8 /* TSImageLeftButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E249839F1C8BD6D3005B77A8 /* TSImageLeftButton.m */; };
 		E24983A61C8C27BA005B77A8 /* icon_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E24983A41C8C27BA005B77A8 /* icon_logo.png */; };
@@ -613,6 +614,8 @@
 		E20788E91C7DF75E00D59F63 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		E20788EB1C7DF76A00D59F63 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		E20788ED1C7DF87500D59F63 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		E20850F21CD110F1005D5D96 /* ModelCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelCache.h; sourceTree = "<group>"; };
+		E20850F31CD110F1005D5D96 /* ModelCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelCache.m; sourceTree = "<group>"; };
 		E24497A91C7A0A4200E60392 /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
 		E24983981C8BD0E9005B77A8 /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
 		E24983991C8BD0E9005B77A8 /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
@@ -1197,6 +1200,15 @@
 			path = weixinSDK1.6.2;
 			sourceTree = "<group>";
 		};
+		E20850F11CD11077005D5D96 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				E20850F21CD110F1005D5D96 /* ModelCache.h */,
+				E20850F31CD110F1005D5D96 /* ModelCache.m */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
 		E24497A81C7A09FC00E60392 /* Macro */ = {
 			isa = PBXGroup;
 			children = (
@@ -1532,6 +1544,7 @@
 		E2FEE3AB1C79F2620079B824 /* Commen */ = {
 			isa = PBXGroup;
 			children = (
+				E20850F11CD11077005D5D96 /* Cache */,
 				E2FEE3AC1C79F2620079B824 /* Categories */,
 				E2FEE3AD1C79F2620079B824 /* Model */,
 				E2FEE3AE1C79F2620079B824 /* Network */,
@@ -2003,6 +2016,7 @@
 				27D39A4B1C92AC5D00A3F3C3 /* MJRefreshComponent.m in Sources */,
 				27512FE01CAA054300BCADA1 /* MJPropertyType.m in Sources */,
 				27D39A4E1C92AC5D00A3F3C3 /* MJRefreshAutoGifFooter.m in Sources */,
+				E20850F41CD110F1005D5D96 /* ModelCache.m in Sources */,
 				27D39A501C92AC5D00A3F3C3 /* MJRefreshAutoStateFooter.m in Sources */,
 				1A344BF31C882DCD009F3FFC /* DisoveryViewController.m in Sources */,
 				27512FE11CAA054300BCADA1 /* NSObject+MJClass.m in Sources */,
