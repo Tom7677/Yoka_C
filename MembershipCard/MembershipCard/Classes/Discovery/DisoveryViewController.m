@@ -37,6 +37,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _resultDic = [[NSMutableDictionary alloc]init];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeNameNotification) name:@"ChangeNameNotification" object:nil];
     _index = 0;
     self.title = @"发现";
@@ -53,7 +54,6 @@
     [self.navigationItem setRightBarButtonItem:leftItem];
     [self getType];
     _contentScrollView.delegate = self;
-    _resultDic = [[NSMutableDictionary alloc]init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -136,12 +136,7 @@
         btn.titleLabel.font = [UIFont systemFontOfSize:14];
         btn.tag = i + 1;
         [btn addTarget:self action:@selector(actionbtn:) forControlEvents:UIControlEventTouchUpInside];
-        
-        //通知主线程刷新
-        dispatch_async(dispatch_get_main_queue(), ^{
-            //回调或者说是通知主线程刷新，
-            [_typeScrollView addSubview:btn];
-        });
+        [_typeScrollView addSubview:btn];
     }
     [_typeScrollView setContentSize:CGSizeMake(_btnWidth * (_typeArray.count + 1) + 40, _typeScrollView.height)];
     _scrollBgView = [[UIView alloc] initWithFrame:CGRectMake((_btnWidth - LINE_WIDTH) / 2 + 20, _typeScrollView.height - 4, LINE_WIDTH, 10)];
@@ -193,8 +188,10 @@
     _page = 1;
     [self showHub];
     if (_index == 0) {
-        [_resultDic setObject:[[ModelCache shared]readValueByKey:@"推荐"] forKey:@"推荐"];
-        [weakSelf.currentTableView reloadData];
+        if ([[ModelCache shared] containsObjectForKey:@"推荐"]) {
+            [_resultDic setObject:[[ModelCache shared]readValueByKey:@"推荐"] forKey:@"推荐"];
+            [weakSelf.currentTableView reloadData];
+        }
         [[NetworkAPI shared]getTopArticleListByCity:_cityName page:_page WithFinish:^(NSArray *dataArray) {
             [self hideHub];
             if (dataArray != nil) {
@@ -215,8 +212,10 @@
     }
     else {
         ArticleTypeModel *model = _typeArray[_index - 1];
-        [_resultDic setObject:[[ModelCache shared]readValueByKey:model.cat_id] forKey:model.cat_id];
-        [weakSelf.currentTableView reloadData];
+        if ([[ModelCache shared] containsObjectForKey:model.cat_name]) {
+            [_resultDic setObject:[[ModelCache shared]readValueByKey:model.cat_name] forKey:model.cat_name];
+            [weakSelf.currentTableView reloadData];
+        }
         [[NetworkAPI shared]getArticleListByCatId:model.cat_id cityName:_cityName page:_page WithFinish:^(NSArray *dataArray) {
             [self hideHub];
             if (dataArray != nil) {
@@ -291,6 +290,11 @@
     [_contentScrollView setContentOffset:CGPointMake(MainScreenWidth * (btn.tag - 1), 0) animated:YES];
     float xx = MainScreenWidth * (btn.tag - 1) * (_btnWidth / MainScreenWidth) - _btnWidth;
     [_typeScrollView scrollRectToVisible:CGRectMake(xx, 0, MainScreenWidth, _typeScrollView.height) animated:YES];
+    [self refreshView];
+}
+
+- (void)refreshView
+{
     if (_index == 0) {
         if ([_resultDic[@"推荐"] count] <= pageSize) {
             [self refreshData];
@@ -332,7 +336,10 @@
         ArticleTypeModel *model = _typeArray[_index - 1];
         dataArray = _resultDic[model.cat_name];
     }
-    ArticleModel *model = dataArray[indexPath.row];
+    ArticleModel *model = [[ArticleModel alloc]init];
+    if (dataArray.count != 0) {
+        model = dataArray[indexPath.row];
+    }
     if ([self isEmpty:model.image]) {
         DiscoveryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myIdentify"];
         cell.titleLabel.text = model.title;
@@ -383,7 +390,10 @@
         ArticleTypeModel *model = _typeArray[_index - 1];
         dataArray = _resultDic[model.cat_name];
     }
-    ArticleModel *model = dataArray[indexPath.row];
+    ArticleModel *model = [[ArticleModel alloc]init];
+    if (dataArray.count != 0) {
+        model = dataArray[indexPath.row];
+    }
     if ([self isEmpty:model.image]) {
         DiscoveryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myIdentify"];
         cell.titleLabel.text = model.title;
@@ -432,6 +442,10 @@
         [_typeScrollView scrollRectToVisible:CGRectMake(xx, 0, MainScreenWidth, _typeScrollView.height) animated:YES];
         int i = (scrollView.contentOffset.x / MainScreenWidth);
         _index = i;
+        if (_tableViewArray.count > 0) {
+            _currentTableView = _tableViewArray[i];
+        }
+        [self refreshView];
     }
 }
 @end
