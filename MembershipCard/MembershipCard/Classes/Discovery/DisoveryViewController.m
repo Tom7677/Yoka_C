@@ -16,6 +16,7 @@
 #import "YKModel.h"
 #import <UIImageView+WebCache.h>
 #import "WebViewController.h"
+#import "ModelCache.h"
 
 #define LINE_WIDTH  40
 @interface DisoveryViewController ()<UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate>
@@ -62,7 +63,6 @@
 
 - (void)changeNameNotification
 {
-    _page = 1;
     _cityName = [[NSUserDefaults standardUserDefaults]objectForKey:@"MyCity"];
     [self refreshData];
 }
@@ -70,13 +70,21 @@
 - (void)getType
 {
     _typeArray = [[NSMutableArray alloc]init];
-    [[NetworkAPI shared]getArticleTypeWithFinish:^(NSArray *dataArray) {
-        [_typeArray addObjectsFromArray:dataArray];
+    if ([[ModelCache shared] containsObjectForKey:ARTICLE_TYPE]) {
+        [_typeArray addObjectsFromArray:(NSArray *)[[ModelCache shared] readValueByKey:ARTICLE_TYPE]];
         [self createBtn];
         [self refreshData];
-    } withErrorBlock:^(NSError *error) {
-        
-    }];
+    }
+    else {
+        [[NetworkAPI shared]getArticleTypeWithFinish:^(NSArray *dataArray) {
+            [_typeArray addObjectsFromArray:dataArray];
+            [[ModelCache shared]saveValue:dataArray forKey:ARTICLE_TYPE];
+            [self createBtn];
+            [self refreshData];
+        } withErrorBlock:^(NSError *error) {
+            
+        }];
+    }
 }
 
 /**
@@ -185,10 +193,13 @@
     _page = 1;
     [self showHub];
     if (_index == 0) {
+        [_resultDic setObject:[[ModelCache shared]readValueByKey:@"推荐"] forKey:@"推荐"];
+        [weakSelf.currentTableView reloadData];
         [[NetworkAPI shared]getTopArticleListByCity:_cityName page:_page WithFinish:^(NSArray *dataArray) {
             [self hideHub];
             if (dataArray != nil) {
                 [_resultDic setObject:dataArray forKey:@"推荐"];
+                [[ModelCache shared]saveValue:dataArray forKey:@"推荐"];
                 [weakSelf.currentTableView reloadData];
             }
             if (dataArray.count >= pageSize) {
@@ -204,9 +215,12 @@
     }
     else {
         ArticleTypeModel *model = _typeArray[_index - 1];
+        [_resultDic setObject:[[ModelCache shared]readValueByKey:model.cat_id] forKey:model.cat_id];
+        [weakSelf.currentTableView reloadData];
         [[NetworkAPI shared]getArticleListByCatId:model.cat_id cityName:_cityName page:_page WithFinish:^(NSArray *dataArray) {
             [self hideHub];
             if (dataArray != nil) {
+                [[ModelCache shared]saveValue:dataArray forKey:model.cat_name];
                 [_resultDic setObject:dataArray forKey:model.cat_name];
                 [weakSelf.currentTableView reloadData];
             }
@@ -232,6 +246,7 @@
             if (dataArray != nil) {
                 NSMutableArray *resultArray = [[NSMutableArray alloc]init];
                 [resultArray addObjectsFromArray:_resultDic[@"推荐"]];
+                [[ModelCache shared]saveValue:resultArray forKey:@"推荐"];
                 [_resultDic setObject:resultArray forKey:@"推荐"];
                 [weakSelf.currentTableView reloadData];
             }
@@ -251,6 +266,7 @@
             if (dataArray != nil) {
                 NSMutableArray *resultArray = [[NSMutableArray alloc]init];
                 [resultArray addObjectsFromArray:_resultDic[model.cat_name]];
+                [[ModelCache shared]saveValue:resultArray forKey:model.cat_name];
                 [_resultDic setObject:resultArray forKey:model.cat_name];
                 [weakSelf.currentTableView reloadData];
             }

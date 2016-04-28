@@ -13,6 +13,7 @@
 #import "MJRefresh.h"
 #import "AssignmentInfoViewController.h"
 #import "VoucherListTableViewCell.h"
+#import "ModelCache.h"
 
 #define LINE_WIDTH  50
 @interface SecondHandCardViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
@@ -45,10 +46,9 @@
     [rightBtn addTarget:self action:@selector(releaseAction) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
     [self.navigationItem setRightBarButtonItem:rightItem];
-    
     _contentScrollView.delegate = self;
-    if ([[NSUserDefaults standardUserDefaults]objectForKey:@"VoucherType"] != nil) {
-        NSArray *resultArray = [[NSUserDefaults standardUserDefaults]objectForKey:@"VoucherType"];
+    if ([[ModelCache shared]containsObjectForKey:VOUCHER_TYPE]) {
+        NSArray *resultArray = [[ModelCache shared]readValueByKey:VOUCHER_TYPE];
         [self getTypeArray:resultArray];
         [self createBtn];
         [self refreshData];
@@ -179,6 +179,7 @@
             [self hideHub];
             if (dataArray != nil) {
                 [_resultDic setObject:dataArray forKey:@"全部"];
+                [[ModelCache shared]saveValue:dataArray forKey:@"全部"];
                 [weakSelf.currentTableView reloadData];
             }
             else {
@@ -206,6 +207,7 @@
             [self hideHub];
             if (dataArray != nil) {
                 [_resultDic setObject:dataArray forKey:model.cat_name];
+                [[ModelCache shared]saveValue:dataArray forKey:model.cat_name];
                 [weakSelf.currentTableView reloadData];
             }
             else {
@@ -215,7 +217,6 @@
                 label.textColor = [UIColor lightGrayColor];
                 label.text = @"此分类暂无卡券信息";
                 [weakSelf.currentTableView addSubview:label];
-
             }
             if (dataArray.count >= pageSize) {
                 weakSelf.currentTableView.mj_footer.hidden = NO;
@@ -239,6 +240,7 @@
             if (dataArray != nil) {
                 NSMutableArray *resultArray = [[NSMutableArray alloc]init];
                 [resultArray addObjectsFromArray:_resultDic[@"全部"]];
+                 [[ModelCache shared]saveValue:dataArray forKey:@"全部"];
                 [_resultDic setObject:resultArray forKey:@"全部"];
                 [weakSelf.currentTableView reloadData];
             }

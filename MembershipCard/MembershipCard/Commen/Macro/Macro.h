@@ -27,6 +27,11 @@ static NSString *SHARE_DESC = @"desc";
 #define TEMSOFUSE @"http://sina.cn"
 #define EMPTYWEBURL @"https://www.baidu.com"
 
+//定义存储key
+#define ARTICLE_TYPE @"articleType"
+#define VOUCHER_TYPE @"voucherType"
+#define BRANDLIST @"brandList"
+
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 

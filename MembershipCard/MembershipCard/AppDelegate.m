@@ -21,6 +21,7 @@
 #import "YZUserModel.h"
 #import "NotificationViewController.h"
 #import "WebViewController.h"
+#import "ModelCache.h"
 
 @interface AppDelegate ()<WXApiDelegate>
 @property(nonatomic, copy) NSString *url;
@@ -69,8 +70,37 @@
             advertisingIdentifier:nil];
     [self registerJPush];
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    
+    [self getArticleType];
+    [self getVoucherType];
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+/*!
+ *  @brief  获取文章分类
+ */
+- (void)getArticleType
+{
+    [[NetworkAPI shared]getArticleTypeWithFinish:^(NSArray *dataArray) {
+        [[ModelCache shared]saveValue:dataArray forKey:ARTICLE_TYPE];
+    } withErrorBlock:^(NSError *error) {
+        
+    }];
+}
+
+/*!
+ *  @brief  获取二手卡券分类
+ */
+- (void)getVoucherType
+{
+    [[NetworkAPI shared]getVoucherTypeWithFinish:^(NSArray *dataArray) {
+        if (dataArray != nil) {
+            [[ModelCache shared]saveValue:dataArray forKey:VOUCHER_TYPE];
+        }
+    } withErrorBlock:^(NSError *error) {
+        
+    }];
 }
 
 - (void)registerJPush
@@ -141,6 +171,7 @@
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     return [WXApi handleOpenURL:url delegate:self];
 }
+
 #pragma mark
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
