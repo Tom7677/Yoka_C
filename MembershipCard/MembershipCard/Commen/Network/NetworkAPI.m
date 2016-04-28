@@ -494,12 +494,13 @@
 
 - (NSString *)getQuickLoginYSAccountLinkUrlWithMerchantId:(NSString *)merchantId
 {
-    return [NSString stringWithFormat:@"%@/YunSuoClient/User/notice?merchant_id=%@&token=%@",imageUrl,merchantId,[self getAccessToken]];
+    return [NSString stringWithFormat:@"%@/YunSuoClient/User/quick_login?merchant_id=%@&token=%@",imageUrl,merchantId,[self getAccessToken]];
 }
 
 - (NSString *)getQuickLoginYSNoticeLinkUrlWithMerchantId:(NSString *)merchantId
 {
-    return [NSString stringWithFormat:@"%@/YunSuoClient/User/quick_login?merchant_id=%@&token=%@",imageUrl,merchantId,[self getAccessToken]];
+    
+    return [NSString stringWithFormat:@"%@/YunSuoClient/User/notice?merchant_id=%@&token=%@",imageUrl,merchantId,[self getAccessToken]];
 }
 
 #pragma mark Discovery

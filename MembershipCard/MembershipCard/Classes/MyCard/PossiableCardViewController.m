@@ -13,6 +13,8 @@
 @interface PossiableCardViewController ()<UITableViewDelegate,UITableViewDataSource,PossiableCardTableViewCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *resultArray;
+@property (strong, nonatomic) UILabel *noCardLabel;
+
 @end
 
 @implementation PossiableCardViewController
@@ -39,7 +41,17 @@
         [self hideHub];
         [_resultArray removeAllObjects];
         [_resultArray addObjectsFromArray:dataArray];
-        [_tableView reloadData];
+        if (dataArray.count < 1) {
+            _noCardLabel = [[UILabel alloc]initWithFrame:CGRectMake((MainScreenWidth - 200) / 2, 100, 200, 30)];
+            _noCardLabel.textAlignment = NSTextAlignmentCenter;
+            _noCardLabel.font = [UIFont systemFontOfSize:14];
+            _noCardLabel.textColor = [UIColor lightGrayColor];
+            _noCardLabel.text = @"暂无匹配卡！";
+            [self.view insertSubview:_noCardLabel aboveSubview:_tableView];
+        }else {
+            [_noCardLabel removeFromSuperview];
+            [_tableView reloadData];
+        }
     } withErrorBlock:^(NSError *error) {
         [self hideHub];
         if (error.code == NSURLErrorNotConnectedToInternet) {
