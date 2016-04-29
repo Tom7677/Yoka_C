@@ -65,7 +65,6 @@
             [self getTypeArray:dataArray];
             [self createBtn];
             [self refreshData];
-            [[NSUserDefaults standardUserDefaults]setObject:dataArray forKey:@"VoucherType"];
         }
     } withErrorBlock:^(NSError *error) {
         
@@ -103,27 +102,19 @@
     for (int i = 0; i < _typeArray.count + 1; i ++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         [btn setFrame:CGRectMake(20 + _btnWidth * i, 0, _btnWidth, _typeScrollView.height)];
-        NSMutableArray *dataArray = [[NSMutableArray alloc]init];
         if (i == 0) {
             [btn setTitle:@"全部卡" forState:UIControlStateNormal];
-            [_resultDic setObject:dataArray forKey:@"全部"];
         }
         else {
             ArticleTypeModel *model = _typeArray[i - 1];
             [btn setTitle:model.cat_name forState:UIControlStateNormal];
-            [_resultDic setObject:dataArray forKey:model.cat_name];
         }
         [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [btn setTitleColor:UIColorFromRGB(0xFF526E) forState:UIControlStateSelected];
         btn.titleLabel.font = [UIFont systemFontOfSize:14];
         btn.tag = i + 1;
         [btn addTarget:self action:@selector(actionbtn:) forControlEvents:UIControlEventTouchUpInside];
-        
-        //通知主线程刷新
-        dispatch_async(dispatch_get_main_queue(), ^{
-            //回调或者说是通知主线程刷新，
-            [_typeScrollView addSubview:btn];
-        });
+        [_typeScrollView addSubview:btn];
     }
     [_typeScrollView setContentSize:CGSizeMake(_btnWidth * (_typeArray.count + 1) + 40, _typeScrollView.height)];
     _scrollBgView = [[UIView alloc] initWithFrame:CGRectMake((_btnWidth - LINE_WIDTH) / 2 + 20, _typeScrollView.height - 4, LINE_WIDTH, 10)];
@@ -178,9 +169,8 @@
         [[NetworkAPI shared]getVoucherListByCatId:@"" page:_page WithFinish:^(NSArray *dataArray) {
             [self hideHub];
             if (dataArray != nil) {
-                [_resultDic setObject:dataArray forKey:@"全部"];
+                [_resultDic setObject:[NSNumber numberWithInteger:_page] forKey:@"全部"];
                 [[ModelCache shared]saveValue:dataArray forKey:@"全部"];
-                [weakSelf.currentTableView reloadData];
             }
             else {
                 UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake((MainScreenWidth - 200) / 2, 100, 200, 30)];
@@ -190,6 +180,7 @@
                 label.text = @"暂无卡券信息";
                 [weakSelf.currentTableView addSubview:label];
             }
+            [weakSelf.currentTableView reloadData];
             if (dataArray.count >= pageSize) {
                 weakSelf.currentTableView.mj_footer.hidden = NO;
             }
@@ -198,17 +189,22 @@
             }
             [weakSelf.currentTableView.mj_header endRefreshing];
         } withErrorBlock:^(NSError *error) {
+            [weakSelf.currentTableView.mj_header endRefreshing];
+            weakSelf.currentTableView.mj_footer.hidden = YES;
             [self hideHub];
+            [weakSelf.currentTableView reloadData];
+            if (error.code == NSURLErrorNotConnectedToInternet) {
+                [self showAlertViewController:@"您无法连接到网络，请确认网络连接。"];
+            }
         }];
     }
     else {
         ArticleTypeModel *model = _typeArray[_index - 1];
+        [_resultDic setObject:[NSNumber numberWithInteger:_page] forKey:model.cat_name];
         [[NetworkAPI shared]getVoucherListByCatId:model.cat_id page:_page WithFinish:^(NSArray *dataArray) {
             [self hideHub];
             if (dataArray != nil) {
-                [_resultDic setObject:dataArray forKey:model.cat_name];
                 [[ModelCache shared]saveValue:dataArray forKey:model.cat_name];
-                [weakSelf.currentTableView reloadData];
             }
             else {
                 UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake((MainScreenWidth - 200) / 2, 100, 200, 30)];
@@ -218,6 +214,7 @@
                 label.text = @"此分类暂无卡券信息";
                 [weakSelf.currentTableView addSubview:label];
             }
+            [weakSelf.currentTableView reloadData];
             if (dataArray.count >= pageSize) {
                 weakSelf.currentTableView.mj_footer.hidden = NO;
             }
@@ -226,7 +223,10 @@
             }
             [weakSelf.currentTableView.mj_header endRefreshing];
         } withErrorBlock:^(NSError *error) {
+            [weakSelf.currentTableView.mj_header endRefreshing];
+            weakSelf.currentTableView.mj_footer.hidden = YES;
             [self hideHub];
+            [weakSelf.currentTableView reloadData];
         }];
     }
 }
@@ -239,9 +239,9 @@
         [[NetworkAPI shared]getVoucherListByCatId:@"" page:_page WithFinish:^(NSArray *dataArray) {
             if (dataArray != nil) {
                 NSMutableArray *resultArray = [[NSMutableArray alloc]init];
-                [resultArray addObjectsFromArray:_resultDic[@"全部"]];
-                 [[ModelCache shared]saveValue:dataArray forKey:@"全部"];
-                [_resultDic setObject:resultArray forKey:@"全部"];
+                [resultArray addObjectsFromArray:[[ModelCache shared]readValueByKey:@"全部"]];
+                [[ModelCache shared]saveValue:dataArray forKey:@"全部"];
+                [_resultDic setObject:[NSNumber numberWithInteger:_page] forKey:@"全部"];
                 [weakSelf.currentTableView reloadData];
             }
             if (dataArray.count >= pageSize) {
@@ -251,7 +251,7 @@
                 [weakSelf.currentTableView.mj_footer endRefreshingWithNoMoreData];
             }
         } withErrorBlock:^(NSError *error) {
-            
+            [weakSelf.currentTableView.mj_footer endRefreshing];
         }];
     }
     else {
@@ -259,8 +259,9 @@
         [[NetworkAPI shared]getVoucherListByCatId:model.cat_id page:_page WithFinish:^(NSArray *dataArray) {
             if (dataArray != nil) {
                 NSMutableArray *resultArray = [[NSMutableArray alloc]init];
-                [resultArray addObjectsFromArray:_resultDic[model.cat_name]];
-                [_resultDic setObject:resultArray forKey:model.cat_name];
+                [resultArray addObjectsFromArray:[[ModelCache shared]readValueByKey:model.cat_name]];
+                [[ModelCache shared]saveValue:resultArray forKey:model.cat_name];
+                [_resultDic setObject:[NSNumber numberWithInteger:_page] forKey:model.cat_name];
                 [weakSelf.currentTableView reloadData];
             }
             if (dataArray.count >= pageSize) {
@@ -270,7 +271,7 @@
                 [weakSelf.currentTableView.mj_footer endRefreshingWithNoMoreData];
             }
         } withErrorBlock:^(NSError *error) {
-            
+            [weakSelf.currentTableView.mj_footer endRefreshing];
         }];
     }
 }
@@ -284,14 +285,21 @@
     [_contentScrollView setContentOffset:CGPointMake(MainScreenWidth * (btn.tag - 1), 0) animated:YES];
     float xx = MainScreenWidth * (btn.tag - 1) * (_btnWidth / MainScreenWidth) - _btnWidth;
     [_typeScrollView scrollRectToVisible:CGRectMake(xx, 0, MainScreenWidth, _typeScrollView.height) animated:YES];
+    [self refreshView];
+}
+
+- (void)refreshView
+{
     if (_index == 0) {
-        if ([_resultDic[@"全部"] count] <= pageSize) {
+        _page = [[_resultDic objectForKey:@"全部"] integerValue];
+        if ([[[ModelCache shared]readValueByKey:@"全部"] count] <= pageSize) {
             [self refreshData];
         }
     }
     else {
         ArticleTypeModel *model = _typeArray[_index - 1];
-        if ([_resultDic[model.cat_name] count] <= pageSize) {
+        _page = [[_resultDic objectForKey:model.cat_name] integerValue];
+        if ([[[ModelCache shared]readValueByKey:model.cat_name] count] <= pageSize) {
             [self refreshData];
         }
     }
@@ -307,11 +315,11 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (_index == 0) {
-        return [_resultDic[@"全部"] count];
+        return [[[ModelCache shared]readValueByKey:@"全部"] count];
     }
     else {
         ArticleTypeModel *model = _typeArray[_index - 1];
-        return [_resultDic[model.cat_name] count];
+        return [[[ModelCache shared]readValueByKey:model.cat_name] count];
     }
 }
 
@@ -320,11 +328,11 @@
     VoucherListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentifier"];
     NSArray *dataArray;
     if (_index == 0) {
-        dataArray = _resultDic[@"全部"];
+        dataArray = [[ModelCache shared]readValueByKey:@"全部"];
     }
     else {
         ArticleTypeModel *model = _typeArray[_index - 1];
-        dataArray = _resultDic[model.cat_name];
+        dataArray = [[ModelCache shared]readValueByKey:model.cat_name];
     }
     if (dataArray.count == 0) {
         return cell;
@@ -350,11 +358,11 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSArray *dataArray;
     if (_index == 0) {
-        dataArray = _resultDic[@"全部"];
+        dataArray = [[ModelCache shared]readValueByKey:@"全部"];
     }
     else {
         ArticleTypeModel *model = _typeArray[_index - 1];
-        dataArray = _resultDic[model.cat_name];
+        dataArray = [[ModelCache shared]readValueByKey:model.cat_name];
     }
     VoucherListModel *model = dataArray[indexPath.row];
     AssignmentInfoViewController *vc = [[AssignmentInfoViewController alloc]init];
@@ -389,6 +397,10 @@
         [_typeScrollView scrollRectToVisible:CGRectMake(xx, 0, MainScreenWidth, _typeScrollView.height) animated:YES];
         int i = (scrollView.contentOffset.x / MainScreenWidth);
         _index = i;
+        if (_tableViewArray.count > 0) {
+            _currentTableView = _tableViewArray[i];
+        }
+        [self refreshView];
     }
 }
 @end
