@@ -9,7 +9,7 @@
 #import "BaseViewController.h"
 
 @interface AssignmentInfoViewController : BaseViewController
-@property (assign, nonatomic) NSString *voucher_id;
+@property (copy, nonatomic) NSString *voucher_id;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UIButton *callBtn;

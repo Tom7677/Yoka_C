@@ -98,12 +98,12 @@
             WebViewController *vc = [[WebViewController alloc]initWithURLString:urlStr titleLabel:@"爆料"];
             vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
-        }else {
-            [self showAlertViewController:@"请检查您的网络"];
         }
     } withErrorBlock:^(NSError *error) {
         [self hideHub];
-        [self showAlertViewController:@"请检查您的网络"];
+        if (error.code == NSURLErrorNotConnectedToInternet) {
+            [self showAlertViewController:@"您无法连接到网络，请确认网络连接。"];
+        }
     }];
     [[UMengAnalyticsUtil shared]factBtn];
 }
@@ -121,15 +121,12 @@
     for (int i = 0; i < _typeArray.count + 1; i ++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         [btn setFrame:CGRectMake(20 + _btnWidth * i, 0, _btnWidth, _typeScrollView.height)];
-        NSMutableArray *dataArray = [[NSMutableArray alloc]init];
         if (i == 0) {
             [btn setTitle:@"推荐" forState:UIControlStateNormal];
-            [_resultDic setObject:dataArray forKey:@"推荐"];
         }
         else {
             ArticleTypeModel *model = _typeArray[i - 1];
             [btn setTitle:model.cat_name forState:UIControlStateNormal];
-            [_resultDic setObject:dataArray forKey:model.cat_name];
         }
         [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [btn setTitleColor:UIColorFromRGB(0xFF526E) forState:UIControlStateSelected];
@@ -166,7 +163,7 @@
         [_tableViewArray addObject:tableView];
         //通知主线程刷新
         dispatch_async(dispatch_get_main_queue(), ^{
-            //回调或者说是通知主线程刷新，
+            //回调或者说是通知主线程刷新
             [scrollView addSubview:tableView];
             if (i == 0) {
                 _currentTableView = tableView;
@@ -188,17 +185,13 @@
     _page = 1;
     [self showHub];
     if (_index == 0) {
-        if ([[ModelCache shared] containsObjectForKey:@"推荐"]) {
-            [_resultDic setObject:[[ModelCache shared]readValueByKey:@"推荐"] forKey:@"推荐"];
-            [weakSelf.currentTableView reloadData];
-        }
+        [_resultDic setObject:[NSNumber numberWithInteger:_page] forKey:@"推荐"];
         [[NetworkAPI shared]getTopArticleListByCity:_cityName page:_page WithFinish:^(NSArray *dataArray) {
             [self hideHub];
             if (dataArray != nil) {
-                [_resultDic setObject:dataArray forKey:@"推荐"];
                 [[ModelCache shared]saveValue:dataArray forKey:@"推荐"];
-                [weakSelf.currentTableView reloadData];
             }
+            [weakSelf.currentTableView reloadData];
             if (dataArray.count >= pageSize) {
                 weakSelf.currentTableView.mj_footer.hidden = NO;
             }
@@ -207,24 +200,24 @@
             }
             [weakSelf.currentTableView.mj_header endRefreshing];
         } withErrorBlock:^(NSError *error) {
-            [self hideHub];
-            [self showAlertViewController:@"您无法连接到网络，请确认网络连接。"];
             [weakSelf.currentTableView.mj_header endRefreshing];
+            weakSelf.currentTableView.mj_footer.hidden = YES;
+            [self hideHub];
+            [weakSelf.currentTableView reloadData];
+            if (error.code == NSURLErrorNotConnectedToInternet) {
+                [self showAlertViewController:@"您无法连接到网络，请确认网络连接。"];
+            }
         }];
     }
     else {
         ArticleTypeModel *model = _typeArray[_index - 1];
-        if ([[ModelCache shared] containsObjectForKey:model.cat_name]) {
-            [_resultDic setObject:[[ModelCache shared]readValueByKey:model.cat_name] forKey:model.cat_name];
-            [weakSelf.currentTableView reloadData];
-        }
+        [_resultDic setObject:[NSNumber numberWithInteger:_page] forKey:model.cat_name];
         [[NetworkAPI shared]getArticleListByCatId:model.cat_id cityName:_cityName page:_page WithFinish:^(NSArray *dataArray) {
             [self hideHub];
             if (dataArray != nil) {
                 [[ModelCache shared]saveValue:dataArray forKey:model.cat_name];
-                [_resultDic setObject:dataArray forKey:model.cat_name];
-                [weakSelf.currentTableView reloadData];
             }
+            [weakSelf.currentTableView reloadData];
             if (dataArray.count >= pageSize) {
                 weakSelf.currentTableView.mj_footer.hidden = NO;
             }
@@ -233,9 +226,9 @@
             }
             [weakSelf.currentTableView.mj_header endRefreshing];
         } withErrorBlock:^(NSError *error) {
-            [self hideHub];
-            [self showAlertViewController:@"您无法连接到网络，请确认网络连接。"];
             [weakSelf.currentTableView.mj_header endRefreshing];
+            weakSelf.currentTableView.mj_footer.hidden = YES;
+            [self hideHub];
         }];
     }
 }
@@ -248,9 +241,9 @@
         [[NetworkAPI shared]getTopArticleListByCity:_cityName page:_page WithFinish:^(NSArray *dataArray) {
             if (dataArray != nil) {
                 NSMutableArray *resultArray = [[NSMutableArray alloc]init];
-                [resultArray addObjectsFromArray:_resultDic[@"推荐"]];
+                [resultArray addObjectsFromArray:[[ModelCache shared]readValueByKey:@"推荐"]];
                 [[ModelCache shared]saveValue:resultArray forKey:@"推荐"];
-                [_resultDic setObject:resultArray forKey:@"推荐"];
+                [_resultDic setObject:[NSNumber numberWithInteger:_page] forKey:@"推荐"];
                 [weakSelf.currentTableView reloadData];
             }
             if (dataArray.count >= pageSize) {
@@ -260,7 +253,7 @@
                 [weakSelf.currentTableView.mj_footer endRefreshingWithNoMoreData];
             }
         } withErrorBlock:^(NSError *error) {
-            
+            [weakSelf.currentTableView.mj_footer endRefreshing];
         }];
     }
     else {
@@ -268,9 +261,9 @@
         [[NetworkAPI shared]getArticleListByCatId:model.cat_id cityName:_cityName page:_page WithFinish:^(NSArray *dataArray) {
             if (dataArray != nil) {
                 NSMutableArray *resultArray = [[NSMutableArray alloc]init];
-                [resultArray addObjectsFromArray:_resultDic[model.cat_name]];
+                [resultArray addObjectsFromArray:[[ModelCache shared]readValueByKey:model.cat_name]];
                 [[ModelCache shared]saveValue:resultArray forKey:model.cat_name];
-                [_resultDic setObject:resultArray forKey:model.cat_name];
+                [_resultDic setObject:[NSNumber numberWithInteger:_page] forKey:model.cat_name];
                 [weakSelf.currentTableView reloadData];
             }
             if (dataArray.count >= pageSize) {
@@ -280,7 +273,7 @@
                 [weakSelf.currentTableView.mj_footer endRefreshingWithNoMoreData];
             }
         } withErrorBlock:^(NSError *error) {
-            
+            [weakSelf.currentTableView.mj_footer endRefreshing];
         }];
     }
 }
@@ -300,13 +293,15 @@
 - (void)refreshView
 {
     if (_index == 0) {
-        if ([_resultDic[@"推荐"] count] <= pageSize) {
+        _page = [[_resultDic objectForKey:@"推荐"] integerValue];
+        if ([[[ModelCache shared]readValueByKey:@"推荐"] count] <= pageSize) {
             [self refreshData];
         }
     }
     else {
         ArticleTypeModel *model = _typeArray[_index - 1];
-        if ([_resultDic[model.cat_name] count] <= pageSize) {
+        _page = [[_resultDic objectForKey:model.cat_name] integerValue];
+        if ([[[ModelCache shared]readValueByKey:model.cat_name] count] <= pageSize) {
             [self refreshData];
         }
     }
@@ -322,11 +317,11 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (_index == 0) {
-        return [_resultDic[@"推荐"] count];
+        return [[[ModelCache shared]readValueByKey:@"推荐"] count];
     }
     else {
         ArticleTypeModel *model = _typeArray[_index - 1];
-        return [_resultDic[model.cat_name] count];
+        return [[[ModelCache shared]readValueByKey:model.cat_name] count];
     }
 }
 
@@ -334,11 +329,11 @@
 {
     NSArray *dataArray;
     if (_index == 0) {
-        dataArray = _resultDic[@"推荐"];
+        dataArray = [[ModelCache shared]readValueByKey:@"推荐"];
     }
     else {
         ArticleTypeModel *model = _typeArray[_index - 1];
-        dataArray = _resultDic[model.cat_name];
+        dataArray = [[ModelCache shared]readValueByKey:model.cat_name];
     }
     ArticleModel *model = [[ArticleModel alloc]init];
     if (dataArray.count != 0) {
@@ -356,7 +351,9 @@
         [cell.contentLabel setTextLineSpacing:4 paragraphSpacing:0];
         cell.detailsLabel.text = [NSString stringWithFormat:@"阅读：%@   点赞：%@   分享：%@", model.read_num, model.like_num, model.share_num];
         [cell.coverImageView sd_setImageWithURL:[NSURL URLWithString:[imageUrl stringByAppendingString:model.image]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-            [_imgDic setObject:image forKey:[imageURL description]];
+            if (image != nil) {
+                [_imgDic setObject:image forKey:[imageURL description]];
+            }
         }];
         return cell;
     }
@@ -366,11 +363,11 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSArray *dataArray;
     if (_index == 0) {
-        dataArray = _resultDic[@"推荐"];
+        dataArray = [[ModelCache shared]readValueByKey:@"推荐"];
     }
     else {
         ArticleTypeModel *model = _typeArray[_index - 1];
-        dataArray = _resultDic[model.cat_name];
+        dataArray = [[ModelCache shared]readValueByKey:model.cat_name];
     }
     ArticleModel *model = dataArray[indexPath.row];
     ArticleViewController *vc = [[ArticleViewController alloc]init];
@@ -388,11 +385,11 @@
 {
     NSArray *dataArray;
     if (_index == 0) {
-        dataArray = _resultDic[@"推荐"];
+        dataArray = [[ModelCache shared]readValueByKey:@"推荐"];
     }
     else {
         ArticleTypeModel *model = _typeArray[_index - 1];
-        dataArray = _resultDic[model.cat_name];
+        dataArray = [[ModelCache shared]readValueByKey:model.cat_name];
     }
     ArticleModel *model = [[ArticleModel alloc]init];
     if (dataArray.count != 0) {
