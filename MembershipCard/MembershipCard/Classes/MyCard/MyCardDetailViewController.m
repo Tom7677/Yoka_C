@@ -75,6 +75,12 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(showQRImage)];
     _qrCodeImageView.userInteractionEnabled = YES;
     [_qrCodeImageView addGestureRecognizer:tap];
+    if ([self isEmpty:_model.type]) {
+        [self showViewBycardCode:_model.card_no type:_model.type_nonbrand];
+    }
+    else {
+        [self showViewBycardCode:_model.card_no type:_model.type];
+    }
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -111,7 +117,6 @@
         [self hideHub];
         _cardInfo = model.merchant_info;
         _merchantId = model.merchant_id;
-        [self showViewByModel:model];
         if (![model.merchant_id isEqualToString:@"0"]) {
             _bindBrandBtn.hidden = YES;
             [self layoutServiceView];
@@ -232,36 +237,36 @@
 }
 
 #pragma mark Action
-- (void)showViewByModel:(CardInfoModel *)model
+- (void)showViewBycardCode:(NSString *)code type:(NSString *)codeType
 {
     //卡号生成条形码
     NSError *error = nil;
     ZXMultiFormatWriter *writer = [ZXMultiFormatWriter writer];
     ZXBarcodeFormat type;
-    if ([model.type isEqualToString:@"pdf417"]) {
+    if ([codeType isEqualToString:@"pdf417"]) {
         type = kBarcodeFormatPDF417;
         CGRect frame = _qrCodeImageView.frame;
         _qrCodeImageView.frame = CGRectMake((MainScreenWidth-300)/2, frame.origin.y, 300, frame.size.height);
-    }else if ([model.type isEqualToString:@"EAN-13"]){
+    }else if ([codeType isEqualToString:@"EAN-13"]){
         type = kBarcodeFormatEan13;
-    }else if ([model.type isEqualToString:@"EAN-8"]){
+    }else if ([codeType isEqualToString:@"EAN-8"]){
         type = kBarcodeFormatEan8;
-    }else if ([model.type isEqualToString:@"code93"]){
+    }else if ([codeType isEqualToString:@"code93"]){
         type = kBarcodeFormatCode93;
-    }else if ([model.type isEqualToString:@"code39"]){
+    }else if ([codeType isEqualToString:@"code39"]){
         type = kBarcodeFormatCode39;
     }
     else {
         type = kBarcodeFormatCode128;
     }
     ZXBitMatrix* result;
-    if ([self isEmpty:model.card_no]) {
+    if ([self isEmpty:code]) {
         NSString *phoneStr = [[NSUserDefaults standardUserDefaults]objectForKey:@"phoneNum"];
         _codeLabel.text = [self countNumAndChangeformat:phoneStr];
         result = [writer encode:phoneStr format: type width:270 height:80 error:&error];
     }else {
-        _codeLabel.text = [self countNumAndChangeformat:model.card_no];
-        result = [writer encode:model.card_no format: type width:270 height:80 error:&error];
+        _codeLabel.text = [self countNumAndChangeformat:code];
+        result = [writer encode:code format: type width:270 height:80 error:&error];
     }
     if (result) {
         CGImageRef image = [[ZXImage imageWithMatrix:result] cgimage ];

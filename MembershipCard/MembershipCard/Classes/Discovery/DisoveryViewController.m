@@ -19,6 +19,8 @@
 #import "ModelCache.h"
 
 #define LINE_WIDTH  40
+#define TICK   NSDate *startTime = [NSDate date]
+#define TOCK   NSLog(@"Time: %f", -[startTime timeIntervalSinceNow])
 @interface DisoveryViewController ()<UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) NSMutableArray *typeArray;
 @property (nonatomic, assign) NSInteger tag;
@@ -186,6 +188,7 @@
     [self showHub];
     if (_index == 0) {
         [_resultDic setObject:[NSNumber numberWithInteger:_page] forKey:@"推荐"];
+        [weakSelf.currentTableView reloadData];
         [[NetworkAPI shared]getTopArticleListByCity:_cityName page:_page WithFinish:^(NSArray *dataArray) {
             [self hideHub];
             if (dataArray != nil) {
@@ -226,6 +229,7 @@
             }
             [weakSelf.currentTableView.mj_header endRefreshing];
         } withErrorBlock:^(NSError *error) {
+            [weakSelf.currentTableView reloadData];
             [weakSelf.currentTableView.mj_header endRefreshing];
             weakSelf.currentTableView.mj_footer.hidden = YES;
             [self hideHub];

@@ -106,9 +106,7 @@
                     }
                 }
             }
-            if (![[ModelCache shared] containsObjectForKey:@"cardList"]) {
-                [self reloadTableData];
-            }
+            [self reloadTableData];
             [[ModelCache shared] saveValue:_cardArray forKey:@"cardList"];
             [_tableView.mj_header endRefreshing];
         }

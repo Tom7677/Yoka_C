@@ -12,6 +12,31 @@
 @end
 
 @implementation MyCardModel
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+    if (self) {
+        _card_id = [aDecoder decodeObjectForKey:@"card_id"];
+        _name = [aDecoder decodeObjectForKey:@"name"];
+        _f_logo = [aDecoder decodeObjectForKey:@"f_logo"];
+        _y_logo = [aDecoder decodeObjectForKey:@"y_logo"];
+        _card_no = [aDecoder decodeObjectForKey:@"card_no"];
+        _type = [aDecoder decodeObjectForKey:@"type"];
+        _type_nonbrand = [aDecoder decodeObjectForKey:@"type_nonbrand"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:_card_id forKey:@"card_id"];
+    [aCoder encodeObject:_name forKey:@"name"];
+    [aCoder encodeObject:_f_logo forKey:@"f_logo"];
+    [aCoder encodeObject:_y_logo forKey:@"y_logo"];
+    [aCoder encodeObject:_card_no forKey:@"card_no"];
+    [aCoder encodeObject:_type  forKey:@"type"];
+    [aCoder encodeObject:_type_nonbrand  forKey:@"type_nonbrand"];
+}
 @end
 
 @implementation CardInfoModel
