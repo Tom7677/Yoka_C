@@ -53,10 +53,10 @@
                         <constraint firstAttribute="width" constant="70" id="wdu-dT-VSs"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="欢迎使用卡来卡去，为了识别您的会员身份请使用手机登录" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NIg-Do-YGH">
-                    <rect key="frame" x="25" y="144" width="270" height="50"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="欢迎使用马夹，为了识别您的会员身份请使用手机登录" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NIg-Do-YGH">
+                    <rect key="frame" x="35" y="144" width="250" height="50"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="270" id="Hhq-cI-omv"/>
+                        <constraint firstAttribute="width" constant="250" id="Hhq-cI-omv"/>
                         <constraint firstAttribute="height" constant="50" id="HtY-Bx-HuG"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>

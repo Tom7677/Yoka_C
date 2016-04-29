@@ -208,6 +208,8 @@
             [weakSelf.currentTableView.mj_header endRefreshing];
         } withErrorBlock:^(NSError *error) {
             [self hideHub];
+            [self showAlertViewController:@"您无法连接到网络，请确认网络连接。"];
+            [weakSelf.currentTableView.mj_header endRefreshing];
         }];
     }
     else {
@@ -232,6 +234,8 @@
             [weakSelf.currentTableView.mj_header endRefreshing];
         } withErrorBlock:^(NSError *error) {
             [self hideHub];
+            [self showAlertViewController:@"您无法连接到网络，请确认网络连接。"];
+            [weakSelf.currentTableView.mj_header endRefreshing];
         }];
     }
 }

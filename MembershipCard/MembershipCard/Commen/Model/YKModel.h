@@ -21,6 +21,9 @@
 @property(nonatomic,strong) NSString *name;//商户名称
 @property(nonatomic,strong) NSString *f_logo;//方logo
 @property(nonatomic,strong) NSString *y_logo;//圆logo
+@property(nonatomic,strong) NSString *card_no;//卡号
+@property(nonatomic,strong) NSString *type;//品牌卡条码类型
+@property(nonatomic,strong) NSString *type_nonbrand;//非品牌卡条码类型
 @end
 
 /** 会员卡信息模型 */
@@ -108,8 +111,8 @@
 /** 用户信息模型 */
 @interface UserInfoModel : NSObject
 @property(nonatomic,strong) NSString *mobile;//手机号
-@property(nonatomic,strong) NSString *nick_name;//创建时间
-@property(nonatomic,strong) NSString *avatar;//文章内容
+@property(nonatomic,strong) NSString *nick_name;//昵称
+@property(nonatomic,strong) NSString *avatar;//头像
 @end
 
 /** 二手卡券列表模型 */
