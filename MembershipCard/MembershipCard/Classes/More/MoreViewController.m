@@ -54,6 +54,12 @@
     } withErrorBlock:^(NSError *error) {
         
     }];
+    _phoneNumLabel.text = [[NSUserDefaults standardUserDefaults]objectForKey:@"phoneNum"];
+    if (![self isEmpty:[[NSUserDefaults standardUserDefaults] objectForKey:@"avatar"]]) {
+        [_avatarBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:[[NSUserDefaults standardUserDefaults] objectForKey:@"avatar"]] forState:UIControlStateNormal];
+        [_avatarBtn setTitle:@"" forState:UIControlStateNormal];
+    }
+    _nickNameLabel.text = [[NSUserDefaults standardUserDefaults]objectForKey:@"nickName"];
 }
 
 - (void)hideImage {
@@ -77,14 +83,16 @@
         if (![self isEmpty:model.avatar]) {
             if ([model.avatar hasPrefix:@"http"]) {
                 [_avatarBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:model.avatar] forState:UIControlStateNormal];
+                [[NSUserDefaults standardUserDefaults]setObject:model.avatar forKey:@"avatar"];
             }
             else {
                 [_avatarBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:[imageUrl stringByAppendingString:model.avatar]] forState:UIControlStateNormal];
+                [[NSUserDefaults standardUserDefaults]setObject:[imageUrl stringByAppendingString:model.avatar] forKey:@"avatar"];
             }
             [_avatarBtn setTitle:@"" forState:UIControlStateNormal];
         }
+        [[NSUserDefaults standardUserDefaults]setObject:model.nick_name forKey:@"nickName"];
         _nickNameLabel.text = model.nick_name;
-        _phoneNumLabel.text = model.mobile;
     } withErrorBlock:^(NSError *error) {
         
     }];
