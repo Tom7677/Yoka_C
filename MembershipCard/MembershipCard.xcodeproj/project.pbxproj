@@ -20,7 +20,6 @@
 		1A1470A41C8D7CC5003A0616 /* addCard-scan@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A14709B1C8D7CC5003A0616 /* addCard-scan@3x.png */; };
 		1A268A2D1CBCF44900D56CA8 /* ExplainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A268A2B1CBCF44900D56CA8 /* ExplainViewController.m */; };
 		1A268A2E1CBCF44900D56CA8 /* ExplainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A268A2C1CBCF44900D56CA8 /* ExplainViewController.xib */; };
-		1A344BF31C882DCD009F3FFC /* DisoveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A344BF11C882DCD009F3FFC /* DisoveryViewController.m */; };
 		1A344BF41C882DCD009F3FFC /* DisoveryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A344BF21C882DCD009F3FFC /* DisoveryViewController.xib */; };
 		1A344BFE1C884AA1009F3FFC /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A344BFC1C884AA1009F3FFC /* MoreViewController.m */; };
 		1A344BFF1C884AA1009F3FFC /* MoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A344BFD1C884AA1009F3FFC /* MoreViewController.xib */; };
@@ -246,6 +245,12 @@
 		E2662CBC1C7CA1D100FE42F1 /* ShowDeteledCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2662CBA1C7CA1D100FE42F1 /* ShowDeteledCardViewController.xib */; };
 		E297102E1CB7D2FC00303B06 /* ChooseCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E297102C1CB7D2FC00303B06 /* ChooseCityViewController.m */; };
 		E297102F1CB7D2FC00303B06 /* ChooseCityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E297102D1CB7D2FC00303B06 /* ChooseCityViewController.xib */; };
+		E2AE92431CDA5EFC00B8D170 /* SCNavTabBar.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E2AE923A1CDA5EFC00B8D170 /* SCNavTabBar.bundle */; };
+		E2AE92441CDA5EFC00B8D170 /* SCNavTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AE923D1CDA5EFC00B8D170 /* SCNavTabBarController.m */; };
+		E2AE92451CDA5EFC00B8D170 /* SCNavTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AE92401CDA5EFC00B8D170 /* SCNavTabBar.m */; };
+		E2AE92461CDA5EFC00B8D170 /* SCPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AE92421CDA5EFC00B8D170 /* SCPopView.m */; };
+		E2AE92491CDA5F2500B8D170 /* DisoveryTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AE92481CDA5F2500B8D170 /* DisoveryTabViewController.m */; };
+		E2AE924B1CDA5F4B00B8D170 /* DisoveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AE924A1CDA5F4B00B8D170 /* DisoveryViewController.m */; };
 		E2BDB7AF1C7B42BD00274CE3 /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BDB7AD1C7B42BD00274CE3 /* NotificationViewController.m */; };
 		E2BDB7B01C7B42BD00274CE3 /* NotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2BDB7AE1C7B42BD00274CE3 /* NotificationViewController.xib */; };
 		E2BDB7B41C7B42E200274CE3 /* AddNewCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BDB7B21C7B42E200274CE3 /* AddNewCardViewController.m */; };
@@ -322,7 +327,6 @@
 		1A268A2B1CBCF44900D56CA8 /* ExplainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExplainViewController.m; sourceTree = "<group>"; };
 		1A268A2C1CBCF44900D56CA8 /* ExplainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExplainViewController.xib; sourceTree = "<group>"; };
 		1A344BF01C882DCD009F3FFC /* DisoveryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisoveryViewController.h; sourceTree = "<group>"; };
-		1A344BF11C882DCD009F3FFC /* DisoveryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisoveryViewController.m; sourceTree = "<group>"; };
 		1A344BF21C882DCD009F3FFC /* DisoveryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DisoveryViewController.xib; sourceTree = "<group>"; };
 		1A344BFB1C884AA1009F3FFC /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
 		1A344BFC1C884AA1009F3FFC /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
@@ -629,6 +633,17 @@
 		E297102B1CB7D2FC00303B06 /* ChooseCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseCityViewController.h; sourceTree = "<group>"; };
 		E297102C1CB7D2FC00303B06 /* ChooseCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseCityViewController.m; sourceTree = "<group>"; };
 		E297102D1CB7D2FC00303B06 /* ChooseCityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseCityViewController.xib; sourceTree = "<group>"; };
+		E2AE92391CDA5EFC00B8D170 /* CommonMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonMacro.h; sourceTree = "<group>"; };
+		E2AE923A1CDA5EFC00B8D170 /* SCNavTabBar.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SCNavTabBar.bundle; sourceTree = "<group>"; };
+		E2AE923C1CDA5EFC00B8D170 /* SCNavTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCNavTabBarController.h; sourceTree = "<group>"; };
+		E2AE923D1CDA5EFC00B8D170 /* SCNavTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCNavTabBarController.m; sourceTree = "<group>"; };
+		E2AE923F1CDA5EFC00B8D170 /* SCNavTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCNavTabBar.h; sourceTree = "<group>"; };
+		E2AE92401CDA5EFC00B8D170 /* SCNavTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCNavTabBar.m; sourceTree = "<group>"; };
+		E2AE92411CDA5EFC00B8D170 /* SCPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPopView.h; sourceTree = "<group>"; };
+		E2AE92421CDA5EFC00B8D170 /* SCPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPopView.m; sourceTree = "<group>"; };
+		E2AE92471CDA5F2500B8D170 /* DisoveryTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisoveryTabViewController.h; sourceTree = "<group>"; };
+		E2AE92481CDA5F2500B8D170 /* DisoveryTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisoveryTabViewController.m; sourceTree = "<group>"; };
+		E2AE924A1CDA5F4B00B8D170 /* DisoveryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisoveryViewController.m; sourceTree = "<group>"; };
 		E2BDB7AC1C7B42BD00274CE3 /* NotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationViewController.h; sourceTree = "<group>"; };
 		E2BDB7AD1C7B42BD00274CE3 /* NotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationViewController.m; sourceTree = "<group>"; };
 		E2BDB7AE1C7B42BD00274CE3 /* NotificationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationViewController.xib; sourceTree = "<group>"; };
@@ -794,11 +809,13 @@
 			children = (
 				1A344BF51C883058009F3FFC /* cell */,
 				1A344BF01C882DCD009F3FFC /* DisoveryViewController.h */,
-				1A344BF11C882DCD009F3FFC /* DisoveryViewController.m */,
+				E2AE924A1CDA5F4B00B8D170 /* DisoveryViewController.m */,
 				1A344BF21C882DCD009F3FFC /* DisoveryViewController.xib */,
 				1A4F323D1CACEF03001E4AFA /* ArticleViewController.h */,
 				1A4F323E1CACEF03001E4AFA /* ArticleViewController.m */,
 				1A4F323F1CACEF03001E4AFA /* ArticleViewController.xib */,
+				E2AE92471CDA5F2500B8D170 /* DisoveryTabViewController.h */,
+				E2AE92481CDA5F2500B8D170 /* DisoveryTabViewController.m */,
 			);
 			path = Discovery;
 			sourceTree = "<group>";
@@ -1255,6 +1272,37 @@
 			path = MembershipCard;
 			sourceTree = "<group>";
 		};
+		E2AE92381CDA5EFC00B8D170 /* SCNavTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				E2AE92391CDA5EFC00B8D170 /* CommonMacro.h */,
+				E2AE923A1CDA5EFC00B8D170 /* SCNavTabBar.bundle */,
+				E2AE923B1CDA5EFC00B8D170 /* ViewControllers */,
+				E2AE923E1CDA5EFC00B8D170 /* Views */,
+			);
+			path = SCNavTabBar;
+			sourceTree = "<group>";
+		};
+		E2AE923B1CDA5EFC00B8D170 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E2AE923C1CDA5EFC00B8D170 /* SCNavTabBarController.h */,
+				E2AE923D1CDA5EFC00B8D170 /* SCNavTabBarController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E2AE923E1CDA5EFC00B8D170 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E2AE923F1CDA5EFC00B8D170 /* SCNavTabBar.h */,
+				E2AE92401CDA5EFC00B8D170 /* SCNavTabBar.m */,
+				E2AE92411CDA5EFC00B8D170 /* SCPopView.h */,
+				E2AE92421CDA5EFC00B8D170 /* SCPopView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		E2BDB7B61C7B536000274CE3 /* cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1628,6 +1676,7 @@
 		E2FEE3B11C79F2620079B824 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				E2AE92381CDA5EFC00B8D170 /* SCNavTabBar */,
 				E20593F41CBBF90F00D9FCF5 /* JPush-SDK-2.1.5 */,
 				273476581CB5EB3F00FAF042 /* TZImagePickerController */,
 				27512FC61CAA054300BCADA1 /* MJExtension */,
@@ -1822,6 +1871,7 @@
 				1ACC385C1C9FBC3500C9E837 /* guess@2x.png in Resources */,
 				1ACC387C1C9FC4DB00C9E837 /* ser-05@3x.png in Resources */,
 				1A4F32361CACE612001E4AFA /* share_wx@2x.png in Resources */,
+				E2AE92431CDA5EFC00B8D170 /* SCNavTabBar.bundle in Resources */,
 				1A1470A21C8D7CC5003A0616 /* addCard-scan.png in Resources */,
 				2734767C1CB5EB3F00FAF042 /* MMVideoPreviewPlay@2x.png in Resources */,
 				1ACFB9B71C8EACA20083FD07 /* tabbar_myCardBag@2x.png in Resources */,
@@ -2005,7 +2055,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2BDB7B41C7B42E200274CE3 /* AddNewCardViewController.m in Sources */,
+				E2AE92451CDA5EFC00B8D170 /* SCNavTabBar.m in Sources */,
 				27D39A531C92AC5D00A3F3C3 /* MJRefreshBackStateFooter.m in Sources */,
+				E2AE92461CDA5EFC00B8D170 /* SCPopView.m in Sources */,
 				E2000D7D1C9E7C52003DCA39 /* PossiableCardViewController.m in Sources */,
 				E2004C131C85E3C200CDA2E7 /* VIPServiceTableViewController.m in Sources */,
 				27512FE31CAA054300BCADA1 /* NSObject+MJKeyValue.m in Sources */,
@@ -2018,7 +2070,6 @@
 				27D39A4E1C92AC5D00A3F3C3 /* MJRefreshAutoGifFooter.m in Sources */,
 				E20850F41CD110F1005D5D96 /* ModelCache.m in Sources */,
 				27D39A501C92AC5D00A3F3C3 /* MJRefreshAutoStateFooter.m in Sources */,
-				1A344BF31C882DCD009F3FFC /* DisoveryViewController.m in Sources */,
 				27512FE11CAA054300BCADA1 /* NSObject+MJClass.m in Sources */,
 				E2FEE3D41C79FD070079B824 /* VIPViewController.m in Sources */,
 				273476931CB5EB3F00FAF042 /* TZVideoPlayerController.m in Sources */,
@@ -2070,9 +2121,11 @@
 				E2BDB8171C7B63D200274CE3 /* QRViewController.m in Sources */,
 				27D39A5B1C92AC5D00A3F3C3 /* UIView+MJExtension.m in Sources */,
 				E2FEE3B91C79F4440079B824 /* MainTabBarViewController.m in Sources */,
+				E2AE92441CDA5EFC00B8D170 /* SCNavTabBarController.m in Sources */,
 				27D39A491C92AC5D00A3F3C3 /* MJRefreshAutoFooter.m in Sources */,
 				27D39A621C96A1EF00A3F3C3 /* SecondHandCardViewController.m in Sources */,
 				E2FEE3C11C79F4AC0079B824 /* GuideViewController.m in Sources */,
+				E2AE924B1CDA5F4B00B8D170 /* DisoveryViewController.m in Sources */,
 				1A268A2D1CBCF44900D56CA8 /* ExplainViewController.m in Sources */,
 				27D39A171C8FCB5000A3F3C3 /* ChooseAreaViewController.m in Sources */,
 				1A344BFE1C884AA1009F3FFC /* MoreViewController.m in Sources */,
@@ -2098,6 +2151,7 @@
 				27512FE21CAA054300BCADA1 /* NSObject+MJCoding.m in Sources */,
 				27512FE51CAA054300BCADA1 /* NSString+MJExtension.m in Sources */,
 				2734768C1CB5EB3F00FAF042 /* TZAssetCell.m in Sources */,
+				E2AE92491CDA5F2500B8D170 /* DisoveryTabViewController.m in Sources */,
 				E2FBA6151C82B91800F9F799 /* MartViewController.m in Sources */,
 				E2BDB8211C7B644600274CE3 /* BrandListViewController.m in Sources */,
 			);
