@@ -72,6 +72,11 @@
     _navgationTabBar.showsHorizontalScrollIndicator = NO;
     [self addSubview:_navgationTabBar];
     
+    //添加下横线 隐藏阴影
+    UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, NAVIGATION_BAR_HEIGHT, SCREEN_WIDTH, 0.5)];
+    lineView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
+    lineView.backgroundColor = [UIColor lightGrayColor];
+    [self addSubview:lineView];
 //    [self viewShowShadow:self shadowRadius:5.0f shadowOpacity:5.0f];
 }
 
