@@ -74,28 +74,21 @@
 }
 
 - (void)loadRequestFromString:(NSString*)urlString {
-    if ([urlString hasPrefix:@"http://detail.koudaitong.com/show/goods"]) {
-        CacheUserInfo *cacheModel = [CacheUserInfo sharedManage];
-        if(!cacheModel.isValid) {
-            YZUserModel *userModel = [CacheUserInfo getYZUserModelFromCacheUserModel:cacheModel];
-            [YZSDK registerYZUser:userModel callBack:^(NSString *message, BOOL isError) {
-                if(isError) {
-                    cacheModel.isValid = NO;
-                } else {
-                    cacheModel.isValid = YES;
-                    NSURL *url = [NSURL URLWithString:urlString];
-                    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
-                    [_webView loadRequest:urlRequest];
-                }
-            }];
-        } else {
-            cacheModel.isValid = YES;
-            NSURL *url = [NSURL URLWithString:urlString];
-            NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
-            [_webView loadRequest:urlRequest];
-        }
-    }
-    else {
+    CacheUserInfo *cacheModel = [CacheUserInfo sharedManage];
+    if(!cacheModel.isValid) {
+        YZUserModel *userModel = [CacheUserInfo getYZUserModelFromCacheUserModel:cacheModel];
+        [YZSDK registerYZUser:userModel callBack:^(NSString *message, BOOL isError) {
+            if(isError) {
+                cacheModel.isValid = NO;
+            } else {
+                cacheModel.isValid = YES;
+                NSURL *url = [NSURL URLWithString:urlString];
+                NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+                [_webView loadRequest:urlRequest];
+            }
+        }];
+    } else {
+        cacheModel.isValid = YES;
         NSURL *url = [NSURL URLWithString:urlString];
         NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
         [_webView loadRequest:urlRequest];
