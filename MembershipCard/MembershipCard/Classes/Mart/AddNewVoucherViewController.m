@@ -42,7 +42,9 @@
         self.title = @"新建转让信息";
         [_confirmBtn setTitle:@"确认发布" forState:UIControlStateNormal];
         _transferBtn.selected = YES;
-        _infoType = 1;
+        _infoType = 2;
+        [_chooseBtn setTitle:[[NSUserDefaults standardUserDefaults]objectForKey:@"MyCity" ] forState:UIControlStateNormal];
+        _cityId = [[NSUserDefaults standardUserDefaults]objectForKey:@"cityId"];
         [self getVoucherType];
         [self refreshScrollView];
     }
@@ -327,10 +329,10 @@
         [self showAlertViewController:@"请输入联系人姓名"];
         return;
     }
-//    if ([_phoneTextField.text isEqualToString:@""]) {
-//        [self showAlertViewController:@"请输入联系电话"];
-//        return;
-//    }
+    if ([_phoneTextField.text isEqualToString:@""]) {
+        [self showAlertViewController:@"请输入联系电话"];
+        return;
+    }
     if (![self checkTelNumber:_phoneTextField.text]) {
         [self showAlertViewController:@"请输入格式正确的联系电话"];
         return;

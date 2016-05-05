@@ -133,11 +133,11 @@
     for (int i = 0 ; i < titles.count ; i ++)
     {
         NSNumber *width;
-        if (titles.count + 1 >= 7) {
+        if (titles.count >= 7) {
             width = [NSNumber numberWithFloat:(SCREEN_WIDTH-40) / 7];
         }
         else {
-            width = [NSNumber numberWithFloat:(SCREEN_WIDTH-40) / (titles.count + 1)];
+            width = [NSNumber numberWithFloat:(SCREEN_WIDTH-40) / titles.count];
         }
         [widths addObject:width];
     }

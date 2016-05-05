@@ -9,6 +9,5 @@
 #import "BaseViewController.h"
 
 @interface SecondHandCardViewController : BaseViewController
-@property (weak, nonatomic) IBOutlet UIScrollView *typeScrollView;
-@property (weak, nonatomic) IBOutlet UIScrollView *contentScrollView;
+
 @end

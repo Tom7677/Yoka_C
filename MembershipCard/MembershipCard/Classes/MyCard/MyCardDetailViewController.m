@@ -100,7 +100,7 @@
     _bgView.userInteractionEnabled = YES;
     [_bgView addGestureRecognizer:tap];
     [[UIApplication sharedApplication].keyWindow addSubview:_bgView];
-    [[UIScreen mainScreen] setBrightness:1];
+    [[UIScreen mainScreen] setBrightness:0.8];
 
 }
 
@@ -245,8 +245,6 @@
     ZXBarcodeFormat type;
     if ([codeType isEqualToString:@"pdf417"]) {
         type = kBarcodeFormatPDF417;
-        CGRect frame = _qrCodeImageView.frame;
-        _qrCodeImageView.frame = CGRectMake((MainScreenWidth-300)/2, frame.origin.y, 300, frame.size.height);
     }else if ([codeType isEqualToString:@"EAN-13"]){
         type = kBarcodeFormatEan13;
     }else if ([codeType isEqualToString:@"EAN-8"]){
@@ -266,7 +264,11 @@
         result = [writer encode:phoneStr format: type width:270 height:80 error:&error];
     }else {
         _codeLabel.text = [self countNumAndChangeformat:code];
-        result = [writer encode:code format: type width:270 height:80 error:&error];
+        if ([codeType isEqualToString:@"pdf417"]) {
+            result = [writer encode:code format: type width:1000 height:700 error:&error];
+        }else {
+            result = [writer encode:code format: type width:270 height:80 error:&error];
+        }
     }
     if (result) {
         CGImageRef image = [[ZXImage imageWithMatrix:result] cgimage ];

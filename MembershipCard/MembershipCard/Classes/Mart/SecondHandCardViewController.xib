@@ -7,8 +7,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SecondHandCardViewController">
             <connections>
-                <outlet property="contentScrollView" destination="kyU-bu-pi5" id="SCy-Jm-j3W"/>
-                <outlet property="typeScrollView" destination="Q5T-iV-TbS" id="1Gg-Gd-ISr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,38 +14,8 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6mc-Pd-D3k">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
-                    <subviews>
-                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q5T-iV-TbS">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
-                        </scrollView>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="bottom" secondItem="Q5T-iV-TbS" secondAttribute="bottom" id="8q5-lR-C0d"/>
-                        <constraint firstItem="Q5T-iV-TbS" firstAttribute="top" secondItem="6mc-Pd-D3k" secondAttribute="top" id="He2-Pz-UnM"/>
-                        <constraint firstAttribute="height" constant="40" id="XSe-iH-A8y"/>
-                        <constraint firstItem="Q5T-iV-TbS" firstAttribute="leading" secondItem="6mc-Pd-D3k" secondAttribute="leading" id="oM3-ZX-VEV"/>
-                        <constraint firstAttribute="trailing" secondItem="Q5T-iV-TbS" secondAttribute="trailing" id="vXm-hb-LYn"/>
-                    </constraints>
-                </view>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kyU-bu-pi5">
-                    <rect key="frame" x="0.0" y="40" width="320" height="528"/>
-                </scrollView>
-            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstAttribute="trailing" secondItem="6mc-Pd-D3k" secondAttribute="trailing" id="48S-oL-XBp"/>
-                <constraint firstItem="6mc-Pd-D3k" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="6f5-94-LcG"/>
-                <constraint firstAttribute="trailing" secondItem="kyU-bu-pi5" secondAttribute="trailing" id="UwE-iA-dxG"/>
-                <constraint firstItem="kyU-bu-pi5" firstAttribute="top" secondItem="6mc-Pd-D3k" secondAttribute="bottom" id="bN8-wq-Pxs"/>
-                <constraint firstAttribute="bottom" secondItem="kyU-bu-pi5" secondAttribute="bottom" id="nk0-LT-R6s"/>
-                <constraint firstItem="kyU-bu-pi5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vkV-dn-Glt"/>
-                <constraint firstItem="6mc-Pd-D3k" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="zTH-g2-wgb"/>
-            </constraints>
-            <point key="canvasLocation" x="416" y="262"/>
+            <point key="canvasLocation" x="428" y="297"/>
         </view>
     </objects>
 </document>

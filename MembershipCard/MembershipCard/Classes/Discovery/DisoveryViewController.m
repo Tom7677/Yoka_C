@@ -23,7 +23,7 @@
 @interface DisoveryViewController ()
 @property (nonatomic, strong) NSMutableArray *typeArray;
 @property (nonatomic, assign) NSInteger tag;
-@property (nonatomic, assign) CGFloat btnWidth;
+//@property (nonatomic, assign) CGFloat btnWidth;
 @property (nonatomic, strong) NSString *cityName;
 @property (nonatomic, assign) NSInteger index;
 

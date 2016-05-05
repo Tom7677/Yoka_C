@@ -12,19 +12,17 @@
 #import "UIView+frame.h"
 #import "MJRefresh.h"
 #import "AssignmentInfoViewController.h"
-#import "VoucherListTableViewCell.h"
 #import "ModelCache.h"
+#import "SCNavTabBarController.h"
+#import "VoucherTabViewController.h"
+
 
 #define LINE_WIDTH  50
-@interface SecondHandCardViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
+@interface SecondHandCardViewController ()
 @property (nonatomic, strong) NSMutableArray *typeArray;
-@property (nonatomic, assign) CGFloat btnWidth;
-@property (nonatomic, strong) NSMutableArray *tableViewArray;
-@property (nonatomic, assign) NSInteger page;
-@property (nonatomic, strong) UITableView *currentTableView;
-@property (nonatomic, assign) NSInteger index;
-@property (nonatomic, strong) NSMutableDictionary *resultDic;
-@property (strong, nonatomic) UIView *scrollBgView;
+@property(nonatomic,strong)SCNavTabBarController *tabBarController;
+
+
 @end
 
 @implementation SecondHandCardViewController
@@ -33,10 +31,6 @@
     [super viewDidLoad];
     self.title = @"二手卡券";
     _typeArray = [[NSMutableArray alloc]init];
-    _tableViewArray = [[NSMutableArray alloc]init];
-    _currentTableView = [[UITableView alloc]init];
-    _resultDic = [[NSMutableDictionary alloc]init];
-    _index = 0;
     
     UIButton *rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 60, 28)];
     rightBtn.titleLabel.font = [UIFont systemFontOfSize:14];
@@ -46,25 +40,26 @@
     [rightBtn addTarget:self action:@selector(releaseAction) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
     [self.navigationItem setRightBarButtonItem:rightItem];
-    _contentScrollView.delegate = self;
+    }
+
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     if ([[ModelCache shared]containsObjectForKey:VOUCHER_TYPE]) {
         NSArray *resultArray = [[ModelCache shared]readValueByKey:VOUCHER_TYPE];
         [self getTypeArray:resultArray];
         [self createBtn];
-        [self refreshData];
     }
     else {
         [self getVoucherCatList];
     }
-}
 
+}
 - (void)getVoucherCatList
 {
     [[NetworkAPI shared]getVoucherTypeWithFinish:^(NSArray *dataArray) {
         if (dataArray != nil) {
             [self getTypeArray:dataArray];
             [self createBtn];
-            [self refreshData];
         }
     } withErrorBlock:^(NSError *error) {
         
@@ -73,6 +68,7 @@
 
 - (void)getTypeArray:(NSArray *)resultArray
 {
+    [_typeArray removeAllObjects];
     for (NSDictionary *dic in resultArray) {
         ArticleTypeModel *model = [ArticleTypeModel mj_objectWithKeyValues:dic];
         [_typeArray addObject:model];
@@ -93,314 +89,24 @@
 
 - (void) createBtn
 {
-    if (_typeArray.count + 1 >= 6) {
-        _btnWidth = (MainScreenWidth-40) / 6;
+    NSMutableArray *temp = [NSMutableArray new];
+    VoucherTabViewController *vc = [[VoucherTabViewController alloc] initWithCatId:nil];
+    vc.title = @"全部卡";
+    [temp addObject:vc];
+    for (int i=0; i<_typeArray.count; i++) {
+        ArticleTypeModel *model = _typeArray[i];
+        VoucherTabViewController *vc = [[VoucherTabViewController alloc] initWithCatId:model.cat_id];
+        vc.title = model.cat_name;
+        [temp addObject:vc];
     }
-    else {
-        _btnWidth = (MainScreenWidth-40) / (_typeArray.count + 1);
-    }
-    for (int i = 0; i < _typeArray.count + 1; i ++) {
-        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [btn setFrame:CGRectMake(20 + _btnWidth * i, 0, _btnWidth, _typeScrollView.height)];
-        if (i == 0) {
-            [btn setTitle:@"全部卡" forState:UIControlStateNormal];
-        }
-        else {
-            ArticleTypeModel *model = _typeArray[i - 1];
-            [btn setTitle:model.cat_name forState:UIControlStateNormal];
-        }
-        [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [btn setTitleColor:UIColorFromRGB(0xFF526E) forState:UIControlStateSelected];
-        btn.titleLabel.font = [UIFont systemFontOfSize:14];
-        btn.tag = i + 1;
-        [btn addTarget:self action:@selector(actionbtn:) forControlEvents:UIControlEventTouchUpInside];
-        [_typeScrollView addSubview:btn];
-    }
-    [_typeScrollView setContentSize:CGSizeMake(_btnWidth * (_typeArray.count + 1) + 40, _typeScrollView.height)];
-    _scrollBgView = [[UIView alloc] initWithFrame:CGRectMake((_btnWidth - LINE_WIDTH) / 2 + 20, _typeScrollView.height - 4, LINE_WIDTH, 10)];
-    [_scrollBgView setBackgroundColor:UIColorFromRGB(0xffd500)];
-    [_typeScrollView addSubview:_scrollBgView];
-    UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, _typeScrollView.size.height + _typeScrollView.originY - 1, [UIScreen mainScreen].bounds.size.width, 0.5)];
-    lineView.backgroundColor = [UIColor lightGrayColor];
-    [_typeScrollView addSubview:lineView];
-    _typeScrollView.backgroundColor = [UIColor whiteColor];
-    [_contentScrollView setContentSize:CGSizeMake(MainScreenWidth * (_typeArray.count + 1), 0)];
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-        // 处理耗时操作的代码块...
-        [self addTableViewToScrollView:_contentScrollView count:_typeArray.count + 1];
-    });
+    
+    self.tabBarController = [[SCNavTabBarController alloc] init];
+    self.tabBarController.navTabBarLineColor = UIColorFromRGB(0xffd500);
+    self.tabBarController.navTabBarColor = [UIColor whiteColor];
+    self.tabBarController.subViewControllers = temp;
+    
+    self.tabBarController.showArrowButton = NO;
+    [self.tabBarController addParentController:self];
 }
 
-- (void)addTableViewToScrollView:(UIScrollView *)scrollView count:(NSUInteger)pageCount
-{
-    for (int i = 0; i < pageCount; i++) {
-        UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(MainScreenWidth * i, 0 , MainScreenWidth, MainScreenHeight - 40 - NavAndStatusBarHeight )];
-        tableView.delegate = self;
-        tableView.dataSource = self;
-        [tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-        tableView.tag = i;
-        [tableView registerNib:[UINib nibWithNibName:@"VoucherListTableViewCell" bundle:nil] forCellReuseIdentifier:@"cellIdentifier"];
-        [_tableViewArray addObject:tableView];
-        //通知主线程刷新
-        dispatch_async(dispatch_get_main_queue(), ^{
-            //回调或者说是通知主线程刷新，
-            [scrollView addSubview:tableView];
-            if (i == 0) {
-                _currentTableView = tableView;
-            }
-            tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-                [self refreshData];
-                [self hideHub];
-            }];
-            tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-                [self loadMoreData];
-            }];
-            tableView.mj_footer.hidden = YES;
-        });
-    }
-}
-
-- (void)refreshData
-{
-    [self showHub];
-    __weak SecondHandCardViewController *weakSelf = self;
-    _page = 1;
-    if (_index == 0) {
-        [[NetworkAPI shared]getVoucherListByCatId:@"" page:_page WithFinish:^(NSArray *dataArray) {
-            [self hideHub];
-            if (dataArray != nil) {
-                [_resultDic setObject:[NSNumber numberWithInteger:_page] forKey:@"全部"];
-                [[ModelCache shared]saveValue:dataArray forKey:@"全部"];
-            }
-            else {
-                UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake((MainScreenWidth - 200) / 2, 100, 200, 30)];
-                label.textAlignment = NSTextAlignmentCenter;
-                label.font = [UIFont systemFontOfSize:14];
-                label.textColor = [UIColor lightGrayColor];
-                label.text = @"暂无卡券信息";
-                [weakSelf.currentTableView addSubview:label];
-            }
-            [weakSelf.currentTableView reloadData];
-            if (dataArray.count >= pageSize) {
-                weakSelf.currentTableView.mj_footer.hidden = NO;
-            }
-            else {
-                weakSelf.currentTableView.mj_footer.hidden = YES;
-            }
-            [weakSelf.currentTableView.mj_header endRefreshing];
-        } withErrorBlock:^(NSError *error) {
-            [weakSelf.currentTableView.mj_header endRefreshing];
-            weakSelf.currentTableView.mj_footer.hidden = YES;
-            [self hideHub];
-            [weakSelf.currentTableView reloadData];
-            if (error.code == NSURLErrorNotConnectedToInternet) {
-                [self showAlertViewController:@"您无法连接到网络，请确认网络连接。"];
-            }
-        }];
-    }
-    else {
-        ArticleTypeModel *model = _typeArray[_index - 1];
-        [_resultDic setObject:[NSNumber numberWithInteger:_page] forKey:model.cat_name];
-        [[NetworkAPI shared]getVoucherListByCatId:model.cat_id page:_page WithFinish:^(NSArray *dataArray) {
-            [self hideHub];
-            if (dataArray != nil) {
-                [[ModelCache shared]saveValue:dataArray forKey:model.cat_name];
-            }
-            else {
-                UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake((MainScreenWidth - 200) / 2, 100, 200, 30)];
-                label.textAlignment = NSTextAlignmentCenter;
-                label.font = [UIFont systemFontOfSize:14];
-                label.textColor = [UIColor lightGrayColor];
-                label.text = @"此分类暂无卡券信息";
-                [weakSelf.currentTableView addSubview:label];
-            }
-            [weakSelf.currentTableView reloadData];
-            if (dataArray.count >= pageSize) {
-                weakSelf.currentTableView.mj_footer.hidden = NO;
-            }
-            else {
-                weakSelf.currentTableView.mj_footer.hidden = YES;
-            }
-            [weakSelf.currentTableView.mj_header endRefreshing];
-        } withErrorBlock:^(NSError *error) {
-            [weakSelf.currentTableView.mj_header endRefreshing];
-            weakSelf.currentTableView.mj_footer.hidden = YES;
-            [self hideHub];
-            [weakSelf.currentTableView reloadData];
-        }];
-    }
-}
-
-- (void)loadMoreData
-{
-    __weak SecondHandCardViewController *weakSelf = self;
-    _page = _page + 1;
-    if (_index == 0) {
-        [[NetworkAPI shared]getVoucherListByCatId:@"" page:_page WithFinish:^(NSArray *dataArray) {
-            if (dataArray != nil) {
-                NSMutableArray *resultArray = [[NSMutableArray alloc]init];
-                [resultArray addObjectsFromArray:[[ModelCache shared]readValueByKey:@"全部"]];
-                [[ModelCache shared]saveValue:dataArray forKey:@"全部"];
-                [_resultDic setObject:[NSNumber numberWithInteger:_page] forKey:@"全部"];
-                [weakSelf.currentTableView reloadData];
-            }
-            if (dataArray.count >= pageSize) {
-                [weakSelf.currentTableView.mj_footer endRefreshing];
-            }
-            else {
-                [weakSelf.currentTableView.mj_footer endRefreshingWithNoMoreData];
-            }
-        } withErrorBlock:^(NSError *error) {
-            [weakSelf.currentTableView.mj_footer endRefreshing];
-        }];
-    }
-    else {
-        ArticleTypeModel *model = _typeArray[_index - 1];
-        [[NetworkAPI shared]getVoucherListByCatId:model.cat_id page:_page WithFinish:^(NSArray *dataArray) {
-            if (dataArray != nil) {
-                NSMutableArray *resultArray = [[NSMutableArray alloc]init];
-                [resultArray addObjectsFromArray:[[ModelCache shared]readValueByKey:model.cat_name]];
-                [[ModelCache shared]saveValue:resultArray forKey:model.cat_name];
-                [_resultDic setObject:[NSNumber numberWithInteger:_page] forKey:model.cat_name];
-                [weakSelf.currentTableView reloadData];
-            }
-            if (dataArray.count >= pageSize) {
-                [weakSelf.currentTableView.mj_footer endRefreshing];
-            }
-            else {
-                [weakSelf.currentTableView.mj_footer endRefreshingWithNoMoreData];
-            }
-        } withErrorBlock:^(NSError *error) {
-            [weakSelf.currentTableView.mj_footer endRefreshing];
-        }];
-    }
-}
-
-- (void)actionbtn:(UIButton *)btn
-{
-    if (_tableViewArray.count > 0) {
-        _currentTableView = _tableViewArray[btn.tag - 1];
-    }
-    _index = btn.tag - 1;
-    [_contentScrollView setContentOffset:CGPointMake(MainScreenWidth * (btn.tag - 1), 0) animated:YES];
-    float xx = MainScreenWidth * (btn.tag - 1) * (_btnWidth / MainScreenWidth) - _btnWidth;
-    [_typeScrollView scrollRectToVisible:CGRectMake(xx, 0, MainScreenWidth, _typeScrollView.height) animated:YES];
-    [self refreshView];
-}
-
-- (void)refreshView
-{
-    if (_index == 0) {
-        _page = [[_resultDic objectForKey:@"全部"] integerValue];
-        if ([[[ModelCache shared]readValueByKey:@"全部"] count] <= pageSize) {
-            [self refreshData];
-        }
-    }
-    else {
-        ArticleTypeModel *model = _typeArray[_index - 1];
-        _page = [[_resultDic objectForKey:model.cat_name] integerValue];
-        if ([[[ModelCache shared]readValueByKey:model.cat_name] count] <= pageSize) {
-            [self refreshData];
-        }
-    }
-}
-
-- (void)changeView:(float)x
-{
-    float xx = x * (_btnWidth / MainScreenWidth);
-    [_scrollBgView setFrame:CGRectMake(xx + (_btnWidth - LINE_WIDTH) / 2 + 20, _scrollBgView.originY, _scrollBgView.width, _scrollBgView.height)];
-}
-
-#pragma mark tableView
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    if (_index == 0) {
-        return [[[ModelCache shared]readValueByKey:@"全部"] count];
-    }
-    else {
-        ArticleTypeModel *model = _typeArray[_index - 1];
-        return [[[ModelCache shared]readValueByKey:model.cat_name] count];
-    }
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    VoucherListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentifier"];
-    NSArray *dataArray;
-    if (_index == 0) {
-        dataArray = [[ModelCache shared]readValueByKey:@"全部"];
-    }
-    else {
-        ArticleTypeModel *model = _typeArray[_index - 1];
-        dataArray = [[ModelCache shared]readValueByKey:model.cat_name];
-    }
-    if (dataArray.count == 0) {
-        return cell;
-    }
-    VoucherListModel *model = dataArray[indexPath.row];
-    cell.typeLabel.text = model.type;
-    if ([model.type isEqualToString:@"转让"]) {
-        cell.typeLabel.backgroundColor = UIColorFromRGB(0xF4CE1D);
-    }
-    else {
-        cell.typeLabel.backgroundColor = UIColorFromRGB(0x8DC21F);
-    }
-    cell.titleLabel.text = model.title;
-    cell.locationLabel.text = [NSString stringWithFormat:@"%@ - %@",model.name,model.location];
-    cell.priceLabel.text = [[model.price description] stringByAppendingString:@"元"];
-    cell.timeLabel.text = model.create_date;
-    cell.deleteLabel.hidden = YES;
-    cell.deleteBtn.hidden = YES;
-    return cell;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSArray *dataArray;
-    if (_index == 0) {
-        dataArray = [[ModelCache shared]readValueByKey:@"全部"];
-    }
-    else {
-        ArticleTypeModel *model = _typeArray[_index - 1];
-        dataArray = [[ModelCache shared]readValueByKey:model.cat_name];
-    }
-    VoucherListModel *model = dataArray[indexPath.row];
-    AssignmentInfoViewController *vc = [[AssignmentInfoViewController alloc]init];
-    vc.voucher_id = model.voucher_id;
-    vc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:vc animated:YES];
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 82;
-}
-
-#pragma mark - UIScrollViewDelegate
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    if ([scrollView isKindOfClass:[UITableView class]]) {
-        //tableView
-    }
-    else {
-        [self changeView:scrollView.contentOffset.x];
-    }
-}
-
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-{
-    if ([scrollView isKindOfClass:[UITableView class]]) {
-        //tableView
-    }
-    else {
-        float xx = scrollView.contentOffset.x * (_btnWidth / MainScreenWidth) - _btnWidth;
-        [_typeScrollView scrollRectToVisible:CGRectMake(xx, 0, MainScreenWidth, _typeScrollView.height) animated:YES];
-        int i = (scrollView.contentOffset.x / MainScreenWidth);
-        _index = i;
-        if (_tableViewArray.count > 0) {
-            _currentTableView = _tableViewArray[i];
-        }
-        [self refreshView];
-    }
-}
 @end

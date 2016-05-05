@@ -108,6 +108,7 @@
 		1ACFB9CE1C8EB8680083FD07 /* more2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFB9C81C8EB8680083FD07 /* more2.png */; };
 		1ACFB9CF1C8EB8680083FD07 /* more2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFB9C91C8EB8680083FD07 /* more2@2x.png */; };
 		1ACFB9D01C8EB8680083FD07 /* more2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFB9CA1C8EB8680083FD07 /* more2@3x.png */; };
+		1AF169941CDB102900A1F9BD /* VoucherTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AF169931CDB102900A1F9BD /* VoucherTabViewController.m */; };
 		1AF6F2801CCDC258000DF151 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AF6F27F1CCDC258000DF151 /* WebViewController.xib */; };
 		1AF6F2901CCDF698000DF151 /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AF6F28D1CCDF698000DF151 /* delete.png */; };
 		1AF6F2911CCDF698000DF151 /* delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AF6F28E1CCDF698000DF151 /* delete@2x.png */; };
@@ -419,6 +420,8 @@
 		1ACFB9C81C8EB8680083FD07 /* more2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more2.png; sourceTree = "<group>"; };
 		1ACFB9C91C8EB8680083FD07 /* more2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "more2@2x.png"; sourceTree = "<group>"; };
 		1ACFB9CA1C8EB8680083FD07 /* more2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "more2@3x.png"; sourceTree = "<group>"; };
+		1AF169921CDB102900A1F9BD /* VoucherTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoucherTabViewController.h; sourceTree = "<group>"; };
+		1AF169931CDB102900A1F9BD /* VoucherTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoucherTabViewController.m; sourceTree = "<group>"; };
 		1AF6F27F1CCDC258000DF151 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
 		1AF6F28D1CCDF698000DF151 /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
 		1AF6F28E1CCDF698000DF151 /* delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "delete@2x.png"; sourceTree = "<group>"; };
@@ -1342,6 +1345,8 @@
 				27D39A5F1C96A1EF00A3F3C3 /* SecondHandCardViewController.h */,
 				27D39A601C96A1EF00A3F3C3 /* SecondHandCardViewController.m */,
 				27D39A611C96A1EF00A3F3C3 /* SecondHandCardViewController.xib */,
+				1AF169921CDB102900A1F9BD /* VoucherTabViewController.h */,
+				1AF169931CDB102900A1F9BD /* VoucherTabViewController.m */,
 				E2004BFC1C85CD7D00CDA2E7 /* SellCardViewController.h */,
 				E2004BFD1C85CD7D00CDA2E7 /* SellCardViewController.m */,
 				E2004BFE1C85CD7D00CDA2E7 /* SellCardViewController.xib */,
@@ -2147,6 +2152,7 @@
 				276BBCF61CAA8BB600CA392E /* WebViewController.m in Sources */,
 				E2BDB81C1C7B641200274CE3 /* InputCardViewController.m in Sources */,
 				27D39A5E1C96967E00A3F3C3 /* ImageTopButton.m in Sources */,
+				1AF169941CDB102900A1F9BD /* VoucherTabViewController.m in Sources */,
 				27512FE41CAA054300BCADA1 /* NSObject+MJProperty.m in Sources */,
 				27512FE21CAA054300BCADA1 /* NSObject+MJCoding.m in Sources */,
 				27512FE51CAA054300BCADA1 /* NSString+MJExtension.m in Sources */,

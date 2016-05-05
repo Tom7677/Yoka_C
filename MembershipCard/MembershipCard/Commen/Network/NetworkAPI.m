@@ -14,6 +14,8 @@
 #import "YZSDK.h"
 #import "YZUserModel.h"
 
+
+
 @implementation NetworkAPI
 
 + (NetworkAPI *)shared
@@ -812,7 +814,7 @@
     }];
 }
 
-#pragma Action
+#pragma mark Action
 /**
  *  获取Token
  *

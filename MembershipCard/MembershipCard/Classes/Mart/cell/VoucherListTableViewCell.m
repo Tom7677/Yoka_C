@@ -15,10 +15,6 @@
 - (void)awakeFromNib {
     [_typeLabel circularBead:4];
     [_deleteLabel circularBoarderBead:4 withBoarder:1 color:UIColorFromRGB(0xf0f0f0)];
-    UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(13, self.frame.size.height - 1, [UIScreen mainScreen].bounds.size.width - 13, 0.5)];
-    lineView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
-    lineView.backgroundColor = [UIColor lightGrayColor];
-    [self addSubview:lineView];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
