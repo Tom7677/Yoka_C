@@ -63,7 +63,6 @@
 		1A5E77A71CBBA99100C495EF /* backicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A5E77A41CBBA99100C495EF /* backicon.png */; };
 		1A5E77A81CBBA99100C495EF /* backicon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A5E77A51CBBA99100C495EF /* backicon@2x.png */; };
 		1A5E77A91CBBA99100C495EF /* backicon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A5E77A61CBBA99100C495EF /* backicon@3x.png */; };
-		1A7300051C86CD1B0054DB1D /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7300041C86CD1B0054DB1D /* AboutViewController.m */; };
 		1AA63D111C9955A1000C0589 /* mjlogo_rectangle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1AA63D0F1C9955A1000C0589 /* mjlogo_rectangle.jpg */; };
 		1AA63D121C9955A1000C0589 /* mjlogo_round.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1AA63D101C9955A1000C0589 /* mjlogo_round.jpg */; };
 		1ABDBEC51CDC3EF0006E3915 /* tabbar_discovery.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ABDBEB31CDC3EF0006E3915 /* tabbar_discovery.png */; };
@@ -242,8 +241,6 @@
 		E24983A01C8BD6D3005B77A8 /* TSImageLeftButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E249839F1C8BD6D3005B77A8 /* TSImageLeftButton.m */; };
 		E24983A61C8C27BA005B77A8 /* icon_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E24983A41C8C27BA005B77A8 /* icon_logo.png */; };
 		E24983A71C8C27BA005B77A8 /* icon_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E24983A51C8C27BA005B77A8 /* icon_logo@2x.png */; };
-		E2662CBB1C7CA1D100FE42F1 /* ShowDeteledCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2662CB91C7CA1D100FE42F1 /* ShowDeteledCardViewController.m */; };
-		E2662CBC1C7CA1D100FE42F1 /* ShowDeteledCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2662CBA1C7CA1D100FE42F1 /* ShowDeteledCardViewController.xib */; };
 		E297102E1CB7D2FC00303B06 /* ChooseCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E297102C1CB7D2FC00303B06 /* ChooseCityViewController.m */; };
 		E297102F1CB7D2FC00303B06 /* ChooseCityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E297102D1CB7D2FC00303B06 /* ChooseCityViewController.xib */; };
 		E2AE92431CDA5EFC00B8D170 /* SCNavTabBar.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E2AE923A1CDA5EFC00B8D170 /* SCNavTabBar.bundle */; };
@@ -374,8 +371,6 @@
 		1A5E77A41CBBA99100C495EF /* backicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backicon.png; sourceTree = "<group>"; };
 		1A5E77A51CBBA99100C495EF /* backicon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backicon@2x.png"; sourceTree = "<group>"; };
 		1A5E77A61CBBA99100C495EF /* backicon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backicon@3x.png"; sourceTree = "<group>"; };
-		1A7300031C86CD1B0054DB1D /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
-		1A7300041C86CD1B0054DB1D /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		1AA63D0F1C9955A1000C0589 /* mjlogo_rectangle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mjlogo_rectangle.jpg; sourceTree = "<group>"; };
 		1AA63D101C9955A1000C0589 /* mjlogo_round.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mjlogo_round.jpg; sourceTree = "<group>"; };
 		1ABDBEB31CDC3EF0006E3915 /* tabbar_discovery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_discovery.png; sourceTree = "<group>"; };
@@ -630,9 +625,6 @@
 		E249839F1C8BD6D3005B77A8 /* TSImageLeftButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSImageLeftButton.m; sourceTree = "<group>"; };
 		E24983A41C8C27BA005B77A8 /* icon_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_logo.png; sourceTree = "<group>"; };
 		E24983A51C8C27BA005B77A8 /* icon_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_logo@2x.png"; sourceTree = "<group>"; };
-		E2662CB81C7CA1D100FE42F1 /* ShowDeteledCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowDeteledCardViewController.h; sourceTree = "<group>"; };
-		E2662CB91C7CA1D100FE42F1 /* ShowDeteledCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowDeteledCardViewController.m; sourceTree = "<group>"; };
-		E2662CBA1C7CA1D100FE42F1 /* ShowDeteledCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowDeteledCardViewController.xib; sourceTree = "<group>"; };
 		E297102B1CB7D2FC00303B06 /* ChooseCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseCityViewController.h; sourceTree = "<group>"; };
 		E297102C1CB7D2FC00303B06 /* ChooseCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseCityViewController.m; sourceTree = "<group>"; };
 		E297102D1CB7D2FC00303B06 /* ChooseCityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseCityViewController.xib; sourceTree = "<group>"; };
@@ -719,9 +711,9 @@
 		E2FEE3C71C79F5A70079B824 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		E2FEE3C81C79F5A70079B824 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		E2FEE3C91C79F5A70079B824 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
-		E2FEE3CC1C79F5EA0079B824 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
-		E2FEE3CD1C79F5EA0079B824 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
-		E2FEE3CE1C79F5EA0079B824 /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
+		E2FEE3CC1C79F5EA0079B824 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingViewController.h; path = ../Setting/SettingViewController.h; sourceTree = "<group>"; };
+		E2FEE3CD1C79F5EA0079B824 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingViewController.m; path = ../Setting/SettingViewController.m; sourceTree = "<group>"; };
+		E2FEE3CE1C79F5EA0079B824 /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingViewController.xib; path = ../Setting/SettingViewController.xib; sourceTree = "<group>"; };
 		E2FEE3D11C79FD070079B824 /* VIPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIPViewController.h; sourceTree = "<group>"; };
 		E2FEE3D21C79FD070079B824 /* VIPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIPViewController.m; sourceTree = "<group>"; };
 		E2FEE3D31C79FD070079B824 /* VIPViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VIPViewController.xib; sourceTree = "<group>"; };
@@ -796,10 +788,12 @@
 		1A344BEE1C882BAC009F3FFC /* More */ = {
 			isa = PBXGroup;
 			children = (
-				E2FEE3A91C79F2620079B824 /* Setting */,
 				1A344BFB1C884AA1009F3FFC /* MoreViewController.h */,
 				1A344BFC1C884AA1009F3FFC /* MoreViewController.m */,
 				1A344BFD1C884AA1009F3FFC /* MoreViewController.xib */,
+				E2FEE3CC1C79F5EA0079B824 /* SettingViewController.h */,
+				E2FEE3CD1C79F5EA0079B824 /* SettingViewController.m */,
+				E2FEE3CE1C79F5EA0079B824 /* SettingViewController.xib */,
 				273476351CB35D0D00FAF042 /* EditNameViewController.h */,
 				273476361CB35D0D00FAF042 /* EditNameViewController.m */,
 				273476371CB35D0D00FAF042 /* EditNameViewController.xib */,
@@ -1560,22 +1554,6 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		E2FEE3A91C79F2620079B824 /* Setting */ = {
-			isa = PBXGroup;
-			children = (
-				E2FEE3CC1C79F5EA0079B824 /* SettingViewController.h */,
-				E2FEE3CD1C79F5EA0079B824 /* SettingViewController.m */,
-				E2FEE3CE1C79F5EA0079B824 /* SettingViewController.xib */,
-				E2662CB81C7CA1D100FE42F1 /* ShowDeteledCardViewController.h */,
-				E2662CB91C7CA1D100FE42F1 /* ShowDeteledCardViewController.m */,
-				E2662CBA1C7CA1D100FE42F1 /* ShowDeteledCardViewController.xib */,
-				1A7300031C86CD1B0054DB1D /* AboutViewController.h */,
-				1A7300041C86CD1B0054DB1D /* AboutViewController.m */,
-			);
-			name = Setting;
-			path = ../Setting;
-			sourceTree = "<group>";
-		};
 		E2FEE3AA1C79F2620079B824 /* VIP */ = {
 			isa = PBXGroup;
 			children = (
@@ -1973,7 +1951,6 @@
 				1ACC38701C9FC4DB00C9E837 /* ser-01@3x.png in Resources */,
 				1A5E77A71CBBA99100C495EF /* backicon.png in Resources */,
 				1ABDBEC81CDC3EF0006E3915 /* tabbar_discovery_selected.png in Resources */,
-				E2662CBC1C7CA1D100FE42F1 /* ShowDeteledCardViewController.xib in Resources */,
 				1ACC386E1C9FC4DB00C9E837 /* ser-01.png in Resources */,
 				E2FEE37E1C79E7860079B824 /* Assets.xcassets in Resources */,
 				27D39A571C92AC5D00A3F3C3 /* MJRefresh.bundle in Resources */,
@@ -2105,7 +2082,6 @@
 				27D39A4C1C92AC5D00A3F3C3 /* MJRefreshFooter.m in Sources */,
 				E2031BE21CC68FBC009DC6EE /* RTDragCellTableView.m in Sources */,
 				E24983A01C8BD6D3005B77A8 /* TSImageLeftButton.m in Sources */,
-				E2662CBB1C7CA1D100FE42F1 /* ShowDeteledCardViewController.m in Sources */,
 				E2FBA60F1C82B70000F9F799 /* YKModel.m in Sources */,
 				273476901CB5EB3F00FAF042 /* TZPhotoPickerController.m in Sources */,
 				E2000D781C9E771F003DCA39 /* PossiableCardTableViewCell.m in Sources */,
@@ -2138,7 +2114,6 @@
 				276BBD1E1CACC12700CA392E /* VoucherListTableViewCell.m in Sources */,
 				E2BDB7C51C7B5F5100274CE3 /* VIPTableViewCell.m in Sources */,
 				E2FEE3CA1C79F5A70079B824 /* LoginViewController.m in Sources */,
-				1A7300051C86CD1B0054DB1D /* AboutViewController.m in Sources */,
 				27D39A131C8FB90A00A3F3C3 /* UILabel+caculateSize.m in Sources */,
 				E297102E1CB7D2FC00303B06 /* ChooseCityViewController.m in Sources */,
 				27512FDE1CAA054300BCADA1 /* MJProperty.m in Sources */,

@@ -8,7 +8,6 @@
 
 #import "MoreViewController.h"
 #import "SettingViewController.h"
-#import "ShowDeteledCardViewController.h"
 #import "UIView+frame.h"
 #import "UIView+border.h"
 #import "ChooseAreaViewController.h"

@@ -23,9 +23,8 @@ static NSString *SHARE_IMAGE_URL = @"img_url";
 static NSString *SHARE_DESC = @"desc";
 
 //相关链接地址
-#define ABOUTUS @"http://114.215.174.185:8080/wordpress/公司简介/"
-#define TEMSOFUSE @"http://114.215.174.185:8080/wordpress/法律声明/ "
-//#define EMPTYWEBURL @"https://www.baidu.com"
+#define ABOUTUS @"http://114.215.174.185:8080/wordpress/%e5%85%ac%e5%8f%b8%e7%ae%80%e4%bb%8b/"
+#define TEMSOFUSE @"http://114.215.174.185:8080/wordpress/%e6%b3%95%e5%be%8b%e5%a3%b0%e6%98%8e/"
 
 //定义存储key
 #define ARTICLE_TYPE @"articleType"
