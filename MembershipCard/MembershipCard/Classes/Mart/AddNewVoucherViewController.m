@@ -33,7 +33,7 @@
     _tableView.dataSource = self;
     _selectIndex = 0;
     _selectedPicArray = [[NSMutableArray alloc]init];
-    _addBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, (MainScreenWidth - 50) / 4, (MainScreenWidth - 50) / 4)];
+    _addBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 10, (MainScreenWidth - 75) / 4, (MainScreenWidth - 75) / 4)];
     [_addBtn addTarget:self action:@selector(addPic) forControlEvents:UIControlEventTouchUpInside];
     [_addBtn setBackgroundImage:[UIImage imageNamed:@"AlbumAddBtn"] forState:UIControlStateNormal];
     [_tableView setTableHeaderView:_headView];
@@ -100,7 +100,7 @@
 - (void)refreshPicByImages:(NSArray *)images
 {
     [_scrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-    CGFloat width = (MainScreenWidth - 50) / 4;
+    CGFloat width = (MainScreenWidth - 75) / 4;
     CGFloat originY = (90 * MainScreenWidth / 320 - width) / 2;
     if (images.count < UploadMaxPictureNum) {
         for (int i = 0; i < images.count; i ++) {
@@ -345,7 +345,6 @@
             [self hideHub];
             if (isSuccess) {
                 [self.navigationController popViewControllerAnimated:YES];
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadReleaseNotification" object:self userInfo:nil];
             }
             else {
                 [self showAlertViewController:msg];

@@ -20,7 +20,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(releaseReload) name:@"ReloadReleaseNotification" object:nil];
     self.title = @"我的发布";
     _dataArray  = [[NSMutableArray alloc]init];
     
@@ -48,9 +47,29 @@
     [_tableView setTableFooterView:[UIView new]];
 }
 
-
--(void)releaseReload {
+- (void)viewWillAppear:(BOOL)animated {
     [self loadNewData];
+    [super viewWillAppear:animated];
+}
+
+- (void)reloadTableData {
+    UILabel *noDataLabel;
+    if (_dataArray.count < 1) {
+        noDataLabel = [[UILabel alloc]initWithFrame:CGRectMake((MainScreenWidth - 200) / 2, 100, 200, 30)];
+        noDataLabel.textAlignment = NSTextAlignmentCenter;
+        noDataLabel.font = [UIFont systemFontOfSize:14];
+        noDataLabel.textColor = [UIColor lightGrayColor];
+        noDataLabel.text = @"暂未发布卡券信息";
+        noDataLabel.tag = 700;
+        [_tableView addSubview:noDataLabel];
+    }else {
+        for (UIView *view in [_tableView subviews]) {
+            if (view.tag == 700) {
+                [view removeFromSuperview];
+            }
+        }
+    }
+    [_tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -72,8 +91,8 @@
             else {
                 _tableView.mj_footer.hidden = YES;
             }
-            [_tableView reloadData];
         }
+        [self reloadTableData];
         [_tableView.mj_header endRefreshing];
     } withErrorBlock:^(NSError *error) {
         [self hideHub];
@@ -89,7 +108,7 @@
                 [_tableView.mj_footer endRefreshingWithNoMoreData];
             }
             [_dataArray addObjectsFromArray:dataArray];
-            [_tableView reloadData];
+            [self reloadTableData];
         }
         [_tableView.mj_footer endRefreshing];
     } withErrorBlock:^(NSError *error) {
@@ -152,7 +171,7 @@
         [[NetworkAPI shared]deleteVoucherWithVoucherId:vouchertModel.voucher_id WithFinish:^(BOOL isSuccess, NSString *msg) {
             if (isSuccess) {
                 [_dataArray removeObject:vouchertModel];
-                [_tableView reloadData];
+                [self reloadTableData];
             }
         } withErrorBlock:^(NSError *error) {
             

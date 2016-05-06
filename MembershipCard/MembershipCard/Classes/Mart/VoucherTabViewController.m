@@ -44,6 +44,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+    [self reloadTableData];
     [super viewWillAppear:animated];
 }
 
@@ -53,6 +54,26 @@
 
 - (void)dealloc {
     
+}
+
+- (void)reloadTableData {
+    UILabel *noDataLabel;
+    if ([[[ModelCache shared]readValueByKey:@"全部卡"] count] < 1 || [[[ModelCache shared]readValueByKey:self.title] count] < 1) {
+        noDataLabel = [[UILabel alloc]initWithFrame:CGRectMake((MainScreenWidth - 200) / 2, 100, 200, 30)];
+        noDataLabel.textAlignment = NSTextAlignmentCenter;
+        noDataLabel.font = [UIFont systemFontOfSize:14];
+        noDataLabel.textColor = [UIColor lightGrayColor];
+        noDataLabel.text = @"暂无卡券信息";
+        noDataLabel.tag = 600;
+        [_tableView addSubview:noDataLabel];
+    }else {
+        for (UIView *view in [_tableView subviews]) {
+            if (view.tag == 600) {
+                [view removeFromSuperview];
+            }
+        }
+    }
+    [_tableView reloadData];
 }
 
 #pragma mark - UITableViewDataSource
@@ -144,19 +165,9 @@
     if (!self.catId) {
         [[NetworkAPI shared]getVoucherListByCatId:@"" page:_page WithFinish:^(NSArray *dataArray) {
             [self hideHub];
-            if (dataArray != nil) {
-                [_resultDic setObject:[NSNumber numberWithInteger:_page] forKey:@"全部卡"];
-                [[ModelCache shared]saveValue:dataArray forKey:@"全部卡"];
-            }
-            else {
-                UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake((MainScreenWidth - 200) / 2, 100, 200, 30)];
-                label.textAlignment = NSTextAlignmentCenter;
-                label.font = [UIFont systemFontOfSize:14];
-                label.textColor = [UIColor lightGrayColor];
-                label.text = @"暂无卡券信息";
-                [weakSelf.tableView addSubview:label];
-            }
-            [weakSelf.tableView reloadData];
+            [_resultDic setObject:[NSNumber numberWithInteger:_page] forKey:@"全部卡"];
+            [[ModelCache shared]saveValue:dataArray forKey:@"全部卡"];
+            [self reloadTableData];
             if (dataArray.count >= pageSize) {
                 weakSelf.tableView.mj_footer.hidden = NO;
             }
@@ -168,7 +179,7 @@
             [weakSelf.tableView.mj_header endRefreshing];
             weakSelf.tableView.mj_footer.hidden = YES;
             [self hideHub];
-            [weakSelf.tableView reloadData];
+            [self reloadTableData];
             if (error.code == NSURLErrorNotConnectedToInternet) {
                 [self showAlertViewController:@"您无法连接到网络，请确认网络连接。"];
             }
@@ -178,18 +189,8 @@
         [_resultDic setObject:[NSNumber numberWithInteger:_page] forKey:self.title];
         [[NetworkAPI shared]getVoucherListByCatId:self.catId page:_page WithFinish:^(NSArray *dataArray) {
             [self hideHub];
-            if (dataArray != nil) {
-                [[ModelCache shared]saveValue:dataArray forKey:self.title];
-            }
-            else {
-                UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake((MainScreenWidth - 200) / 2, 100, 200, 30)];
-                label.textAlignment = NSTextAlignmentCenter;
-                label.font = [UIFont systemFontOfSize:14];
-                label.textColor = [UIColor lightGrayColor];
-                label.text = @"此分类暂无卡券信息";
-                [weakSelf.tableView addSubview:label];
-            }
-            [weakSelf.tableView reloadData];
+            [[ModelCache shared]saveValue:dataArray forKey:self.title];
+            [self reloadTableData];
             if (dataArray.count >= pageSize) {
                 weakSelf.tableView.mj_footer.hidden = NO;
             }
@@ -201,7 +202,7 @@
             [weakSelf.tableView.mj_header endRefreshing];
             weakSelf.tableView.mj_footer.hidden = YES;
             [self hideHub];
-            [weakSelf.tableView reloadData];
+            [self reloadTableData];
         }];
     }
 }
@@ -212,13 +213,11 @@
     _page = _page + 1;
     if (!self.catId) {
         [[NetworkAPI shared]getVoucherListByCatId:@"" page:_page WithFinish:^(NSArray *dataArray) {
-            if (dataArray != nil) {
-                NSMutableArray *resultArray = [[NSMutableArray alloc]init];
-                [resultArray addObjectsFromArray:[[ModelCache shared]readValueByKey:@"全部卡"]];
-                [[ModelCache shared]saveValue:dataArray forKey:@"全部卡"];
-                [_resultDic setObject:[NSNumber numberWithInteger:_page] forKey:@"全部卡"];
-                [weakSelf.tableView reloadData];
-            }
+            NSMutableArray *resultArray = [[NSMutableArray alloc]init];
+            [resultArray addObjectsFromArray:[[ModelCache shared]readValueByKey:@"全部卡"]];
+            [[ModelCache shared]saveValue:dataArray forKey:@"全部卡"];
+            [_resultDic setObject:[NSNumber numberWithInteger:_page] forKey:@"全部卡"];
+            [self reloadTableData];
             if (dataArray.count >= pageSize) {
                 [weakSelf.tableView.mj_footer endRefreshing];
             }
@@ -231,13 +230,11 @@
     }
     else {
         [[NetworkAPI shared]getVoucherListByCatId:_catId page:_page WithFinish:^(NSArray *dataArray) {
-            if (dataArray != nil) {
-                NSMutableArray *resultArray = [[NSMutableArray alloc]init];
-                [resultArray addObjectsFromArray:[[ModelCache shared]readValueByKey:self.title]];
-                [[ModelCache shared]saveValue:resultArray forKey:self.title];
-                [_resultDic setObject:[NSNumber numberWithInteger:_page] forKey:self.title];
-                [weakSelf.tableView reloadData];
-            }
+            NSMutableArray *resultArray = [[NSMutableArray alloc]init];
+            [resultArray addObjectsFromArray:[[ModelCache shared]readValueByKey:self.title]];
+            [[ModelCache shared]saveValue:resultArray forKey:self.title];
+            [_resultDic setObject:[NSNumber numberWithInteger:_page] forKey:self.title];
+            [self reloadTableData];
             if (dataArray.count >= pageSize) {
                 [weakSelf.tableView.mj_footer endRefreshing];
             }
