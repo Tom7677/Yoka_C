@@ -45,7 +45,7 @@
     [super viewDidLoad];
     self.items = [NSMutableArray new];
     self.page = 1;
-    
+    _imgDic = [[NSMutableDictionary alloc]init];
     [self setupUI];
     [self refreshData];
 }
