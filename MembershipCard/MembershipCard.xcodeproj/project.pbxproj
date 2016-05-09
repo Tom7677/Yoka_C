@@ -2275,7 +2275,7 @@
 			baseConfigurationReference = 4A3F338817F8EBA02DCDB671 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = launch;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Xiao Li (G968F2XEZ4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Xiao Li (G968F2XEZ4)";
 				ENABLE_BITCODE = NO;
@@ -2291,6 +2291,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yunsuo.mj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -2299,7 +2300,7 @@
 			baseConfigurationReference = 229FA454613B3E0894C28FE1 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = launch;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Yunsuo Information Technology (Shanghai) Co., Ltd. (CWPM78QMN6)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Yunsuo Information Technology (Shanghai) Co., Ltd. (CWPM78QMN6)";
 				ENABLE_BITCODE = NO;
@@ -2315,6 +2316,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yunsuo.mj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
