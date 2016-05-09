@@ -182,7 +182,13 @@
     return nil;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    BrandCardListModel *model = [[self getNameArraybyIndex:indexPath.section] objectAtIndex:indexPath.row];
+    BrandCardListModel *model = [[BrandCardListModel alloc]init];
+    if ([tableView isEqual:self.searchDisplayController.searchResultsTableView]) {
+        model = [_resultArray objectAtIndex:indexPath.row];
+    }
+    else {
+        model = [[self getNameArraybyIndex:indexPath.section] objectAtIndex:indexPath.row];
+    }
     if (_electronicCard) {
         [self showHub];
         NSString *phoneNumStr = [[NSUserDefaults standardUserDefaults] objectForKey:@"phoneNum"];
