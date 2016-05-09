@@ -12,8 +12,8 @@
 
 //测试环境 http://www.51mumaren.com:8080
 //正式环境 http://114.215.174.185:8080/kabao
-static NSString* hostUrl = @"http://www.51mumaren.com:8080/index.php/Client/";
-static NSString* imageUrl = @"http://www.51mumaren.com:8080";
+static NSString* hostUrl = @"http://114.215.174.185:8080/kabao/index.php/Client/";
+static NSString* imageUrl = @"http://114.215.174.185:8080/kabao";
 static NSInteger pageSize = 20;
 
 @interface NetworkAPI : NSObject

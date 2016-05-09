@@ -133,6 +133,7 @@
         [self showHub];
         [[NetworkAPI shared]getTopArticleListByCity:self.cityName page:self.page WithFinish:^(NSArray *dataArray) {
             [self hideHub];
+            [self.items removeAllObjects];
             [self.items addObjectsFromArray:dataArray];
             if (dataArray != nil) {
                 [[ModelCache shared]saveValue:dataArray forKey:self.title];
@@ -160,6 +161,7 @@
     }else {
         [[NetworkAPI shared]getArticleListByCatId:self.catId cityName:self.cityName page:self.page WithFinish:^(NSArray *dataArray) {
             [self hideHub];
+            [self.items removeAllObjects];
             [self.items addObjectsFromArray:dataArray];
             if (dataArray != nil) {
                 [[ModelCache shared]saveValue:dataArray forKey:self.title];
