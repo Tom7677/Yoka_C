@@ -74,7 +74,7 @@
         self.locationManager = [[CLLocationManager alloc] init];
         self.locationManager.delegate = self;
         [self.locationManager startUpdatingLocation];
-        [_locationManager requestAlwaysAuthorization];
+        [_locationManager requestWhenInUseAuthorization];
     } else {
         [self showConfirmAlertViewControllerWithTitle:@"请检查您的设备是否开启定位功能" andAction:^{
             NSURL *url = [NSURL URLWithString:@"prefs:root=LOCATION_SERVICES"];
