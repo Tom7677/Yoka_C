@@ -21,6 +21,9 @@
     lineView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
     lineView.backgroundColor = [UIColor lightGrayColor];
     [self addSubview:lineView];
+    
+    _coverImageView.contentMode = UIViewContentModeScaleAspectFill;
+    _coverImageView.clipsToBounds  = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

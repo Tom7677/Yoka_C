@@ -43,11 +43,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(changeCityName) name:@"ChangeNameNotification" object:nil];
     self.items = [NSMutableArray new];
     self.page = 1;
     _imgDic = [[NSMutableDictionary alloc]init];
     [self setupUI];
     [self refreshData];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -56,6 +58,11 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+}
+
+- (void)changeCityName {
+    _cityName = [[NSUserDefaults standardUserDefaults]valueForKey:@"MyCity"];
+    [self refreshData];
 }
 
 - (void)dealloc {
