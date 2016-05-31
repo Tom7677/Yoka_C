@@ -61,6 +61,7 @@
 }
 
 - (void)changeCityName {
+    _page = 1;
     _cityName = [[NSUserDefaults standardUserDefaults]valueForKey:@"MyCity"];
     [self refreshData];
 }
